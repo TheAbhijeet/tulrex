@@ -1,0 +1,17 @@
+[
+    { "e": "😀", "n": "grinning face" },
+    { "e": "😂", "n": "face with tears of joy" },
+    { "e": "😍", "n": "smiling face with heart-eyes" },
+    { "e": "🤔", "n": "thinking face" },
+    { "e": "👍", "n": "thumbs up" },
+    { "e": "👎", "n": "thumbs down" },
+    { "e": "❤️", "n": "red heart" },
+    { "e": "🔥", "n": "fire" },
+    { "e": "🎉", "n": "party popper" },
+    { "e": "🚀", "n": "rocket" },
+    { "e": "💻", "n": "laptop" },
+    { "e": "💡", "n": "light bulb" },
+    { "e": "⚙️", "n": "gear" },
+    { "e": "✅", "n": "check mark button" },
+    { "e": "❌", "n": "cross mark" }
+]
