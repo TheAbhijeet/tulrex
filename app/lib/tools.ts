@@ -45,6 +45,10 @@ import AudioSpeedChanger from '@/tools/AudioSpeedChanger';
 import AudioMetadataViewer from '@/tools/AudioMetadataViewer';
 import AudioFormatChecker from '@/tools/AudioFormatChecker';
 import MicTester from '@/tools/MicTester';
+import CsvToExcelConverter from '@/tools/CsvToExcelConverter';
+import SpreadsheetViewer from '@/tools/SpreadsheetViewer';
+import ExcelToCsvConverter from '@/tools/ExcelToCsvConverter';
+import JsonToSpreadsheet from '@/tools/JsonToSpreadsheet';
 
 export interface Tool {
     slug: string;
@@ -72,6 +76,7 @@ const CATEGORIES = {
     COMPRESSORS: 'Compressors',
     MINIFIERS: 'Minifiers',
     AUDIO: 'Audio Tools',
+    SPREADSHEET: 'Spreadsheet Tools',
 };
 
 export const tools: Tool[] = [
@@ -463,6 +468,56 @@ export const tools: Tool[] = [
         icon: '🎤➡️📄',
         category: CATEGORIES.AUDIO,
         component: SpeechToTextConverter, // Or keep in WEB?
+    },
+    {
+        slug: 'spreadsheet-viewer',
+        title: 'Excel & CSV Viewer',
+        description: 'View content of .xlsx, .xls, or .csv files in a table.',
+        icon: '👁️📊',
+        category: CATEGORIES.SPREADSHEET,
+        component: SpreadsheetViewer,
+    },
+    {
+        slug: 'excel-to-csv',
+        title: 'Excel to CSV / Sheet Extractor',
+        description: 'Convert Excel sheets to CSV files or extract single sheets.',
+        icon: '📊➡️📄',
+        category: CATEGORIES.CONVERTERS,
+        component: ExcelToCsvConverter,
+    },
+    {
+        slug: 'csv-to-excel',
+        title: 'CSV to Excel Converter',
+        description: 'Convert CSV data into an Excel (.xlsx) file.',
+        icon: '📄➡️📊',
+        category: CATEGORIES.CONVERTERS,
+        component: CsvToExcelConverter,
+    },
+    {
+        // Already exists, update category if needed
+        slug: 'csv-to-json',
+        title: 'CSV to JSON Converter',
+        description: 'Convert CSV data into JSON format.',
+        icon: '📊➡️{}',
+        category: CATEGORIES.CONVERTERS,
+        component: CsvToJsonConverter, // Assuming exists
+    },
+    {
+        // Already exists, update category if needed
+        slug: 'excel-to-json',
+        title: 'Excel to JSON Converter',
+        description: 'Convert Excel sheets (.xlsx, .xls) to JSON data.',
+        icon: '📈➡️{}',
+        category: CATEGORIES.CONVERTERS,
+        component: ExcelToJsonConverter, // Assuming exists
+    },
+    {
+        slug: 'json-to-spreadsheet',
+        title: 'JSON to Excel/CSV',
+        description: 'Convert JSON arrays/objects into Excel or CSV files.',
+        icon: '{}➡️📊',
+        category: CATEGORIES.CONVERTERS,
+        component: JsonToSpreadsheet,
     },
 ];
 
