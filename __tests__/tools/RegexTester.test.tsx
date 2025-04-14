@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import RegexTester from '@/tools/RegexTester';
+import RegexTester from '@/tools/regex/RegexTester';
 
 describe('RegexTester Component', () => {
     it('renders correctly initially', () => {

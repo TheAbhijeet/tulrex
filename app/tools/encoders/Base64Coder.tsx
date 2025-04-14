@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import TextareaInput from '../components/ui/TextareaInput';
-import Button from '../components/ui/Button';
+import TextareaInput from '../../components/ui/TextareaInput';
+import Button from '../../components/ui/Button';
 
 export default function Base64Coder() {
     const [inputText, setInputText] = useState('');

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import JsonFormatter from '@/tools/JsonFormatter';
+import JsonFormatter from '@/tools/formatters/JsonFormatter';
 
 // Mock reusable components if they interfere or aren't needed for the unit logic
 // Or just let them render if they are simple enough

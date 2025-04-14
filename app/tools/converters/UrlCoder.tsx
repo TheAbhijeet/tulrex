@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 import { FaCopy } from 'react-icons/fa';
-import { useCopyToClipboard } from '../hooks/useCopyToClipboard';
-import TextareaInput from '../components/ui/TextareaInput';
-import Button from '../components/ui/Button';
+import { useCopyToClipboard } from '../../hooks/useCopyToClipboard';
+import TextareaInput from '../../components/ui/TextareaInput';
+import Button from '../../components/ui/Button';
 
 export default function UrlCoder() {
     const [inputText, setInputText] = useState('');

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Base64Coder from '@/tools/Base64Coder';
+import Base64Coder from '@/tools/encoders/Base64Coder';
 
 // Mock btoa and atob if running in an environment where they aren't defined (jsdom usually provides them)
 // global.btoa = (str) => Buffer.from(str, 'binary').toString('base64');

@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import * as Diff from 'diff'; // Import the library used by the component
-import TextDiffViewer from '@/tools/TextDiffViewer';
+import TextDiffViewer from '@/tools/texts/TextDiffViewer';
 
 // We don't need to mock 'diff' as it's a core part of the functionality we want to test
 

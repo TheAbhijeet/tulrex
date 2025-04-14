@@ -1,9 +1,9 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import Input from '../components/ui/Input';
-import TextareaInput from '../components/ui/TextareaInput';
-import Button from '../components/ui/Button';
+import Input from '../../components/ui/Input';
+import TextareaInput from '../../components/ui/TextareaInput';
+import Button from '../../components/ui/Button';
 
 export default function RegexTester() {
     const [regexString, setRegexString] = useState('');

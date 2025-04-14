@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import * as Diff from 'diff';
-import TextareaInput from '../components/ui/TextareaInput';
-import Button from '../components/ui/Button';
+import TextareaInput from '../../components/ui/TextareaInput';
+import Button from '../../components/ui/Button';
 
 export default function TextDiffViewer() {
     const [textA, setTextA] = useState('');
