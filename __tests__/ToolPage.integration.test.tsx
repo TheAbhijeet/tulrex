@@ -1,8 +1,6 @@
-// src/app/tools/[slug]/ToolPage.integration.test.tsx
-
 import React from 'react';
 import { render, screen, act } from '@testing-library/react'; // 'act' might be needed if there are state updates on mount
-import { getToolBySlug } from '@/lib/tools'; // Helper to get expected tool info
+import { getToolBySlug } from '@/lib/tools';
 import ToolPage from '@/tools/[slug]/page';
 
 // Mock next/navigation's notFound to prevent test runner errors if a slug *were* invalid

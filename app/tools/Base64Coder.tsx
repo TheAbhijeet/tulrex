@@ -1,4 +1,3 @@
-// src/components/tools/Base64Coder.tsx
 'use client';
 
 import { useState } from 'react';

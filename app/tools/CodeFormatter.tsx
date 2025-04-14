@@ -1,4 +1,3 @@
-// src/components/tools/CodeFormatter.tsx - Combined formatter
 'use client';
 import { useState, useCallback, useEffect } from 'react';
 import TextareaInput from '@/components/ui/TextareaInput';

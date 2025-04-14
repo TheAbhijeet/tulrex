@@ -1,6 +1,5 @@
-// src/tailwind.config.ts
 import type { Config } from 'tailwindcss';
-import typography from '@tailwindcss/typography'; // Import the plugin
+import typography from '@tailwindcss/typography';
 
 const config: Config = {
     content: [
@@ -31,14 +30,11 @@ const config: Config = {
                         '--tw-prose-th-borders': theme('colors.slate[600]'),
                         '--tw-prose-td-borders': theme('colors.slate[700]'),
                         '--tw-prose-invert-body': theme('colors.slate[300]'),
-                        // ... add overrides for other prose elements if needed
                     },
                 },
             }),
         },
     },
-    plugins: [
-        typography, // Add the typography plugin
-    ],
+    plugins: [typography],
 };
 export default config;
