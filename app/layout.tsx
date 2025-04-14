@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import ClientSideInfoBlock from './components/layout/ClientSideInfoBlock';
+import SponsorBlock from './components/layout/SponsorBlock';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -70,7 +72,18 @@ export default function RootLayout({
                 className={`${inter.className} bg-slate-900 text-slate-200 min-h-screen flex flex-col`}
             >
                 <Header />
-                <main className="flex-grow container mx-auto px-4 py-8">{children}</main>
+                {/* Main content area */}
+                <main className="flex-grow container mx-auto px-4 py-8">
+                    {/* Place ClientSideInfoBlock just inside main, before page content */}
+                    <ClientSideInfoBlock />
+
+                    {/* Page specific content */}
+                    {children}
+                </main>
+
+                {/* Place SponsorBlock between main content and footer */}
+                <SponsorBlock />
+
                 <Footer />
             </body>
         </html>
