@@ -37,6 +37,14 @@ import { slugify } from './utils';
 import PdfPageDeleter from '@/tools/PdfPageDeleter';
 import PdfAnonymizer from '@/tools/PdfAnonymizer';
 import PdfEditorBasic from '@/tools/PdfEditorBasic';
+import AudioPlayerSimple from '@/tools/AudioPlayerSimple';
+import AudioRecorder from '@/tools/AudioRecorder';
+import AudioCutter from '@/tools/AudioCutter';
+import AudioMerger from '@/tools/AudioMerger';
+import AudioSpeedChanger from '@/tools/AudioSpeedChanger';
+import AudioMetadataViewer from '@/tools/AudioMetadataViewer';
+import AudioFormatChecker from '@/tools/AudioFormatChecker';
+import MicTester from '@/tools/MicTester';
 
 export interface Tool {
     slug: string;
@@ -63,6 +71,7 @@ const CATEGORIES = {
     UTILITY: 'Utility Tools',
     COMPRESSORS: 'Compressors',
     MINIFIERS: 'Minifiers',
+    AUDIO: 'Audio Tools',
 };
 
 export const tools: Tool[] = [
@@ -349,22 +358,112 @@ export const tools: Tool[] = [
 
     // },
     {
-      slug: 'pdf-page-deleter', title: 'PDF Page Deleter',
-      description: 'Remove specific pages from a PDF file.', icon: '✂️📄',
-      category: CATEGORIES.PDF, component: PdfPageDeleter,
-  },
-  
-  {
-      slug: 'pdf-anonymizer', title: 'PDF Anonymizer (Metadata)',
-      description: 'Remove common metadata fields (Title, Author, etc.) from a PDF.', icon: '👤📄',
-      category: CATEGORIES.PDF, component: PdfAnonymizer,
-  },
-   {
-      slug: 'pdf-editor-basic', title: 'PDF Editor (Basic Insert)',
-      description: 'Add text or images to a PDF page at specified coordinates.', icon: '✏️📄',
-      category: CATEGORIES.PDF, component: PdfEditorBasic,
-  },
-  
+        slug: 'pdf-page-deleter',
+        title: 'PDF Page Deleter',
+        description: 'Remove specific pages from a PDF file.',
+        icon: '✂️📄',
+        category: CATEGORIES.PDF,
+        component: PdfPageDeleter,
+    },
+
+    {
+        slug: 'pdf-anonymizer',
+        title: 'PDF Anonymizer (Metadata)',
+        description: 'Remove common metadata fields (Title, Author, etc.) from a PDF.',
+        icon: '👤📄',
+        category: CATEGORIES.PDF,
+        component: PdfAnonymizer,
+    },
+    {
+        slug: 'pdf-editor-basic',
+        title: 'PDF Editor (Basic Insert)',
+        description: 'Add text or images to a PDF page at specified coordinates.',
+        icon: '✏️📄',
+        category: CATEGORIES.PDF,
+        component: PdfEditorBasic,
+    },
+    {
+        slug: 'audio-player',
+        title: 'Audio Player',
+        description: 'Simple player for local audio files with basic controls.',
+        icon: '▶️',
+        category: CATEGORIES.AUDIO,
+        component: AudioPlayerSimple,
+    },
+    {
+        slug: 'audio-recorder',
+        title: 'Audio Recorder',
+        description: 'Record audio from your microphone and download the file.',
+        icon: '🎙️',
+        category: CATEGORIES.AUDIO,
+        component: AudioRecorder,
+    },
+    {
+        slug: 'audio-cutter',
+        title: 'Audio Cutter (Basic)',
+        description: 'Trim the start/end of audio files (outputs WAV).',
+        icon: '✂️🎵',
+        category: CATEGORIES.AUDIO,
+        component: AudioCutter,
+    },
+    {
+        slug: 'audio-merger',
+        title: 'Audio Merger (Basic)',
+        description: 'Concatenate multiple audio files sequentially (outputs WAV).',
+        icon: '➕🎵',
+        category: CATEGORIES.AUDIO,
+        component: AudioMerger,
+    },
+    {
+        slug: 'audio-speed-changer',
+        title: 'Audio Speed Changer',
+        description: 'Adjust the playback speed of audio files.',
+        icon: '⏩',
+        category: CATEGORIES.AUDIO,
+        component: AudioSpeedChanger,
+    },
+    {
+        slug: 'audio-metadata-viewer',
+        title: 'Audio Metadata Viewer',
+        description: 'View metadata tags (ID3, etc.) from audio files.',
+        icon: 'ℹ️🎵',
+        category: CATEGORIES.AUDIO,
+        component: AudioMetadataViewer,
+    },
+    {
+        slug: 'audio-format-checker',
+        title: 'Audio Format Checker',
+        description: 'Display technical details like codec, bitrate, duration.',
+        icon: '❓🎵',
+        category: CATEGORIES.AUDIO,
+        component: AudioFormatChecker,
+    },
+    {
+        slug: 'mic-tester',
+        title: 'Microphone Tester',
+        description: 'Record and play back short audio to test your mic.',
+        icon: '✔️🎙️',
+        category: CATEGORIES.AUDIO,
+        component: MicTester,
+    },
+    {
+        // Re-categorize or ensure exists
+        slug: 'text-to-speech',
+        title: 'Text to Speech',
+        description: 'Convert text into spoken audio using browser capabilities.',
+        icon: '🔊',
+        category: CATEGORIES.AUDIO,
+        component: TextToSpeechConverter, // Or keep in WEB?
+    },
+    {
+        // Re-categorize or ensure exists
+        slug: 'speech-to-text',
+        title: 'Speech to Text (Basic)',
+        description: 'Transcribe spoken audio into text (browser dependent).',
+        icon: '🎤➡️📄',
+        category: CATEGORIES.AUDIO,
+        component: SpeechToTextConverter, // Or keep in WEB?
+    },
 ];
 
 export const getToolBySlug = (slug: string): Tool | undefined => {
