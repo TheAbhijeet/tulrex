@@ -21,7 +21,9 @@ export async function generateMetadata(
     { params }: Props,
     parent: ResolvingMetadata
 ): Promise<Metadata> {
-    const tool = await getToolBySlug(params.slug);
+    const resolvedParams = await params;
+    const tool = await getToolBySlug(resolvedParams.slug);
+
     if (!tool) {
         return {
             title: 'Tool Not Found', // Fallback title
@@ -48,8 +50,12 @@ export async function generateMetadata(
 }
 
 // --- Page Component ---
-export default function ToolPage({ params }: Props) {
-    const tool = getToolBySlug(params.slug);
+export default async function ToolPage({ params }: Props) {
+    // First await the params object
+    const resolvedParams = await params;
+
+    // Now use the resolved slug
+    const tool = await getToolBySlug(resolvedParams.slug);
 
     if (!tool) {
         notFound(); // Trigger the 404 page if slug is invalid
