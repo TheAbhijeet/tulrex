@@ -34,6 +34,9 @@ import CssMinifier from '@/tools/CssMinifier';
 // import CodeFormatterTs from '@/tools/CodeFormatterTs';
 import { slugify } from './utils';
 // import CodeFormatter from '@/tools/CodeFormatter';
+import PdfPageDeleter from '@/tools/PdfPageDeleter';
+import PdfAnonymizer from '@/tools/PdfAnonymizer';
+import PdfEditorBasic from '@/tools/PdfEditorBasic';
 
 export interface Tool {
     slug: string;
@@ -345,6 +348,23 @@ export const tools: Tool[] = [
     //     category: CATEGORIES.CODE,
 
     // },
+    {
+      slug: 'pdf-page-deleter', title: 'PDF Page Deleter',
+      description: 'Remove specific pages from a PDF file.', icon: '✂️📄',
+      category: CATEGORIES.PDF, component: PdfPageDeleter,
+  },
+  
+  {
+      slug: 'pdf-anonymizer', title: 'PDF Anonymizer (Metadata)',
+      description: 'Remove common metadata fields (Title, Author, etc.) from a PDF.', icon: '👤📄',
+      category: CATEGORIES.PDF, component: PdfAnonymizer,
+  },
+   {
+      slug: 'pdf-editor-basic', title: 'PDF Editor (Basic Insert)',
+      description: 'Add text or images to a PDF page at specified coordinates.', icon: '✏️📄',
+      category: CATEGORIES.PDF, component: PdfEditorBasic,
+  },
+  
 ];
 
 export const getToolBySlug = (slug: string): Tool | undefined => {
