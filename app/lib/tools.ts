@@ -50,6 +50,7 @@ import SpreadsheetViewer from '@/tools/excel/SpreadsheetViewer';
 import ExcelToCsvConverter from '@/tools/converters/ExcelToCsvConverter';
 import JsonToSpreadsheet from '@/tools/converters/JsonToSpreadsheet';
 import JsonGenerator from '@/tools/generators/JsonGenerator';
+import JsonEditorTool from '@/tools/editor/JsonEditorTool';
 
 export interface Tool {
     slug: string;
@@ -78,6 +79,7 @@ const CATEGORIES = {
     MINIFIERS: 'Minifiers',
     AUDIO: 'Audio Tools',
     SPREADSHEET: 'Spreadsheet Tools',
+    EDITOR: 'Editor Tools',
 };
 
 export const tools: Tool[] = [
@@ -526,6 +528,14 @@ export const tools: Tool[] = [
         icon: '🎲',
         component: JsonGenerator,
         category: CATEGORIES.GENERATORS,
+    },
+    {
+        slug: 'json-editor',
+        title: 'Interactive JSON Editor',
+        description: 'View, edit, format, and validate JSON data interactively.',
+        icon: '🌳',
+        component: JsonEditorTool,
+        category: CATEGORIES.EDITOR,
     },
 ];
 
