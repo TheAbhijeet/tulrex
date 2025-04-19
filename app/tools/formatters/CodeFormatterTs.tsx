@@ -1,9 +1,9 @@
 'use client';
 import React, { useState, useCallback, useEffect, useRef } from 'react';
-import Editor from 'react-simple-code-editor'; // <--- Import Editor
-import Prism from 'prismjs'; // <--- Import Prism
-import 'prismjs/components/prism-typescript'; // <--- Load TS grammar
-import 'prismjs/themes/prism-okaidia.css'; // <--- Import a dark theme CSS
+import Editor from 'react-simple-code-editor';
+import Prism from 'prismjs';
+import 'prismjs/components/prism-typescript';
+import 'prismjs/themes/prism-okaidia.css';
 import Button from '@/components/ui/Button';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import { FaCopy } from 'react-icons/fa';
@@ -94,7 +94,6 @@ export default function CodeFormatterTs() {
         }
     }, [inputCode, isLoading, isFormatting, loadPrettier]);
 
-    // Common styles for the editor
     const editorStyle = {
         fontFamily: '"Fira code", "Fira Mono", monospace',
         fontSize: '0.8125rem', // Corresponds roughly to text-xs

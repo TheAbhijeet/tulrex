@@ -31,9 +31,9 @@ import MergePdfs from '@/tools/pdfs/MergePdfs';
 import ReorderPdfPages from '@/tools/pdfs/ReorderPdfPages';
 import JavascriptMinifier from '@/tools/minifiers/JavascriptMinifier';
 import CssMinifier from '@/tools/minifiers/CssMinifier';
-// import CodeFormatterTs from '@/tools/CodeFormatterTs';
+import CodeFormatterTs from '@/tools/formatters/CodeFormatterTs';
 import { slugify } from './utils';
-// import CodeFormatter from '@/tools/CodeFormatter';
+// import CodeFormatter from '@/tools/formatters/CodeFormatter';
 import PdfPageDeleter from '@/tools/pdfs/PdfPageDeleter';
 import PdfAnonymizer from '@/tools/pdfs/PdfAnonymizer';
 import PdfEditorBasic from '@/tools/pdfs/PdfEditorBasic';
@@ -49,6 +49,7 @@ import CsvToExcelConverter from '@/tools/converters/CsvToExcelConverter';
 import SpreadsheetViewer from '@/tools/excel/SpreadsheetViewer';
 import ExcelToCsvConverter from '@/tools/converters/ExcelToCsvConverter';
 import JsonToSpreadsheet from '@/tools/converters/JsonToSpreadsheet';
+import JsonGenerator from '@/tools/generators/JsonGenerator';
 
 export interface Tool {
     slug: string;
@@ -353,15 +354,14 @@ export const tools: Tool[] = [
     //   component: CodeFormatter,
     //   category: CATEGORIES.CODE,
     // },
-    // {
-    //     slug: 'typescript-formatter',
-    //     title: 'TypeScript Formatter',
-    //     description: 'Format TypeScript code snippets using Prettier.',
-    //     icon: '💅', // Using the general formatter icon
-    //     component: CodeFormatterTs,
-    //     category: CATEGORIES.CODE,
-
-    // },
+    {
+        slug: 'typescript-formatter',
+        title: 'TypeScript Formatter',
+        description: 'Format TypeScript code snippets using Prettier.',
+        icon: '💅', // Using the general formatter icon
+        component: CodeFormatterTs,
+        category: CATEGORIES.CODE,
+    },
     {
         slug: 'pdf-page-deleter',
         title: 'PDF Page Deleter',
@@ -518,6 +518,14 @@ export const tools: Tool[] = [
         icon: '{}➡️📊',
         category: CATEGORIES.CONVERTERS,
         component: JsonToSpreadsheet,
+    },
+    {
+        slug: 'json-generator',
+        title: 'Dummy JSON Generator',
+        description: 'Generate customizable arrays of JSON objects with dummy data.',
+        icon: '🎲',
+        component: JsonGenerator,
+        category: CATEGORIES.GENERATORS,
     },
 ];
 

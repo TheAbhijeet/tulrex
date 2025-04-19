@@ -3,6 +3,10 @@
 import { useState } from 'react';
 import TextareaInput from '../../components/ui/TextareaInput';
 import Button from '../../components/ui/Button';
+import parseJson from 'json-parse-even-better-errors';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { dracula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { CopyButton } from '@/components/ui/CopyButton';
 
 export default function JsonFormatter() {
     const [inputJson, setInputJson] = useState('');
@@ -16,13 +20,15 @@ export default function JsonFormatter() {
             return;
         }
         try {
-            const parsed = JSON.parse(inputJson);
-            const formatted = JSON.stringify(parsed, null, 2); // 2 spaces indentation
+            const parsed = parseJson(inputJson);
+            const formatted = JSON.stringify(parsed, null, 2);
             setOutputJson(formatted);
-            setError(null); // Clear previous errors
+            setError(null);
         } catch (e: any) {
-            setError(`Invalid JSON: ${e.message}`);
-            setOutputJson(''); // Clear output on error
+            setError(
+                `Invalid JSON at line ${e.lineNumber}, column ${e.columnNumber}: ${e.message}`
+            );
+            setOutputJson('');
         }
     };
 
@@ -41,6 +47,11 @@ export default function JsonFormatter() {
                 >
                     Input JSON:
                 </label>
+                {error && (
+                    <div className="p-3 my-5 bg-red-900 border border-red-700 text-red-200 rounded-md text-sm">
+                        {error}
+                    </div>
+                )}
                 <TextareaInput
                     id="json-input"
                     value={inputJson}
@@ -48,6 +59,14 @@ export default function JsonFormatter() {
                     placeholder="Paste your JSON here..."
                     rows={10}
                 />
+                {/* <CodeEditor
+        initialValue={inputJson}
+        language="json"
+        onChange={(newValue) => setInputJson(newValue)}
+        placeholder="Paste your JSON here..."
+        aria-label="JSON editor"
+        id="json-input"
+      /> */}
             </div>
 
             <div className="flex space-x-2">
@@ -57,18 +76,15 @@ export default function JsonFormatter() {
                 </Button>
             </div>
 
-            {error && (
-                <div className="p-3 bg-red-900 border border-red-700 text-red-200 rounded-md text-sm">
-                    {error}
-                </div>
-            )}
-
-            {outputJson && !error && (
+            {outputJson && (
                 <div>
-                    <p className="text-sm font-medium text-slate-300 mb-1">Formatted JSON:</p>
-                    <pre className="p-3 bg-slate-900 border border-slate-700 rounded-md overflow-x-auto text-sm text-green-300 whitespace-pre-wrap break-words">
-                        <code>{outputJson}</code>
-                    </pre>
+                    <div className="my-5 flex justify-between items-center">
+                        <h2 className="text-lg font-bold text-slate-300 mb-1">Formatted JSON:</h2>
+                        <CopyButton text={outputJson} />
+                    </div>
+                    <SyntaxHighlighter language="json" style={dracula}>
+                        {outputJson}
+                    </SyntaxHighlighter>
                 </div>
             )}
         </div>
