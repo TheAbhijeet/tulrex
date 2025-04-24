@@ -22,8 +22,12 @@ export default function CssMinifier() {
             // Using csso library
             const result = csso.minify(cssInput);
             setMinifiedOutput(result.css);
-        } catch (err: any) {
-            setError(`Minification failed: ${err.message || 'Invalid CSS?'}`);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Minification failed: ${err.message}`);
+            } else {
+                setError(`Minification failed: ${err}`);
+            }
             console.error('CSSO Error:', err);
             setMinifiedOutput('');
         }

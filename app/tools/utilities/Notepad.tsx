@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import TextareaInput from '@/components/ui/TextareaInput';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import Button from '@/components/ui/Button';
@@ -17,18 +17,17 @@ export default function Notepad() {
     // Note: Saving happens automatically via useLocalStorage hook's useEffect
     // We just need to update the timestamp when the note changes significantly perhaps
     // Or just show a static "Auto-saved" message
-
-    // Optional: Debounce saving timestamp update
-    // useEffect(() => {
-    //    const handler = setTimeout(() => {
-    //        if (note !== localStorage.getItem('toolzen-notepad')) { // Check if actually changed
-    //            const now = new Date();
-    //             localStorage.setItem('toolzen-notepad-savedtime', now.toISOString());
-    //             setLastSaved(now);
-    //        }
-    //    }, 1000); // Update timestamp 1s after typing stops
-    //    return () => clearTimeout(handler);
-    // }, [note]);
+    useEffect(() => {
+        const handler = setTimeout(() => {
+            if (note !== localStorage.getItem('toolzen-notepad')) {
+                // Check if actually changed
+                const now = new Date();
+                localStorage.setItem('toolzen-notepad-savedtime', now.toISOString());
+                setLastSaved(now);
+            }
+        }, 1000); // Update timestamp 1s after typing stops
+        return () => clearTimeout(handler);
+    }, [note]);
 
     const handleClear = () => {
         if (confirm('Are you sure you want to clear the notepad? This cannot be undone.')) {
@@ -60,11 +59,11 @@ export default function Notepad() {
                 rows={18}
                 className="font-mono text-sm"
             />
-            {/* {lastSaved && (
-            <p className="text-xs text-slate-500 text-right">
-                Last saved: {lastSaved.toLocaleTimeString()}
-            </p>
-       )} */}
+            {lastSaved && (
+                <p className="text-xs text-slate-500 text-right">
+                    Last saved: {lastSaved.toLocaleTimeString()}
+                </p>
+            )}
             <p className="text-xs text-slate-500 text-right">Auto-saved locally</p>
         </div>
     );

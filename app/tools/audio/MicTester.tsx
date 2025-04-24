@@ -1,7 +1,7 @@
 'use client';
 import { useState, useRef, useCallback } from 'react';
 import Button from '@/components/ui/Button';
-import { FaMicrophone, FaStop, FaPlay } from 'react-icons/fa';
+import { FaMicrophone, FaStop } from 'react-icons/fa';
 
 export default function MicTester() {
     const [isTesting, setIsTesting] = useState(false); // Is currently recording
@@ -44,8 +44,10 @@ export default function MicTester() {
 
             // Optional: Automatically stop after a few seconds
             // setTimeout(stopTest, 5000); // Stop after 5 seconds
-        } catch (err: any) {
-            setError(`Mic access error: ${err.message}. Check permissions.`);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Mic access error: ${err.message}. Check permissions.`);
+            }
             console.error(err);
         }
     }, []);

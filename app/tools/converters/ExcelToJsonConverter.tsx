@@ -1,9 +1,7 @@
-// src/components/tools/ExcelToJsonConverter.tsx
 'use client';
 import { useState, useCallback, useEffect } from 'react';
 import * as XLSX from 'xlsx';
 import TextareaInput from '@/components/ui/TextareaInput';
-import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import { FaCopy, FaDownload } from 'react-icons/fa';
@@ -48,9 +46,13 @@ export default function ExcelToJsonConverter() {
                     } else {
                         setError('No sheets found in the Excel file.');
                     }
-                } catch (err: any) {
+                } catch (err) {
+                    if (err instanceof Error) {
+                        setError(`Failed to read file: ${err.message}`);
+                    } else {
+                        setError(`Failed to read file: ${err}`);
+                    }
                     console.error('Error reading Excel file:', err);
-                    setError(`Failed to read file: ${err.message || 'Invalid Excel format?'}`);
                 }
             };
             reader.onerror = () => setError('Error reading file.');

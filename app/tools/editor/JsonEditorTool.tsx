@@ -5,7 +5,7 @@ import { githubDarkTheme, JsonEditor } from 'json-edit-react';
 import TextareaInput from '@/components/ui/TextareaInput';
 import Button from '@/components/ui/Button';
 
-const tryParseJson = (jsonString: string): { data: any; error: string | null } => {
+const tryParseJson = (jsonString: string): { data: unknown; error: string | null } => {
     if (!jsonString.trim()) {
         return { data: {}, error: null }; // Allow empty input, default to empty object
     }
@@ -16,8 +16,12 @@ const tryParseJson = (jsonString: string): { data: any; error: string | null } =
             return { data: null, error: 'Input must be a valid JSON object or array.' };
         }
         return { data, error: null };
-    } catch (e: any) {
-        return { data: null, error: `Invalid JSON: ${e.message}` };
+    } catch (e) {
+        if (e instanceof Error) {
+            return { data: null, error: `Invalid JSON: ${e.message}` };
+        } else {
+            return { data: null, error: `Invalid JSON: ${e}` };
+        }
     }
 };
 
@@ -47,16 +51,19 @@ export default function JsonEditorTool() {
     };
 
     // Callback from JsonEditor when data is changed internally
-    const handleEditorChange = useCallback((newData: any) => {
+    const handleEditorChange = useCallback((newData: unknown) => {
         // The library gives us the already parsed new data
         setJsonData(newData);
-        // Optionally update the raw input as well, formatted
         try {
             setRawInput(JSON.stringify(newData, null, 2));
             setError(null); // Clear error if editing makes it valid
-        } catch (e: any) {
-            // Should not happen if editor provides valid data, but good practice
-            setError(`Error stringifying editor data: ${e.message}`);
+        } catch (e) {
+            if (e instanceof Error) {
+                setError(`Error stringifying editor data: ${e.message}`);
+            } else {
+                setError(`Error stringifying editor data: ${e}`);
+            }
+            console.error(e);
         }
     }, []); // No dependencies needed if only using setters
 

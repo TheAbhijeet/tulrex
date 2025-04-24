@@ -29,8 +29,12 @@ export default function HtmlMinifier() {
         try {
             const result = basicMinifyHtml(htmlInput);
             setMinifiedOutput(result);
-        } catch (err: any) {
-            setError(`Minification failed: ${err.message || 'Error during processing'}`);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Minification failed: ${err.message}`);
+            } else {
+                setError(`Minification failed: ${err}`);
+            }
             setMinifiedOutput('');
         }
     }, [htmlInput]);

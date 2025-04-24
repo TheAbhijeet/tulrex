@@ -24,10 +24,14 @@ export default function JsonFormatter() {
             const formatted = JSON.stringify(parsed, null, 2);
             setOutputJson(formatted);
             setError(null);
-        } catch (e: any) {
-            setError(
-                `Invalid JSON at line ${e.lineNumber}, column ${e.columnNumber}: ${e.message}`
-            );
+        } catch (e) {
+            if (e instanceof Error) {
+                setError(
+                    `Invalid JSON at line ${e.lineNumber}, column ${e.columnNumber}: ${e.message}`
+                );
+            } else {
+                setError(`Invalid JSON: ${e}`);
+            }
             setOutputJson('');
         }
     };

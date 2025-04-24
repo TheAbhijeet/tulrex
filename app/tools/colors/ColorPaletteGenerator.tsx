@@ -1,9 +1,7 @@
-// src/components/tools/ColorPaletteGenerator.tsx
 'use client';
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo } from 'react';
 import tinycolor from 'tinycolor2';
 import Input from '@/components/ui/Input';
-import Button from '@/components/ui/Button';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import { FaCopy } from 'react-icons/fa';
 

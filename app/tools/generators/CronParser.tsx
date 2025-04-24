@@ -1,11 +1,7 @@
-// src/components/tools/CronParser.tsx
 'use client';
 import { useState, useMemo } from 'react';
 import cronstrue from 'cronstrue';
 import Input from '@/components/ui/Input';
-// You might need a full cron parser library (like 'cron-parser') to get *next dates* accurately.
-// 'cronstrue' is only for human-readable description.
-// Let's stick to description for simplicity now. Add 'cron-parser' if next dates are needed.
 
 export default function CronParser() {
     const [cronExpression, setCronExpression] = useState('*/5 * * * *'); // Default: Every 5 minutes
@@ -21,8 +17,12 @@ export default function CronParser() {
         try {
             const desc = cronstrue.toString(cronExpression);
             setDescription(desc);
-        } catch (e: any) {
-            setError(e.message || 'Invalid Cron Expression');
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                setError(e.message);
+            } else {
+                setError('Invalid Cron Expression');
+            }
         }
     }, [cronExpression]);
 

@@ -1,8 +1,7 @@
-// src/components/tools/QrCodeGenerator.tsx
 'use client';
-import { useState, useRef, useCallback } from 'react';
-import QRCodeCanvas from 'qrcode'; // Use the base library for canvas control
-import ReactQRCode from 'react-qr-code'; // Use the component for easy display
+import { useState, useCallback } from 'react';
+import QRCodeCanvas from 'qrcode';
+import ReactQRCode from 'react-qr-code';
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
 
@@ -12,7 +11,7 @@ export default function QrCodeGenerator() {
     const [level, setLevel] = useState<'L' | 'M' | 'Q' | 'H'>('M'); // Error correction level
     const [bgColor, setBgColor] = useState('#ffffff');
     const [fgColor, setFgColor] = useState('#000000'); // Standard QR colors
-    const canvasRef = useRef<HTMLCanvasElement>(null); // For download
+    // const canvasRef = useRef<HTMLCanvasElement>(null); // For download
 
     const downloadQrCode = useCallback(
         async (format: 'png' | 'svg' | 'jpeg' = 'png') => {
@@ -91,7 +90,7 @@ export default function QrCodeGenerator() {
                         <select
                             id="qr-level"
                             value={level}
-                            onChange={(e) => setLevel(e.target.value as any)}
+                            onChange={(e) => setLevel(e.target.value as 'L' | 'M' | 'Q' | 'H')}
                             className="w-full px-3 py-2 border border-slate-600 rounded-md bg-slate-700 text-slate-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none"
                         >
                             <option value="L">Low (L)</option>

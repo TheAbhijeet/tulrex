@@ -19,8 +19,12 @@ export default function Base64Coder() {
             } else {
                 setError('Cannot encode on the server.');
             }
-        } catch (e: any) {
-            setError(`Encoding error: ${e.message}`);
+        } catch (e) {
+            if (e instanceof Error) {
+                setError(`Encoding error: ${e.message}`);
+            } else {
+                setError(`Encoding error: ${e}`);
+            }
             setOutputText('');
         }
     };
@@ -35,9 +39,12 @@ export default function Base64Coder() {
             } else {
                 setError('Cannot decode on the server.');
             }
-        } catch (e: any) {
-            // Common error for invalid Base64: DOMException
-            setError(`Invalid Base64 string or decoding error: ${e.message}`);
+        } catch (e) {
+            if (e instanceof Error) {
+                setError(`Invalid Base64 string or decoding error: ${e.message}`);
+            } else {
+                setError(`Invalid Base64 string or decoding error: ${e}`);
+            }
             setOutputText('');
         }
     };

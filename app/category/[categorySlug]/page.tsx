@@ -4,8 +4,6 @@ import { Metadata, ResolvingMetadata } from 'next';
 import { getAllCategories, getToolsByCategory, getCategoryNameBySlug } from '@/lib/tools';
 import type { Tool } from '@/lib/tools'; // Import Tool type if ToolCard needs it
 
-// --- Tool Card Component (Can be moved to src/components/ToolCard.tsx) ---
-// Updated to hide category link on category pages
 function ToolCard({ tool, showCategoryLink = true }: { tool: Tool; showCategoryLink?: boolean }) {
     return (
         <Link
@@ -30,10 +28,9 @@ function ToolCard({ tool, showCategoryLink = true }: { tool: Tool; showCategoryL
 }
 // --- End Tool Card ---
 
-type Props = {
-    params: { categorySlug: string };
+type PromiseProps = {
+    params: Promise<{ categorySlug: string }>;
 };
-
 // --- Static Generation ---
 export function generateStaticParams() {
     const categories = getAllCategories();
@@ -44,7 +41,7 @@ export function generateStaticParams() {
 
 // --- Dynamic Metadata ---
 export async function generateMetadata(
-    { params }: Props,
+    { params }: PromiseProps,
     parent: ResolvingMetadata
 ): Promise<Metadata> {
     const resolvedPramas = await params;
@@ -75,7 +72,7 @@ export async function generateMetadata(
 }
 
 // --- Page Component ---
-export default async function CategoryPage({ params }: Props) {
+export default async function CategoryPage({ params }: PromiseProps) {
     const resolvedParams = await params;
     const { categorySlug } = resolvedParams;
     const categoryName = getCategoryNameBySlug(categorySlug);

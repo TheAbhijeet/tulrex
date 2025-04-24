@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// TODO: Fix linting issues while fixing this file
 'use client';
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import Editor from 'react-simple-code-editor';
@@ -25,7 +27,7 @@ export default function CodeFormatterTs() {
     const loadPrettier = useCallback(async () => {
         // Only need prettier and babel plugin now
         if (isLoading) return;
-        let needsLoading = !prettierInstance || !babelPlugin;
+        const needsLoading = !prettierInstance || !babelPlugin;
         if (!needsLoading) return;
 
         setIsLoading(true);
@@ -83,6 +85,7 @@ export default function CodeFormatterTs() {
                 trailingComma: 'es5',
             });
             if (isMounted.current) setFormattedCode(result);
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (err: any) {
             console.error('Prettier format error:', err);
             if (isMounted.current) {

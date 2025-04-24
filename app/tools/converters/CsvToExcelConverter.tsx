@@ -52,8 +52,12 @@ export default function CsvToExcelConverter() {
                 // Reset after success
                 setCsvFile(null);
                 if (fileInputRef.current) fileInputRef.current.value = '';
-            } catch (err: any) {
-                setError(`Conversion failed: ${err.message}`);
+            } catch (err) {
+                if (err instanceof Error) {
+                    setError(`Conversion failed: ${err.message}`);
+                } else {
+                    setError(`Conversion failed: ${err}`);
+                }
                 console.error(err);
             } finally {
                 setIsLoading(false);

@@ -48,8 +48,12 @@ export default function AudioRecorder() {
             };
             mediaRecorderRef.current.start();
             setIsRecording(true);
-        } catch (err: any) {
-            setError(`Could not start recording: ${err.message}. Check microphone permissions.`);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(
+                    `Could not start recording: ${err.message}. Check microphone permissions.`
+                );
+            }
             console.error('getUserMedia error:', err);
         }
     }, []);

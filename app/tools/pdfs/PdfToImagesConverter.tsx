@@ -1,9 +1,8 @@
 'use client';
 import { useState, useCallback, useRef } from 'react';
 import * as pdfjsLib from 'pdfjs-dist/webpack';
-import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import { FaFileImage, FaDownload } from 'react-icons/fa';
+import { FaDownload } from 'react-icons/fa';
 
 // Set worker source path (copied to public folder)
 if (typeof window !== 'undefined') {
@@ -78,8 +77,12 @@ export default function PdfToImagesConverter() {
                     page.cleanup();
                 }
                 setRenderedPages(pages);
-            } catch (err: any) {
-                setError(`Error processing PDF: ${err.message || 'Invalid or corrupted PDF?'}`);
+            } catch (err) {
+                if (err instanceof Error) {
+                    setError(`Error processing PDF: ${err.message || 'Invalid or corrupted PDF?'}`);
+                } else {
+                    setError('Error processing PDF: An unknown error occurred.');
+                }
                 console.error(err);
             } finally {
                 setIsLoading(false);

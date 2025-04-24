@@ -5,6 +5,7 @@ import TextareaInput from '@/components/ui/TextareaInput';
 import Button from '@/components/ui/Button';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import { FaCopy, FaDownload } from 'react-icons/fa';
+import Input from '@/components/ui/Input';
 
 export default function JsonToCsvConverter() {
     const [jsonInput, setJsonInput] = useState('');
@@ -38,8 +39,13 @@ export default function JsonToCsvConverter() {
                 header: true, // Infer header from object keys if applicable
             });
             setCsvOutput(csv);
-        } catch (e: any) {
-            setError(`Invalid JSON or conversion error: ${e.message}`);
+        } catch (e) {
+            if (e instanceof Error) {
+                setError(`Invalid JSON or conversion error: ${e.message}`);
+            } else {
+                setError(`Invalid JSON or conversion error: ${e}`);
+            }
+            console.error(e);
         }
     }, [jsonInput]);
 

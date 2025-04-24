@@ -33,8 +33,13 @@ export default function ExcelToCsvConverter() {
                     setSheetNames(wb.SheetNames);
                     if (wb.SheetNames.length > 0) setSelectedSheet(wb.SheetNames[0]);
                     else setError('No sheets found in file.');
-                } catch (err: any) {
-                    setError(`Failed to read file: ${err.message}`);
+                } catch (err) {
+                    if (err instanceof Error) {
+                        setError(`Failed to read file: ${err.message}`);
+                    } else {
+                        setError(`Failed to read file: ${err}`);
+                    }
+                    console.error('Error reading Excel file:', err);
                 } finally {
                     setIsLoading(false);
                 }
@@ -88,8 +93,12 @@ export default function ExcelToCsvConverter() {
             // Generate XLSX blob and download
             XLSX.writeFile(newWb, outputFileName, { bookType: 'xlsx', type: 'binary' });
             // Note: XLSX.writeFile triggers download directly, no need for file-saver usually
-        } catch (err: any) {
-            setError(`Failed to export sheet as XLSX: ${err.message}`);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Failed to export sheet as XLSX: ${err.message}`);
+            } else {
+                setError(`Failed to export sheet as XLSX: ${err}`);
+            }
         }
     }, [workbook, selectedSheet, fileName]);
 

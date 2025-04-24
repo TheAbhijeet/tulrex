@@ -9,7 +9,7 @@ import { FaCopy } from 'react-icons/fa';
 export default function EpochConverter() {
     const [timestamp, setTimestamp] = useState<number>(() => Math.floor(Date.now() / 1000));
     const [humanDate, setHumanDate] = useState<string>('');
-    const [localTime, setLocalTime] = useState<string>('');
+    const [, setLocalTime] = useState<string>('');
     const [gmtTime, setGmtTime] = useState<string>('');
     const [relativeTime, setRelativeTime] = useState<string>('');
     const [timestampInput, setTimestampInput] = useState<string>(timestamp.toString());
@@ -51,7 +51,12 @@ export default function EpochConverter() {
                 setRelativeTime(rtf.format(-Math.round(diffSeconds / 3600), 'hour'));
             else setRelativeTime(rtf.format(-Math.round(diffSeconds / 86400), 'day'));
         } catch (e) {
-            setError('Failed to process timestamp.');
+            if (e instanceof Error) {
+                setError(`Failed to process timestamp: ${e.message}`);
+            } else {
+                setError(`Failed to process timestamp: ${e}`);
+            }
+            console.error(`Failed to process timestamp: ${e}`);
         }
     }, []);
 
@@ -66,7 +71,12 @@ export default function EpochConverter() {
             const newTs = Math.floor(date.getTime() / 1000);
             updateFromTimestamp(newTs);
         } catch (e) {
-            setError('Failed to parse date/time input.');
+            if (e instanceof Error) {
+                setError(`Invalid date/time format: ${e.message}`);
+            } else {
+                setError(`Invalid date/time format: ${e}`);
+            }
+            console.error(`Invalid date/time format: ${e}`);
         }
     }, [humanDateInput, updateFromTimestamp]);
 

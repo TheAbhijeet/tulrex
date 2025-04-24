@@ -1,10 +1,10 @@
 'use client';
 import { useState, useCallback, useRef } from 'react';
-import { PDFDocument, StandardFonts, rgb, degrees } from 'pdf-lib';
+import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import TextareaInput from '@/components/ui/TextareaInput'; // Assuming you have this
-import { FaFilePdf, FaPlus } from 'react-icons/fa';
+import TextareaInput from '@/components/ui/TextareaInput';
+import { FaPlus } from 'react-icons/fa';
 
 type InsertType = 'text' | 'image';
 
@@ -38,8 +38,12 @@ export default function PdfEditorBasic() {
             const doc = await PDFDocument.load(pdfBytes, { ignoreEncryption: true });
             setPdfDoc(doc);
             setTotalPages(doc.getPageCount());
-        } catch (err: any) {
-            setError(`Failed to load PDF: ${err.message}`);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Failed to load PDF: ${err.message}`);
+            } else {
+                setError('Failed to load PDF: An unknown error occurred.');
+            }
             console.error(err);
         } finally {
             setIsLoading(false);
@@ -165,8 +169,12 @@ export default function PdfEditorBasic() {
             setImageUrl('');
             if (pdfFileInputRef.current) pdfFileInputRef.current.value = '';
             if (imageInputRef.current) imageInputRef.current.value = '';
-        } catch (err: any) {
-            setError(`Failed to edit or save PDF: ${err.message}`);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Failed to edit or save PDF: ${err.message}`);
+            } else {
+                setError('Failed to edit or save PDF: An unknown error occurred.');
+            }
             console.error(err);
         } finally {
             setIsProcessing(false);

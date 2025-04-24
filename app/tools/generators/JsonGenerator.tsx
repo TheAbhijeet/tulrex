@@ -48,7 +48,7 @@ const fieldTypeOptions: { value: FieldType; label: string }[] = [
 ];
 
 interface FieldDefinition {
-    id: string; // For React key prop
+    id: string;
     name: string;
     type: FieldType;
     min?: number;
@@ -83,6 +83,8 @@ export default function JsonGenerator() {
         setFields(fields.filter((field) => field.id !== idToRemove));
     };
 
+    // TODO: Handle this better
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const updateField = (idToUpdate: string, property: keyof FieldDefinition, value: any) => {
         setFields(
             fields.map((field) =>
@@ -109,7 +111,7 @@ export default function JsonGenerator() {
         }
     };
 
-    const generateFieldValue = (field: FieldDefinition): any => {
+    const generateFieldValue = (field: FieldDefinition): string | number | boolean => {
         switch (field.type) {
             case 'uuid':
                 return generateUUID();
@@ -133,8 +135,8 @@ export default function JsonGenerator() {
                 return generateRandomDate().toISOString();
             case 'dateTimestamp':
                 return generateRandomDate().getTime();
-            default:
-                return null;
+            // default:
+            //     return null;
         }
     };
 
@@ -158,23 +160,25 @@ export default function JsonGenerator() {
         }
 
         try {
-            const results = Array.from({ length: numRecords }, (_, index) => {
-                const record: Record<string, any> = {};
+            const results = Array.from({ length: numRecords }, () => {
+                type FieldValueType = string | number | boolean | null;
+                const record: Record<string, FieldValueType> = {};
                 fields.forEach((field) => {
-                    // Simple check for duplicate field names - last one wins
                     if (field.name.trim()) {
                         record[field.name.trim()] = generateFieldValue(field);
                     }
                 });
-                // Optional: Add an index field if needed
-                // record._index = index;
                 return record;
             });
 
             setOutputJson(JSON.stringify(results, null, 2)); // Pretty print with 2 spaces
-        } catch (e: any) {
+        } catch (e) {
+            if (e instanceof Error) {
+                setError(`Error generating JSON: ${e.message}`);
+            } else {
+                setError(`Error generating JSON: ${e}`);
+            }
             console.error('Generation Error:', e);
-            setError(`Error generating JSON: ${e.message}`);
         }
     }, [numRecords, fields]); // Dependencies for useCallback
 
@@ -227,7 +231,7 @@ export default function JsonGenerator() {
             {/* --- Field Definitions Section --- */}
             <div className="space-y-3">
                 <h3 className="text-lg font-medium text-slate-200 mb-2">Field Definitions</h3>
-                {fields.map((field, index) => (
+                {fields.map((field) => (
                     <div
                         key={field.id}
                         className="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center p-3 bg-slate-800 rounded border border-slate-700"

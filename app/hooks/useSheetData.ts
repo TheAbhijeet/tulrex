@@ -22,8 +22,8 @@ interface UseSheetDataReturn {
 export function useSheetData(): UseSheetDataReturn {
     const [fileName, setFileName] = useState<string | null>(null);
     const [workbook, setWorkbook] = useState<XLSX.WorkBook | null>(null);
-    const [csvRawData, setCsvRawData] = useState<string | null>(null);
-    const [fileType, setFileType] = useState<'excel' | 'csv' | null>(null);
+    const [, setCsvRawData] = useState<string | null>(null);
+    const [, setFileType] = useState<'excel' | 'csv' | null>(null);
     const [sheetNames, setSheetNames] = useState<string[]>([]);
     const [selectedSheet, setSelectedSheet] = useState<string>('');
     const [headers, setHeaders] = useState<string[]>([]);
@@ -49,8 +49,11 @@ export function useSheetData(): UseSheetDataReturn {
                 setDataAoA(jsonAoA);
                 setHeaders(jsonAoA[0] ? jsonAoA[0].map(String) : []); // Get headers from AoA row 0
                 setError(null);
-            } catch (e: any) {
-                setError(`Error processing sheet "${currentSheetName}": ${e.message}`);
+            } catch (e) {
+                if (e instanceof Error) {
+                    setError(`Error processing sheet "${currentSheetName}": ${e.message}`);
+                }
+                console.error('Error processing sheet:', e);
                 setHeaders([]);
                 setData([]);
                 setDataAoA([]);
@@ -83,7 +86,7 @@ export function useSheetData(): UseSheetDataReturn {
                     // Re-parse without header for array of arrays (less efficient but provides both)
                     Papa.parse(csvString, {
                         skipEmptyLines: true,
-                        complete: (resultsAoA) => {
+                        complete: (resultsAoA: Papa.ParseResult<unknown[]>) => {
                             setDataAoA(resultsAoA.data as SheetDataAoA);
                             // Ensure headers from AoA match if possible
                             if (!results.meta.fields && resultsAoA.data.length > 0) {
@@ -149,8 +152,11 @@ export function useSheetData(): UseSheetDataReturn {
                         const text = e.target?.result as string;
                         setCsvRawData(text);
                         processCsv(text);
-                    } catch (err: any) {
-                        setError(`Failed to read CSV file: ${err.message}`);
+                    } catch (err) {
+                        if (err instanceof Error) {
+                            setError(`Failed to read CSV file: ${err.message}`);
+                        }
+                        console.error('Error reading CSV file:', err);
                     } finally {
                         setIsLoading(false);
                     }

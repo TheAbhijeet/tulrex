@@ -1,9 +1,7 @@
-// src/components/tools/HtmlToJsxConverter.tsx
 'use client';
 import { useState, useCallback, useEffect, useMemo } from 'react';
 import HTMLtoJSX from 'html-to-jsx';
 import TextareaInput from '@/components/ui/TextareaInput';
-import Button from '@/components/ui/Button';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import { FaCopy } from 'react-icons/fa';
 
@@ -12,7 +10,7 @@ export default function HtmlToJsxConverter() {
         '<!-- Paste your HTML code here -->\n<div class="container" style="color: red;">\n  <h1>Hello!</h1>\n  <input type="text" checked disabled />\n</div>'
     );
     const [jsxOutput, setJsxOutput] = useState('');
-    const [createClass, setCreateClass] = useState(false); // Option for React.createClass style
+    const [createClass] = useState(false); // Option for React.createClass style
     const [error, setError] = useState('');
     const [copyStatus, copy] = useCopyToClipboard();
     const converter = useMemo(() => new HTMLtoJSX({ createClass: createClass }), [createClass]);
@@ -26,9 +24,13 @@ export default function HtmlToJsxConverter() {
         try {
             const result = converter.convert(htmlInput);
             setJsxOutput(result);
-        } catch (err: any) {
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Conversion failed: ${err.message}`);
+            } else {
+                setError(`Conversion failed with Error: ${err}`);
+            }
             console.error('HTML to JSX conversion error:', err);
-            setError(`Conversion failed: ${err.message || 'Invalid HTML input?'}`);
             setJsxOutput('');
         }
     }, [htmlInput, converter]);

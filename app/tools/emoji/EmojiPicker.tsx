@@ -1,14 +1,8 @@
-// src/components/tools/EmojiPicker.tsx
 'use client';
 import { useState, useMemo } from 'react';
 import Input from '@/components/ui/Input';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
-import emojiList from '@/lib/emoji-list.json'; // Import the local list
-
-interface Emoji {
-    e: string;
-    n: string;
-}
+import emojiList from '@/lib/emoji-list.json';
 
 export default function EmojiPicker() {
     const [searchTerm, setSearchTerm] = useState('');

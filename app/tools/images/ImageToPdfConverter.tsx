@@ -92,12 +92,16 @@ export default function ImageToPdfConverter() {
                         }
                     };
                     img.onerror = (e) =>
-                        reject(new Error(`Failed to load image: ${imgFile.file.name}`));
+                        reject(new Error(`Failed to load image: ${imgFile.file.name}: ${e}`));
                 });
             }
             pdf.save('images.pdf');
-        } catch (err: any) {
-            setError(`PDF Generation Failed: ${err.message || 'Unknown error'}`);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`PDF Generation Failed: ${err.message}`);
+            } else {
+                setError(`PDF Generation Failed: Unknown error: ${err}`);
+            }
             console.error(err);
         } finally {
             setIsLoading(false);

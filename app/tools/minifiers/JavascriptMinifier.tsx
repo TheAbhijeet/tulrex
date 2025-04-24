@@ -22,10 +22,12 @@ export default function JavascriptMinifier() {
             // Note: js-minify might be basic or have limitations in browser
             const result = js_minify(jsInput);
             setMinifiedOutput(result);
-        } catch (err: any) {
-            setError(
-                `Minification failed: ${err.message || 'Error during processing. May not support all JS features.'}`
-            );
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Minification failed: ${err.message}`);
+            } else {
+                setError(`Minification failed: ${err}`);
+            }
             console.error('JS Minify Error:', err);
             setMinifiedOutput('');
         }

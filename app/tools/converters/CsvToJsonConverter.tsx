@@ -33,8 +33,12 @@ export default function CsvToJsonConverter() {
                 if (results.data) {
                     try {
                         setJsonOutput(JSON.stringify(results.data, null, 2));
-                    } catch (e: any) {
-                        setError(`Failed to stringify JSON: ${e.message}`);
+                    } catch (e) {
+                        if (e instanceof Error) {
+                            setError(`Failed to stringify JSON: ${e.message}`);
+                        } else {
+                            setError(`Failed to stringify JSON: ${e}`);
+                        }
                     }
                 } else {
                     setError('No data parsed from CSV.');

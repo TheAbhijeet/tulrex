@@ -77,8 +77,14 @@ export default function MergePdfs() {
             link.click();
             document.body.removeChild(link);
             URL.revokeObjectURL(url);
-        } catch (err: any) {
-            setError(`Merge Failed: ${err.message || 'Could not process one or more PDFs'}`);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Merge Failed: ${err.message || 'Could not process one or more PDFs'}`);
+            } else {
+                setError(
+                    `Merge Failed: Could not process one or more PDFs because of unknown error`
+                );
+            }
             console.error(err);
         } finally {
             setIsLoading(false);

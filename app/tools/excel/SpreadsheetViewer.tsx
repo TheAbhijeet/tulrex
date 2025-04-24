@@ -3,7 +3,6 @@ import { useRef } from 'react';
 import Input from '@/components/ui/Input';
 import DataTable from '@/components/ui/DataTable'; // Use the basic table
 import { useSheetData } from '@/hooks/useSheetData'; // Use the hook
-import Button from '@/components/ui/Button';
 
 export default function SpreadsheetViewer() {
     const {

@@ -78,7 +78,9 @@ export default function LoremIpsumGenerator() {
                 />
                 <select
                     value={type}
-                    onChange={(e) => setType(e.target.value as any)}
+                    onChange={(e) =>
+                        setType(e.target.value as 'words' | 'sentences' | 'paragraphs')
+                    }
                     className="px-3 py-2 border border-slate-600 rounded-md bg-slate-700 text-slate-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none"
                 >
                     <option value="paragraphs">Paragraphs</option>

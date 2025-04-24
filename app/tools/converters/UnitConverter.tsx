@@ -55,8 +55,13 @@ export default function UnitConverter() {
             const result = convert(numValue).from(fromUnit).to(toUnit);
             // Format nicely, avoid excessive decimals for common cases
             setOutputValue(Number(result.toFixed(6)).toString()); // Convert back to number to remove trailing zeros
-        } catch (e: any) {
-            setError(`Conversion failed: ${e.message || 'Units might be incompatible'}`);
+        } catch (e) {
+            if (e instanceof Error) {
+                setError(`Conversion failed: ${e.message}`);
+            } else {
+                setError(`Conversion failed: ${e}`);
+            }
+            console.error(`Conversion failed: ${e}`);
             setOutputValue('');
         }
     }, [inputValue, fromUnit, toUnit]);

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// TODO: Fix linting issues while fixing this file
 'use client';
 import { useState, useCallback, useEffect } from 'react';
 import TextareaInput from '@/components/ui/TextareaInput';

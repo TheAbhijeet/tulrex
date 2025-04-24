@@ -1,6 +1,6 @@
 // src/components/tools/AudioMerger.tsx
 'use client';
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import {
@@ -8,7 +8,6 @@ import {
     decodeAudioData,
     renderAudioBufferToBlob,
     downloadFile,
-    getFilenameWithNewExt,
 } from '@/lib/audioUtils';
 import { FaPlus, FaDownload, FaTrash, FaArrowUp, FaArrowDown } from 'react-icons/fa';
 
@@ -70,9 +69,11 @@ export default function AudioMerger() {
                 });
             }
             setAudioFiles((prev) => [...prev, ...loadedFiles].sort((a, b) => a.order - b.order)); // Add new files
-        } catch (err: any) {
-            setError(`Failed to load audio: ${err.message}`);
-            console.error(err);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Failed to load audio: ${err.message}`);
+            }
+            console.error('Error loading audio:', err);
         } finally {
             setIsLoading(false);
             if (fileInputRef.current) fileInputRef.current.value = '';
@@ -129,9 +130,11 @@ export default function AudioMerger() {
             const blob = await renderAudioBufferToBlob(mergedBuffer); // Render to WAV
             const url = URL.createObjectURL(blob);
             setMergedAudioUrl(url);
-        } catch (err: any) {
-            setError(`Merge failed: ${err.message}`);
-            console.error(err);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Merge failed: ${err.message}`);
+            }
+            console.error('Error merging audio:', err);
         } finally {
             setIsProcessing(false);
         }
@@ -142,13 +145,16 @@ export default function AudioMerger() {
         try {
             const blob = await fetch(mergedAudioUrl).then((res) => res.blob());
             downloadFile(blob, 'merged-audio.wav'); // Output is WAV
-        } catch (err: any) {
-            setError(`Download failed: ${err.message}`);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Download failed: ${err.message}`);
+            }
+            console.error('Error downloading merged audio:', err);
         }
     };
 
     // Cleanup URLs
-    useState(() => {
+    useEffect(() => {
         return () => {
             if (mergedAudioUrl) URL.revokeObjectURL(mergedAudioUrl);
         };

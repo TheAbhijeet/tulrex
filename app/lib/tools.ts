@@ -29,7 +29,7 @@ import JsonToCsvConverter from '@/tools/converters/JsonToCsvConverter';
 import ImageFormatConverter from '@/tools/images/ImageFormatConverter';
 import MergePdfs from '@/tools/pdfs/MergePdfs';
 import ReorderPdfPages from '@/tools/pdfs/ReorderPdfPages';
-import JavascriptMinifier from '@/tools/minifiers/JavascriptMinifier';
+// import JavascriptMinifier from '@/tools/minifiers/JavascriptMinifier';
 import CssMinifier from '@/tools/minifiers/CssMinifier';
 import CodeFormatterTs from '@/tools/formatters/CodeFormatterTs';
 import { slugify } from './utils';
@@ -43,7 +43,6 @@ import AudioCutter from '@/tools/audio/AudioCutter';
 import AudioMerger from '@/tools/audio/AudioMerger';
 import AudioSpeedChanger from '@/tools/audio/AudioSpeedChanger';
 import AudioMetadataViewer from '@/tools/audio/AudioMetadataViewer';
-import AudioFormatChecker from '@/tools/audio/AudioFormatChecker';
 import MicTester from '@/tools/audio/MicTester';
 import CsvToExcelConverter from '@/tools/converters/CsvToExcelConverter';
 import SpreadsheetViewer from '@/tools/excel/SpreadsheetViewer';
@@ -437,14 +436,14 @@ export const tools: Tool[] = [
         category: CATEGORIES.AUDIO,
         component: AudioMetadataViewer,
     },
-    {
-        slug: 'audio-format-checker',
-        title: 'Audio Format Checker',
-        description: 'Display technical details like codec, bitrate, duration.',
-        icon: '❓🎵',
-        category: CATEGORIES.AUDIO,
-        component: AudioFormatChecker,
-    },
+    // {
+    //     slug: 'audio-format-checker',
+    //     title: 'Audio Format Checker',
+    //     description: 'Display technical details like codec, bitrate, duration.',
+    //     icon: '❓🎵',
+    //     category: CATEGORIES.AUDIO,
+    //     component: AudioFormatChecker,
+    // },
     {
         slug: 'mic-tester',
         title: 'Microphone Tester',

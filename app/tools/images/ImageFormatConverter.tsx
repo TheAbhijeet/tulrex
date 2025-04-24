@@ -72,8 +72,12 @@ export default function ImageFormatConverter() {
                 const baseName =
                     inputFile.name.substring(0, inputFile.name.lastIndexOf('.')) || 'converted';
                 setOutputFileName(`${baseName}.${outputFormat}`);
-            } catch (err: any) {
-                setError(`Conversion failed: ${err.message}`);
+            } catch (err) {
+                if (err instanceof Error) {
+                    setError(`Conversion failed: ${err.message}`);
+                } else {
+                    setError(`Conversion failed with Error: ${err}`);
+                }
                 console.error(err);
             } finally {
                 setIsLoading(false);

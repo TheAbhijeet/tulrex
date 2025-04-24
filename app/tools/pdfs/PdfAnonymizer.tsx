@@ -4,7 +4,7 @@ import { useState, useCallback, useRef } from 'react';
 import { PDFDocument } from 'pdf-lib';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import { FaFilePdf, FaUserSecret } from 'react-icons/fa';
+import { FaUserSecret } from 'react-icons/fa';
 
 export default function PdfAnonymizer() {
     const [pdfFile, setPdfFile] = useState<File | null>(null);
@@ -62,8 +62,12 @@ export default function PdfAnonymizer() {
             // Reset after save
             setPdfFile(null);
             if (fileInputRef.current) fileInputRef.current.value = '';
-        } catch (err: any) {
-            setError(`Failed to process PDF: ${err.message}`);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Failed to process PDF: ${err.message}`);
+            } else {
+                setError('Failed to process PDF: An unknown error occurred.');
+            }
             console.error(err);
         } finally {
             setIsLoading(false);

@@ -1,5 +1,5 @@
 'use client';
-import { useState, useCallback, useRef, useEffect } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { PDFDocument } from 'pdf-lib';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
@@ -62,8 +62,12 @@ export default function ReorderPdfPages() {
             const doc = await PDFDocument.load(pdfBytes, { ignoreEncryption: true });
             setPdfDoc(doc);
             setPageOrder(doc.getPageIndices()); // Initialize order with 0, 1, 2...
-        } catch (err: any) {
-            setError(`Failed to load PDF: ${err.message}`);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Failed to load PDF: ${err.message}`);
+            } else {
+                setError('Failed to load PDF: An unknown error occurred.');
+            }
             console.error(err);
         } finally {
             setIsLoading(false);
@@ -126,8 +130,12 @@ export default function ReorderPdfPages() {
             link.click();
             document.body.removeChild(link);
             URL.revokeObjectURL(url);
-        } catch (err: any) {
-            setError(`Failed to save PDF: ${err.message}`);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Failed to save PDF: ${err.message}`);
+            } else {
+                setError('Failed to save PDF: An unknown error occurred.');
+            }
             console.error(err);
         } finally {
             setIsProcessing(false);

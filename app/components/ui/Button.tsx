@@ -2,11 +2,13 @@ import React from 'react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: 'primary' | 'secondary';
+    size?: 'sm' | 'md' | 'lg';
 }
 
 const Button: React.FC<ButtonProps> = ({
     className = '',
     variant = 'primary',
+    size = 'sm',
     children,
     ...props
 }) => {
@@ -18,7 +20,7 @@ const Button: React.FC<ButtonProps> = ({
     const variantStyle = variant === 'primary' ? primaryStyle : secondaryStyle;
 
     return (
-        <button className={`${baseStyle} ${variantStyle} ${className}`} {...props}>
+        <button className={`${baseStyle} ${variantStyle} ${className} ${size}`} {...props}>
             {children}
         </button>
     );

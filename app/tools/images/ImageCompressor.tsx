@@ -14,7 +14,7 @@ interface CompressionResult {
 }
 
 export default function ImageCompressor() {
-    const [options, setOptions] = useState({ maxSizeMB: 1, maxWidthOrHeight: 1024 });
+    const [options] = useState({ maxSizeMB: 1, maxWidthOrHeight: 1024 });
     const [result, setResult] = useState<CompressionResult | null>(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
@@ -46,8 +46,12 @@ export default function ImageCompressor() {
                     compressedUrl: URL.createObjectURL(compressedFile),
                     compressedSize: compressedFile.size,
                 });
-            } catch (err: any) {
-                console.error('Compression Error:', err);
+            } catch (err) {
+                if (err instanceof Error) {
+                    setError(`Compression failed: ${err.message}`);
+                } else {
+                    setError(`Compression failed with Error: ${err}`);
+                }
                 setError(`Compression failed: ${err.message || 'Unknown error'}`);
             } finally {
                 setIsLoading(false);

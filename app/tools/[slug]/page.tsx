@@ -4,7 +4,7 @@ import { Metadata, ResolvingMetadata } from 'next';
 import { getToolBySlug, tools } from '@/lib/tools';
 
 type Props = {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 };
 
 // --- Static Generation ---

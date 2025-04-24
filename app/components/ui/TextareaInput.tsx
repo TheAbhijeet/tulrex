@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface TextareaInputProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+type TextareaInputProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 const TextareaInput: React.FC<TextareaInputProps> = ({ className = '', ...props }) => {
     return (

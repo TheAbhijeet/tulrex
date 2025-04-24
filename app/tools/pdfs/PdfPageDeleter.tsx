@@ -3,7 +3,7 @@ import { useState, useCallback, useRef } from 'react';
 import { PDFDocument } from 'pdf-lib';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import { FaFilePdf, FaTrash } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
 
 export default function PdfPageDeleter() {
     const [pdfFile, setPdfFile] = useState<File | null>(null);
@@ -27,8 +27,12 @@ export default function PdfPageDeleter() {
                 updateMetadata: false,
             });
             setTotalPages(pdfDoc.getPageCount());
-        } catch (err: any) {
-            setError(`Failed to load PDF info: ${err.message}`);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Failed to load PDF info: ${err.message}`);
+            } else {
+                setError('Failed to load PDF info: An unknown error occurred.');
+            }
             console.error(err);
             setPdfFile(null);
         } finally {
@@ -116,8 +120,12 @@ export default function PdfPageDeleter() {
             setTotalPages(0);
             setPagesToDelete('');
             if (fileInputRef.current) fileInputRef.current.value = '';
-        } catch (err: any) {
-            setError(`Failed to process PDF: ${err.message}`);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Failed to process PDF: ${err.message}`);
+            } else {
+                setError('Failed to process PDF: An unknown error occurred.');
+            }
             console.error(err);
         } finally {
             setIsProcessing(false);

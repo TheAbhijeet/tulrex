@@ -56,8 +56,11 @@ export default function AgeCalculator() {
             );
 
             setResult({ years, months, days, totalDays });
-        } catch (e) {
-            setError('Could not calculate age. Check dates.');
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Failed to calculate age: ${err.message}`);
+            }
+            console.error('Error calculating age:', err);
         }
     }, [birthDate, targetDate]);
 

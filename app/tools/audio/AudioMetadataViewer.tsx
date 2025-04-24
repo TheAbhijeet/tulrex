@@ -1,8 +1,8 @@
 'use client';
-import { useState, useCallback, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import * as musicMetadata from 'music-metadata-browser';
-import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
+import { formatTime } from '@/lib/audioUtils';
 
 export default function AudioMetadataViewer() {
     const [metadata, setMetadata] = useState<musicMetadata.IAudioMetadata | null>(null);
@@ -28,9 +28,11 @@ export default function AudioMetadataViewer() {
                     const url = URL.createObjectURL(blob);
                     setImageUrl(url);
                 }
-            } catch (err: any) {
-                setError(`Failed to parse metadata: ${err.message}`);
-                console.error(err);
+            } catch (err) {
+                if (err instanceof Error) {
+                    setError(`Failed to parse metadata: ${err.message}`);
+                }
+                console.error('Error parsing metadata:', err);
             } finally {
                 setIsLoading(false);
             }
@@ -42,7 +44,7 @@ export default function AudioMetadataViewer() {
     };
 
     // Cleanup URL
-    useState(() => {
+    useEffect(() => {
         return () => {
             if (imageUrl) URL.revokeObjectURL(imageUrl);
         };

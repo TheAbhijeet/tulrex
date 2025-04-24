@@ -37,7 +37,7 @@ const ShadeSwatch = ({ colorHex }: { colorHex: string }) => {
 
 export default function ColorShadeGenerator() {
     const [baseColor, setBaseColor] = useState('#3b82f6'); // Blue-500
-    const [count, setCount] = useState(9); // Generate 9 shades (like Tailwind palette)
+    const [count] = useState(9); // Generate 9 shades (like Tailwind palette)
     const [step, setStep] = useState(10); // Step for lighten/darken
 
     const shades = useMemo(() => {

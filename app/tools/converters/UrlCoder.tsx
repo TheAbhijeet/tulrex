@@ -16,8 +16,13 @@ export default function UrlCoder() {
         try {
             setOutputText(encodeURIComponent(inputText));
             setError(null);
-        } catch (e: any) {
-            setError(`Encoding error: ${e.message}`);
+        } catch (e) {
+            if (e instanceof Error) {
+                setError(`Encoding error: ${e.message}`);
+            } else {
+                setError(`Encoding error: ${e}`);
+            }
+            console.error(`Encoding error: ${e}`);
             setOutputText('');
         }
     };
@@ -26,9 +31,13 @@ export default function UrlCoder() {
         try {
             setOutputText(decodeURIComponent(inputText));
             setError(null);
-        } catch (e: any) {
-            // Errors typically occur if the input is not correctly URI encoded
-            setError(`Decoding error: Input may not be a valid URI component. ${e.message}`);
+        } catch (e) {
+            if (e instanceof Error) {
+                setError(`Decoding error: ${e.message}`);
+            } else {
+                setError(`Decoding error: ${e}`);
+            }
+            console.error(`Encoding error: ${e}`);
             setOutputText('');
         }
     };

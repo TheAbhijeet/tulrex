@@ -74,8 +74,12 @@ export default function RegexTester() {
             parts.push(testString.substring(lastIndex));
 
             setMatchResult({ matches, highlighted: parts });
-        } catch (e: any) {
-            setError(`Invalid Regex or Flags: ${e.message}`);
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                setError(`Invalid Regex or Flags: ${e.message}`);
+            } else {
+                setError('Invalid Regex or Flags');
+            }
             setMatchResult(null);
         }
     };

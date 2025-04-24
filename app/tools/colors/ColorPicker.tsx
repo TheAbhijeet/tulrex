@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react';
 import tinycolor from 'tinycolor2';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import { FaCopy } from 'react-icons/fa';
+import Input from '@/components/ui/Input';
 
 const ColorValueDisplay = ({ label, value }: { label: string; value: string }) => {
     const [copyStatus, copy] = useCopyToClipboard();

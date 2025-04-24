@@ -42,9 +42,11 @@ export default function AudioCutter() {
                 setAudioBuffer(buffer);
                 setDuration(buffer.duration);
                 setEndTime(buffer.duration.toFixed(3)); // Default end time to full duration
-            } catch (err: any) {
-                setError(`Failed to load audio: ${err.message}`);
-                console.error(err);
+            } catch (err) {
+                if (err instanceof Error) {
+                    setError(`Failed to load audio: ${err.message}`);
+                }
+                console.error('Error loading audio:', err);
                 setInputFile(null);
             } finally {
                 setIsLoading(false);
@@ -94,9 +96,11 @@ export default function AudioCutter() {
             const blob = await renderAudioBufferToBlob(trimmedBuffer); // Render to WAV blob
             const url = URL.createObjectURL(blob);
             setTrimmedAudioUrl(url);
-        } catch (err: any) {
-            setError(`Cutting failed: ${err.message}`);
-            console.error(err);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Cutting failed: ${err.message}`);
+            }
+            console.error('Error cutting audio:', err);
         } finally {
             setIsProcessing(false);
         }
@@ -114,7 +118,7 @@ export default function AudioCutter() {
     };
 
     // Cleanup URLs
-    useState(() => {
+    useEffect(() => {
         return () => {
             if (trimmedAudioUrl) URL.revokeObjectURL(trimmedAudioUrl);
         };

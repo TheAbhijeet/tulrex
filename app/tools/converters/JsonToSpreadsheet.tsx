@@ -28,7 +28,12 @@ export default function JsonToSpreadsheet() {
                 setError('Input must be a JSON array or object.');
             }
         } catch (e) {
-            setError('Invalid JSON format.'); // Error only on invalid parse
+            if (e instanceof Error) {
+                setError(`Invalid JSON format: ${e.message}`);
+            } else {
+                setError(`Invalid JSON format: ${e}`);
+            }
+            console.error(e);
         }
     };
 
@@ -51,8 +56,12 @@ export default function JsonToSpreadsheet() {
                     const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
                     downloadFile(blob, 'data.csv');
                 }
-            } catch (err: any) {
-                setError(`Failed to convert/download: ${err.message}`);
+            } catch (err) {
+                if (err instanceof Error) {
+                    setError(`Failed to convert/download: ${err.message}`);
+                } else {
+                    setError(`Failed to convert/download with Error: ${err}`);
+                }
                 console.error(err);
             }
         },
