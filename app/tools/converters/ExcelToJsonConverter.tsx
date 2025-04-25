@@ -65,10 +65,9 @@ export default function ExcelToJsonConverter() {
         if (!wb || !sheetName) return;
         try {
             const worksheet = wb.Sheets[sheetName];
-            let jsonResult: any;
+            let jsonResult: unknown;
             if (format === 'array-of-objects') {
                 jsonResult = XLSX.utils.sheet_to_json(worksheet, { header: 1 }); // Get header separately first
-                const headers = jsonResult[0] as string[];
                 jsonResult = XLSX.utils.sheet_to_json(worksheet); // Then get objects
             } else {
                 // array-of-arrays
@@ -77,9 +76,11 @@ export default function ExcelToJsonConverter() {
 
             setJsonData(JSON.stringify(jsonResult, null, 2));
             setError('');
-        } catch (err: any) {
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Failed to convert sheet "${sheetName}": ${err.message}`);
+            }
             console.error('Error converting sheet:', err);
-            setError(`Failed to convert sheet "${sheetName}": ${err.message}`);
             setJsonData('');
         }
     };

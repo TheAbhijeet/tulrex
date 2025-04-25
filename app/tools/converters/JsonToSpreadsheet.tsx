@@ -5,11 +5,13 @@ import Papa from 'papaparse';
 import Button from '@/components/ui/Button';
 import TextareaInput from '@/components/ui/TextareaInput';
 import { downloadFile } from '@/lib/audioUtils'; // Reusing utils
+import { JSONValue } from '@/types/common';
+import { isArrayOfObjects } from '@/lib/utils';
 
 export default function JsonToSpreadsheet() {
     const [jsonInput, setJsonInput] = useState('');
     const [error, setError] = useState('');
-    const [jsonData, setJsonData] = useState<any[] | null>(null); // Store parsed JSON
+    const [jsonData, setJsonData] = useState<JSONValue | null>(null); // Store parsed JSON
 
     // Parse JSON on input change (with validation)
     const handleJsonChange = (value: string) => {
@@ -39,12 +41,19 @@ export default function JsonToSpreadsheet() {
 
     const handleDownload = useCallback(
         (format: 'xlsx' | 'csv') => {
-            if (!jsonData || jsonData.length === 0) {
+            if (!isArrayOfObjects(jsonData)) {
+                setError('Invalid format: Expected array of objects');
+            }
+            if (!jsonData || !Array.isArray(jsonData) || jsonData.length === 0) {
                 setError('Valid JSON array/object needed.');
                 return;
             }
             setError('');
             try {
+                if (!isArrayOfObjects(jsonData)) {
+                    setError('Invalid format: Expected array of objects');
+                }
+
                 if (format === 'xlsx') {
                     const ws = XLSX.utils.json_to_sheet(jsonData);
                     const wb = XLSX.utils.book_new();

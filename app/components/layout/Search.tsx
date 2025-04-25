@@ -126,7 +126,7 @@ export default function Search() {
                 className="w-full sm:w-64 px-3 py-1.5 rounded-md bg-slate-700 text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-sm"
                 aria-label="Search tools"
                 aria-haspopup="listbox"
-                aria-expanded={isDropdownVisible}
+                // aria-expanded={isDropdownVisible}
                 aria-controls="search-suggestions"
                 aria-autocomplete="list"
                 aria-activedescendant={activeIndex >= 0 ? `suggestion-${activeIndex}` : undefined}

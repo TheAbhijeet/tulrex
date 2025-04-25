@@ -1,5 +1,5 @@
 'use client';
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import Button from '@/components/ui/Button';
 import { FaMicrophone, FaStop } from 'react-icons/fa';
 
@@ -60,7 +60,7 @@ export default function MicTester() {
     }, [isTesting]);
 
     // Cleanup stream & URL on unmount
-    useState(() => {
+    useEffect(() => {
         return () => {
             streamRef.current?.getTracks().forEach((track) => track.stop());
             if (audioUrl) URL.revokeObjectURL(audioUrl);

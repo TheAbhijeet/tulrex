@@ -36,7 +36,7 @@ export default function CsvToExcelConverter() {
             try {
                 const csvString = e.target?.result as string;
                 // Parse CSV to array of arrays (suitable for aoa_to_sheet)
-                const parseResult = Papa.parse<any[]>(csvString, { skipEmptyLines: true });
+                const parseResult = Papa.parse<string[][]>(csvString, { skipEmptyLines: true });
                 if (parseResult.errors.length) {
                     throw new Error(`CSV Parse Error: ${parseResult.errors[0].message}`);
                 }

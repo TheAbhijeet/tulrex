@@ -16,10 +16,10 @@ import QrCodeGenerator from '@/tools/qr/QrCodeGenerator';
 import CsvToJsonConverter from '@/tools/converters/CsvToJsonConverter';
 import ImageCompressor from '@/tools/images/ImageCompressor';
 import TextToSpeechConverter from '@/tools/texts/TextToSpeechConverter';
-import SpeechToTextConverter from '@/tools/audio/SpeechToTextConverter';
+// import SpeechToTextConverter from '@/tools/audio/SpeechToTextConverter';
 import UnitConverter from '@/tools/converters/UnitConverter';
 import ExcelToJsonConverter from '@/tools/converters/ExcelToJsonConverter';
-import HtmlToJsxConverter from '@/tools/converters/HtmlToJsxConverter';
+// import HtmlToJsxConverter from '@/tools/converters/HtmlToJsxConverter';
 import EmojiPicker from '@/tools/emoji/EmojiPicker';
 import ColorShadeGenerator from '@/tools/colors/ColorShadeGenerator';
 import HtmlMinifier from '@/tools/minifiers/HtmlMinifier';
@@ -227,14 +227,6 @@ export const tools: Tool[] = [
         category: CATEGORIES.CONVERTERS,
     },
     {
-        slug: 'speech-to-text-converter',
-        title: 'Speech to Text Converter',
-        description: 'Speech to Text Converter.',
-        icon: '🔒',
-        component: SpeechToTextConverter,
-        category: CATEGORIES.CONVERTERS,
-    },
-    {
         slug: 'unit-converter',
         title: 'Unit Converter',
         description: 'Unit Converter',
@@ -250,14 +242,14 @@ export const tools: Tool[] = [
         component: ExcelToJsonConverter,
         category: CATEGORIES.CONVERTERS,
     },
-    {
-        slug: 'html-to-jsx-converter',
-        title: 'HTML to JSX Converter',
-        description: 'HTML to JSX Converter',
-        icon: '🔒',
-        component: HtmlToJsxConverter,
-        category: CATEGORIES.CONVERTERS,
-    },
+    // {
+    //     slug: 'html-to-jsx-converter',
+    //     title: 'HTML to JSX Converter',
+    //     description: 'HTML to JSX Converter',
+    //     icon: '🔒',
+    //     component: HtmlToJsxConverter,
+    //     category: CATEGORIES.CONVERTERS,
+    // },
     {
         slug: 'emoji-picker',
         title: 'Emoji Picker',
@@ -461,15 +453,15 @@ export const tools: Tool[] = [
         category: CATEGORIES.AUDIO,
         component: TextToSpeechConverter, // Or keep in WEB?
     },
-    {
-        // Re-categorize or ensure exists
-        slug: 'speech-to-text',
-        title: 'Speech to Text (Basic)',
-        description: 'Transcribe spoken audio into text (browser dependent).',
-        icon: '🎤➡️📄',
-        category: CATEGORIES.AUDIO,
-        component: SpeechToTextConverter, // Or keep in WEB?
-    },
+    // {
+    //     // Re-categorize or ensure exists
+    //     slug: 'speech-to-text',
+    //     title: 'Speech to Text (Basic)',
+    //     description: 'Transcribe spoken audio into text (browser dependent).',
+    //     icon: '🎤➡️📄',
+    //     category: CATEGORIES.AUDIO,
+    //     component: SpeechToTextConverter, // Or keep in WEB?
+    // },
     {
         slug: 'spreadsheet-viewer',
         title: 'Excel & CSV Viewer',

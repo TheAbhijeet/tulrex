@@ -4,8 +4,10 @@ import { useState, useCallback } from 'react';
 import { githubDarkTheme, JsonEditor } from 'json-edit-react';
 import TextareaInput from '@/components/ui/TextareaInput';
 import Button from '@/components/ui/Button';
+import { JSONValue } from '@/types/common';
+import { isJsonValue } from '@/lib/utils';
 
-const tryParseJson = (jsonString: string): { data: unknown; error: string | null } => {
+const tryParseJson = (jsonString: string): { data: JSONValue; error: string | null } => {
     if (!jsonString.trim()) {
         return { data: {}, error: null }; // Allow empty input, default to empty object
     }
@@ -27,7 +29,7 @@ const tryParseJson = (jsonString: string): { data: unknown; error: string | null
 
 export default function JsonEditorTool() {
     const [rawInput, setRawInput] = useState<string>('');
-    const [jsonData, setJsonData] = useState<object | any[] | null>(null); // State to hold the parsed data for the editor
+    const [jsonData, setJsonData] = useState<JSONValue | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [editorKey, setEditorKey] = useState<number>(0); // Key to force re-render
 
@@ -52,6 +54,10 @@ export default function JsonEditorTool() {
 
     // Callback from JsonEditor when data is changed internally
     const handleEditorChange = useCallback((newData: unknown) => {
+        if (!isJsonValue(newData)) {
+            return setError('Invalid JSON data');
+        }
+
         // The library gives us the already parsed new data
         setJsonData(newData);
         try {
@@ -112,16 +118,9 @@ export default function JsonEditorTool() {
                         Interactive Editor:
                     </label>
                     <div className="p-1 border border-slate-600 rounded-md bg-slate-800">
-                        {/*
-                Apply dark theme styles if needed. json-edit-react might pick up
-                some base styles, but explicit theming might require custom CSS
-                or checking library options. The wrapper div helps scope styles.
-                The `key` prop is used to force a re-initialization when new
-                data is loaded via the "Load" button.
-              */}
                         <JsonEditor
                             data={jsonData}
-                            key={editorKey} // Force re-render on load
+                            key={editorKey}
                             setData={handleEditorChange}
                             theme={githubDarkTheme}
                         />

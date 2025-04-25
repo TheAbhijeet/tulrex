@@ -85,11 +85,12 @@ export default function CodeFormatterTs() {
                 trailingComma: 'es5',
             });
             if (isMounted.current) setFormattedCode(result);
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        } catch (err: any) {
+        } catch (err) {
             console.error('Prettier format error:', err);
             if (isMounted.current) {
-                setError(`Formatting failed: ${err.message}`);
+                if (err instanceof Error) {
+                    setError(`Formatting failed: ${err.message}`);
+                }
                 setFormattedCode('');
             }
         } finally {

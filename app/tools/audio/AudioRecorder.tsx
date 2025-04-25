@@ -1,8 +1,8 @@
 'use client';
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import Button from '@/components/ui/Button';
 import { FaMicrophone, FaStop, FaDownload } from 'react-icons/fa';
-import { downloadFile } from '@/lib/audioUtils'; // Use helper
+import { downloadFile } from '@/lib/audioUtils';
 
 export default function AudioRecorder() {
     const [isRecording, setIsRecording] = useState(false);
@@ -79,7 +79,7 @@ export default function AudioRecorder() {
     };
 
     // Cleanup stream on unmount
-    useState(() => {
+    useEffect(() => {
         return () => {
             streamRef.current?.getTracks().forEach((track) => track.stop());
             if (audioUrl) URL.revokeObjectURL(audioUrl);

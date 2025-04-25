@@ -1,6 +1,6 @@
 'use client';
 import { useState, useCallback } from 'react';
-import { js_minify } from 'js-minify'; // Check if this import works directly
+import { js_minify } from 'js-minify';
 import TextareaInput from '@/components/ui/TextareaInput';
 import Button from '@/components/ui/Button';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';

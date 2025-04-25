@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
@@ -35,7 +35,7 @@ export default function UuidGenerator() {
     }, []);
 
     // Generate one on initial load
-    useState(() => {
+    useEffect(() => {
         generateUuid();
     }, [generateUuid]);
 

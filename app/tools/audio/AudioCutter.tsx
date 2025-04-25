@@ -112,8 +112,10 @@ export default function AudioCutter() {
             const blob = await fetch(trimmedAudioUrl).then((res) => res.blob());
             const newFilename = getFilenameWithNewExt(inputFile.name, 'wav'); // Output is WAV
             downloadFile(blob, `cut-${newFilename}`);
-        } catch (err: any) {
-            setError(`Download failed: ${err.message}`);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Download failed: ${err.message}`);
+            }
         }
     };
 

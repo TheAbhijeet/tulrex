@@ -68,8 +68,10 @@ export default function ExcelToCsvConverter() {
                 .replace('.xlsx', '')
                 .replace('.xls', ''); // Clean up name
             downloadFile(blob, `${selectedSheet}-${csvFileName}`); // Prefix with sheet name
-        } catch (err: any) {
-            setError(`Failed to convert sheet to CSV: ${err.message}`);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Failed to convert sheet to CSV: ${err.message}`);
+            }
         }
     }, [workbook, selectedSheet, fileName]);
 

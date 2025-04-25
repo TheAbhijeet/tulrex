@@ -3,8 +3,10 @@ import { useState, useCallback } from 'react';
 import * as XLSX from 'xlsx';
 import Papa from 'papaparse';
 
-export type SheetData = Record<string, any>[]; // Array of objects
-export type SheetDataAoA = any[][]; // Array of arrays
+export type SheetRow = Record<string, string | number | boolean | null>;
+export type SheetData = SheetRow[]; // Array of objects
+
+export type SheetDataAoA = (string | number | boolean | null)[][]; // Array of arrays
 
 interface UseSheetDataReturn {
     fileName: string | null;
@@ -103,8 +105,10 @@ export function useSheetData(): UseSheetDataReturn {
                     setDataAoA([]);
                 },
             });
-        } catch (e: any) {
-            setError(`Error parsing CSV: ${e.message}`);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Error parsing CSV: ${err.message}`);
+            }
             setHeaders([]);
             setData([]);
             setDataAoA([]);
@@ -133,8 +137,10 @@ export function useSheetData(): UseSheetDataReturn {
                         const wb = XLSX.read(data, { type: 'array' }); // Use array buffer
                         setWorkbook(wb);
                         processWorkbook(wb);
-                    } catch (err: any) {
-                        setError(`Failed to read Excel file: ${err.message}`);
+                    } catch (err) {
+                        if (err instanceof Error) {
+                            setError(`Failed to read Excel file: ${err.message}`);
+                        }
                     } finally {
                         setIsLoading(false);
                     }

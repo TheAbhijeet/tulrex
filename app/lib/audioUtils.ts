@@ -3,7 +3,10 @@ import { saveAs } from 'file-saver';
 let audioContext: AudioContext | null = null;
 export const getAudioContext = (): AudioContext => {
     if (!audioContext && typeof window !== 'undefined') {
-        audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+        const win = window as unknown as Window & {
+            webkitAudioContext?: typeof AudioContext;
+        };
+        audioContext = new (window.AudioContext || win.webkitAudioContext!)();
     }
     // Add resilience for environments where it might still fail
     if (!audioContext) {
@@ -33,10 +36,7 @@ export const formatTime = (seconds: number): string => {
 };
 
 // Render an AudioBuffer to a Blob using OfflineAudioContext
-export async function renderAudioBufferToBlob(
-    buffer: AudioBuffer,
-    type = 'audio/wav'
-): Promise<Blob> {
+export async function renderAudioBufferToBlob(buffer: AudioBuffer): Promise<Blob> {
     const offlineCtx = new OfflineAudioContext(
         buffer.numberOfChannels,
         buffer.length,

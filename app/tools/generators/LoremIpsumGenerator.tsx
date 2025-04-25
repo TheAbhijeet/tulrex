@@ -1,6 +1,6 @@
 // src/components/tools/LoremIpsumGenerator.tsx
 'use client';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import TextareaInput from '@/components/ui/TextareaInput';
@@ -58,7 +58,7 @@ export default function LoremIpsumGenerator() {
     }, [count, type]);
 
     // Generate initial text
-    useState(() => {
+    useEffect(() => {
         handleGenerate();
     }, [handleGenerate]);
 

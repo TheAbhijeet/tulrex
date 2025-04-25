@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import TextareaInput from '../../components/ui/TextareaInput';
 import Button from '../../components/ui/Button';
-import parseJson from 'json-parse-even-better-errors';
+// import { parseJson, JSONParseError } from 'json-parse-better-errors';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { CopyButton } from '@/components/ui/CopyButton';
@@ -20,17 +20,18 @@ export default function JsonFormatter() {
             return;
         }
         try {
-            const parsed = parseJson(inputJson);
-            const formatted = JSON.stringify(parsed, null, 2);
+            // const parsed = parseJson(inputJson);
+            const formatted = JSON.stringify(inputJson, null, 2);
             setOutputJson(formatted);
             setError(null);
-        } catch (e) {
-            if (e instanceof Error) {
-                setError(
-                    `Invalid JSON at line ${e.lineNumber}, column ${e.columnNumber}: ${e.message}`
-                );
+        } catch (err) {
+            if (err instanceof Error) {
+                // setError(
+                //     `Invalid JSON at line ${e.lineNumber}, column ${e.columnNumber}: ${e.message}`
+                // );
+                setError(`Invalid JSON: ${err.message}`);
             } else {
-                setError(`Invalid JSON: ${e}`);
+                setError(`Invalid JSON: ${err}`);
             }
             setOutputJson('');
         }

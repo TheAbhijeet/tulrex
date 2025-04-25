@@ -25,7 +25,7 @@ export default function UnitConverter() {
     }, [measure]);
 
     // Update units when measure changes
-    useState(() => {
+    useEffect(() => {
         if (possibleUnits.length > 0) {
             setFromUnit(possibleUnits[0].abbr);
             // Try to find a common counterpart or just the second unit

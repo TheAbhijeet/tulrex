@@ -94,7 +94,11 @@ export default function RegexTester() {
 
     // Use useMemo to avoid re-rendering the highlighted text unnecessarily
     const highlightedText = useMemo(() => {
-        if (!matchResult || !matchResult.highlighted || matchResult.highlighted.length === 0) {
+        if (
+            !matchResult ||
+            !matchResult.highlighted ||
+            (Array.isArray(matchResult.highlighted) && matchResult.highlighted.length === 0)
+        ) {
             return (
                 <span className="text-slate-400 italic">No matches found or no text provided.</span>
             );

@@ -1,5 +1,5 @@
 'use client';
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import { jsPDF } from 'jspdf';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
@@ -109,7 +109,7 @@ export default function ImageToPdfConverter() {
     }, [imageFiles]);
 
     // Clean up object URLs on unmount
-    useState(() => {
+    useEffect(() => {
         return () => imageFiles.forEach((img) => URL.revokeObjectURL(img.url));
     }, [imageFiles]);
 

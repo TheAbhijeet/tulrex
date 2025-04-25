@@ -1,5 +1,5 @@
 'use client';
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import imageCompression from 'browser-image-compression';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
@@ -52,7 +52,6 @@ export default function ImageCompressor() {
                 } else {
                     setError(`Compression failed with Error: ${err}`);
                 }
-                setError(`Compression failed: ${err.message || 'Unknown error'}`);
             } finally {
                 setIsLoading(false);
                 // Reset file input to allow selecting the same file again
@@ -82,7 +81,7 @@ export default function ImageCompressor() {
     };
 
     // Clean up Object URLs on unmount or when result changes
-    useState(() => {
+    useEffect(() => {
         return () => {
             if (result) {
                 URL.revokeObjectURL(result.originalUrl);

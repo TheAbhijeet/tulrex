@@ -1,5 +1,5 @@
 'use client';
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import { FaDownload } from 'react-icons/fa';
@@ -16,7 +16,9 @@ export default function ImageFormatConverter() {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
     const fileInputRef = useRef<HTMLInputElement>(null);
-    const canvasRef = useRef<HTMLCanvasElement>(document.createElement('canvas')); // Offscreen canvas
+    const canvasRef = useRef<HTMLCanvasElement | null>(
+        typeof document !== 'undefined' ? document.createElement('canvas') : null
+    );
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setError('');
@@ -53,6 +55,10 @@ export default function ImageFormatConverter() {
         const img = new Image();
         img.onload = () => {
             const canvas = canvasRef.current;
+            if (!canvas) {
+                setError('Could not get canvas.');
+                return;
+            }
             canvas.width = img.naturalWidth;
             canvas.height = img.naturalHeight;
             const ctx = canvas.getContext('2d');
@@ -91,7 +97,7 @@ export default function ImageFormatConverter() {
     }, [inputFile, inputUrl, outputFormat, quality]);
 
     // Clean up Object URL if inputUrl was created by one (though we use DataURL here)
-    useState(() => {
+    useEffect(() => {
         return () => {
             if (inputUrl.startsWith('blob:')) URL.revokeObjectURL(inputUrl);
         };

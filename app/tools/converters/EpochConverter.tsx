@@ -85,7 +85,7 @@ export default function EpochConverter() {
         // Optional: Update current time every second
         // const interval = setInterval(() => updateFromTimestamp(Math.floor(Date.now() / 1000)), 1000);
         // return () => clearInterval(interval);
-    }, [updateFromTimestamp]); // Only run once on mount essentially, unless timestamp changes externally
+    }, [timestamp, updateFromTimestamp]); // Only run once on mount essentially, unless timestamp changes externally
 
     const handleTsInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTimestampInput(e.target.value);
