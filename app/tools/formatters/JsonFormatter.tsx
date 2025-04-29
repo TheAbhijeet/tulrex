@@ -3,10 +3,9 @@
 import { useState } from 'react';
 import TextareaInput from '../../components/ui/TextareaInput';
 import Button from '../../components/ui/Button';
-// import { parseJson, JSONParseError } from 'json-parse-better-errors';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { dracula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { CopyButton } from '@/components/ui/CopyButton';
+import { dracula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 export default function JsonFormatter() {
     const [inputJson, setInputJson] = useState('');
@@ -21,7 +20,8 @@ export default function JsonFormatter() {
         }
         try {
             // const parsed = parseJson(inputJson);
-            const formatted = JSON.stringify(inputJson, null, 2);
+            const parsed = JSON.parse(inputJson);
+            const formatted = JSON.stringify(parsed, null, 2);
             setOutputJson(formatted);
             setError(null);
         } catch (err) {

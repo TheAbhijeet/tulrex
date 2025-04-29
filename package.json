@@ -8,9 +8,10 @@
         "start": "next start",
         "lint": "next lint",
         "format": "prettier --write .",
-        "test": "exec playwright test",
-        "test_ui": "exec playwright test --ui",
+        "test": "playwright test",
+        "test_ui": "playwright test --ui",
         "test:watch": "vitest --watch",
+        "extract-tools": "node scripts/extract-tools.mjs",
         "knip": "knip"
     },
     "dependencies": {
@@ -90,6 +91,8 @@
         "next-router-mock": "^0.9.13",
         "prettier": "^3.5.3",
         "tailwindcss": "^4.1.4",
+        "ts-node": "^10.9.2",
+        "tsx": "^4.19.3",
         "typescript": "^5.8.3",
         "typescript-eslint": "^8.30.1",
         "vite-tsconfig-paths": "^5.1.4",

@@ -4,6 +4,7 @@
         "lib": ["dom", "dom.iterable", "esnext"],
         "allowJs": true,
         "skipLibCheck": true,
+        // "types": ["node"],
         "strict": true,
         "noEmit": true,
         "esModuleInterop": true,
@@ -24,6 +25,12 @@
         },
         "typeRoots": [".app/types", ".node_modules/@types"]
     },
-    "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
+    "include": [
+        "next-env.d.ts",
+        ".next/types/**/*.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        "scripts/extract-tools..mts"
+    ],
     "exclude": ["node_modules"]
 }

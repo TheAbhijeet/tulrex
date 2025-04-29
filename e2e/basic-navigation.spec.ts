@@ -1,4 +1,5 @@
 import { test, expect, Page } from '@playwright/test';
+import toolsToTest from '../tool-list.json';
 
 // --- Helper function to check for console errors ---
 async function checkConsoleErrors(page: Page): Promise<string[]> {
@@ -14,17 +15,8 @@ async function checkConsoleErrors(page: Page): Promise<string[]> {
     return consoleErrors; // Return the array ref, which will be populated
 }
 
-// --- Define the tools to test ---
-const toolsToTest = [
-    { slug: 'json-formatter', title: /JSON Formatter & Validator/i },
-    { slug: 'base64-encode-decode', title: /Base64 Encode \/ Decode/i },
-    { slug: 'url-encoder-decoder', title: /URL Encoder \/ Decoder/i }, // Assuming slug/title
-    { slug: 'password-generator', title: /Password Generator/i }, // Assuming slug/title
-    { slug: 'uuid-generator', title: /UUID Generator/i }, // Assuming slug/title
-];
-
 test.describe('Tool Page Loading and Console Errors', () => {
-    for (const tool of toolsToTest) {
+    for (const tool of toolsToTest.slice(0, 5)) {
         test(`should load ${tool.slug} page without console errors`, async ({ page }) => {
             const consoleErrors = await checkConsoleErrors(page); // Setup listener
 
@@ -38,9 +30,8 @@ test.describe('Tool Page Loading and Console Errors', () => {
                 `/tools/${tool.slug}`
             );
 
-            // 3. Check Title (using regex for flexibility)
             await expect(page, `Page title should be correct for ${tool.slug}`).toHaveTitle(
-                tool.title
+                new RegExp(tool.title, 'i')
             );
 
             // 4. Check if the main heading is visible

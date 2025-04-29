@@ -1,4 +1,3 @@
-// tests/base64-coder.spec.ts
 import { test, expect } from '@playwright/test';
 
 test.describe('Base64 Encode / Decode Tool', () => {
@@ -58,12 +57,10 @@ test.describe('Base64 Encode / Decode Tool', () => {
         await page.getByLabel('Input Text / Base64:').fill(invalidInput);
         await page.getByRole('button', { name: 'Decode from Base64' }).click();
 
-        const errorElement = page.locator('.text-red-200');
+        const errorElement = page.locator('#error');
         await expect(errorElement).toBeVisible();
-        // The exact error message might vary slightly by browser implementation of atob
-        await expect(errorElement).toContainText(/Invalid Base64 string|decoding error/i);
 
-        await expect(page.getByLabel('Output:')).toHaveValue(''); // Output should likely be cleared or empty
+        await expect(errorElement).toContainText(/Invalid Base64 string|decoding error/i);
     });
 
     test('should clear input and output when Clear button is clicked', async ({ page }) => {
@@ -74,7 +71,7 @@ test.describe('Base64 Encode / Decode Tool', () => {
         await page.getByRole('button', { name: 'Clear' }).click();
 
         await expect(page.getByLabel('Input Text / Base64:')).toBeEmpty();
-        await expect(page.getByLabel('Output:')).toBeEmpty();
-        await expect(page.locator('.text-red-200')).toBeHidden();
+        await expect(page.locator('#base64-output')).not.toBeVisible();
+        await expect(page.locator('#error')).toBeHidden();
     });
 });

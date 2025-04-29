@@ -64,6 +64,14 @@ export default function Base64Coder() {
                 >
                     Input Text / Base64:
                 </label>
+                {error && (
+                    <div
+                        id="error"
+                        className="p-3 py-10 bg-red-900 border border-red-700 text-red-200 rounded-md text-sm"
+                    >
+                        {error}
+                    </div>
+                )}
                 <TextareaInput
                     id="base64-input"
                     value={inputText}
@@ -80,12 +88,6 @@ export default function Base64Coder() {
                     Clear
                 </Button>
             </div>
-
-            {error && (
-                <div className="p-3 bg-red-900 border border-red-700 text-red-200 rounded-md text-sm">
-                    {error}
-                </div>
-            )}
 
             {outputText && !error && (
                 <div>

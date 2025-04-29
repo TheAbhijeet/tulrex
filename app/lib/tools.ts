@@ -557,3 +557,5 @@ export const getCategoryNameBySlug = (categorySlug: string): string | undefined 
     const category = getAllCategories().find((cat) => cat.slug === categorySlug);
     return category?.name;
 };
+
+export const toolsList = tools.map(({ slug, title }) => ({ slug, title }));

@@ -1,0 +1,182 @@
+[
+    {
+        "slug": "json-formatter",
+        "title": "JSON Formatter & Validator"
+    },
+    {
+        "slug": "base64-encode-decode",
+        "title": "Base64 Encode / Decode"
+    },
+    {
+        "slug": "text-diff-viewer",
+        "title": "Text Diff Viewer"
+    },
+    {
+        "slug": "regex-tester",
+        "title": "Regex Tester"
+    },
+    {
+        "slug": "url-encoder-decoder",
+        "title": "URL Encoder / Decoder"
+    },
+    {
+        "slug": "password-generator",
+        "title": "Password Generator"
+    },
+    {
+        "slug": "random-number-generator",
+        "title": "Random Number Generator"
+    },
+    {
+        "slug": "age-calculator",
+        "title": "Age calculator"
+    },
+    {
+        "slug": "color-palette-generator",
+        "title": "Color palette generator"
+    },
+    {
+        "slug": "text-counter",
+        "title": "Text Counter"
+    },
+    {
+        "slug": "epoch-converter",
+        "title": "Epoch Converter"
+    },
+    {
+        "slug": "cron-parser",
+        "title": "Cron Parser"
+    },
+    {
+        "slug": "lorem-ipsum-generator",
+        "title": "Lorem Ipsum Generator"
+    },
+    {
+        "slug": "notepad",
+        "title": "Notepad"
+    },
+    {
+        "slug": "qr-code-generator",
+        "title": "QR Code Generator"
+    },
+    {
+        "slug": "csv-to-json-converter",
+        "title": "CSV to JSON Converter"
+    },
+    {
+        "slug": "image-compressor",
+        "title": "Image Compressor"
+    },
+    {
+        "slug": "text-to-speech-converter",
+        "title": "Text to Speech Converter"
+    },
+    {
+        "slug": "unit-converter",
+        "title": "Unit Converter"
+    },
+    {
+        "slug": "excel-to-json-converter",
+        "title": "Excel To Json Converter"
+    },
+    {
+        "slug": "emoji-picker",
+        "title": "Emoji Picker"
+    },
+    {
+        "slug": "color-shade-generator",
+        "title": "Color shade generator"
+    },
+    {
+        "slug": "html-minifier",
+        "title": "Html Minifier"
+    },
+    {
+        "slug": "json-to-csv-converter",
+        "title": "JSON to CSV"
+    },
+    {
+        "slug": "image-format-converter",
+        "title": "Image format converter"
+    },
+    {
+        "slug": "merge-pdfs",
+        "title": "Merge PDFs"
+    },
+    {
+        "slug": "reorder-pdf-pages",
+        "title": "Reoder pdf pages"
+    },
+    {
+        "slug": "css-minifier",
+        "title": "Css Minifier"
+    },
+    {
+        "slug": "typescript-formatter",
+        "title": "TypeScript Formatter"
+    },
+    {
+        "slug": "pdf-page-deleter",
+        "title": "PDF Page Deleter"
+    },
+    {
+        "slug": "pdf-anonymizer",
+        "title": "PDF Anonymizer (Metadata)"
+    },
+    {
+        "slug": "pdf-editor-basic",
+        "title": "PDF Editor (Basic Insert)"
+    },
+    {
+        "slug": "audio-player",
+        "title": "Audio Player"
+    },
+    {
+        "slug": "audio-recorder",
+        "title": "Audio Recorder"
+    },
+    {
+        "slug": "audio-cutter",
+        "title": "Audio Cutter (Basic)"
+    },
+    {
+        "slug": "audio-merger",
+        "title": "Audio Merger (Basic)"
+    },
+    {
+        "slug": "audio-speed-changer",
+        "title": "Audio Speed Changer"
+    },
+    {
+        "slug": "audio-metadata-viewer",
+        "title": "Audio Metadata Viewer"
+    },
+    {
+        "slug": "mic-tester",
+        "title": "Microphone Tester"
+    },
+    {
+        "slug": "spreadsheet-viewer",
+        "title": "Excel & CSV Viewer"
+    },
+    {
+        "slug": "excel-to-csv",
+        "title": "Excel to CSV / Sheet Extractor"
+    },
+    {
+        "slug": "csv-to-excel",
+        "title": "CSV to Excel Converter"
+    },
+    {
+        "slug": "json-to-spreadsheet",
+        "title": "JSON to Excel/CSV"
+    },
+    {
+        "slug": "json-generator",
+        "title": "Dummy JSON Generator"
+    },
+    {
+        "slug": "json-editor",
+        "title": "Interactive JSON Editor"
+    }
+]
