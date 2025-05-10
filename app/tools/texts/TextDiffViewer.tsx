@@ -1,19 +1,19 @@
 'use client';
 
 import { useState } from 'react';
-import * as Diff from 'diff';
 import TextareaInput from '../../components/ui/TextareaInput';
 import Button from '../../components/ui/Button';
+import { diffChars, Change as DiffChange } from 'diff';
 
 export default function TextDiffViewer() {
     const [textA, setTextA] = useState('');
     const [textB, setTextB] = useState('');
-    const [diffResult, setDiffResult] = useState<Diff.Change[] | null>(null);
+    const [diffResult, setDiffResult] = useState<DiffChange[] | null>(null);
 
     const handleCompare = () => {
         // Using diffChars for character-by-character comparison
         // Use Diff.diffLines for line-by-line comparison if preferred
-        const differences = Diff.diffChars(textA, textB);
+        const differences = diffChars(textA, textB);
         setDiffResult(differences);
     };
 
@@ -59,14 +59,16 @@ export default function TextDiffViewer() {
             </div>
 
             <div className="flex space-x-2">
-                <Button onClick={handleCompare}>Compare Texts</Button>
-                <Button onClick={handleClear} variant="secondary">
+                <Button id="compare" onClick={handleCompare}>
+                    Compare Texts
+                </Button>
+                <Button id="clear" onClick={handleClear} variant="secondary">
                     Clear
                 </Button>
             </div>
 
             {diffResult && (
-                <div>
+                <div id="output">
                     <p className="text-sm font-medium text-slate-300 mb-1">Differences:</p>
                     <pre className="p-3 bg-slate-900 border border-slate-700 rounded-md overflow-x-auto text-sm whitespace-pre-wrap break-words">
                         {diffResult.map((part, index) => {

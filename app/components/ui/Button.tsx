@@ -6,6 +6,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Button: React.FC<ButtonProps> = ({
+    id = '',
     className = '',
     variant = 'primary',
     size = 'sm',
@@ -20,7 +21,7 @@ const Button: React.FC<ButtonProps> = ({
     const variantStyle = variant === 'primary' ? primaryStyle : secondaryStyle;
 
     return (
-        <button className={`${baseStyle} ${variantStyle} ${className} ${size}`} {...props}>
+        <button id={id} className={`${baseStyle} ${variantStyle} ${className} ${size}`} {...props}>
             {children}
         </button>
     );

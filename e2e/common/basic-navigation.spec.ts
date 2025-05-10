@@ -1,5 +1,5 @@
 import { test, expect, Page } from '@playwright/test';
-import toolsToTest from '../tool-list.json';
+import toolsToTest from '../../tool-list.json';
 
 // --- Helper function to check for console errors ---
 async function checkConsoleErrors(page: Page): Promise<string[]> {
@@ -15,8 +15,12 @@ async function checkConsoleErrors(page: Page): Promise<string[]> {
     return consoleErrors; // Return the array ref, which will be populated
 }
 
+function escapeRegex(str: string) {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 test.describe('Tool Page Loading and Console Errors', () => {
-    for (const tool of toolsToTest.slice(0, 5)) {
+    for (const tool of toolsToTest) {
         test(`should load ${tool.slug} page without console errors`, async ({ page }) => {
             const consoleErrors = await checkConsoleErrors(page); // Setup listener
 
@@ -31,7 +35,7 @@ test.describe('Tool Page Loading and Console Errors', () => {
             );
 
             await expect(page, `Page title should be correct for ${tool.slug}`).toHaveTitle(
-                new RegExp(tool.title, 'i')
+                new RegExp(`.*${escapeRegex(tool.title)}.*`, 'i')
             );
 
             // 4. Check if the main heading is visible
