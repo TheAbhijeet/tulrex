@@ -1,4 +1,3 @@
-// src/app/tools/[slug]/page.tsx
 import { notFound } from 'next/navigation';
 import { Metadata, ResolvingMetadata } from 'next';
 import { getToolBySlug, tools } from '@/lib/tools';

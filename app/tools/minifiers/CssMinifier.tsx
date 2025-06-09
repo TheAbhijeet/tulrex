@@ -1,10 +1,14 @@
 'use client';
 import { useState, useCallback } from 'react';
-import * as csso from 'csso'; // Check browser compatibility
+import * as csso from 'csso';
 import TextareaInput from '@/components/ui/TextareaInput';
 import Button from '@/components/ui/Button';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import { FaCopy } from 'react-icons/fa';
+import CodeMirror from '@uiw/react-codemirror';
+import { css } from '@codemirror/lang-css';
+import { dracula } from '@uiw/codemirror-theme-dracula';
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/default-highlight';
 
 export default function CssMinifier() {
     const [cssInput, setCssInput] = useState('');
@@ -19,7 +23,6 @@ export default function CssMinifier() {
             return;
         }
         try {
-            // Using csso library
             const result = csso.minify(cssInput);
             setMinifiedOutput(result.css);
         } catch (err) {
@@ -42,14 +45,19 @@ export default function CssMinifier() {
                 >
                     CSS Input:
                 </label>
-                <TextareaInput
-                    id="css-minify-input"
+
+                <CodeMirror
                     value={cssInput}
-                    onChange={(e) => setCssInput(e.target.value)}
-                    placeholder="Paste CSS code here..."
-                    rows={15}
-                    className="font-mono text-xs"
+                    height="300px"
+                    id="css-minify-input"
+                    extensions={[css()]}
+                    onChange={(value) => setCssInput(value)}
+                    theme={dracula}
+                    basicSetup={{
+                        lineNumbers: true,
+                    }}
                 />
+
                 <Button onClick={handleMinify}>Minify CSS</Button>
                 {error && <p className="text-red-400 text-sm mt-2">{error}</p>}
             </div>
@@ -77,7 +85,7 @@ export default function CssMinifier() {
                     readOnly
                     rows={15}
                     placeholder="Minified CSS will appear here..."
-                    className="font-mono text-xs bg-slate-900 border-slate-700"
+                    className="font-mono text-sm bg-slate-900 border-slate-700"
                 />
                 {copyStatus === 'copied' && (
                     <p className="text-xs text-green-400 mt-1 text-right">Copied!</p>

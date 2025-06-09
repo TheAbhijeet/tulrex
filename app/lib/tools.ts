@@ -50,6 +50,7 @@ import JsonToSpreadsheet from '@/tools/converters/JsonToSpreadsheet';
 import JsonGenerator from '@/tools/generators/JsonGenerator';
 import JsonEditorTool from '@/tools/editor/JsonEditorTool';
 import ImageFormatConverter from '@/tools/images/ImageFormatConverter';
+import CssFormatter from '@/tools/formatters/CssFormatter';
 
 export interface Tool {
     slug: string;
@@ -79,6 +80,7 @@ const CATEGORIES = {
     AUDIO: 'Audio Tools',
     SPREADSHEET: 'Spreadsheet Tools',
     EDITOR: 'Editor Tools',
+    FORMATTERS: 'Formatters',
 };
 
 export const tools: Tool[] = [
@@ -528,6 +530,15 @@ export const tools: Tool[] = [
         component: JsonEditorTool,
         category: CATEGORIES.EDITOR,
     },
+    {
+        // <--- Add the new CSS Formatter tool
+        slug: 'css-formatter',
+        title: 'CSS Formatter',
+        description: 'Beautify and format CSS code with customizable options.',
+        icon: '🎨', // Or any other suitable emoji/icon
+        component: CssFormatter,
+        category: CATEGORIES.FORMATTERS,
+    },
 ];
 
 export const getToolBySlug = (slug: string): Tool | undefined => {
@@ -559,6 +570,5 @@ export const getCategoryNameBySlug = (categorySlug: string): string | undefined 
 };
 
 export const toolsList = tools.map(({ slug, title }) => ({ slug, title }));
-
 
 export const sortedTools = tools.sort((a, b) => a.title.localeCompare(b.title));

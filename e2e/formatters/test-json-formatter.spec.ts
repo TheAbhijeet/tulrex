@@ -1,9 +1,8 @@
 import { test, expect } from '@playwright/test';
 
 test.use({
-    permissions: ['clipboard-write']
-})
-
+    permissions: ['clipboard-write'],
+});
 
 test('Test JSON formatter with valid JSON', async ({ page }) => {
     await page.goto('/tools/json-formatter');
@@ -34,7 +33,6 @@ test('Test JSON formatter with valid JSON', async ({ page }) => {
     // Check if the clipboard contains the correct JSON string
     expect(clipboardText).toBe(formattedJson);
 
-
     // Clear input
     await page.click('#clear');
 
@@ -42,10 +40,7 @@ test('Test JSON formatter with valid JSON', async ({ page }) => {
     await expect(page.locator('#input')).toBeEmpty();
     await expect(page.locator('#output')).not.toBeVisible();
     await expect(page.locator('#error')).not.toBeVisible();
-
-}
-)
-
+});
 
 test('Test JSON formatter with invalid JSON', async ({ page }) => {
     await page.goto('/tools/json-formatter');
@@ -66,6 +61,3 @@ test('Test JSON formatter with invalid JSON', async ({ page }) => {
     const error = await page.locator('#error');
     await expect(error).toContainText(/Invalid JSON/i);
 });
-
-
-

@@ -67,14 +67,6 @@ export default function JsonFormatter() {
                     placeholder="Paste your JSON here..."
                     rows={10}
                 />
-                {/* <CodeEditor
-        initialValue={inputJson}
-        language="json"
-        onChange={(newValue) => setInputJson(newValue)}
-        placeholder="Paste your JSON here..."
-        aria-label="JSON editor"
-        id="json-input"
-      /> */}
             </div>
 
             <div className="flex space-x-2">
