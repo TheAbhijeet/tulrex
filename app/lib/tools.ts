@@ -204,7 +204,7 @@ export const tools: Tool[] = [
         component: QrCodeGenerator,
         category: CATEGORIES.GENERATORS,
     },
-   
+
     {
         slug: 'image-compressor',
         title: 'Image Compressor',

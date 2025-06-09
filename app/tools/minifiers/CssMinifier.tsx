@@ -8,7 +8,6 @@ import { FaCopy } from 'react-icons/fa';
 import CodeMirror from '@uiw/react-codemirror';
 import { css } from '@codemirror/lang-css';
 import { dracula } from '@uiw/codemirror-theme-dracula';
-import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/default-highlight';
 
 export default function CssMinifier() {
     const [cssInput, setCssInput] = useState('');

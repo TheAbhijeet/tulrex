@@ -5,7 +5,6 @@ import Button from '@/components/ui/Button';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import { FaCopy } from 'react-icons/fa';
 
-// VERY basic minification - might break complex HTML/scripts/styles
 const basicMinifyHtml = (html: string): string => {
     return html
         .replace(/<!--.*?-->/gs, '') // Remove comments
@@ -56,11 +55,8 @@ export default function HtmlMinifier() {
                     rows={15}
                     className="font-mono text-xs"
                 />
-                <Button onClick={handleMinify}>Minify HTML (Basic)</Button>
+                <Button onClick={handleMinify}>Minify HTML</Button>
                 {error && <p className="text-red-400 text-sm mt-2">{error}</p>}
-                <p className="text-xs text-slate-500">
-                    Note: Uses basic regex minification. May not be suitable for complex HTML.
-                </p>
             </div>
             <div className="space-y-3">
                 <div className="flex justify-between items-center">

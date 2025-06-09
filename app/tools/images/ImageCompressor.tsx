@@ -1,158 +1,429 @@
 'use client';
-import { useState, useCallback, useRef, useEffect } from 'react';
-import imageCompression from 'browser-image-compression';
+
+import { useState, useCallback, ChangeEvent, useRef } from 'react';
 import Button from '@/components/ui/Button';
+import Select from '@/components/ui/Select';
 import Input from '@/components/ui/Input';
 
-interface CompressionResult {
-    originalFile: File;
-    originalUrl: string;
-    originalSize: number;
-    compressedFile: File;
-    compressedUrl: string;
-    compressedSize: number;
+function formatBytes(bytes: number, decimals = 2) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const dm = decimals < 0 ? 0 : decimals;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+}
+
+interface ImageInfo {
+    name: string;
+    type: string;
+    size: number;
+    dataUrl: string;
+    width: number;
+    height: number;
+}
+
+interface CompressionOptions {
+    outputFormat: 'auto' | 'jpeg' | 'png' | 'webp';
+    quality: number; // 0 to 1
+    maxSizeMB: number;
+    maxWidthOrHeight: number;
+}
+
+const initialOptions: CompressionOptions = {
+    outputFormat: 'auto',
+    quality: 0.8,
+    maxSizeMB: 1,
+    maxWidthOrHeight: 1920,
+};
+
+interface CompressionLibOptions {
+    maxSizeMB: number;
+    maxWidthOrHeight: number;
+    useWebWorker: boolean;
+    initialQuality: number;
+    fileType?: string;
 }
 
 export default function ImageCompressor() {
-    const [options] = useState({ maxSizeMB: 1, maxWidthOrHeight: 1024 });
-    const [result, setResult] = useState<CompressionResult | null>(null);
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState('');
+    const [originalImage, setOriginalImage] = useState<ImageInfo | null>(null);
+    const [compressedImage, setCompressedImage] = useState<ImageInfo | null>(null);
+    const [options, setOptions] = useState<CompressionOptions>(initialOptions);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [error, setError] = useState<string | null>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
-    const handleCompression = useCallback(
-        async (file: File) => {
-            if (!file.type.startsWith('image/')) {
-                setError('Please select a valid image file (JPEG, PNG, WEBP, etc.).');
-                return;
-            }
-            setIsLoading(true);
-            setError('');
-            setResult(null);
-
-            console.log(`Compressing ${file.name} with options:`, options);
-
-            try {
-                const compressedFile = await imageCompression(file, options);
-                console.log(
-                    `Compressed ${file.name} from ${file.size / 1024 / 1024} MB to ${compressedFile.size / 1024 / 1024} MB`
-                );
-
-                setResult({
-                    originalFile: file,
-                    originalUrl: URL.createObjectURL(file),
-                    originalSize: file.size,
-                    compressedFile: compressedFile,
-                    compressedUrl: URL.createObjectURL(compressedFile),
-                    compressedSize: compressedFile.size,
-                });
-            } catch (err) {
-                if (err instanceof Error) {
-                    setError(`Compression failed: ${err.message}`);
-                } else {
-                    setError(`Compression failed with Error: ${err}`);
-                }
-            } finally {
-                setIsLoading(false);
-                // Reset file input to allow selecting the same file again
-                if (fileInputRef.current) {
-                    fileInputRef.current.value = '';
-                }
-            }
-        },
-        [options]
-    );
-
-    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFileChange = async (event: ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
         if (file) {
-            handleCompression(file);
+            if (!file.type.startsWith('image/')) {
+                setError('Please select an image file (JPEG, PNG, GIF, WEBP, etc.).');
+                setOriginalImage(null);
+                setCompressedImage(null);
+                return;
+            }
+            setError(null);
+            setCompressedImage(null); // Clear previous compressed image
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                    setOriginalImage({
+                        name: file.name,
+                        type: file.type,
+                        size: file.size,
+                        dataUrl: e.target?.result as string,
+                        width: img.width,
+                        height: img.height,
+                    });
+                };
+                img.src = e.target?.result as string;
+            };
+            reader.readAsDataURL(file);
         }
     };
 
-    const handleDownload = () => {
-        if (!result) return;
-        const link = document.createElement('a');
-        link.href = result.compressedUrl;
-        link.download = `compressed-${result.originalFile.name}`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+    const handleOptionChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        const { name, value, type } = e.target;
+        setOptions((prev) => ({
+            ...prev,
+            [name]:
+                type === 'checkbox'
+                    ? (e.target as HTMLInputElement).checked
+                    : type === 'number' ||
+                        name === 'quality' ||
+                        name === 'maxSizeMB' ||
+                        name === 'maxWidthOrHeight'
+                      ? parseFloat(value)
+                      : value,
+        }));
     };
 
-    // Clean up Object URLs on unmount or when result changes
-    useEffect(() => {
-        return () => {
-            if (result) {
-                URL.revokeObjectURL(result.originalUrl);
-                URL.revokeObjectURL(result.compressedUrl);
+    const getTargetFileType = (originalType: string): string | undefined => {
+        if (options.outputFormat === 'auto') {
+            // Prefer WebP if original is not PNG (to preserve transparency potential)
+            // Otherwise, keep original type or default to JPEG for wide compatibility if forced by other options.
+            return originalType === 'image/png' ? 'image/png' : 'image/webp';
+        }
+        if (options.outputFormat === 'jpeg') return 'image/jpeg';
+        if (options.outputFormat === 'png') return 'image/png';
+        if (options.outputFormat === 'webp') return 'image/webp';
+        return undefined; // Let library decide or keep original
+    };
+
+    const handleCompress = useCallback(async () => {
+        if (!originalImage) {
+            setError('Please select an image first.');
+            return;
+        }
+
+        setIsLoading(true);
+        setError(null);
+        setCompressedImage(null);
+
+        try {
+            const imageCompression = (await import('browser-image-compression')).default;
+
+            const file = await imageCompression.getFilefromDataUrl(
+                originalImage.dataUrl,
+                originalImage.name
+            );
+
+            const compressionLibOptions: CompressionLibOptions = {
+                maxSizeMB: options.maxSizeMB,
+                maxWidthOrHeight: options.maxWidthOrHeight,
+                useWebWorker: true,
+                initialQuality: options.quality,
+            };
+
+            const targetFileType = getTargetFileType(originalImage.type);
+            if (targetFileType) {
+                compressionLibOptions.fileType = targetFileType;
             }
-        };
-    }, [result]);
+            // The library might not change format if it cannot or if the current format is already optimal.
+            // E.g., asking for PNG from a JPEG might not increase quality but could increase size.
+
+            console.log('Compressing with options:', compressionLibOptions);
+            const compressedFile = await imageCompression(file, compressionLibOptions);
+            console.log('Compressed file:', compressedFile);
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                    setCompressedImage({
+                        name: compressedFile.name,
+                        type: compressedFile.type,
+                        size: compressedFile.size,
+                        dataUrl: e.target?.result as string,
+                        width: img.width,
+                        height: img.height,
+                    });
+                };
+                img.src = e.target?.result as string;
+            };
+            reader.readAsDataURL(compressedFile);
+        } catch (err) {
+            if (err instanceof Error) {
+                setError(`Compression failed: ${err.message || 'Unknown error'}`);
+            }
+            console.error('Compression error:', err);
+        } finally {
+            setIsLoading(false);
+        }
+    }, [originalImage, options]);
+
+    const handleClear = () => {
+        setOriginalImage(null);
+        setCompressedImage(null);
+        setError(null);
+        if (fileInputRef.current) {
+            fileInputRef.current.value = ''; // Reset file input
+        }
+    };
+
+    const qualityEnabled =
+        options.outputFormat === 'jpeg' ||
+        options.outputFormat === 'webp' ||
+        options.outputFormat === 'auto';
 
     return (
-        <div className="space-y-5">
-            <div className="p-4 border border-dashed border-slate-600 rounded-md text-center bg-slate-800">
+        <div className="space-y-6">
+            {/* File Input */}
+            <div>
                 <label
-                    htmlFor="image-upload"
-                    className="block text-sm font-medium text-slate-300 mb-2"
+                    htmlFor="image-input"
+                    className="block text-sm font-medium text-slate-300 mb-1"
                 >
-                    Select Image to Compress:
+                    Select Image:
                 </label>
                 <Input
-                    ref={fileInputRef}
-                    id="image-upload"
                     type="file"
+                    id="image-input"
+                    ref={fileInputRef}
                     accept="image/*"
                     onChange={handleFileChange}
-                    className="mx-auto block w-full max-w-sm text-sm file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-cyan-600 file:text-white hover:file:bg-cyan-700 disabled:opacity-50"
-                    disabled={isLoading}
+                    className="file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-cyan-600 file:text-white hover:file:bg-cyan-700 cursor-pointer"
                 />
-                <p className="text-xs text-slate-400 mt-2">
-                    Max Size: {options.maxSizeMB} MB | Max Dimension: {options.maxWidthOrHeight} px
-                </p>
-                {/* Optional: Add inputs to change options */}
-                {/* <div className="flex justify-center gap-4 mt-3"> ... inputs for options ... </div> */}
             </div>
 
-            {isLoading && <p className="text-center text-cyan-400 animate-pulse">Compressing...</p>}
-            {error && <p className="text-center text-red-400">{error}</p>}
-
-            {result && (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
-                    <div className="text-center space-y-2">
-                        <h4 className="font-semibold text-slate-200">Original</h4>
-                        <img
-                            src={result.originalUrl}
-                            alt="Original"
-                            className="max-w-full h-auto max-h-64 mx-auto rounded border border-slate-700"
-                        />
-                        <p className="text-sm text-slate-400">
-                            {(result.originalSize / 1024 / 1024).toFixed(2)} MB
-                        </p>
+            {/* Options Section */}
+            <details className="p-4 border border-slate-700 rounded-md bg-slate-800/50 group" open>
+                <summary className="text-sm font-medium text-slate-300 cursor-pointer list-none flex justify-between items-center">
+                    Compression Options
+                    <span className="text-cyan-400 group-open:rotate-180 transition-transform duration-200">
+                        ▼
+                    </span>
+                </summary>
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div>
+                        <label
+                            htmlFor="outputFormat"
+                            className="block text-xs font-medium text-slate-400 mb-1"
+                        >
+                            Output Format:
+                        </label>
+                        <Select
+                            id="outputFormat"
+                            name="outputFormat"
+                            value={options.outputFormat}
+                            onChange={handleOptionChange}
+                            className="w-full text-sm"
+                        >
+                            <option value="auto">Auto (Recommended)</option>
+                            <option value="jpeg">JPEG</option>
+                            <option value="png">PNG</option>
+                            <option value="webp">WEBP</option>
+                        </Select>
                     </div>
-                    <div className="text-center space-y-2">
-                        <h4 className="font-semibold text-slate-200">Compressed</h4>
-                        <img
-                            src={result.compressedUrl}
-                            alt="Compressed"
-                            className="max-w-full h-auto max-h-64 mx-auto rounded border border-slate-700"
+                    <div>
+                        <label
+                            htmlFor="quality"
+                            className={`block text-xs font-medium mb-1 ${qualityEnabled ? 'text-slate-400' : 'text-slate-500'}`}
+                        >
+                            Quality ({options.quality.toFixed(2)}):
+                        </label>
+                        <Input
+                            type="range"
+                            id="quality"
+                            name="quality"
+                            min="0.1"
+                            max="1"
+                            step="0.05"
+                            value={options.quality}
+                            onChange={handleOptionChange}
+                            disabled={!qualityEnabled}
+                            className={`w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer accent-cyan-500 ${!qualityEnabled ? 'opacity-50' : ''}`}
+                            aria-label="Compression quality"
                         />
-                        <p className="text-sm text-slate-400">
-                            {(result.compressedSize / 1024 / 1024).toFixed(2)} MB
-                            <span className="text-green-400 ml-2">
-                                (
-                                {((1 - result.compressedSize / result.originalSize) * 100).toFixed(
-                                    1
-                                )}
-                                % smaller)
-                            </span>
-                        </p>
-                        <Button onClick={handleDownload} size="sm">
-                            Download Compressed
-                        </Button>
+                        {!qualityEnabled && (
+                            <p className="text-xs text-slate-500 mt-1">
+                                Quality setting mainly affects JPEG/WEBP.
+                            </p>
+                        )}
+                    </div>
+                    <div>
+                        <label
+                            htmlFor="maxSizeMB"
+                            className="block text-xs font-medium text-slate-400 mb-1"
+                        >
+                            Max Size (MB):
+                        </label>
+                        <Input
+                            type="number"
+                            id="maxSizeMB"
+                            name="maxSizeMB"
+                            value={options.maxSizeMB}
+                            onChange={handleOptionChange}
+                            min="0.1"
+                            step="0.1"
+                            className="w-full text-sm"
+                        />
+                    </div>
+                    <div>
+                        <label
+                            htmlFor="maxWidthOrHeight"
+                            className="block text-xs font-medium text-slate-400 mb-1"
+                        >
+                            Max Width/Height (px):
+                        </label>
+                        <Input
+                            type="number"
+                            id="maxWidthOrHeight"
+                            name="maxWidthOrHeight"
+                            value={options.maxWidthOrHeight}
+                            onChange={handleOptionChange}
+                            min="100"
+                            step="10"
+                            className="w-full text-sm"
+                        />
                     </div>
                 </div>
+            </details>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap gap-2">
+                <Button onClick={handleCompress} disabled={!originalImage || isLoading}>
+                    {isLoading ? 'Compressing...' : 'Compress Image'}
+                </Button>
+                <Button onClick={handleClear} variant="secondary" disabled={isLoading}>
+                    Clear All
+                </Button>
+            </div>
+
+            {error && (
+                <div
+                    className="p-3 bg-red-900 border border-red-700 text-red-200 rounded-md text-sm"
+                    role="alert"
+                >
+                    {error}
+                </div>
+            )}
+
+            {/* Image Previews */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                {/* Original Image */}
+                {originalImage && (
+                    <div className="p-4 border border-slate-700 rounded-md bg-slate-800/50">
+                        <h3 className="text-lg font-semibold text-slate-200 mb-2">
+                            Original Image
+                        </h3>
+                        <img
+                            src={originalImage.dataUrl}
+                            alt="Original"
+                            className="max-w-full h-auto rounded-md border border-slate-600 mb-2 max-h-96 object-contain"
+                        />
+                        <p className="text-sm text-slate-400">
+                            Name:{' '}
+                            <span
+                                className="text-slate-300 truncate inline-block max-w-[200px] align-bottom"
+                                title={originalImage.name}
+                            >
+                                {originalImage.name}
+                            </span>
+                        </p>
+                        <p className="text-sm text-slate-400">
+                            Size:{' '}
+                            <span className="text-slate-300">
+                                {formatBytes(originalImage.size)}
+                            </span>
+                        </p>
+                        <p className="text-sm text-slate-400">
+                            Dimensions:{' '}
+                            <span className="text-slate-300">
+                                {originalImage.width} x {originalImage.height}
+                            </span>
+                        </p>
+                        <p className="text-sm text-slate-400">
+                            Type: <span className="text-slate-300">{originalImage.type}</span>
+                        </p>
+                    </div>
+                )}
+
+                {/* Compressed Image */}
+                {compressedImage && (
+                    <div className="p-4 border border-slate-700 rounded-md bg-slate-800/50">
+                        <h3 className="text-lg font-semibold text-slate-200 mb-2">
+                            Compressed Image
+                        </h3>
+                        <img
+                            src={compressedImage.dataUrl}
+                            alt="Compressed"
+                            className="max-w-full h-auto rounded-md border border-slate-600 mb-2 max-h-96 object-contain"
+                        />
+                        <p className="text-sm text-slate-400">
+                            Name:{' '}
+                            <span
+                                className="text-slate-300 truncate inline-block max-w-[200px] align-bottom"
+                                title={compressedImage.name}
+                            >
+                                {compressedImage.name}
+                            </span>
+                        </p>
+                        <p className="text-sm text-slate-400">
+                            Size:{' '}
+                            <span className="text-slate-300">
+                                {formatBytes(compressedImage.size)}
+                            </span>
+                        </p>
+                        <p className="text-sm text-slate-400">
+                            Dimensions:{' '}
+                            <span className="text-slate-300">
+                                {compressedImage.width} x {compressedImage.height}
+                            </span>
+                        </p>
+                        <p className="text-sm text-slate-400">
+                            Type: <span className="text-slate-300">{compressedImage.type}</span>
+                        </p>
+                        {originalImage && (
+                            <p className="text-sm text-green-400">
+                                Reduction: {formatBytes(originalImage.size - compressedImage.size)}{' '}
+                                (
+                                {((1 - compressedImage.size / originalImage.size) * 100).toFixed(1)}
+                                %)
+                            </p>
+                        )}
+                        <Button
+                            onClick={() => {
+                                const a = document.createElement('a');
+                                a.href = compressedImage.dataUrl;
+                                a.download = `compressed_${originalImage?.name.split('.')[0] || 'image'}.${compressedImage.type.split('/')[1] || 'bin'}`;
+                                document.body.appendChild(a);
+                                a.click();
+                                document.body.removeChild(a);
+                            }}
+                            className="mt-3 w-full"
+                        >
+                            Download Compressed Image
+                        </Button>
+                    </div>
+                )}
+            </div>
+            {!originalImage && !isLoading && (
+                <p className="text-center text-slate-500 py-8">
+                    Select an image to begin compression.
+                </p>
             )}
         </div>
     );
