@@ -204,14 +204,7 @@ export const tools: Tool[] = [
         component: QrCodeGenerator,
         category: CATEGORIES.GENERATORS,
     },
-    {
-        slug: 'csv-to-json-converter',
-        title: 'CSV to JSON Converter',
-        description: 'CSV to JSON Converter.',
-        icon: '🔒',
-        component: CsvToJsonConverter,
-        category: CATEGORIES.CONVERTERS,
-    },
+   
     {
         slug: 'image-compressor',
         title: 'Image Compressor',
