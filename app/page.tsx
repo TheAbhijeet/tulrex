@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { tools } from './lib/tools';
+import { sortedTools as tools } from './lib/tools';
 import { slugify } from './lib/utils';
 
 // Static Metadata for the Home page

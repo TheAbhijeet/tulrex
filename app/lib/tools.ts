@@ -398,7 +398,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'audio-cutter',
-        title: 'Audio Cutter (Basic)',
+        title: 'Audio Cutter ',
         description: 'Trim the start/end of audio files (outputs WAV).',
         icon: '✂️🎵',
         category: CATEGORIES.AUDIO,
@@ -406,7 +406,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'audio-merger',
-        title: 'Audio Merger (Basic)',
+        title: 'Audio Merger ',
         description: 'Concatenate multiple audio files sequentially (outputs WAV).',
         icon: '➕🎵',
         category: CATEGORIES.AUDIO,
@@ -559,3 +559,6 @@ export const getCategoryNameBySlug = (categorySlug: string): string | undefined 
 };
 
 export const toolsList = tools.map(({ slug, title }) => ({ slug, title }));
+
+
+export const sortedTools = tools.sort((a, b) => a.title.localeCompare(b.title));
