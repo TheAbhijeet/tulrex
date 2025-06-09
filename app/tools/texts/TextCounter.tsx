@@ -1,4 +1,3 @@
-// src/components/tools/TextCounter.tsx
 'use client';
 import { useState, useMemo } from 'react';
 import TextareaInput from '@/components/ui/TextareaInput';

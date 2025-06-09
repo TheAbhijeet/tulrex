@@ -15,7 +15,7 @@ export const CopyButton = ({ text }: CopyButtonProps) => {
     };
 
     return (
-        <Button onClick={handleCopy} variant="secondary">
+        <Button id="copy" onClick={handleCopy} variant="secondary">
             {copied ? 'Copied!' : 'Copy'}
         </Button>
     );

@@ -34,6 +34,7 @@
         "exif-js": "^2.3.0",
         "file-saver": "^2.0.5",
         "html-to-jsx": "^0.0.4",
+        "image-conversion": "^2.1.1",
         "js-minify": "^0.1.9",
         "json-edit-react": "^1.26.0",
         "json-parse-better-errors": "^1.0.2",

@@ -26,7 +26,6 @@ import HtmlMinifier from '@/tools/minifiers/HtmlMinifier';
 // import ImageToPdfConverter from '@/tools/ImageToPdfConverter';
 // import PdfToImagesConverter from '@/tools/PdfToImagesConverter';
 import JsonToCsvConverter from '@/tools/converters/JsonToCsvConverter';
-import ImageFormatConverter from '@/tools/images/ImageFormatConverter';
 import MergePdfs from '@/tools/pdfs/MergePdfs';
 import ReorderPdfPages from '@/tools/pdfs/ReorderPdfPages';
 // import JavascriptMinifier from '@/tools/minifiers/JavascriptMinifier';
@@ -50,6 +49,7 @@ import ExcelToCsvConverter from '@/tools/converters/ExcelToCsvConverter';
 import JsonToSpreadsheet from '@/tools/converters/JsonToSpreadsheet';
 import JsonGenerator from '@/tools/generators/JsonGenerator';
 import JsonEditorTool from '@/tools/editor/JsonEditorTool';
+import ImageFormatConverter from '@/tools/images/ImageFormatConverter';
 
 export interface Tool {
     slug: string;

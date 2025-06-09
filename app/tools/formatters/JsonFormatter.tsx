@@ -53,12 +53,15 @@ export default function JsonFormatter() {
                     Input JSON:
                 </label>
                 {error && (
-                    <div className="p-3 my-5 bg-red-900 border border-red-700 text-red-200 rounded-md text-sm">
+                    <div
+                        id="error"
+                        className="p-3 my-5 bg-red-900 border border-red-700 text-red-200 rounded-md text-sm"
+                    >
                         {error}
                     </div>
                 )}
                 <TextareaInput
-                    id="json-input"
+                    id="input"
                     value={inputJson}
                     onChange={(e) => setInputJson(e.target.value)}
                     placeholder="Paste your JSON here..."
@@ -75,8 +78,10 @@ export default function JsonFormatter() {
             </div>
 
             <div className="flex space-x-2">
-                <Button onClick={handleFormat}>Format & Validate</Button>
-                <Button onClick={handleClear} variant="secondary">
+                <Button id="format" onClick={handleFormat}>
+                    Format & Validate
+                </Button>
+                <Button id="clear" onClick={handleClear} variant="secondary">
                     Clear
                 </Button>
             </div>
@@ -87,7 +92,7 @@ export default function JsonFormatter() {
                         <h2 className="text-lg font-bold text-slate-300 mb-1">Formatted JSON:</h2>
                         <CopyButton text={outputJson} />
                     </div>
-                    <SyntaxHighlighter language="json" style={dracula}>
+                    <SyntaxHighlighter id="output" language="json" style={dracula}>
                         {outputJson}
                     </SyntaxHighlighter>
                 </div>
