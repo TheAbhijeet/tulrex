@@ -51,6 +51,7 @@ import JsonGenerator from '@/tools/generators/JsonGenerator';
 import JsonEditorTool from '@/tools/editor/JsonEditorTool';
 import ImageFormatConverter from '@/tools/images/ImageFormatConverter';
 import CssFormatter from '@/tools/formatters/CssFormatter';
+import JavascriptFormatter from '@/tools/formatters/JavascriptFormatter';
 
 export interface Tool {
     slug: string;
@@ -529,6 +530,14 @@ export const tools: Tool[] = [
         description: 'Beautify and format CSS code with customizable options.',
         icon: '🎨', // Or any other suitable emoji/icon
         component: CssFormatter,
+        category: CATEGORIES.FORMATTERS,
+    },
+    {
+        slug: 'javascript-formatter',
+        title: 'Javascript Formatter',
+        description: 'Beautify and format Javascript code with customizable options.',
+        icon: '🎨', // Or any other suitable emoji/icon
+        component: JavascriptFormatter,
         category: CATEGORIES.FORMATTERS,
     },
 ];
