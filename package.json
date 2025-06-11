@@ -16,6 +16,7 @@
     },
     "dependencies": {
         "@codemirror/lang-css": "^6.3.1",
+        "@codemirror/lang-javascript": "github:codemirror/lang-javascript",
         "@tailwindcss/typography": "^0.5.16",
         "@tailwindcss/vite": "^4.1.4",
         "@types/convert-units": "^2.3.11",
@@ -61,6 +62,7 @@
         "react-qr-code": "^2.0.15",
         "react-simple-code-editor": "^0.14.1",
         "react-syntax-highlighter": "^15.6.1",
+        "terser": "^5.42.0",
         "tinycolor2": "^1.6.0",
         "xlsx": "^0.18.5"
     },

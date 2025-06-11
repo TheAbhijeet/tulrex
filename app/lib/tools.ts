@@ -28,7 +28,7 @@ import HtmlMinifier from '@/tools/minifiers/HtmlMinifier';
 import JsonToCsvConverter from '@/tools/converters/JsonToCsvConverter';
 import MergePdfs from '@/tools/pdfs/MergePdfs';
 import ReorderPdfPages from '@/tools/pdfs/ReorderPdfPages';
-// import JavascriptMinifier from '@/tools/minifiers/JavascriptMinifier';
+import JavascriptMinifier from '@/tools/minifiers/JavascriptMinifier';
 import CssMinifier from '@/tools/minifiers/CssMinifier';
 import CodeFormatterTs from '@/tools/formatters/CodeFormatterTs';
 import { slugify } from './utils';
@@ -318,14 +318,14 @@ export const tools: Tool[] = [
         component: ReorderPdfPages,
         category: CATEGORIES.PDF,
     },
-    // {
-    //   slug: 'javascript-minifier',
-    //   title: 'JavaScript Minifier',
-    //   description: 'JavaScript Minifier',
-    //   icon: '🔒',
-    //   component: JavascriptMinifier,
-    //   category: CATEGORIES.MINIFIERS,
-    // },
+    {
+        slug: 'javascript-minifier',
+        title: 'JavaScript Minifier',
+        description: 'JavaScript Minifier',
+        icon: '🔒',
+        component: JavascriptMinifier,
+        category: CATEGORIES.MINIFIERS,
+    },
     {
         slug: 'css-minifier',
         title: 'Css Minifier',
@@ -524,7 +524,6 @@ export const tools: Tool[] = [
         category: CATEGORIES.EDITOR,
     },
     {
-        // <--- Add the new CSS Formatter tool
         slug: 'css-formatter',
         title: 'CSS Formatter',
         description: 'Beautify and format CSS code with customizable options.',
