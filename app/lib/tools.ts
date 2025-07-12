@@ -52,6 +52,7 @@ import JsonEditorTool from '@/tools/editor/JsonEditorTool';
 import ImageFormatConverter from '@/tools/images/ImageFormatConverter';
 import CssFormatter from '@/tools/formatters/CssFormatter';
 import JavascriptFormatter from '@/tools/formatters/JavascriptFormatter';
+import ImageBackgroundRemover from '@/tools/images/ImageBackgroundRemover';
 
 export interface Tool {
     slug: string;
@@ -539,6 +540,14 @@ export const tools: Tool[] = [
         icon: '🎨', // Or any other suitable emoji/icon
         component: JavascriptFormatter,
         category: CATEGORIES.FORMATTERS,
+    },
+     {
+        slug: 'image-background-remover',
+        title: 'Image Background Remover',
+        description: 'Remove background from images.',
+        icon: '🎨', // Or any other suitable emoji/icon
+        component: ImageBackgroundRemover,
+        category: CATEGORIES.IMAGE,
     },
 ];
 
