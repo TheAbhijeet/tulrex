@@ -1,56 +1,37 @@
 {
-  "compilerOptions": {
-    "target": "ES2018",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    // "types": ["node"],
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "app/*"
-      ]
+    "compilerOptions": {
+        "target": "ES2018",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        // "types": ["node"],
+        "strict": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "preserve",
+        "incremental": true,
+        "plugins": [
+            {
+                "name": "next"
+            }
+        ],
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["app/*"]
+        },
+        "typeRoots": [".app/types", ".node_modules/@types"]
     },
-    "typeRoots": [
-      ".app/types",
-      ".node_modules/@types"
-    ]
-  },
-  // "include": [
-  //     "next-env.d.ts",
-  //     ".next/types/**/*.ts",
-  //     "**/*.ts",
-  //     "**/*.tsx",
-  //     "scripts/extract-tools..mts"
-  // ],
-  "exclude": [
-    "node_modules",
-    ".next",
-    "dist",
-    ".swc"
-  ],
-  "include": [
-    "next-env.d.ts",
-    ".next/types/**/*.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+    // "include": [
+    //     "next-env.d.ts",
+    //     ".next/types/**/*.ts",
+    //     "**/*.ts",
+    //     "**/*.tsx",
+    //     "scripts/extract-tools..mts"
+    // ],
+    "exclude": ["node_modules", ".next", "dist", ".swc"],
+    "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"]
 }

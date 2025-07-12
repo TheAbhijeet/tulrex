@@ -541,7 +541,7 @@ export const tools: Tool[] = [
         component: JavascriptFormatter,
         category: CATEGORIES.FORMATTERS,
     },
-     {
+    {
         slug: 'image-background-remover',
         title: 'Image Background Remover',
         description: 'Remove background from images.',
