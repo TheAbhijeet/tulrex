@@ -5,7 +5,7 @@ import { slugify } from './lib/utils';
 
 // Static Metadata for the Home page
 export const metadata: Metadata = {
-    title: 'Toolzen - Simple Client-Side Developer Tools', // Overrides default title
+    title: 'Tulrex - Simple Client-Side Developer Tools', // Overrides default title
     description:
         'A collection of fast, free, client-side only tools for developers and content creators. JSON, Base64, Regex, URL Encode/Decode, and more.',
 };
@@ -61,7 +61,7 @@ export default function HomePage() {
     return (
         <div>
             <h1 className="text-3xl font-bold mb-2 text-center text-slate-100">
-                Welcome to Toolzen
+                Welcome to Tulrex
             </h1>
             <p className="text-center text-slate-400 mb-8">
                 Your collection of simple, fast, client-side utilities.

@@ -16,7 +16,7 @@ Type your **Markdown** text on the left, and see the *HTML preview* on the right
 function greet(name) {
   console.log(\`Hello, \${name}!\`);
 }
-greet('Toolzen User');
+greet('Tulrex User');
 \`\`\`
 `);
     const [htmlOutput, setHtmlOutput] = useState('');

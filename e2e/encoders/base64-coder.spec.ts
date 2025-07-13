@@ -7,7 +7,7 @@ test.describe('Base64 Encode / Decode Tool', () => {
     });
 
     test('should encode plain text to Base64 correctly', async ({ page }) => {
-        const inputText = 'Hello Toolzen!';
+        const inputText = 'Hello Tulrex!';
         const expectedOutput = 'SGVsbG8gVG9vbHplbiE='; // Standard Base64 for the input
 
         await page.getByLabel('Input Text / Base64:').fill(inputText);
@@ -31,7 +31,7 @@ test.describe('Base64 Encode / Decode Tool', () => {
 
     test('should decode valid Base64 to plain text correctly', async ({ page }) => {
         const inputText = 'SGVsbG8gVG9vbHplbiE=';
-        const expectedOutput = 'Hello Toolzen!';
+        const expectedOutput = 'Hello Tulrex!';
 
         await page.getByLabel('Input Text / Base64:').fill(inputText);
         await page.getByRole('button', { name: 'Decode from Base64' }).click();

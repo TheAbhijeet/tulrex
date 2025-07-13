@@ -2,19 +2,19 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: 'About Toolzen',
-    description: 'Learn about the Toolzen project, its purpose, and open-source nature.',
+    title: 'About Tulrex',
+    description: 'Learn about the Tulrex project, its purpose, and open-source nature.',
 };
 
 export default function AboutPage() {
-    const repoUrl = 'https://github.com/your-username/toolzen'; // <-- CHANGE THIS
+    const repoUrl = 'https://github.com/your-username/Tulrex'; // <-- CHANGE THIS
 
     return (
         <div>
-            <h1 className="text-3xl font-bold mb-4 text-slate-100">About Toolzen</h1>
+            <h1 className="text-3xl font-bold mb-4 text-slate-100">About Tulrex</h1>
             <div className="space-y-4 text-slate-300">
                 <p>
-                    Toolzen is a collection of simple, free, client-side web tools designed for
+                    Tulrex is a collection of simple, free, client-side web tools designed for
                     developers, content creators, and anyone who needs quick utilities without
                     server interaction or tracking.
                 </p>
@@ -54,7 +54,7 @@ export default function AboutPage() {
                         rel="noopener noreferrer"
                         className="text-cyan-400 hover:text-cyan-300 hover:underline font-semibold"
                     >
-                        Toolzen on GitHub
+                        Tulrex on GitHub
                     </Link>
                 </p>
             </div>

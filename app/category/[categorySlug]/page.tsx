@@ -48,11 +48,11 @@ export async function generateMetadata(
     const categoryName = getCategoryNameBySlug(resolvedPramas.categorySlug);
 
     if (!categoryName) {
-        return { title: 'Category Not Found | Toolzen' };
+        return { title: 'Category Not Found | Tulrex' };
     }
 
-    const title = `${categoryName} Tools | Toolzen`;
-    const description = `Collection of ${categoryName.toLowerCase()} tools available on Toolzen. Fast, free, client-side utilities.`;
+    const title = `${categoryName} Tools | Tulrex`;
+    const description = `Collection of ${categoryName.toLowerCase()} tools available on Tulrex. Fast, free, client-side utilities.`;
     const previousImages = (await parent).openGraph?.images || []; // Inherit OG image
 
     return {

@@ -9,7 +9,7 @@ test('Test JSON formatter with valid JSON', async ({ page }) => {
     await expect(page.getByRole('heading', { name: /JSON Formatter/i })).toBeVisible();
 
     // Given valid JSON
-    const validJson = '{"name": "Toolzen", "version": 1, "active": true}';
+    const validJson = '{"name": "Tulrex", "version": 1, "active": true}';
 
     // When Format & Validate button is clicked
     await page.locator('#input').fill(validJson);
@@ -47,7 +47,7 @@ test('Test JSON formatter with invalid JSON', async ({ page }) => {
     await expect(page.getByRole('heading', { name: /JSON Formatter/i })).toBeVisible();
 
     // Given invalid JSON
-    const invalidJson = '{"name": "Toolzen", version: 1}';
+    const invalidJson = '{"name": "Tulrex", version: 1}';
 
     // When Format & Validate button is clicked
     await page.locator('#input').fill(invalidJson);

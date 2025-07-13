@@ -54,8 +54,8 @@ test.describe('Tool Page Loading and Console Errors', () => {
         const response = await page.goto('/');
         expect(response?.ok()).toBe(true);
         await expect(page).toHaveURL('/');
-        await expect(page).toHaveTitle(/Toolzen - Simple Client-Side Developer Tools/i);
-        await expect(page.getByRole('heading', { name: /Welcome to Toolzen/i })).toBeVisible();
+        await expect(page).toHaveTitle(/Tulrex - Simple Client-Side Developer Tools/i);
+        await expect(page.getByRole('heading', { name: /Welcome to Tulrex/i })).toBeVisible();
         expect(consoleErrors).toEqual([]);
     });
 
@@ -64,8 +64,8 @@ test.describe('Tool Page Loading and Console Errors', () => {
         const response = await page.goto('/about');
         expect(response?.ok()).toBe(true);
         await expect(page).toHaveURL('/about');
-        await expect(page).toHaveTitle(/About Toolzen/i);
-        await expect(page.getByRole('heading', { name: /About Toolzen/i })).toBeVisible();
+        await expect(page).toHaveTitle(/About Tulrex/i);
+        await expect(page.getByRole('heading', { name: /About Tulrex/i })).toBeVisible();
         expect(consoleErrors).toEqual([]);
     });
 });

@@ -5,10 +5,10 @@ import { useLocalStorage } from '@/hooks/useLocalStorage';
 import Button from '@/components/ui/Button';
 
 export default function Notepad() {
-    const [note, setNote] = useLocalStorage<string>('toolzen-notepad', '');
+    const [note, setNote] = useLocalStorage<string>('Tulrex-notepad', '');
     const [lastSaved, setLastSaved] = useState<Date | null>(() => {
         if (typeof window !== 'undefined') {
-            const savedTime = localStorage.getItem('toolzen-notepad-savedtime');
+            const savedTime = localStorage.getItem('Tulrex-notepad-savedtime');
             return savedTime ? new Date(savedTime) : null;
         }
         return null;
@@ -19,10 +19,10 @@ export default function Notepad() {
     // Or just show a static "Auto-saved" message
     useEffect(() => {
         const handler = setTimeout(() => {
-            if (note !== localStorage.getItem('toolzen-notepad')) {
+            if (note !== localStorage.getItem('Tulrex-notepad')) {
                 // Check if actually changed
                 const now = new Date();
-                localStorage.setItem('toolzen-notepad-savedtime', now.toISOString());
+                localStorage.setItem('Tulrex-notepad-savedtime', now.toISOString());
                 setLastSaved(now);
             }
         }, 1000); // Update timestamp 1s after typing stops
@@ -32,7 +32,7 @@ export default function Notepad() {
     const handleClear = () => {
         if (confirm('Are you sure you want to clear the notepad? This cannot be undone.')) {
             setNote('');
-            localStorage.removeItem('toolzen-notepad-savedtime');
+            localStorage.removeItem('Tulrex-notepad-savedtime');
             setLastSaved(null);
         }
     };

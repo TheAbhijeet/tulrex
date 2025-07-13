@@ -10,7 +10,7 @@ export default function Header() {
                     href="/"
                     className="text-xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors flex-shrink-0" // Prevent shrinking
                 >
-                    Toolzen
+                    Tulrex
                 </Link>
 
                 {/* Right Side: Search Bar */}
