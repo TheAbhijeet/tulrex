@@ -47,6 +47,9 @@ import ImageFormatConverter from '@/tools/images/ImageFormatConverter';
 import CssFormatter from '@/tools/formatters/CssFormatter';
 import JavascriptFormatter from '@/tools/formatters/JavascriptFormatter';
 import ImageBackgroundRemover from '@/tools/images/ImageBackgroundRemover';
+import UuidGenerator from '@/tools/generators/UuidGenerator';
+import ImageToPdfConverter from '@/tools/images/ImageToPdfConverter';
+import TextCaseConverter from '@/tools/texts/TextCaseConverter';
 
 export interface Tool {
     slug: string;
@@ -494,6 +497,30 @@ export const tools: Tool[] = [
         icon: '🎨', // Or any other suitable emoji/icon
         component: ImageBackgroundRemover,
         category: CATEGORIES.IMAGE,
+    },
+    {
+        slug: 'uuid-generator',
+        title: 'UUID Generator',
+        description: 'Generate UUIDs.',
+        icon: '🎨', // Or any other suitable emoji/icon
+        component: UuidGenerator,
+        category: CATEGORIES.GENERATORS,
+    },
+    {
+        slug: 'image-to-pdf',
+        title: 'Image to PDF converter',
+        description: 'Image to PDF converter.',
+        icon: '🎨', // Or any other suitable emoji/icon
+        component: ImageToPdfConverter,
+        category: CATEGORIES.CONVERTERS,
+    },
+    {
+        slug: 'text-case-converter',
+        title: 'Text Case Converter',
+        description: 'Text Case Converter.',
+        icon: '🎨', // Or any other suitable emoji/icon
+        component: TextCaseConverter,
+        category: CATEGORIES.CONVERTERS,
     },
 ];
 
