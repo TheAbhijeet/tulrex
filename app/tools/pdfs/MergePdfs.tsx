@@ -1,4 +1,3 @@
-// src/components/tools/MergePdfs.tsx
 'use client';
 import { useState, useCallback, useRef } from 'react';
 import { PDFDocument } from 'pdf-lib';
@@ -9,10 +8,7 @@ import { FaFilePdf, FaTrash, FaArrowUp, FaArrowDown } from 'react-icons/fa';
 interface PdfFile {
     file: File;
     pageCount?: number;
-} // Store file and maybe page count later
-
-// TODO: These often share similar setup (loading a PDF). Consider creating a reusable hook or
-//  component structure later if many PDF tools are built.
+}
 
 export default function MergePdfs() {
     const [pdfFiles, setPdfFiles] = useState<PdfFile[]>([]);

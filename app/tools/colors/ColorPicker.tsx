@@ -61,9 +61,7 @@ export default function ColorPicker() {
         if (color.isValid()) {
             setSelectedColor(color.toHexString()); // Update with valid hex
         } else {
-            // Optionally provide feedback for invalid input, or just don't update
-            // For now, just keep the internal state matching the input for typing
-            // setSelectedColor(inputVal); // Or keep the last valid color
+            setSelectedColor(inputVal); // Or keep the last valid color
         }
     };
 
@@ -87,7 +85,6 @@ export default function ColorPicker() {
                     style={{ backgroundColor: selectedColor }}
                     aria-hidden="true" // Decorative preview
                 ></div>
-                {/* Optional: Hex input synced */}
                 <Input
                     type="text"
                     value={selectedColor}
@@ -105,9 +102,8 @@ export default function ColorPicker() {
                         <ColorValueDisplay label="HEX" value={colorInfo.hex} />
                         <ColorValueDisplay label="RGB" value={colorInfo.rgb} />
                         <ColorValueDisplay label="HSL" value={colorInfo.hsl} />
-                        {/* Add more formats if needed */}
-                        {/* <ColorValueDisplay label="HEX8" value={colorInfo.hex8} /> */}
-                        {/* <ColorValueDisplay label="HSV" value={colorInfo.hsv} /> */}
+                        <ColorValueDisplay label="HEX8" value={colorInfo.hex8} />
+                        <ColorValueDisplay label="HSV" value={colorInfo.hsv} />
                         {colorInfo.name && (
                             <div className="p-2 bg-slate-700 rounded text-sm">
                                 <span className="font-medium text-slate-300 mr-2">Name:</span>

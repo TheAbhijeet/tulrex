@@ -10,18 +10,17 @@ import 'prismjs/components/prism-tsx';
 import 'prismjs/components/prism-python';
 import 'prismjs/components/prism-java';
 import 'prismjs/components/prism-css';
-// import 'prismjs/components/prism-html';
 
 const themeColors = {
     input: {
-        bg: '#1e293b', // slate-800
-        border: '#334155', // slate-700
-        text: '#e2e8f0', // slate-200
+        bg: '#1e293b',
+        border: '#334155',
+        text: '#e2e8f0',
     },
     output: {
-        bg: '#0f172a', // slate-900
-        border: '#334155', // slate-700
-        text: '#e2e8f0', // slate-200
+        bg: '#0f172a',
+        border: '#334155',
+        text: '#e2e8f0',
     },
 };
 
@@ -57,7 +56,6 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
         if (onChange) onChange(newCode);
     };
 
-    // Dynamic highlighting based on language
     const highlight = (code: string) => {
         if (!Prism.languages[language]) {
             console.warn(`Language "${language}" not supported for highlighting`);

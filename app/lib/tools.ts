@@ -16,23 +16,17 @@ import QrCodeGenerator from '@/tools/qr/QrCodeGenerator';
 import CsvToJsonConverter from '@/tools/converters/CsvToJsonConverter';
 import ImageCompressor from '@/tools/images/ImageCompressor';
 import TextToSpeechConverter from '@/tools/texts/TextToSpeechConverter';
-// import SpeechToTextConverter from '@/tools/audio/SpeechToTextConverter';
 import UnitConverter from '@/tools/converters/UnitConverter';
 import ExcelToJsonConverter from '@/tools/converters/ExcelToJsonConverter';
-// import HtmlToJsxConverter from '@/tools/converters/HtmlToJsxConverter';
 import EmojiPicker from '@/tools/emoji/EmojiPicker';
 import ColorShadeGenerator from '@/tools/colors/ColorShadeGenerator';
 import HtmlMinifier from '@/tools/minifiers/HtmlMinifier';
-// import ImageToPdfConverter from '@/tools/ImageToPdfConverter';
-// import PdfToImagesConverter from '@/tools/PdfToImagesConverter';
 import JsonToCsvConverter from '@/tools/converters/JsonToCsvConverter';
 import MergePdfs from '@/tools/pdfs/MergePdfs';
 import ReorderPdfPages from '@/tools/pdfs/ReorderPdfPages';
 import JavascriptMinifier from '@/tools/minifiers/JavascriptMinifier';
 import CssMinifier from '@/tools/minifiers/CssMinifier';
-import CodeFormatterTs from '@/tools/formatters/CodeFormatterTs';
 import { slugify } from './utils';
-// import CodeFormatter from '@/tools/formatters/CodeFormatter';
 import PdfPageDeleter from '@/tools/pdfs/PdfPageDeleter';
 import PdfAnonymizer from '@/tools/pdfs/PdfAnonymizer';
 import PdfEditorBasic from '@/tools/pdfs/PdfEditorBasic';
@@ -58,7 +52,7 @@ export interface Tool {
     slug: string;
     title: string;
     description: string;
-    icon?: string; // Emoji or name of an icon component/SVG
+    icon?: string;
     category: string;
     component: React.ComponentType;
 }
@@ -239,14 +233,7 @@ export const tools: Tool[] = [
         component: ExcelToJsonConverter,
         category: CATEGORIES.CONVERTERS,
     },
-    // {
-    //     slug: 'html-to-jsx-converter',
-    //     title: 'HTML to JSX Converter',
-    //     description: 'HTML to JSX Converter',
-    //     icon: '🔒',
-    //     component: HtmlToJsxConverter,
-    //     category: CATEGORIES.CONVERTERS,
-    // },
+
     {
         slug: 'emoji-picker',
         title: 'Emoji Picker',
@@ -271,23 +258,6 @@ export const tools: Tool[] = [
         component: HtmlMinifier,
         category: CATEGORIES.MINIFIERS,
     },
-    // {
-    //     slug: 'image-to-pdf-converter',
-    //     title: 'Image to PDF',
-    //     description: 'Image to PDF',
-    //     icon: '🔒',
-    //     component: ImageToPdfConverter,
-    //     category: CATEGORIES.PDF,
-
-    // },
-    // {
-    //   slug: 'pdf-to-image-converter',
-    //   title: 'PDF to Image',
-    //   description: 'PDF to Image',
-    //   icon: '🔒',
-    //   component: PdfToImagesConverter,
-    //   category: CATEGORIES.PDF,
-    // },
     {
         slug: 'json-to-csv-converter',
         title: 'JSON to CSV',
@@ -335,22 +305,6 @@ export const tools: Tool[] = [
         icon: '🔒',
         component: CssMinifier,
         category: CATEGORIES.MINIFIERS,
-    },
-    // {
-    //   slug: 'code-formatter',
-    //   title: 'Code Formatter',
-    //   description: 'Code Formatter',
-    //   icon: '🔒',
-    //   component: CodeFormatter,
-    //   category: CATEGORIES.CODE,
-    // },
-    {
-        slug: 'typescript-formatter',
-        title: 'TypeScript Formatter',
-        description: 'Format TypeScript code snippets using Prettier.',
-        icon: '💅', // Using the general formatter icon
-        component: CodeFormatterTs,
-        category: CATEGORIES.CODE,
     },
     {
         slug: 'pdf-page-deleter',
@@ -450,15 +404,7 @@ export const tools: Tool[] = [
         category: CATEGORIES.AUDIO,
         component: TextToSpeechConverter, // Or keep in WEB?
     },
-    // {
-    //     // Re-categorize or ensure exists
-    //     slug: 'speech-to-text',
-    //     title: 'Speech to Text (Basic)',
-    //     description: 'Transcribe spoken audio into text (browser dependent).',
-    //     icon: '🎤➡️📄',
-    //     category: CATEGORIES.AUDIO,
-    //     component: SpeechToTextConverter, // Or keep in WEB?
-    // },
+
     {
         slug: 'spreadsheet-viewer',
         title: 'Excel & CSV Viewer',

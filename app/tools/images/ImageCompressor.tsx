@@ -141,8 +141,6 @@ export default function ImageCompressor() {
             if (targetFileType) {
                 compressionLibOptions.fileType = targetFileType;
             }
-            // The library might not change format if it cannot or if the current format is already optimal.
-            // E.g., asking for PNG from a JPEG might not increase quality but could increase size.
 
             console.log('Compressing with options:', compressionLibOptions);
             const compressedFile = await imageCompression(file, compressionLibOptions);

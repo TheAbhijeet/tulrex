@@ -14,9 +14,7 @@ export default function Notepad() {
         return null;
     });
 
-    // Note: Saving happens automatically via useLocalStorage hook's useEffect
-    // We just need to update the timestamp when the note changes significantly perhaps
-    // Or just show a static "Auto-saved" message
+    // Saving happens automatically via useLocalStorage hook's useEffect
     useEffect(() => {
         const handler = setTimeout(() => {
             if (note !== localStorage.getItem('Tulrex-notepad')) {

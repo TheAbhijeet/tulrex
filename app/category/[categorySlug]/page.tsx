@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Metadata, ResolvingMetadata } from 'next';
 import { getAllCategories, getToolsByCategory, getCategoryNameBySlug } from '@/lib/tools';
-import type { Tool } from '@/lib/tools'; // Import Tool type if ToolCard needs it
+import type { Tool } from '@/lib/tools';
 
 function ToolCard({ tool, showCategoryLink = true }: { tool: Tool; showCategoryLink?: boolean }) {
     return (
@@ -10,7 +10,6 @@ function ToolCard({ tool, showCategoryLink = true }: { tool: Tool; showCategoryL
             href={`/tools/${tool.slug}`}
             className="block p-6 bg-slate-800 rounded-lg shadow hover:bg-slate-700 transition-colors h-full border border-slate-700 hover:border-cyan-600 group relative"
         >
-            {/* Optional: Category tag only if showCategoryLink is true */}
             {showCategoryLink && (
                 <span className="absolute top-2 right-2 text-xs bg-slate-600 text-cyan-300 px-1.5 py-0.5 rounded">
                     {tool.category}
@@ -26,7 +25,6 @@ function ToolCard({ tool, showCategoryLink = true }: { tool: Tool; showCategoryL
         </Link>
     );
 }
-// --- End Tool Card ---
 
 type PromiseProps = {
     params: Promise<{ categorySlug: string }>;
@@ -39,7 +37,6 @@ export function generateStaticParams() {
     }));
 }
 
-// --- Dynamic Metadata ---
 export async function generateMetadata(
     { params }: PromiseProps,
     parent: ResolvingMetadata
@@ -71,7 +68,6 @@ export async function generateMetadata(
     };
 }
 
-// --- Page Component ---
 export default async function CategoryPage({ params }: PromiseProps) {
     const resolvedParams = await params;
     const { categorySlug } = resolvedParams;
@@ -79,7 +75,7 @@ export default async function CategoryPage({ params }: PromiseProps) {
     const tools = getToolsByCategory(categorySlug);
 
     if (!categoryName || tools.length === 0) {
-        notFound(); // Trigger 404 if category doesn't exist or has no tools
+        notFound();
     }
 
     return (

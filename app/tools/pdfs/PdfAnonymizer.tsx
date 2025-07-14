@@ -1,4 +1,3 @@
-// src/components/tools/PdfAnonymizer.tsx
 'use client';
 import { useState, useCallback, useRef } from 'react';
 import { PDFDocument } from 'pdf-lib';
@@ -8,7 +7,7 @@ import { FaUserSecret } from 'react-icons/fa';
 
 export default function PdfAnonymizer() {
     const [pdfFile, setPdfFile] = useState<File | null>(null);
-    const [isLoading, setIsLoading] = useState(false); // Only for button state
+    const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
     const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -42,11 +41,6 @@ export default function PdfAnonymizer() {
             pdfDoc.setKeywords([]); // Set keywords to empty array
             pdfDoc.setProducer('');
             pdfDoc.setCreator('');
-            // pdfDoc.setCreationDate(new Date()); // Optionally update dates? Or remove?
-            // pdfDoc.setModificationDate(new Date());
-
-            // Note: This does NOT remove potentially identifying content within the pages (text, images)
-            // or more obscure metadata. It's a basic cleanup.
 
             const modifiedPdfBytes = await pdfDoc.save();
             const blob = new Blob([modifiedPdfBytes], { type: 'application/pdf' });

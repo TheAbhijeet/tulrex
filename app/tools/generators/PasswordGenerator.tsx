@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import Button from '@/components/ui/Button';
-import Input from '@/components/ui/Input'; // Use the same simple Input component
+import Input from '@/components/ui/Input';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import { FaCopy, FaSync } from 'react-icons/fa';
 

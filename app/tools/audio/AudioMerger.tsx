@@ -1,4 +1,3 @@
-// src/components/tools/AudioMerger.tsx
 'use client';
 import { useState, useRef, useCallback, useEffect } from 'react';
 import Button from '@/components/ui/Button';
@@ -89,8 +88,6 @@ export default function AudioMerger() {
             if (targetIndex < 0 || targetIndex >= prev.length) return prev;
             const newFiles = [...prev];
             [newFiles[index], newFiles[targetIndex]] = [newFiles[targetIndex], newFiles[index]]; // Swap elements
-            // Optionally update 'order' property if you rely on it elsewhere
-            // newFiles.forEach((f, i) => f.order = i);
             return newFiles;
         });
     };

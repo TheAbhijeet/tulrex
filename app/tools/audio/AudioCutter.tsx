@@ -89,8 +89,6 @@ export default function AudioCutter() {
                 const trimmedData = trimmedBuffer.getChannelData(i);
                 // Copy the relevant segment
                 trimmedData.set(channelData.subarray(startSample, endSample));
-                // Faster alternative if source/target length match exactly:
-                // audioBuffer.copyFromChannel(trimmedData, i, startSample);
             }
 
             const blob = await renderAudioBufferToBlob(trimmedBuffer); // Render to WAV blob

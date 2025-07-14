@@ -8,16 +8,12 @@ export const getAudioContext = (): AudioContext => {
         };
         audioContext = new (window.AudioContext || win.webkitAudioContext!)();
     }
-    // Add resilience for environments where it might still fail
     if (!audioContext) {
-        // Optionally throw error or return a dummy object/null and handle elsewhere
         console.warn('AudioContext not supported or could not be created.');
-        // Fallback or throw: throw new Error("AudioContext not supported");
     }
-    return audioContext!; // Use ! assuming it should exist in target browsers
+    return audioContext!;
 };
 
-// Decode audio file into an AudioBuffer
 export const decodeAudioData = (arrayBuffer: ArrayBuffer): Promise<AudioBuffer> => {
     return new Promise((resolve, reject) => {
         const ctx = getAudioContext();
@@ -48,15 +44,12 @@ export async function renderAudioBufferToBlob(buffer: AudioBuffer): Promise<Blob
     source.start();
 
     const renderedBuffer = await offlineCtx.startRendering();
-    // Convert AudioBuffer to WAV Blob (most reliable cross-browser without libraries)
-    // For MP3/OGG etc., would need encoding library (like lamejs or WASM encoder)
     return bufferToWaveBlob(renderedBuffer);
 }
 
-// Helper to convert AudioBuffer to WAV Blob (simplified)
 function bufferToWaveBlob(buffer: AudioBuffer): Blob {
     const numOfChan = buffer.numberOfChannels;
-    const length = buffer.length * numOfChan * 2 + 44; // 2 bytes per sample
+    const length = buffer.length * numOfChan * 2 + 44;
     const bufferArr = new ArrayBuffer(length);
     const view = new DataView(bufferArr);
     const channels: Float32Array[] = [];
@@ -70,7 +63,7 @@ function bufferToWaveBlob(buffer: AudioBuffer): Blob {
     };
 
     const writeUint16 = (data: number) => {
-        view.setUint16(pos, data, true); // true for little endian
+        view.setUint16(pos, data, true);
         pos += 2;
     };
 

@@ -7,13 +7,11 @@ import { dracula } from '@uiw/codemirror-theme-dracula';
 import type { JSBeautifyOptions } from 'js-beautify';
 
 import Button from '@/components/ui/Button';
-import Select from '@/components/ui/Select'; // Using Select as requested
-import Input from '@/components/ui/Input'; // Assuming basic Input component exists
+import Select from '@/components/ui/Select';
+import Input from '@/components/ui/Input';
 
-// Define a more specific type for options used by this component
 interface FormatterOptions extends Omit<JSBeautifyOptions, 'indent_char' | 'indent_with_tabs'> {
     indent_style: 'space' | 'tab';
-    // JSBeautifyOptions already includes most of what we need
 }
 
 const initialOptions: FormatterOptions = {
@@ -114,8 +112,6 @@ export default function JavaScriptFormatter() {
             indent_char: options.indent_style === 'tab' ? '\t' : ' ',
             indent_with_tabs: options.indent_style === 'tab',
         };
-        // Remove the custom indent_style property
-        // delete (beautifyOpts as any).indent_style;
 
         try {
             // Simulate async operation if beautify itself is not async, for consistency
@@ -215,7 +211,6 @@ export default function JavaScriptFormatter() {
                         >
                             <option value="\n">LF (Unix/macOS)</option>
                             <option value="\r\n">CRLF (Windows)</option>
-                            {/* js-beautify might have 'auto' or OS-dependent default, but explicit is clearer */}
                         </Select>
                     </div>
 

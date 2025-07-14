@@ -41,9 +41,6 @@ export default function MicTester() {
             };
             mediaRecorderRef.current.start();
             setIsTesting(true);
-
-            // Optional: Automatically stop after a few seconds
-            // setTimeout(stopTest, 5000); // Stop after 5 seconds
         } catch (err) {
             if (err instanceof Error) {
                 setError(`Mic access error: ${err.message}. Check permissions.`);

@@ -1,4 +1,3 @@
-// src/components/tools/EpochConverter.tsx
 'use client';
 import { useState, useEffect, useCallback } from 'react';
 import Button from '@/components/ui/Button';
@@ -81,10 +80,7 @@ export default function EpochConverter() {
     }, [humanDateInput, updateFromTimestamp]);
 
     useEffect(() => {
-        updateFromTimestamp(timestamp); // Initial load
-        // Optional: Update current time every second
-        // const interval = setInterval(() => updateFromTimestamp(Math.floor(Date.now() / 1000)), 1000);
-        // return () => clearInterval(interval);
+        updateFromTimestamp(timestamp);
     }, [timestamp, updateFromTimestamp]); // Only run once on mount essentially, unless timestamp changes externally
 
     const handleTsInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -94,8 +90,6 @@ export default function EpochConverter() {
 
     const handleHumanDateInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setHumanDateInput(e.target.value);
-        // Optionally convert on type, or require button press
-        // updateFromHumanDate();
     };
 
     const setToCurrentTime = () => {
@@ -181,7 +175,6 @@ export default function EpochConverter() {
                 <p>
                     <strong className="text-slate-300 w-24 inline-block">GMT:</strong> {gmtTime}
                 </p>
-                {/* <p><strong className="text-slate-300 w-24 inline-block">Full Local:</strong> {localTime}</p> */}
             </div>
 
             <Button onClick={setToCurrentTime} variant="secondary" className="block mx-auto">

@@ -33,7 +33,6 @@ export default function AudioSpeedChanger() {
         if (audio) audio.playbackRate = playbackRate;
     }, [playbackRate, audioSrc]);
 
-    // Basic player logic (copied/adapted from AudioPlayerSimple)
     useEffect(() => {
         const audio = audioRef.current;
         if (!audio) return;

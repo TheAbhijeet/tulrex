@@ -30,8 +30,7 @@ export default function AudioRecorder() {
                 options.mimeType = 'audio/ogg;codecs=opus';
             } else if (MediaRecorder.isTypeSupported('audio/webm;codecs=opus')) {
                 options.mimeType = 'audio/webm;codecs=opus';
-            } // Add more checks if needed (e.g., audio/wav - often uncompressed)
-
+            }
             mediaRecorderRef.current = new MediaRecorder(stream, options);
             mediaRecorderRef.current.ondataavailable = (event) => {
                 if (event.data.size > 0) audioChunksRef.current.push(event.data);
@@ -73,9 +72,7 @@ export default function AudioRecorder() {
         downloadFile(
             new Blob(audioChunksRef.current, { type: mimeType }),
             `recording.${extension}`
-        ); // Needs Blob directly for download
-        // Or fetch the blob url if chunks aren't kept
-        // fetch(audioUrl).then(res => res.blob()).then(blob => downloadFile(blob, `recording.${extension}`));
+        );
     };
 
     // Cleanup stream on unmount

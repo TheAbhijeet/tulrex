@@ -4,17 +4,17 @@ import * as XLSX from 'xlsx';
 import Papa from 'papaparse';
 
 export type SheetRow = Record<string, string | number | boolean | null>;
-export type SheetData = SheetRow[]; // Array of objects
+export type SheetData = SheetRow[];
 
-export type SheetDataAoA = (string | number | boolean | null)[][]; // Array of arrays
+export type SheetDataAoA = (string | number | boolean | null)[][];
 
 interface UseSheetDataReturn {
     fileName: string | null;
     sheetNames: string[];
     selectedSheet: string;
     headers: string[];
-    data: SheetData; // Primarily work with array of objects
-    dataAoA: SheetDataAoA; // Also provide array of arrays
+    data: SheetData;
+    dataAoA: SheetDataAoA;
     isLoading: boolean;
     error: string | null;
     loadFile: (file: File) => Promise<void>;
@@ -43,13 +43,12 @@ export function useSheetData(): UseSheetDataReturn {
         if (currentSheetName) {
             try {
                 const worksheet = wb.Sheets[currentSheetName];
-                // Generate both formats
                 const jsonData: SheetData = XLSX.utils.sheet_to_json(worksheet);
                 const jsonAoA: SheetDataAoA = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
 
                 setData(jsonData);
                 setDataAoA(jsonAoA);
-                setHeaders(jsonAoA[0] ? jsonAoA[0].map(String) : []); // Get headers from AoA row 0
+                setHeaders(jsonAoA[0] ? jsonAoA[0].map(String) : []);
                 setError(null);
             } catch (e) {
                 if (e instanceof Error) {
@@ -70,7 +69,6 @@ export function useSheetData(): UseSheetDataReturn {
 
     const processCsv = useCallback((csvString: string) => {
         try {
-            // Parse with header: true for array of objects
             Papa.parse(csvString, {
                 header: true,
                 skipEmptyLines: true,
@@ -85,12 +83,10 @@ export function useSheetData(): UseSheetDataReturn {
                     setData(results.data as SheetData);
                     setHeaders(results.meta.fields || []);
 
-                    // Re-parse without header for array of arrays (less efficient but provides both)
                     Papa.parse(csvString, {
                         skipEmptyLines: true,
                         complete: (resultsAoA: Papa.ParseResult<unknown[]>) => {
                             setDataAoA(resultsAoA.data as SheetDataAoA);
-                            // Ensure headers from AoA match if possible
                             if (!results.meta.fields && resultsAoA.data.length > 0) {
                                 setHeaders(resultsAoA.data[0].map(String));
                             }
@@ -134,7 +130,7 @@ export function useSheetData(): UseSheetDataReturn {
                 reader.onload = (e) => {
                     try {
                         const data = e.target?.result;
-                        const wb = XLSX.read(data, { type: 'array' }); // Use array buffer
+                        const wb = XLSX.read(data, { type: 'array' });
                         setWorkbook(wb);
                         processWorkbook(wb);
                     } catch (err) {
@@ -184,7 +180,6 @@ export function useSheetData(): UseSheetDataReturn {
         (sheetName: string) => {
             if (workbook && sheetNames.includes(sheetName)) {
                 setSelectedSheet(sheetName);
-                // Re-process only the selected sheet
                 processWorkbook(workbook, sheetName);
             }
         },

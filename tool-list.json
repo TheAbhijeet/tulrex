@@ -60,10 +60,6 @@
         "title": "QR Code Generator"
     },
     {
-        "slug": "csv-to-json-converter",
-        "title": "CSV to JSON Converter"
-    },
-    {
         "slug": "image-compressor",
         "title": "Image Compressor"
     },
@@ -108,12 +104,12 @@
         "title": "Reoder pdf pages"
     },
     {
-        "slug": "css-minifier",
-        "title": "Css Minifier"
+        "slug": "javascript-minifier",
+        "title": "JavaScript Minifier"
     },
     {
-        "slug": "typescript-formatter",
-        "title": "TypeScript Formatter"
+        "slug": "css-minifier",
+        "title": "Css Minifier"
     },
     {
         "slug": "pdf-page-deleter",
@@ -137,11 +133,11 @@
     },
     {
         "slug": "audio-cutter",
-        "title": "Audio Cutter (Basic)"
+        "title": "Audio Cutter "
     },
     {
         "slug": "audio-merger",
-        "title": "Audio Merger (Basic)"
+        "title": "Audio Merger "
     },
     {
         "slug": "audio-speed-changer",
@@ -178,5 +174,17 @@
     {
         "slug": "json-editor",
         "title": "Interactive JSON Editor"
+    },
+    {
+        "slug": "css-formatter",
+        "title": "CSS Formatter"
+    },
+    {
+        "slug": "javascript-formatter",
+        "title": "Javascript Formatter"
+    },
+    {
+        "slug": "image-background-remover",
+        "title": "Image Background Remover"
     }
 ]

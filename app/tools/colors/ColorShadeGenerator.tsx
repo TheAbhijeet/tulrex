@@ -107,7 +107,6 @@ export default function ColorShadeGenerator() {
                     onChange={(e) => setStep(parseInt(e.target.value, 10))}
                     className="w-16"
                 />
-                {/* Could add count input too */}
             </div>
 
             <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-9 gap-1">

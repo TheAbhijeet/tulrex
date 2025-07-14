@@ -2,8 +2,8 @@ import React from 'react';
 
 interface DataTableProps {
     headers: string[];
-    data: (string | number | boolean | null)[][]; // Expects array of arrays for simplicity here
-    maxHeight?: string; // e.g., '400px'
+    data: (string | number | boolean | null)[][];
+    maxHeight?: string;
 }
 
 export default function DataTable({ headers, data, maxHeight = '60vh' }: DataTableProps) {

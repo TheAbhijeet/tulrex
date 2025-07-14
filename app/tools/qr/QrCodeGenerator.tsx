@@ -11,7 +11,6 @@ export default function QrCodeGenerator() {
     const [level, setLevel] = useState<'L' | 'M' | 'Q' | 'H'>('M'); // Error correction level
     const [bgColor, setBgColor] = useState('#ffffff');
     const [fgColor, setFgColor] = useState('#000000'); // Standard QR colors
-    // const canvasRef = useRef<HTMLCanvasElement>(null); // For download
 
     const downloadQrCode = useCallback(
         async (format: 'png' | 'svg' | 'jpeg' = 'png') => {
@@ -37,9 +36,6 @@ export default function QrCodeGenerator() {
                 console.error('QR Code generation for download failed:', err);
                 alert('Failed to generate QR Code for download.');
             }
-
-            // SVG download could potentially be done by grabbing the <svg> element from ReactQRCode
-            // but rendering to canvas gives more format options easily.
         },
         [text, size, level, fgColor, bgColor]
     );
@@ -140,8 +136,6 @@ export default function QrCodeGenerator() {
                             level={level}
                             bgColor={bgColor}
                             fgColor={fgColor}
-                            // style={{ height: "auto", maxWidth: "100%", width: `${size}px` }}
-                            // viewBox={`0 0 ${size} ${size}`}
                         />
                     ) : (
                         <div

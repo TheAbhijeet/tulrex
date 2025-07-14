@@ -53,12 +53,6 @@ export default function CronParser() {
                     <p className="text-lg text-cyan-400">{description}</p>
                 </div>
             )}
-            {/* Placeholder for next dates if using 'cron-parser'
-       <div>
-           <h4 className="text-base font-medium text-slate-300 mb-1">Next 5 Scheduled Runs:</h4>
-           <pre className="p-3 bg-slate-900 border border-slate-700 rounded text-sm">...</pre>
-       </div>
-       */}
         </div>
     );
 }

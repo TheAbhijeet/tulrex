@@ -169,10 +169,7 @@ export default function ImageConverter() {
         try {
             // Convert originalImage.dataUrl back to a File object for image-conversion library
             // (or find a way to use dataUrl directly if library supports it, but File is common)
-            const inputFileObject = await imageConversion.dataURLtoFile(
-                originalImage.dataUrl
-                // originalImage.name
-            );
+            const inputFileObject = await imageConversion.dataURLtoFile(originalImage.dataUrl);
             if (!inputFileObject) {
                 setError('Could not prepare input file for conversion.');
                 setIsLoading(false);
@@ -181,8 +178,6 @@ export default function ImageConverter() {
 
             const config: imageConversion.ICompressConfig = {
                 quality: quality,
-                // type: imageConversion.EImageType[outputFormat],
-                // orientation: true, // Tries to fix orientation using EXIF (might need exif-js installed for full support)
             };
 
             const numTargetWidth = parseInt(targetWidth, 10);
@@ -203,8 +198,6 @@ export default function ImageConverter() {
             ) {
                 config.scale = numScalePercent / 100;
             }
-            // If width or height is given, image-conversion handles aspect ratio if the other is omitted.
-            // If both width and height are given, it uses those exact dimensions.
 
             const convertedFile = await imageConversion.compress(inputFileObject, config);
 

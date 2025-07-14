@@ -71,11 +71,9 @@ export default function JsonEditorTool() {
             }
             console.error(e);
         }
-    }, []); // No dependencies needed if only using setters
-
+    }, []);
     return (
         <div className="space-y-4">
-            {/* Input Area */}
             <div>
                 <label
                     htmlFor="json-input-raw"
@@ -112,7 +110,7 @@ export default function JsonEditorTool() {
             )}
 
             {/* JSON Editor */}
-            {jsonData !== null && ( // Only render editor if data is loaded and valid
+            {jsonData !== null && (
                 <div>
                     <label className="block text-sm font-medium text-slate-300 mb-1">
                         Interactive Editor:

@@ -125,8 +125,6 @@ export default function PdfEditorBasic() {
                 console.warn(
                     `Coordinates (${x}, ${y}) might be outside page bounds (W:${pageWidth.toFixed(0)}, H:${pageHeight.toFixed(0)}).`
                 );
-                // setError("Coordinates are outside page bounds."); // Optional strict check
-                // setIsProcessing(false); return;
             }
 
             if (insertType === 'text') {
@@ -160,8 +158,6 @@ export default function PdfEditorBasic() {
             document.body.removeChild(link);
             URL.revokeObjectURL(url);
 
-            // Reset UI? Or allow multiple edits before save? Current setup saves after each add.
-            // For simplicity, we reset the loaded PDF state after save. User needs to reload for more edits.
             setPdfFile(null);
             setPdfDoc(null);
             setTotalPages(0);

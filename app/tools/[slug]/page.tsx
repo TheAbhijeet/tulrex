@@ -43,7 +43,6 @@ export async function generateMetadata(
         twitter: {
             title: `${tool.title} | Tulrex`,
             description: tool.description,
-            // images: ['/og-image.png'] // Inherit or override
         },
     };
 }

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-    const repoUrl = 'https://github.com/your-username/Tulrex'; // <-- CHANGE THIS
+    const repoUrl = 'https://github.com/TheAbhijeet/tulrex';
 
     return (
         <div>
@@ -49,7 +49,7 @@ export default function AboutPage() {
                 </p>
                 <p>
                     <Link
-                        href={repoUrl} // <-- Use the variable
+                        href={repoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-cyan-400 hover:text-cyan-300 hover:underline font-semibold"

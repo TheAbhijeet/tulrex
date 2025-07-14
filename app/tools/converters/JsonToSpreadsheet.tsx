@@ -13,7 +13,6 @@ export default function JsonToSpreadsheet() {
     const [error, setError] = useState('');
     const [jsonData, setJsonData] = useState<JSONValue | null>(null); // Store parsed JSON
 
-    // Parse JSON on input change (with validation)
     const handleJsonChange = (value: string) => {
         setJsonInput(value);
         setError('');

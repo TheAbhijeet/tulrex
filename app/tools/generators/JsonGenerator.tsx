@@ -135,8 +135,6 @@ export default function JsonGenerator() {
                 return generateRandomDate().toISOString();
             case 'dateTimestamp':
                 return generateRandomDate().getTime();
-            // default:
-            //     return null;
         }
     };
 

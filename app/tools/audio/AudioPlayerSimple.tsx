@@ -141,7 +141,6 @@ export default function AudioPlayerSimple() {
                             max={duration || 0}
                             value={currentTime}
                             onChange={handleProgressChange}
-                            // Handle dragging state to prevent timeupdate flicker
                             onMouseDown={() => (isDraggingProgress.current = true)}
                             onMouseUp={() => (isDraggingProgress.current = false)}
                             step="0.01"

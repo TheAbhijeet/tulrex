@@ -1,7 +1,7 @@
 'use client';
 import { useState, useCallback } from 'react';
 import Button from '@/components/ui/Button';
-import Input from '@/components/ui/Input'; // Assuming src/components/ui/Input.tsx exists
+import Input from '@/components/ui/Input';
 
 export default function RandomNumberGenerator() {
     const [min, setMin] = useState<number>(1);
@@ -24,7 +24,6 @@ export default function RandomNumberGenerator() {
             setResult('');
             return;
         }
-        // Generate integer between min and max (inclusive)
         const randomInt = Math.floor(Math.random() * (maxVal - minVal + 1)) + minVal;
         setResult(randomInt);
     }, [min, max]);

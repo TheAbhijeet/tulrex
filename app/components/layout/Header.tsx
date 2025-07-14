@@ -8,15 +8,15 @@ export default function Header() {
                 {/* Left Side: App Name */}
                 <Link
                     href="/"
-                    className="text-xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors flex-shrink-0" // Prevent shrinking
+                    className="text-xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors flex-shrink-0"
                 >
                     Tulrex
                 </Link>
 
                 {/* Right Side: Search Bar */}
+                {/* Allow search to take space but not push out title on small screens */}
                 <div className="flex-grow sm:flex-grow-0 min-w-0">
                     {' '}
-                    {/* Allow search to take space but not push out title on small screens */}
                     <Search />
                 </div>
             </nav>

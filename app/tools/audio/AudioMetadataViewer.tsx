@@ -115,8 +115,6 @@ export default function AudioMetadataViewer() {
                                 {formatTime(metadata.format.duration || 0)}
                             </span>
                         </div>
-                        {/* Optional: Display Raw/Native Tags */}
-                        {/* <details className="text-xs mt-2"><summary className="cursor-pointer text-slate-400">Show Raw Tags</summary><pre>{JSON.stringify(metadata.native, null, 2)}</pre></details> */}
                     </div>
                 </div>
             )}

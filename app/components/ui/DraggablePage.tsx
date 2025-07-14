@@ -8,28 +8,27 @@ export const ItemTypes = {
 } as const;
 
 export interface PageInfo {
-    id: number; // Original 0-based index
-    pageNumber: number; // 1-based display number (original index + 1)
-    text: string; // e.g., "Page X (W x H pt)"
+    id: number;
+    pageNumber: number;
+    text: string;
 }
 
 interface DraggablePageProps {
     pageInfo: PageInfo;
-    index: number; // Current index in the reordered list
+    index: number;
     movePage: (dragIndex: number, hoverIndex: number) => void;
 }
 
 interface DragItem {
     index: number;
-    id: string; // pageInfo.id.toString()
-    type: typeof ItemTypes.PAGE; // Use typeof for type safety
+    id: string;
+    type: typeof ItemTypes.PAGE;
 }
 
 const DraggablePage: React.FC<DraggablePageProps> = ({ pageInfo, index, movePage }) => {
     const ref = useRef<HTMLDivElement>(null);
 
     const [, drop] = useDrop<DragItem, void, { handlerId: string | symbol | null }>({
-        // Added handlerId to collected props for drop
         accept: ItemTypes.PAGE,
         hover(
             item: DragItem,
@@ -47,7 +46,7 @@ const DraggablePage: React.FC<DraggablePageProps> = ({ pageInfo, index, movePage
 
             const hoverBoundingRect = ref.current.getBoundingClientRect();
             const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
-            const clientOffset = monitor.getClientOffset(); // This can be null
+            const clientOffset = monitor.getClientOffset();
 
             if (!clientOffset) {
                 return;
@@ -61,10 +60,9 @@ const DraggablePage: React.FC<DraggablePageProps> = ({ pageInfo, index, movePage
                 return;
             }
             movePage(dragIndex, hoverIndex);
-            item.index = hoverIndex; // Mutate the item's index for subsequent hovers
+            item.index = hoverIndex;
         },
         collect: (monitor) => ({
-            // To satisfy explicit return type for collected props
             handlerId: monitor.getHandlerId(),
         }),
     });
@@ -78,7 +76,7 @@ const DraggablePage: React.FC<DraggablePageProps> = ({ pageInfo, index, movePage
     });
 
     const opacity = isDragging ? 0.4 : 1;
-    drag(drop(ref)); // Attach drag and drop to the same ref
+    drag(drop(ref));
 
     return (
         <div

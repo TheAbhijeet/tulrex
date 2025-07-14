@@ -14,7 +14,6 @@ export default function Search() {
     const searchContainerRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
 
-    // --- Filtering Logic ---
     const updateFilteredTools = useCallback((term: string) => {
         if (term.trim() === '') {
             setFilteredTools([]);
@@ -28,15 +27,14 @@ export default function Search() {
                         tool.title.toLowerCase().includes(lowerCaseTerm) ||
                         tool.description.toLowerCase().includes(lowerCaseTerm)
                 )
-                .slice(0, 7); // Limit results to avoid huge dropdown
+                .slice(0, 7);
 
             setFilteredTools(results);
             setIsDropdownVisible(results.length > 0);
-            setActiveIndex(-1); // Reset keyboard selection on new search
+            setActiveIndex(-1);
         }
-    }, []); // No dependencies as `tools` is static
+    }, []);
 
-    // --- Event Handlers ---
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const newSearchTerm = event.target.value;
         setSearchTerm(newSearchTerm);
@@ -44,10 +42,10 @@ export default function Search() {
     };
 
     const handleSuggestionClick = (slug: string) => {
-        setSearchTerm(''); // Clear input
-        setFilteredTools([]); // Clear results
-        setIsDropdownVisible(false); // Hide dropdown
-        router.push(`/tools/${slug}`); // Navigate
+        setSearchTerm('');
+        setFilteredTools([]);
+        setIsDropdownVisible(false);
+        router.push(`/tools/${slug}`);
     };
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -55,13 +53,13 @@ export default function Search() {
 
         switch (event.key) {
             case 'ArrowDown':
-                event.preventDefault(); // Prevent cursor move
+                event.preventDefault();
                 setActiveIndex((prevIndex) =>
                     prevIndex >= filteredTools.length - 1 ? 0 : prevIndex + 1
                 );
                 break;
             case 'ArrowUp':
-                event.preventDefault(); // Prevent cursor move
+                event.preventDefault();
                 setActiveIndex((prevIndex) =>
                     prevIndex <= 0 ? filteredTools.length - 1 : prevIndex - 1
                 );
@@ -71,8 +69,6 @@ export default function Search() {
                 if (activeIndex >= 0 && activeIndex < filteredTools.length) {
                     handleSuggestionClick(filteredTools[activeIndex].slug);
                 } else if (filteredTools.length > 0) {
-                    // Optionally navigate to first result if none selected
-                    // handleSuggestionClick(filteredTools[0].slug);
                 }
                 break;
             case 'Escape':
@@ -81,12 +77,11 @@ export default function Search() {
                 setIsDropdownVisible(false);
                 setFilteredTools([]);
                 setActiveIndex(-1);
-                inputRef.current?.blur(); // Unfocus input
+                inputRef.current?.blur();
                 break;
         }
     };
 
-    // Scroll active item into view
     useEffect(() => {
         if (activeIndex >= 0 && isDropdownVisible) {
             const listElement = document.getElementById(`suggestion-${activeIndex}`);
@@ -94,7 +89,6 @@ export default function Search() {
         }
     }, [activeIndex, isDropdownVisible]);
 
-    // --- Click Outside Handler ---
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (
@@ -110,9 +104,8 @@ export default function Search() {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, []); // Empty dependency array means this runs once on mount
+    }, []);
 
-    // --- Render ---
     return (
         <div className="relative" ref={searchContainerRef}>
             <input
@@ -121,12 +114,11 @@ export default function Search() {
                 placeholder="Search tools..."
                 value={searchTerm}
                 onChange={handleInputChange}
-                onFocus={() => updateFilteredTools(searchTerm)} // Show dropdown on focus if term exists
-                onKeyDown={handleKeyDown} // Handle keyboard nav
+                onFocus={() => updateFilteredTools(searchTerm)}
+                onKeyDown={handleKeyDown}
                 className="w-full sm:w-64 px-3 py-1.5 rounded-md bg-slate-700 text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-sm"
                 aria-label="Search tools"
                 aria-haspopup="listbox"
-                // aria-expanded={isDropdownVisible}
                 aria-controls="search-suggestions"
                 aria-autocomplete="list"
                 aria-activedescendant={activeIndex >= 0 ? `suggestion-${activeIndex}` : undefined}
@@ -146,11 +138,10 @@ export default function Search() {
                                 id={`suggestion-${index}`}
                                 role="option"
                                 aria-selected={index === activeIndex}
-                                onClick={() => handleSuggestionClick(tool.slug)} // Ensure dropdown closes on click
+                                onClick={() => handleSuggestionClick(tool.slug)}
                                 className={`block px-4 py-2 text-slate-200 hover:bg-slate-600 cursor-pointer ${
                                     index === activeIndex ? 'bg-slate-600' : '' // Highlight active item
                                 }`}
-                                // Optional: Highlight match in title/desc (more complex)
                             >
                                 {tool.title}
                             </Link>

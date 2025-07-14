@@ -11,8 +11,6 @@ export default function TextDiffViewer() {
     const [diffResult, setDiffResult] = useState<DiffChange[] | null>(null);
 
     const handleCompare = () => {
-        // Using diffChars for character-by-character comparison
-        // Use Diff.diffLines for line-by-line comparison if preferred
         const differences = diffChars(textA, textB);
         setDiffResult(differences);
     };

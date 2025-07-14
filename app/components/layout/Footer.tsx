@@ -6,7 +6,7 @@ export default function Footer() {
             <div className="container mx-auto px-4">
                 <span>Tulrex - Open Source Project | </span>
                 <Link
-                    href="https://github.com/your-username/Tulrex" // <-- CHANGE THIS to your actual repo URL
+                    href="https://github.com/TheAbhijeet/tulrex"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-cyan-400 hover:text-cyan-300 hover:underline"

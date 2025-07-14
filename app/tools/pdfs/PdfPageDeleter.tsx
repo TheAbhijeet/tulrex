@@ -3,7 +3,7 @@
 import { useState, useCallback, ChangeEvent, useRef } from 'react';
 import { PDFDocument } from 'pdf-lib';
 import Button from '@/components/ui/Button';
-import Input from '@/components/ui/Input'; // Assuming your generic Input component
+import Input from '@/components/ui/Input';
 
 interface PagePreview {
     index: number;
@@ -174,12 +174,6 @@ export default function PdfPageDeleter() {
         setError(null);
 
         try {
-            // It's often safer to create a new document and copy pages,
-            // but pdf-lib's removePage should work if indices are handled correctly (e.g., by removing in reverse order).
-            // For simplicity and to avoid re-parsing, we'll use removePage on the loaded doc.
-            // Need to re-load from buffer to ensure original state if user performs multiple operations without re-upload.
-            // Or, better, operate on a copy if pdfDoc.copy() was efficient. For now, let's assume one operation per upload.
-
             const currentPdfDoc = await PDFDocument.load(pdfDocProxy.buffer); // Re-load from original buffer to ensure clean state
 
             const indicesToRemove = Array.from(selectedPages).sort((a, b) => b - a); // Sort descending
@@ -310,13 +304,7 @@ export default function PdfPageDeleter() {
                                     className={`absolute inset-0 flex items-center justify-center 
                                 ${selectedPages.has(preview.index) ? 'bg-red-500/30' : 'bg-black/20 group-hover:bg-cyan-500/20'} 
                                 transition-colors`}
-                                >
-                                    {/* <span
-                                        className={`font-bold text-lg ${selectedPages.has(preview.index) ? 'text-red-100' : 'text-slate-200 group-hover:text-cyan-100'}`}
-                                    >
-                                        {preview.index + 1}
-                                    </span> */}
-                                </div>
+                                ></div>
                                 {selectedPages.has(preview.index) && (
                                     <div className="absolute top-1 right-1 bg-red-600 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs font-bold">
                                         ✓ {/* Checkmark */}

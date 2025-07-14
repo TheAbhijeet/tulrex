@@ -3,14 +3,12 @@
 import { useState, useEffect, ChangeEvent, useCallback } from 'react';
 import TextInput from '@/components/ui/TextInput';
 
-// Define the structure of an emoji object from emojibase-data
 interface RawEmojiData {
     emoji: string;
     label: string;
     tags?: string[];
     emoticon?: string;
     shortcodes?: string[];
-    // Add other properties if you need them from emojibase-data
 }
 
 interface Emoji {
@@ -87,7 +85,6 @@ export default function EmojiPicker() {
             setTimeout(() => setCopiedEmoji(null), 1500); // Reset after 1.5 seconds
         } catch (err) {
             console.error('Failed to copy emoji:', err);
-            // Optionally show an error to the user
         }
     }, []);
 

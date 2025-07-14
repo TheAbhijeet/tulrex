@@ -45,7 +45,6 @@ export default function ColorPaletteGenerator() {
         const color = tinycolor(baseColor);
         if (!color.isValid()) return [];
         try {
-            // Tinycolor methods return the base color as part of the array sometimes
             const result = color[paletteType](count).map((c) => c.toHexString());
             // Ensure the base color is always first and unique
             const uniqueResult = [
@@ -82,7 +81,7 @@ export default function ColorPaletteGenerator() {
                 <Input
                     type="text"
                     value={baseColor}
-                    onChange={handleColorChange} // Allow text input too
+                    onChange={handleColorChange}
                     className="font-mono w-28"
                     maxLength={7}
                 />
