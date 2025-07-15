@@ -67,6 +67,7 @@
         "@types/react-dom": "^19.1.6",
         "@types/react-syntax-highlighter": "^15.5.13",
         "eslint": "^9.31.0",
+        "eslint-config-next": "^15.4.1",
         "knip": "^5.61.3",
         "prettier": "^3.6.2",
         "tailwindcss": "^4.1.11",

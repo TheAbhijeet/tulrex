@@ -1,4 +1,3 @@
-
 export type JSONValue =
     | string
     | number
