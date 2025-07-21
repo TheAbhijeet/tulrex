@@ -35,13 +35,13 @@ export async function generateMetadata(
         title: tool.title, // Dynamic title based on the tool
         description: tool.description, // Dynamic description
         openGraph: {
-            title: `${tool.title} | Tulrex`,
+            title: `${tool.title} | TulRex`,
             description: tool.description,
             url: `/tools/${tool.slug}`, // Relative URL is okay here if metadataBase is set
             images: previousImages, // Inherit images from parent layout
         },
         twitter: {
-            title: `${tool.title} | Tulrex`,
+            title: `${tool.title} | TulRex`,
             description: tool.description,
         },
     };

@@ -9,7 +9,7 @@ const isSpeechSynthesisSupported = typeof window !== 'undefined' && 'speechSynth
 
 export default function TextToSpeechConverter() {
     const [text, setText] = useState(
-        'Hello Tulrex! This is a test of the text-to-speech converter.'
+        'Hello TulRex! This is a test of the text-to-speech converter.'
     );
     const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
     const [selectedVoiceURI, setSelectedVoiceURI] = useState<string>('');

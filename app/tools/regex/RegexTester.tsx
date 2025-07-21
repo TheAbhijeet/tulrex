@@ -9,7 +9,7 @@ export default function RegexTester() {
     const [regexString, setRegexString] = useState('\\bTulrex\\b');
     const [flags, setFlags] = useState('gi'); // Default global flag
     const [testString, setTestString] = useState(
-        'I love Tulrex! I use Tulrex every day to simplify my workflow. '
+        'I love TulRex! I use TulRex every day to simplify my workflow. '
     );
     const [error, setError] = useState<string | null>(null);
     const [matchResult, setMatchResult] = useState<{

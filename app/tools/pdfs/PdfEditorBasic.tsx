@@ -14,7 +14,7 @@ export default function PdfEditorBasic() {
     const [totalPages, setTotalPages] = useState<number>(0);
     const [insertType, setInsertType] = useState<InsertType>('text');
     const [pageNum, setPageNum] = useState<string>('1');
-    const [textToInsert, setTextToInsert] = useState<string>('Hello Tulrex!');
+    const [textToInsert, setTextToInsert] = useState<string>('Hello TulRex!');
     const [xCoord, setXCoord] = useState<string>('50');
     const [yCoord, setYCoord] = useState<string>('750'); // PDFs origin is bottom-left
     const [fontSize, setFontSize] = useState<string>('12');

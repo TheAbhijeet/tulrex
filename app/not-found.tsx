@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: '404 - Page Not Found | Tulrex',
+    title: '404 - Page Not Found | TulRex',
     description: 'The page you were looking for could not be found.',
 };
 

@@ -10,18 +10,18 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
     title: {
-        template: '%s | Tulrex',
-        default: 'Tulrex - Simple Client-Side Developer Tools',
+        template: '%s | TulRex',
+        default: 'TulRex - Simple Client-Side Developer Tools',
     },
     description:
         'A collection of fast, free, client-side only tools for developers and content creators. No tracking, minimalist design.',
-    metadataBase: new URL('https://your-Tulrex-domain.com'), // Replace with your actual domain
+    metadataBase: new URL('https://your-TulRex-domain.com'), // Replace with your actual domain
     openGraph: {
-        title: 'Tulrex - Simple Client-Side Developer Tools',
+        title: 'TulRex - Simple Client-Side Developer Tools',
         description:
             'Fast, free, client-side developer tools. JSON Formatter, Base64, Regex Tester, and more.',
-        url: 'https://your-Tulrex-domain.com', // Replace with your actual domain
-        siteName: 'Tulrex',
+        url: 'https://your-TulRex-domain.com', // Replace with your actual domain
+        siteName: 'TulRex',
         // images: [ // Add an OG image later
         //   {
         //     url: '/og-image.png', // Place in /public
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Tulrex - Simple Client-Side Developer Tools',
+        title: 'TulRex - Simple Client-Side Developer Tools',
         description:
             'Fast, free, client-side developer tools. JSON Formatter, Base64, Regex Tester, and more.',
         // images: ['/og-image.png'], // Add the same image

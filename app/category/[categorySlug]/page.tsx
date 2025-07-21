@@ -45,11 +45,11 @@ export async function generateMetadata(
     const categoryName = getCategoryNameBySlug(resolvedPramas.categorySlug);
 
     if (!categoryName) {
-        return { title: 'Category Not Found | Tulrex' };
+        return { title: 'Category Not Found | TulRex' };
     }
 
-    const title = `${categoryName} Tools | Tulrex`;
-    const description = `Collection of ${categoryName.toLowerCase()} tools available on Tulrex. Fast, free, client-side utilities.`;
+    const title = `${categoryName} Tools | TulRex`;
+    const description = `Collection of ${categoryName.toLowerCase()} tools available on TulRex. Fast, free, client-side utilities.`;
     const previousImages = (await parent).openGraph?.images || []; // Inherit OG image
 
     return {

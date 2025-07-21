@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: 'About Tulrex',
-    description: 'Learn about the Tulrex project, its purpose, and open-source nature.',
+    title: 'About TulRex',
+    description: 'Learn about the TulRex project, its purpose, and open-source nature.',
 };
 
 export default function AboutPage() {
@@ -11,10 +11,10 @@ export default function AboutPage() {
 
     return (
         <div>
-            <h1 className="text-3xl font-bold mb-4 text-slate-100">About Tulrex</h1>
+            <h1 className="text-3xl font-bold mb-4 text-slate-100">About TulRex</h1>
             <div className="space-y-4 text-slate-300">
                 <p>
-                    Tulrex is a collection of simple, free, client-side web tools designed for
+                    TulRex is a collection of simple, free, client-side web tools designed for
                     developers, content creators, and anyone who needs quick utilities without
                     server interaction or tracking.
                 </p>
@@ -54,7 +54,7 @@ export default function AboutPage() {
                         rel="noopener noreferrer"
                         className="text-cyan-400 hover:text-cyan-300 hover:underline font-semibold"
                     >
-                        Tulrex on GitHub
+                        TulRex on GitHub
                     </Link>
                 </p>
             </div>
