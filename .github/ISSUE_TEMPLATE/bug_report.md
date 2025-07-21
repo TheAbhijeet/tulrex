@@ -1,42 +1,38 @@
 ---
-name: Bug Report
-description: Create a report to help us improve a tool or the site.
-title: 'Bug: [BRIEF DESCRIPTION OF BUG]'
-labels: ['bug', 'triage']
+name: Bug report
+about: Create a report to help us improve
+title: ''
+labels: bug
 assignees: ''
+
 ---
 
-### **Describe the bug**
+**Describe the bug**
+A clear and concise description of what the bug is.
 
-A clear and concise description of what the bug is. Please be as specific as possible.
-
-### **To Reproduce**
-
+**To Reproduce**
 Steps to reproduce the behavior:
+1. Go to '...'
+2. Click on '....'
+3. Scroll down to '....'
+4. See error
 
-1. Go to the '...' tool page.
-2. In the input field, paste '....'
-3. Click on '....'
-4. See the error or incorrect output.
-
-### **Expected behavior**
-
+**Expected behavior**
 A clear and concise description of what you expected to happen.
 
-### **Actual behavior**
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
 
-What actually happened? Please describe the incorrect output or error message.
+**Desktop (please complete the following information):**
+ - OS: [e.g. iOS]
+ - Browser [e.g. chrome, safari]
+ - Version [e.g. 22]
 
-### **Screenshots or Recordings**
+**Smartphone (please complete the following information):**
+ - Device: [e.g. iPhone6]
+ - OS: [e.g. iOS8.1]
+ - Browser [e.g. stock browser, safari]
+ - Version [e.g. 22]
 
-If applicable, add screenshots, GIFs, or video recordings to help explain your problem. You can drag and drop files directly into this text area.
-
-### **Desktop/Mobile (please complete the following information):**
-
-- OS: [e.g. macOS, Windows 11, Android 13]
-- Browser: [e.g. Chrome, Firefox, Safari]
-- Browser Version: [e.g. 108.0.5359.124]
-
-### **Additional context**
-
-Add any other context about the problem here. For example, are you using any browser extensions that might interfere?
+**Additional context**
+Add any other context about the problem here.
