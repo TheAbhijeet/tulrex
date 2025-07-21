@@ -1,5 +1,5 @@
 ---
-name: 🐛 Bug Report
+name: Bug Report
 description: Create a report to help us improve a tool or the site.
 title: 'Bug: [BRIEF DESCRIPTION OF BUG]'
 labels: ['bug', 'triage']
