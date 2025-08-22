@@ -6,7 +6,7 @@ type Props = {
     params: Promise<{ slug: string }>;
 };
 
-// --- Static Generation ---
+//  Static Generation
 // Tell Next.js which slugs to pre-render
 export function generateStaticParams() {
     return tools.map((tool) => ({
@@ -14,7 +14,7 @@ export function generateStaticParams() {
     }));
 }
 
-// --- Dynamic Metadata ---
+//  Dynamic Metadata
 // Generate metadata for each tool page
 export async function generateMetadata(
     { params }: Props,
@@ -47,7 +47,7 @@ export async function generateMetadata(
     };
 }
 
-// --- Page Component ---
+//  Page Component
 export default async function ToolPage({ params }: Props) {
     // First await the params object
     const resolvedParams = await params;
@@ -64,7 +64,7 @@ export default async function ToolPage({ params }: Props) {
 
     return (
         <div>
-            <h1 className="text-3xl font-bold mb-2 text-slate-100">{tool.title}</h1>
+            <h1 className="text-2xl font-bold mb-2 text-slate-100">{tool.title}</h1>
             <p className="text-slate-400 mb-6">{tool.description}</p>
 
             <div className="bg-slate-800 p-4 sm:p-6 rounded-lg border border-slate-700">

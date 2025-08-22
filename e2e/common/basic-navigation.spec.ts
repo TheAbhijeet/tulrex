@@ -1,14 +1,12 @@
 import { test, expect, Page } from '@playwright/test';
 import toolsToTest from '../../tool-list.json';
 
-// --- Helper function to check for console errors ---
+//  Helper function to check for console errors 
 async function checkConsoleErrors(page: Page): Promise<string[]> {
     const consoleErrors: string[] = [];
     page.on('console', (msg) => {
         // Consider filtering out less critical messages if needed
         if (msg.type() === 'error') {
-            // You might want to ignore specific known errors here if they are unavoidable
-            // e.g., if (msg.text().includes('Some known benign error')) return;
             consoleErrors.push(`[${msg.type()}] ${msg.text()}`);
         }
     });

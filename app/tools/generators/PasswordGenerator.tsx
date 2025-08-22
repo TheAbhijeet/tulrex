@@ -3,8 +3,8 @@
 import { useState, useCallback } from 'react';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import { FaCopy, FaSync } from 'react-icons/fa';
+import { copyToClipboard } from '@/lib/utils';
 
 const Checkbox = ({
     id,
@@ -39,7 +39,6 @@ export default function PasswordGenerator() {
     const [includeNumbers, setIncludeNumbers] = useState(true);
     const [includeSymbols, setIncludeSymbols] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const [copyStatus, copy] = useCopyToClipboard();
 
     const generatePassword = useCallback(() => {
         const upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -107,7 +106,7 @@ export default function PasswordGenerator() {
                             <FaSync className="w-4 h-4" />
                         </button>
                         <button
-                            onClick={() => copy(password)}
+                            onClick={() => copyToClipboard(password)}
                             disabled={!password}
                             className="p-1.5 text-slate-400 hover:text-cyan-400 bg-slate-700 hover:bg-slate-600 rounded disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-slate-800"
                             title="Copy to Clipboard"
@@ -117,12 +116,6 @@ export default function PasswordGenerator() {
                         </button>
                     </div>
                 </div>
-                {copyStatus === 'copied' && (
-                    <p className="text-xs text-green-400 mt-1">Password copied!</p>
-                )}
-                {copyStatus === 'error' && (
-                    <p className="text-xs text-red-400 mt-1">Copy failed!</p>
-                )}
             </div>
 
             <div className="space-y-3 border border-slate-700 p-4 rounded-md">

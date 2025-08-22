@@ -194,7 +194,7 @@ export default function JsonGenerator() {
 
     return (
         <div className="space-y-6">
-            {/* --- Configuration Section --- */}
+            {/*  Configuration Section  */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end p-4 border border-slate-700 rounded-lg bg-slate-800/50">
                 <div>
                     <label
@@ -226,7 +226,7 @@ export default function JsonGenerator() {
                 </div>
             </div>
 
-            {/* --- Field Definitions Section --- */}
+            {/*  Field Definitions Section  */}
             <div className="space-y-3">
                 <h3 className="text-lg font-medium text-slate-200 mb-2">Field Definitions</h3>
                 {fields.map((field) => (
@@ -382,14 +382,14 @@ export default function JsonGenerator() {
                 )}
             </div>
 
-            {/* --- Error Display --- */}
+            {/*  Error Display  */}
             {error && (
                 <div className="p-3 bg-red-900 border border-red-700 text-red-200 rounded-md text-sm">
                     {error}
                 </div>
             )}
 
-            {/* --- Output Section --- */}
+            {/*  Output Section  */}
             {outputJson && (
                 <div className="space-y-2">
                     <div className="flex justify-between items-center">

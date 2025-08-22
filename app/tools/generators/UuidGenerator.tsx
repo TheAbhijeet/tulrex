@@ -3,12 +3,11 @@
 import { useState, useCallback, useEffect } from 'react';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import { FaCopy, FaSync } from 'react-icons/fa';
+import { copyToClipboard } from '@/lib/utils';
 
 export default function UuidGenerator() {
     const [uuid, setUuid] = useState('');
-    const [copyStatus, copy] = useCopyToClipboard();
 
     const generateUuid = useCallback(() => {
         if (typeof window !== 'undefined' && window.crypto && window.crypto.randomUUID) {
@@ -66,7 +65,7 @@ export default function UuidGenerator() {
                         <FaSync className="w-4 h-4" />
                     </button>
                     <button
-                        onClick={() => copy(uuid)}
+                        onClick={() => copyToClipboard(uuid)}
                         disabled={!uuid}
                         className="p-1.5 text-slate-400 hover:text-cyan-400 bg-slate-700 hover:bg-slate-600 rounded disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-slate-800"
                         title="Copy to Clipboard"
@@ -76,12 +75,6 @@ export default function UuidGenerator() {
                     </button>
                 </div>
             </div>
-            {copyStatus === 'copied' && (
-                <p className="text-xs text-green-400 mt-1 text-center">UUID copied!</p>
-            )}
-            {copyStatus === 'error' && (
-                <p className="text-xs text-red-400 mt-1 text-center">Copy failed!</p>
-            )}
 
             <Button onClick={generateUuid} className="w-full sm:w-auto block mx-auto mt-4">
                 Generate New UUID

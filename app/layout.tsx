@@ -70,11 +70,11 @@ export default function RootLayout({
     return (
         <html lang="en" className="dark">
             <body
-                className={`${inter.className} bg-slate-900 text-slate-200 min-h-screen flex flex-col`}
+                className={`${inter.className}  bg-slate-900 text-slate-200 min-h-screen flex flex-col`}
             >
                 <Header />
                 {/* Main content area */}
-                <main className="flex-grow container mx-auto px-4 py-8">
+                <main className="flex-grow container mx-auto px-4 md:px-10 py-8">
                     {/* Place ClientSideInfoBlock just inside main, before page content */}
                     <ClientSideInfoBlock />
 

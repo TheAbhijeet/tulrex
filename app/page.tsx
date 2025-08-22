@@ -64,7 +64,7 @@ export default function HomePage() {
                 Welcome to TulRex
             </h1>
             <p className="text-center text-slate-400 mb-8">
-                Your collection of simple, fast, client-side utilities.
+                Simple, Fast, and Open-Source Tools in Your Browser
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

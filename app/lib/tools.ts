@@ -85,440 +85,487 @@ const CATEGORIES = {
 export const tools: Tool[] = [
     {
         slug: 'json-formatter',
-        title: 'JSON Formatter & Validator',
-        description: 'Format, validate, and beautify JSON data.',
-        icon: '📄',
+        title: 'JSON Formatter & Validator Online',
+        description:
+            'Free online JSON Formatter and Validator. Quickly format, beautify, validate, and check JSON data for errors in seconds.',
+        icon: '🧩',
         component: JsonFormatter,
         category: CATEGORIES.JSON_YAML,
     },
     {
         slug: 'base64-encode-decode',
-        title: 'Base64 Encode / Decode',
-        description: 'Encode text to Base64 or decode Base64 strings.',
+        title: 'Base64 Encode & Decode Online',
+        description:
+            'Fast and free Base64 encoder and decoder. Convert text to Base64 or decode Base64 strings instantly with accuracy.',
+
         icon: '🔄',
         component: Base64Coder,
         category: CATEGORIES.ENCODE_DECODE,
     },
     {
         slug: 'text-diff-viewer',
-        title: 'Text Diff Viewer',
-        description: 'Compare two blocks of text and highlight differences.',
-        icon: '↔️',
+        title: 'Text Diff Viewer Online',
+        description:
+            'Free online Text Diff Viewer to compare two blocks of text. Instantly highlight differences, changes, and modifications.',
+        icon: '📝',
         component: TextDiffViewer,
         category: CATEGORIES.TEXT,
     },
     {
         slug: 'regex-tester',
-        title: 'Regex Tester',
-        description: 'Test regular expressions against sample text.',
+        title: 'Regex Tester Online',
+        description:
+            'Free online Regex Tester to test and validate regular expressions against sample text with instant results.',
+
         icon: '🔬',
         component: RegexTester,
         category: CATEGORIES.ENCODE_DECODE,
     },
     {
         slug: 'url-encoder-decoder',
-        title: 'URL Encoder / Decoder',
-        description: 'Encode or decode URL components.',
+        title: 'URL Encoder Decoder Online',
+        description:
+            'Free online URL Encoder and Decoder tool to encode or decode URL components instantly and accurately.',
+
         icon: '🔗',
         component: UrlCoder,
         category: CATEGORIES.ENCODE_DECODE,
     },
     {
         slug: 'password-generator',
-        title: 'Password Generator',
-        description: 'Create strong, random passwords.',
+        title: 'Password Generator Online',
+        description:
+            'Generate strong and secure random passwords instantly. Privacy-focused and fully local processing in your browser.',
+
         icon: '🔒',
         component: PasswordGenerator,
         category: CATEGORIES.GENERATORS,
     },
     {
         slug: 'random-number-generator',
-        title: 'Random Number Generator',
-        description: 'Random Number Generator.',
-        icon: '🔒',
+        title: 'Random Number Generator Online',
+        description:
+            'Generate random numbers instantly with full privacy. All processing happens locally in your browser.',
+        icon: '🎲',
         component: RandomNumberGenerator,
         category: CATEGORIES.GENERATORS,
     },
     {
         slug: 'age-calculator',
-        title: 'Age calculator',
-        description: 'Age calculator.',
-        icon: '🔒',
+        title: 'Age Calculator Online',
+        description:
+            'Calculate your exact age in years, months, and days instantly with this free online age calculator.',
+        icon: '🎂',
         component: AgeCalculator,
         category: CATEGORIES.CALCULATORS,
     },
     {
         slug: 'color-palette-generator',
-        title: 'Color palette generator',
-        description: 'Color palette generator.',
-        icon: '🔒',
+        title: 'Color Palette Generator Online',
+        description:
+            'Create beautiful color palettes instantly. Generate, customize, and explore color combinations directly in your browser.',
+        icon: '🎨',
         component: ColorPaletteGenerator,
         category: CATEGORIES.GENERATORS,
     },
     {
         slug: 'text-counter',
-        title: 'Text Counter',
-        description: 'Text Counter.',
-        icon: '🔒',
+        title: 'Text Counter Online',
+        description:
+            'Count characters, words, and lines in your text instantly. Simple, accurate, and private — all in your browser.',
+        icon: '🔢',
         component: TextCounter,
         category: CATEGORIES.TEXT,
     },
     {
         slug: 'epoch-converter',
-        title: 'Epoch Converter',
-        description: 'Epoch Converter.',
-        icon: '🔒',
+        title: 'Epoch Converter Online',
+        description:
+            'Convert epoch and Unix timestamps to human-readable dates and vice versa instantly in your browser.',
+        icon: '⏱️',
         component: EpochConverter,
         category: CATEGORIES.TIME_DATE,
     },
     {
         slug: 'cron-parser',
-        title: 'Cron Parser',
-        description: 'Cron Parser.',
-        icon: '🔒',
+        title: 'Cron Parser Online',
+        description:
+            'Parse and understand cron expressions instantly. Quickly translate cron schedules into human-readable format.',
+        icon: '📆',
         component: CronParser,
         category: CATEGORIES.CONVERTERS,
     },
     {
         slug: 'lorem-ipsum-generator',
-        title: 'Lorem Ipsum Generator',
-        description: 'Lorem Ipsum Generator.',
-        icon: '🔒',
+        title: 'Lorem Ipsum Generator Online',
+        description:
+            'Generate placeholder Lorem Ipsum text instantly for your designs, mockups, and projects.',
+        icon: '✍️',
         component: LoremIpsumGenerator,
         category: CATEGORIES.GENERATORS,
     },
     {
         slug: 'notepad',
-        title: 'Notepad',
-        description: 'Notepad.',
-        icon: '🔒',
+        title: 'Online Notepad',
+        description:
+            'Simple online notepad to write and save notes instantly. All data stays in your browser for full privacy.',
+        icon: '🗒️',
         component: Notepad,
         category: CATEGORIES.UTILITY,
     },
     {
         slug: 'qr-code-generator',
-        title: 'QR Code Generator',
-        description: 'QR Code Generator.',
-        icon: '🔒',
+        title: 'QR Code Generator Online',
+        description:
+            'Create QR codes instantly for text, URLs, and more. All processing happens locally in your browser with full privacy.',
+        icon: '🔲',
         component: QrCodeGenerator,
         category: CATEGORIES.GENERATORS,
     },
 
     {
         slug: 'image-compressor',
-        title: 'Image Compressor',
-        description: 'Image Compressor.',
-        icon: '🔒',
+        title: 'Image Compressor Online',
+        description:
+            'Compress images instantly without quality loss. Fast, secure, and private — all processing happens in your browser.',
+        icon: '🖼️',
         component: ImageCompressor,
         category: CATEGORIES.COMPRESSORS,
     },
     {
         slug: 'text-to-speech-converter',
-        title: 'Text to Speech Converter',
-        description: 'Text to Speech Converter.',
-        icon: '🔒',
+        title: 'Text to Speech Converter Online',
+        description:
+            'Convert text to natural-sounding speech instantly. Fast, free, and private — works directly in your browser.',
+        icon: '🗣️',
         component: TextToSpeechConverter,
         category: CATEGORIES.CONVERTERS,
     },
     {
         slug: 'unit-converter',
-        title: 'Unit Converter',
-        description: 'Unit Converter',
-        icon: '🔒',
+        title: 'Unit Converter Online',
+        description:
+            'Convert between different units instantly. Fast, accurate, and easy-to-use unit converter in your browser.',
+        icon: '📏',
         component: UnitConverter,
         category: CATEGORIES.CONVERTERS,
     },
     {
         slug: 'excel-to-json-converter',
-        title: 'Excel To Json Converter',
-        description: 'Excel To Json Converter',
-        icon: '🔒',
+        title: 'Excel to JSON Converter Online',
+        description:
+            'Convert Excel files to JSON format instantly. Secure and private — all processing happens locally in your browser.',
+        icon: '📊',
         component: ExcelToJsonConverter,
         category: CATEGORIES.CONVERTERS,
     },
 
     {
         slug: 'emoji-picker',
-        title: 'Emoji Picker',
-        description: 'Emoji Picker',
-        icon: '🔒',
+        title: 'Emoji Picker Online',
+        description:
+            'Browse and copy emojis instantly with this simple emoji picker. Fast, easy, and works fully in your browser.',
+        icon: '😊',
         component: EmojiPicker,
         category: CATEGORIES.UTILITY,
     },
     {
         slug: 'color-shade-generator',
-        title: 'Color shade generator',
-        description: 'Color shade generator',
-        icon: '🔒',
+        title: 'Color Shade Generator Online',
+        description:
+            'Generate multiple shades of any color instantly. Simple, fast, and works entirely in your browser.',
+        icon: '🌈',
         component: ColorShadeGenerator,
         category: CATEGORIES.GENERATORS,
     },
     {
         slug: 'html-minifier',
-        title: 'Html Minifier',
-        description: 'Html Minifier',
-        icon: '🔒',
+        title: 'HTML Minifier Online',
+        description:
+            'Minify HTML code instantly to reduce file size and improve performance. All processing happens locally in your browser.',
+        icon: '⚡',
         component: HtmlMinifier,
         category: CATEGORIES.MINIFIERS,
     },
     {
         slug: 'json-to-csv-converter',
-        title: 'JSON to CSV',
-        description: 'JSON to CSV',
-        icon: '🔒',
+        title: 'JSON to CSV Converter Online',
+        description:
+            'Convert JSON data to CSV format instantly. Fast, secure, and private — all processing happens in your browser.',
+        icon: '📄',
         component: JsonToCsvConverter,
         category: CATEGORIES.CONVERTERS,
     },
     {
         slug: 'image-format-converter',
-        title: 'Image format converter',
-        description: 'Image format converter',
-        icon: '🔒',
+        title: 'Image Format Converter Online',
+        description:
+            'Convert images between formats like JPG, PNG, and WebP instantly. Private and secure — all processing stays in your browser.',
+        icon: '🖼️',
         component: ImageFormatConverter,
         category: CATEGORIES.CONVERTERS,
     },
     {
         slug: 'merge-pdfs',
-        title: 'Merge PDFs',
-        description: 'Merge PDFs',
-        icon: '🔒',
+        title: 'Merge PDFs Online',
+        description:
+            'Combine multiple PDF files into one instantly. Secure and private — all processing happens locally in your browser.',
+        icon: '📚',
         component: MergePdfs,
         category: CATEGORIES.PDF,
     },
     {
         slug: 'reorder-pdf-pages',
-        title: 'Reoder pdf pages',
-        description: 'Reoder pdf pages',
-        icon: '🔒',
+        title: 'Reorder PDF Pages Online',
+        description:
+            'Rearrange and reorder pages in your PDF instantly. Secure and private — all processing happens in your browser.',
+        icon: '📑',
         component: ReorderPdfPages,
         category: CATEGORIES.PDF,
     },
     {
         slug: 'javascript-minifier',
-        title: 'JavaScript Minifier',
-        description: 'JavaScript Minifier',
-        icon: '🔒',
+        title: 'JavaScript Minifier Online',
+        description:
+            'Minify JavaScript code instantly to reduce size and improve performance. All processing happens locally in your browser.',
+        icon: '🛠️',
         component: JavascriptMinifier,
         category: CATEGORIES.MINIFIERS,
     },
     {
         slug: 'css-minifier',
-        title: 'Css Minifier',
-        description: 'Css Minifier',
-        icon: '🔒',
+        title: 'CSS Minifier Online',
+        description:
+            'Minify CSS code instantly to reduce file size and boost performance. Processing is done locally in your browser.',
+        icon: '🎨',
         component: CssMinifier,
         category: CATEGORIES.MINIFIERS,
     },
     {
         slug: 'pdf-page-deleter',
-        title: 'PDF Page Deleter',
-        description: 'Remove specific pages from a PDF file.',
-        icon: '✂️📄',
+        title: 'PDF Page Deleter Online',
+        description:
+            'Delete specific pages from a PDF instantly. Secure and private — all processing happens locally in your browser.',
+        icon: '🗑️',
         category: CATEGORIES.PDF,
         component: PdfPageDeleter,
     },
 
     {
         slug: 'pdf-anonymizer',
-        title: 'PDF Anonymizer (Metadata)',
-        description: 'Remove common metadata fields (Title, Author, etc.) from a PDF.',
-        icon: '👤📄',
+        title: 'PDF Anonymizer Online',
+        description:
+            'Remove metadata like Title, Author, and more from PDF files instantly. Private and secure — all processing happens in your browser.',
+        icon: '🕵️',
         category: CATEGORIES.PDF,
         component: PdfAnonymizer,
     },
     {
         slug: 'pdf-editor-basic',
-        title: 'PDF Editor (Basic Insert)',
-        description: 'Add text or images to a PDF page at specified coordinates.',
-        icon: '✏️📄',
+        title: 'PDF Editor Online',
+        description:
+            'Add text or images to PDF pages instantly at chosen positions. Secure and private — all editing happens in your browser.',
+        icon: '✏️',
         category: CATEGORIES.PDF,
         component: PdfEditorBasic,
     },
     {
         slug: 'audio-player',
-        title: 'Audio Player',
-        description: 'Simple player for local audio files with basic controls.',
-        icon: '▶️',
+        title: 'Audio Player Online',
+        description:
+            'Play local audio files with simple controls directly in your browser. No uploads, fully private.',
+        icon: '🎵',
         category: CATEGORIES.AUDIO,
         component: AudioPlayerSimple,
     },
     {
         slug: 'audio-recorder',
-        title: 'Audio Recorder',
-        description: 'Record audio from your microphone and download the file.',
-        icon: '🎙️',
+        title: 'Audio Recorder Online',
+        description:
+            'Record audio from your microphone and save it instantly. Works directly in your browser with full privacy.',
+        icon: '🎤',
         category: CATEGORIES.AUDIO,
         component: AudioRecorder,
     },
     {
         slug: 'audio-cutter',
-        title: 'Audio Cutter ',
-        description: 'Trim the start/end of audio files (outputs WAV).',
+        title: 'Audio Cutter Online',
+        description:
+            'Trim the start or end of audio files and export to WAV. Works fully in your browser—no uploads.',
         icon: '✂️🎵',
         category: CATEGORIES.AUDIO,
         component: AudioCutter,
     },
     {
         slug: 'audio-merger',
-        title: 'Audio Merger ',
-        description: 'Concatenate multiple audio files sequentially (outputs WAV).',
+        title: 'Audio Merger Online',
+        description:
+            'Merge multiple audio files sequentially and export as WAV. Fully in-browser—no uploads.',
         icon: '➕🎵',
         category: CATEGORIES.AUDIO,
         component: AudioMerger,
     },
     {
         slug: 'audio-speed-changer',
-        title: 'Audio Speed Changer',
-        description: 'Adjust the playback speed of audio files.',
-        icon: '⏩',
+        title: 'Audio Speed Changer Online',
+        description:
+            'Change the playback speed of audio files instantly. Fast, private, and works fully in your browser.',
+        icon: '⏩🎵',
         category: CATEGORIES.AUDIO,
         component: AudioSpeedChanger,
     },
     {
         slug: 'audio-metadata-viewer',
-        title: 'Audio Metadata Viewer',
-        description: 'View metadata tags (ID3, etc.) from audio files.',
-        icon: 'ℹ️🎵',
+        title: 'Audio Metadata Viewer Online',
+        description:
+            'View audio file metadata tags like ID3 instantly. Works locally in your browser with full privacy.',
+        icon: '🎶ℹ️',
         category: CATEGORIES.AUDIO,
         component: AudioMetadataViewer,
     },
-    // {
-    //     slug: 'audio-format-checker',
-    //     title: 'Audio Format Checker',
-    //     description: 'Display technical details like codec, bitrate, duration.',
-    //     icon: '❓🎵',
-    //     category: CATEGORIES.AUDIO,
-    //     component: AudioFormatChecker,
-    // },
+
     {
         slug: 'mic-tester',
-        title: 'Microphone Tester',
-        description: 'Record and play back short audio to test your mic.',
-        icon: '✔️🎙️',
+        title: 'Microphone Tester Online',
+        description:
+            'Test your microphone instantly by recording and playing back audio. Works directly in your browser with no uploads.',
+        icon: '🎙️✔️',
         category: CATEGORIES.AUDIO,
         component: MicTester,
     },
     {
-        // Re-categorize or ensure exists
         slug: 'text-to-speech',
-        title: 'Text to Speech',
-        description: 'Convert text into spoken audio using browser capabilities.',
-        icon: '🔊',
+        title: 'Text to Speech Online',
+        description:
+            "Convert text into spoken audio instantly using your browser's built-in capabilities. No data leaves your device.",
+        icon: '🔊🗣️',
         category: CATEGORIES.AUDIO,
-        component: TextToSpeechConverter, // Or keep in WEB?
+        component: TextToSpeechConverter,
     },
 
     {
         slug: 'spreadsheet-viewer',
-        title: 'Excel & CSV Viewer',
-        description: 'View content of .xlsx, .xls, or .csv files in a table.',
-        icon: '👁️📊',
+        title: 'Excel & CSV Viewer Online',
+        description:
+            'View .xlsx, .xls, or .csv file contents instantly in a table. Fast and private — works fully in your browser.',
+        icon: '📊👁️',
         category: CATEGORIES.SPREADSHEET,
         component: SpreadsheetViewer,
     },
     {
         slug: 'excel-to-csv',
-        title: 'Excel to CSV / Sheet Extractor',
-        description: 'Convert Excel sheets to CSV files or extract single sheets.',
+        title: 'Excel to CSV Extractor Online',
+        description:
+            'Convert Excel files to CSV or extract individual sheets instantly. Secure and private — all processing stays in your browser.',
         icon: '📊➡️📄',
         category: CATEGORIES.CONVERTERS,
         component: ExcelToCsvConverter,
     },
     {
         slug: 'csv-to-excel',
-        title: 'CSV to Excel Converter',
-        description: 'Convert CSV data into an Excel (.xlsx) file.',
+        title: 'CSV to Excel Converter Online',
+        description:
+            'Convert CSV data into Excel (.xlsx) files instantly. Fast, secure, and private — all processing happens in your browser.',
         icon: '📄➡️📊',
         category: CATEGORIES.CONVERTERS,
         component: CsvToExcelConverter,
     },
     {
-        // Already exists, update category if needed
         slug: 'csv-to-json',
-        title: 'CSV to JSON Converter',
-        description: 'Convert CSV data into JSON format.',
-        icon: '📊➡️{}',
+        title: 'CSV to JSON Converter Online',
+        description:
+            'Convert CSV data into JSON format instantly. Secure and private — all processing happens locally in your browser.',
+        icon: '📊➡️📝',
         category: CATEGORIES.CONVERTERS,
-        component: CsvToJsonConverter, // Assuming exists
+        component: CsvToJsonConverter,
     },
     {
-        // Already exists, update category if needed
         slug: 'excel-to-json',
-        title: 'Excel to JSON Converter',
-        description: 'Convert Excel sheets (.xlsx, .xls) to JSON data.',
-        icon: '📈➡️{}',
+        title: 'Excel to JSON Converter Online',
+        description:
+            'Convert Excel sheets (.xlsx, .xls) to JSON data instantly. Private and secure — all processing happens in your browser.',
+        icon: '📈➡️📝',
         category: CATEGORIES.CONVERTERS,
-        component: ExcelToJsonConverter, // Assuming exists
+        component: ExcelToJsonConverter,
     },
     {
         slug: 'json-to-spreadsheet',
-        title: 'JSON to Excel/CSV',
-        description: 'Convert JSON arrays/objects into Excel or CSV files.',
+        title: 'JSON to Excel CSV Converter',
+        description:
+            'Convert JSON arrays or objects into Excel or CSV files instantly. Fast and private — works fully in your browser.',
         icon: '{}➡️📊',
         category: CATEGORIES.CONVERTERS,
         component: JsonToSpreadsheet,
     },
     {
         slug: 'json-generator',
-        title: 'Dummy JSON Generator',
-        description: 'Generate customizable arrays of JSON objects with dummy data.',
+        title: 'Dummy JSON Generator Online',
+        description:
+            'Generate customizable arrays of JSON objects with dummy data instantly. Fast, private, and works in your browser.',
         icon: '🎲',
         component: JsonGenerator,
         category: CATEGORIES.GENERATORS,
     },
     {
         slug: 'json-editor',
-        title: 'Interactive JSON Editor',
-        description: 'View, edit, format, and validate JSON data interactively.',
+        title: 'Interactive JSON Editor Online',
+        description:
+            'View, edit, format, and validate JSON data interactively. Secure and private — all processing happens locally in your browser.',
         icon: '🌳',
         component: JsonEditorTool,
         category: CATEGORIES.EDITOR,
     },
     {
         slug: 'css-formatter',
-        title: 'CSS Formatter',
-        description: 'Beautify and format CSS code with customizable options.',
-        icon: '🎨', // Or any other suitable emoji/icon
+        title: 'CSS Formatter Online',
+        description:
+            'Beautify and format CSS code instantly with customizable options. Fast and private — all processing happens in your browser.',
+        icon: '🎨',
         component: CssFormatter,
         category: CATEGORIES.FORMATTERS,
     },
     {
         slug: 'javascript-formatter',
-        title: 'Javascript Formatter',
-        description: 'Beautify and format Javascript code with customizable options.',
-        icon: '🎨', // Or any other suitable emoji/icon
+        title: 'JavaScript Formatter Online',
+        description:
+            'Beautify and format JavaScript code instantly with customizable options. Secure and private — all processing happens in your browser.',
+        icon: '🖌️',
         component: JavascriptFormatter,
         category: CATEGORIES.FORMATTERS,
     },
     {
         slug: 'image-background-remover',
-        title: 'Image Background Remover',
-        description: 'Remove background from images.',
-        icon: '🎨', // Or any other suitable emoji/icon
+        title: 'Image Background Remover Online',
+        description:
+            'Remove backgrounds from images instantly. Fast, secure, and private — all processing happens locally in your browser.',
+        icon: '🖼️✂️',
         component: ImageBackgroundRemover,
         category: CATEGORIES.IMAGE,
     },
     {
         slug: 'uuid-generator',
-        title: 'UUID Generator',
-        description: 'Generate UUIDs.',
-        icon: '🎨', // Or any other suitable emoji/icon
+        title: 'UUID Generator Online',
+        description:
+            'Generate unique UUIDs instantly. Fast, secure, and fully local — all processing happens in your browser.',
+        icon: '🔑',
         component: UuidGenerator,
         category: CATEGORIES.GENERATORS,
     },
     {
         slug: 'image-to-pdf',
-        title: 'Image to PDF converter',
-        description: 'Image to PDF converter.',
-        icon: '🎨', // Or any other suitable emoji/icon
+        title: 'Image to PDF Converter Online',
+        description:
+            'Convert images to PDF files instantly. Secure and private — all processing happens locally in your browser.',
+        icon: '🖼️➡️📄',
         component: ImageToPdfConverter,
         category: CATEGORIES.CONVERTERS,
     },
     {
         slug: 'text-case-converter',
-        title: 'Text Case Converter',
-        description: 'Text Case Converter.',
-        icon: '🎨', // Or any other suitable emoji/icon
+        title: 'Text Case Converter Online',
+        description:
+            'Convert text between uppercase, lowercase, title case, and more instantly. Fast and private — all processing happens in your browser.',
+        icon: '🔤',
         component: TextCaseConverter,
         category: CATEGORIES.CONVERTERS,
     },
