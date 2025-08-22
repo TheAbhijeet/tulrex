@@ -1,4 +1,5 @@
 import { JSONValue } from '@/types/common';
+import { toast } from "sonner";
 
 export function slugify(text: string): string {
     return text
@@ -35,4 +36,15 @@ export function isArrayOfObjects(value: unknown): value is Record<string, unknow
         Array.isArray(value) &&
         value.every((item) => typeof item === 'object' && item !== null && !Array.isArray(item))
     );
+}
+
+
+
+export async function copyToClipboard(text: string) {
+  try {
+    await navigator.clipboard.writeText(text);
+    toast.success("Copied to clipboard!");
+  } catch {
+    toast.error("Failed to copy.");
+  }
 }

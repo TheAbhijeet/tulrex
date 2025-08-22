@@ -5,6 +5,7 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import ClientSideInfoBlock from './components/layout/ClientSideInfoBlock';
 import SponsorBlock from './components/layout/SponsorBlock';
+import { Toaster } from 'sonner';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -83,6 +84,7 @@ export default function RootLayout({
 
                 {/* Place SponsorBlock between main content and footer */}
                 <SponsorBlock />
+                <Toaster theme="light" position="top-center" />
 
                 <Footer />
             </body>

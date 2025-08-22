@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
+import { toast } from 'sonner';
 
 type CopyStatus = 'idle' | 'copied' | 'error';
 
@@ -13,6 +14,7 @@ export function useCopyToClipboard(timeout = 2000): [CopyStatus, (text: string) 
                 .writeText(text)
                 .then(() => {
                     setStatus('copied');
+                    toast.success('Copied to clipboard.');
                     const timer = setTimeout(() => setStatus('idle'), timeout);
                     return () => clearTimeout(timer);
                 })

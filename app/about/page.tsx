@@ -10,9 +10,29 @@ export default function AboutPage() {
     const repoUrl = 'https://github.com/TheAbhijeet/tulrex';
 
     return (
-        <div>
+        <div className="prose md:max-w-4xl mx-auto">
             <h1 className="text-3xl font-bold mb-4 text-slate-100">About TulRex</h1>
-            <div className="space-y-4 text-slate-300">
+            <div className="space-y-4 leading-relaxed text-md text-slate-300">
+                <p>
+                    I made TulRex because I use a lot of these tools every day, and I was always a
+                    bit hesitant to upload my documents or photos online since I wasn’t sure how
+                    they might be used. So I figured why not build my own instead.
+                </p>
+
+                <p>
+                    I’m a web developer, but I stayed away from React.js for a long time. It’s not
+                    exactly the most loved framework out there, but since it’s so widely used I
+                    thought it would be a good place to start a project. That’s how{' '}
+                    <strong>Tulrex</strong> came to life.
+                </p>
+
+                <p>
+                    This project is completely open source. You’re welcome to use the existing
+                    tools, contribute improvements, or even add entirely new ones. My hope is that
+                    together we can grow Tulrex into a reliable, extensible platform that provides a
+                    wide range of everyday utilities without compromising user privacy.
+                </p>
+
                 <p>
                     TulRex is a collection of simple, free, client-side web tools designed for
                     developers, content creators, and anyone who needs quick utilities without

@@ -3,17 +3,16 @@ import { useState, useCallback } from 'react';
 import * as csso from 'csso';
 import TextareaInput from '@/components/ui/TextareaInput';
 import Button from '@/components/ui/Button';
-import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import { FaCopy } from 'react-icons/fa';
 import CodeMirror from '@uiw/react-codemirror';
 import { css } from '@codemirror/lang-css';
-import { dracula } from '@uiw/codemirror-theme-dracula';
+import { tokyoNight } from '@uiw/codemirror-theme-tokyo-night';
+import { copyToClipboard } from '@/lib/utils';
 
 export default function CssMinifier() {
     const [cssInput, setCssInput] = useState('');
     const [minifiedOutput, setMinifiedOutput] = useState('');
     const [error, setError] = useState('');
-    const [copyStatus, copy] = useCopyToClipboard();
 
     const handleMinify = useCallback(() => {
         setError('');
@@ -23,7 +22,12 @@ export default function CssMinifier() {
         }
         try {
             const result = csso.minify(cssInput);
+            console.log(result);
             setMinifiedOutput(result.css);
+            if (result.css === '') {
+                setError('Invalid Input failed to minify CSS');
+                setMinifiedOutput(cssInput);
+            }
         } catch (err) {
             if (err instanceof Error) {
                 setError(`Minification failed: ${err.message}`);
@@ -35,8 +39,14 @@ export default function CssMinifier() {
         }
     }, [cssInput]);
 
+    const handleClear = () => {
+        setMinifiedOutput('');
+        setCssInput('');
+        setError('');
+    };
+
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-md">
             <div className="space-y-3">
                 <label
                     htmlFor="css-minify-input"
@@ -47,18 +57,22 @@ export default function CssMinifier() {
 
                 <CodeMirror
                     value={cssInput}
-                    height="300px"
+                    height="330px"
                     id="css-minify-input"
                     extensions={[css()]}
+                    className="text-md"
                     onChange={(value) => setCssInput(value)}
-                    theme={dracula}
+                    theme={tokyoNight}
                     basicSetup={{
                         lineNumbers: true,
                     }}
                 />
+                {error && <p className="text-red-400 text-lg mt-2">{error}</p>}
 
                 <Button onClick={handleMinify}>Minify CSS</Button>
-                {error && <p className="text-red-400 text-sm mt-2">{error}</p>}
+                <Button className="ml-3" variant="secondary" onClick={handleClear}>
+                    Clear
+                </Button>
             </div>
             <div className="space-y-3">
                 <div className="flex justify-between items-center">
@@ -69,7 +83,7 @@ export default function CssMinifier() {
                         Minified Output:
                     </label>
                     <button
-                        onClick={() => copy(minifiedOutput)}
+                        onClick={() => copyToClipboard(minifiedOutput)}
                         disabled={!minifiedOutput}
                         className="p-1.5 text-slate-400 hover:text-cyan-400 bg-slate-700 hover:bg-slate-600 rounded disabled:opacity-50 focus:outline-none focus:ring-1 focus:ring-cyan-500"
                         title="Copy Minified CSS"
@@ -84,11 +98,8 @@ export default function CssMinifier() {
                     readOnly
                     rows={15}
                     placeholder="Minified CSS will appear here..."
-                    className="font-mono text-sm bg-slate-900 border-slate-700"
+                    className="font-mono text-sm bg-slate-900 border-slate-700 text-md"
                 />
-                {copyStatus === 'copied' && (
-                    <p className="text-xs text-green-400 mt-1 text-right">Copied!</p>
-                )}
             </div>
         </div>
     );
