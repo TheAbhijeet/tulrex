@@ -19,7 +19,7 @@ export default function ClientSideInfoBlock() {
                             href="/about#privacy"
                             className="ml-1 text-green-400 hover:text-green-300 hover:underline whitespace-nowrap"
                         >
-                            Learn how it works →
+                            Read more →
                         </Link>
                     </p>
                 </div>

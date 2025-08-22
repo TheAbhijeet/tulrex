@@ -41,12 +41,7 @@ export default function Notepad() {
                 <p className="text-sm text-slate-400">
                     Your notes are automatically saved in your browser's local storage.
                 </p>
-                <Button
-                    onClick={handleClear}
-                    variant="secondary"
-                    size="sm"
-                    className="text-xs !py-1"
-                >
+                <Button onClick={handleClear} variant="primary" className="text-xs">
                     Clear Notepad
                 </Button>
             </div>

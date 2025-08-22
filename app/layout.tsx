@@ -12,16 +12,16 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
     title: {
         template: '%s | TulRex',
-        default: 'TulRex - Simple Client-Side Developer Tools',
+        default: 'TulRex - Simple, Fast, and Open-Source Tools in Your Browser',
     },
     description:
-        'A collection of fast, free, client-side only tools for developers and content creators. No tracking, minimalist design.',
-    metadataBase: new URL('https://your-TulRex-domain.com'), // Replace with your actual domain
+        'A collection of fast, free, Open-Source and client-side only tools for developers and content creators. No tracking, minimalist design.',
+    metadataBase: new URL('https://tulrex.com'),
     openGraph: {
         title: 'TulRex - Simple Client-Side Developer Tools',
         description:
             'Fast, free, client-side developer tools. JSON Formatter, Base64, Regex Tester, and more.',
-        url: 'https://your-TulRex-domain.com', // Replace with your actual domain
+        url: 'https://tulrex.com',
         siteName: 'TulRex',
         // images: [ // Add an OG image later
         //   {

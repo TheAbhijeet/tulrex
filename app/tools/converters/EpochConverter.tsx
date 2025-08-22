@@ -2,8 +2,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import { FaCopy } from 'react-icons/fa';
+import { copyToClipboard } from '@/lib/utils';
 
 export default function EpochConverter() {
     const [timestamp, setTimestamp] = useState<number>(() => Math.floor(Date.now() / 1000));
@@ -16,7 +16,6 @@ export default function EpochConverter() {
         new Date().toISOString().slice(0, 16)
     ); // YYYY-MM-DDTHH:mm
     const [error, setError] = useState<string>('');
-    const [tsCopyStatus, copyTs] = useCopyToClipboard();
 
     const updateFromTimestamp = useCallback((ts: number | string) => {
         setError('');
@@ -105,16 +104,13 @@ export default function EpochConverter() {
                     {timestamp}
                 </p>
                 <button
-                    onClick={() => copyTs(timestamp.toString())}
+                    onClick={() => copyToClipboard(timestamp.toString())}
                     className="absolute top-2 right-2 p-1.5 text-slate-400 hover:text-cyan-400 bg-slate-700 hover:bg-slate-600 rounded focus:outline-none focus:ring-1 focus:ring-cyan-500"
                     title="Copy Timestamp"
                     aria-label="Copy timestamp"
                 >
                     <FaCopy className="w-4 h-4" />
                 </button>
-                {tsCopyStatus === 'copied' && (
-                    <p className="text-xs text-green-400 mt-1 absolute bottom-1 right-2">Copied!</p>
-                )}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -177,7 +173,7 @@ export default function EpochConverter() {
                 </p>
             </div>
 
-            <Button onClick={setToCurrentTime} variant="secondary" className="block mx-auto">
+            <Button onClick={setToCurrentTime} variant="primary" className="block mx-auto">
                 Set to Current Time
             </Button>
         </div>
