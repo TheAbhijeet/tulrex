@@ -7,7 +7,7 @@ const REPO_URL = 'https://github.com/TheAbhijeet/tulrex';
 const resourceLinks = [
     { href: '/about', label: 'About Us' },
     { href: '/contact', label: 'Contact Us' },
-    { href: '/terms-and-conditions', label: 'Terms & Conditions' },
+    { href: '/terms', label: 'Terms & Conditions' },
 ];
 
 const communityLinks = [

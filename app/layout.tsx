@@ -55,8 +55,7 @@ export const metadata: Metadata = {
     },
     // Add other meta tags as needed: icons, manifest (for PWA)
     // icons: {
-    //  icon: '/favicon.ico',
-    //  apple: '/apple-touch-icon.png',
+    //     icon: '/favicon.svg',
     // },
     // manifest: '/site.webmanifest',
 };
