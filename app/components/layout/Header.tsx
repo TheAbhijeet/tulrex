@@ -4,8 +4,8 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, Info } from 'lucide-react';
 import Logo from './Logo';
-import CommandPalette from './CommandPalette';
 import { FaGithub } from 'react-icons/fa';
+import Search from './Search';
 
 const repoUrl = 'https://github.com/your-username/TulRex'; // <-- CHANGE THIS
 
@@ -22,7 +22,7 @@ export default function Header() {
 
                 {/* Center: Search (Desktop) */}
                 <div className="hidden md:flex flex-1 justify-center px-8">
-                    <CommandPalette />
+                    <Search />
                 </div>
 
                 {/* Right Side: Links & Mobile Menu Toggle */}
@@ -64,7 +64,7 @@ export default function Header() {
                 <div className="md:hidden absolute top-16 left-0 w-full bg-slate-900 border-b border-slate-800 shadow-lg">
                     <div className="container mx-auto px-4 py-4 space-y-4">
                         <div className="px-2">
-                            <CommandPalette />
+                            <Search />
                         </div>
                         <Link
                             href="/about"

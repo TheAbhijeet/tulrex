@@ -12,10 +12,10 @@ import {
     DialogPanel,
     TransitionChild,
 } from '@headlessui/react';
-import { Search, FileText } from 'lucide-react';
+import { Search as SearchIcon, FileText } from 'lucide-react';
 import { tools } from '@/lib/tools';
 
-export default function CommandPalette() {
+export default function Search() {
     const [isOpen, setIsOpen] = useState(false);
     const [query, setQuery] = useState('');
     const router = useRouter();
@@ -59,10 +59,10 @@ export default function CommandPalette() {
                 className="w-full max-w-sm h-10 px-4 flex items-center justify-between text-sm text-slate-400 bg-slate-800 border border-slate-700 rounded-lg hover:bg-slate-700 hover:border-slate-600 transition-colors"
             >
                 <div className="flex items-center gap-2">
-                    <Search size={16} />
+                    <SearchIcon size={16} />
                     <span>Search tools...</span>
                 </div>
-                <kbd className="hidden sm:inline-block px-2 py-1 text-xs font-sans border border-slate-600 bg-slate-900 rounded">
+                <kbd className="hidden sm:inline-block px-2 py-1 text-xs font-sans border border-slate-600 bg-slate-800 rounded">
                     Ctrl K
                 </kbd>
             </button>
@@ -95,7 +95,6 @@ export default function CommandPalette() {
                             <DialogPanel className="w-full max-w-xl mx-auto rounded-xl bg-slate-800 border border-slate-700 shadow-2xl overflow-hidden">
                                 <Combobox onChange={(slug: string) => onSelect(slug)}>
                                     <div className="flex items-center px-4 py-4 border-b border-slate-700">
-                                        <Search className="text-slate-500 mr-2" size={20} />
                                         <ComboboxInput
                                             // 4. Attach the ref to the actual input element
                                             ref={inputRef}
@@ -116,14 +115,6 @@ export default function CommandPalette() {
                                                         <div
                                                             className={`px-4 py-3 flex items-center gap-3 cursor-pointer ${focus ? 'bg-cyan-600' : 'bg-slate-800'}`}
                                                         >
-                                                            <div
-                                                                className={`p-2 rounded-md ${focus ? 'bg-cyan-700' : 'bg-slate-700'}`}
-                                                            >
-                                                                <FileText
-                                                                    size={18}
-                                                                    className={`${focus ? 'text-white' : 'text-slate-400'}`}
-                                                                />
-                                                            </div>
                                                             <div>
                                                                 <p
                                                                     className={`font-medium ${focus ? 'text-white' : 'text-slate-200'}`}

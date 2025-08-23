@@ -7,7 +7,6 @@ const REPO_URL = 'https://github.com/TheAbhijeet/tulrex';
 const resourceLinks = [
     { href: '/about', label: 'About Us' },
     { href: '/contact', label: 'Contact Us' },
-    { href: '/privacy-policy', label: 'Privacy Policy' },
     { href: '/terms-and-conditions', label: 'Terms & Conditions' },
 ];
 
@@ -89,7 +88,7 @@ export default function Footer() {
                     {/* Column 4: Sponsor */}
                     <div>
                         <h3 className="text-sm font-semibold text-slate-200 tracking-wider uppercase">
-                            Support Us
+                            Support
                         </h3>
                         <div className="mt-4">
                             <a
