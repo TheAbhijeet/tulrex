@@ -8,7 +8,7 @@ export default function ClientSideInfoBlock() {
     if (!visible) return null;
 
     return (
-        <div className="mb-6 py-2 px-4 mt-0 relative  border border-slate-700 bg-slate-800/60 text-slate-200 text-md ">
+        <div className="mb-6 py-2 px-4 mt-0 relative  border border-slate-700 bg-slate-800/60 text-slate-200  ">
             <div className="flex items-start gap-3">
                 <span className="text-lg mt-0.5" aria-hidden="true">
                     🔒
@@ -20,7 +20,7 @@ export default function ClientSideInfoBlock() {
                     >
                         ✕
                     </button>
-                    <strong className="font-semibold">
+                    <strong className="font-semibold text-sm">
                         All Processing Happens On Your Browser – Private, Secure, Fast, and Open
                         Source
                     </strong>

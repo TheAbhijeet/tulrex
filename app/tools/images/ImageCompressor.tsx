@@ -170,6 +170,7 @@ export default function ImageCompressor() {
         } finally {
             setIsLoading(false);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [originalImage, options]);
 
     const handleClear = () => {

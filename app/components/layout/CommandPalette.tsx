@@ -112,26 +112,26 @@ export default function CommandPalette() {
                                         >
                                             {filteredTools.map((tool) => (
                                                 <ComboboxOption key={tool.slug} value={tool.slug}>
-                                                    {({ active }) => (
+                                                    {({ focus }) => (
                                                         <div
-                                                            className={`px-4 py-3 flex items-center gap-3 cursor-pointer ${active ? 'bg-cyan-600' : 'bg-slate-800'}`}
+                                                            className={`px-4 py-3 flex items-center gap-3 cursor-pointer ${focus ? 'bg-cyan-600' : 'bg-slate-800'}`}
                                                         >
                                                             <div
-                                                                className={`p-2 rounded-md ${active ? 'bg-cyan-700' : 'bg-slate-700'}`}
+                                                                className={`p-2 rounded-md ${focus ? 'bg-cyan-700' : 'bg-slate-700'}`}
                                                             >
                                                                 <FileText
                                                                     size={18}
-                                                                    className={`${active ? 'text-white' : 'text-slate-400'}`}
+                                                                    className={`${focus ? 'text-white' : 'text-slate-400'}`}
                                                                 />
                                                             </div>
                                                             <div>
                                                                 <p
-                                                                    className={`font-medium ${active ? 'text-white' : 'text-slate-200'}`}
+                                                                    className={`font-medium ${focus ? 'text-white' : 'text-slate-200'}`}
                                                                 >
                                                                     {tool.title}
                                                                 </p>
                                                                 <p
-                                                                    className={`text-sm ${active ? 'text-cyan-100' : 'text-slate-400'}`}
+                                                                    className={`text-sm ${focus ? 'text-cyan-100' : 'text-slate-400'}`}
                                                                 >
                                                                     {tool.description}
                                                                 </p>
