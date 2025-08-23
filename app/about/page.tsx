@@ -12,7 +12,7 @@ export default function AboutPage() {
     return (
         <div className="prose md:max-w-4xl mx-auto">
             <h1 className="text-3xl font-bold mb-4 text-slate-100">About TulRex</h1>
-            <div className="space-y-4 leading-relaxed text-md text-slate-300">
+            <div className="space-y-4 prose leading-relaxed text-md text-slate-300">
                 <p>
                     I made TulRex because I use a lot of these tools every day, and I was always a
                     bit hesitant to upload my documents or photos online since I wasn’t sure how
@@ -38,9 +38,7 @@ export default function AboutPage() {
                     developers, content creators, and anyone who needs quick utilities without
                     server interaction or tracking.
                 </p>
-                <p>
-                    <strong>Key Principles:</strong>
-                </p>
+                <h2 className="text-2xl font-bold mb-4 text-slate-200">Key Principles:</h2>
                 <ul className="list-disc list-inside pl-4 space-y-1">
                     <li>
                         <strong className="text-cyan-400">Client-Side Only:</strong> All processing
@@ -67,6 +65,18 @@ export default function AboutPage() {
                     We encourage contributions, bug reports, and suggestions! Check out the
                     repository:
                 </p>
+                <h2 className="text-2xl font-bold mb-4 text-slate-200">How TulRex Stays Free</h2>
+
+                <p>
+                    Now you may be wondering, how do I make money if everything is open-source?
+                    What's the business model?
+                </p>
+                <p>
+                    The truth is, there isn't one. I cover the server and domain costs out of my own
+                    pocket. Sponsors and donations help too. I want to keep this site free for
+                    everyone, so please contribute in any way you can to support it.
+                </p>
+
                 <p>
                     <Link
                         href={repoUrl}

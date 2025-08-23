@@ -3,16 +3,15 @@ import { useState, useCallback } from 'react';
 import Papa from 'papaparse';
 import TextareaInput from '@/components/ui/TextareaInput';
 import Button from '@/components/ui/Button';
-import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import { FaCopy, FaDownload } from 'react-icons/fa';
 import Input from '@/components/ui/Input';
+import { copyToClipboard } from '@/lib/utils';
 
 export default function JsonToCsvConverter() {
     const [jsonInput, setJsonInput] = useState('');
     const [csvOutput, setCsvOutput] = useState('');
     const [error, setError] = useState('');
     const [fileName, setFileName] = useState('data.csv');
-    const [copyStatus, copy] = useCopyToClipboard();
 
     const handleConvert = useCallback(() => {
         setError('');
@@ -77,7 +76,7 @@ export default function JsonToCsvConverter() {
                     onChange={(e) => setJsonInput(e.target.value)}
                     placeholder='[{"col1": "val1", "col2": "val2"}, ...]'
                     rows={15}
-                    className="font-mono text-xs"
+                    className="font-mono text-sm"
                 />
                 <Button onClick={handleConvert}>Convert to CSV</Button>
                 {error && <p className="text-red-400 text-sm mt-2">{error}</p>}
@@ -92,7 +91,7 @@ export default function JsonToCsvConverter() {
                     </label>
                     <div className="flex gap-2">
                         <button
-                            onClick={() => copy(csvOutput)}
+                            onClick={() => copyToClipboard(csvOutput)}
                             disabled={!csvOutput}
                             className="p-1.5 text-slate-400 hover:text-cyan-400 bg-slate-700 hover:bg-slate-600 rounded disabled:opacity-50 focus:outline-none focus:ring-1 focus:ring-cyan-500"
                             title="Copy CSV"
@@ -117,11 +116,9 @@ export default function JsonToCsvConverter() {
                     readOnly
                     rows={15}
                     placeholder="CSV result will appear here..."
-                    className="font-mono text-xs bg-slate-900 border-slate-700"
+                    className="font-mono text-sm bg-slate-700 border-slate-700"
                 />
-                {copyStatus === 'copied' && (
-                    <p className="text-xs text-green-400 mt-1 text-right">Copied!</p>
-                )}
+
                 <div className="flex justify-end">
                     <Input
                         type="text"

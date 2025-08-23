@@ -9,7 +9,6 @@ const config: Config = {
     darkMode: 'class',
     theme: {
         extend: {
-            // Optional: Customize prose styles for dark mode
             typography: ({ theme }: { theme: (path: string) => string }) => ({
                 DEFAULT: {
                     css: {

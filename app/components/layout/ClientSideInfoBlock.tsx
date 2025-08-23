@@ -1,13 +1,25 @@
+'use client';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function ClientSideInfoBlock() {
+    const [visible, setVisible] = useState(true);
+
+    if (!visible) return null;
+
     return (
-        <div className="mb-6 py-2 px-4 mt-0  border border-slate-700 bg-slate-800/60 text-slate-200 text-md ">
+        <div className="mb-6 py-2 px-4 mt-0 relative  border border-slate-700 bg-slate-800/60 text-slate-200 text-md ">
             <div className="flex items-start gap-3">
                 <span className="text-lg mt-0.5" aria-hidden="true">
                     🔒
                 </span>
                 <div>
+                    <button
+                        onClick={() => setVisible(false)}
+                        className="absolute top-1 right-2 text-slate-200 hover:text-slate-400"
+                    >
+                        ✕
+                    </button>
                     <strong className="font-semibold">
                         All Processing Happens On Your Browser – Private, Secure, Fast, and Open
                         Source

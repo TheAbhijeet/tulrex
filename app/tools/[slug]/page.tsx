@@ -66,7 +66,7 @@ export default async function ToolPage({ params }: Props) {
         <div>
             <div className="border-slate-700 bg-slate-800/60 p-4 sm:p-6 rounded-lg border  md:py-8">
                 <div className="mx-auto text-center mb-20">
-                    <h1 className="text-2xl font-bold mb-2 text-slate-100">{tool.title}</h1>
+                    <h1 className="text-3xl font-bold mb-2 text-slate-100">{tool.title}</h1>
                     <p className="text-slate-400 mb-6">{tool.description}</p>
                 </div>
                 <ToolComponent />

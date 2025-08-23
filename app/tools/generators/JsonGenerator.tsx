@@ -19,6 +19,7 @@ import Select from '@/components/ui/Select';
 
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { copyToClipboard } from '@/lib/utils';
 
 type FieldType =
     | 'uuid'
@@ -70,7 +71,6 @@ export default function JsonGenerator() {
     ]);
     const [outputJson, setOutputJson] = useState<string>('');
     const [error, setError] = useState<string | null>(null);
-    const [copyStatus, setCopyStatus] = useState<'idle' | 'copied'>('idle');
 
     const addField = () => {
         setFields([
@@ -141,7 +141,6 @@ export default function JsonGenerator() {
     const handleGenerate = useCallback(() => {
         setError(null);
         setOutputJson('');
-        setCopyStatus('idle');
 
         if (numRecords <= 0 || numRecords > 10000) {
             // Add a reasonable upper limit
@@ -179,18 +178,6 @@ export default function JsonGenerator() {
             console.error('Generation Error:', e);
         }
     }, [numRecords, fields]); // Dependencies for useCallback
-
-    const handleCopy = async () => {
-        if (!outputJson || !navigator.clipboard) return;
-        try {
-            await navigator.clipboard.writeText(outputJson);
-            setCopyStatus('copied');
-            setTimeout(() => setCopyStatus('idle'), 1500); // Reset after 1.5s
-        } catch (err) {
-            console.error('Failed to copy text: ', err);
-            setError('Failed to copy text to clipboard.');
-        }
-    };
 
     return (
         <div className="space-y-6">
@@ -397,12 +384,11 @@ export default function JsonGenerator() {
                             Generated JSON Output
                         </h3>
                         <Button
-                            onClick={handleCopy}
+                            onClick={() => copyToClipboard(outputJson)}
                             variant="secondary"
                             size="sm"
-                            disabled={copyStatus === 'copied'}
                         >
-                            {copyStatus === 'copied' ? 'Copied!' : 'Copy JSON'}
+                            Copy
                         </Button>
                     </div>
 

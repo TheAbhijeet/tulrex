@@ -83,7 +83,7 @@ export default function RootLayout({
                 </main>
 
                 {/* Place SponsorBlock between main content and footer */}
-                <SponsorBlock />
+                {/* <SponsorBlock /> */}
                 <Toaster theme="light" position="top-center" />
 
                 <Footer />

@@ -112,7 +112,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="mt-12 border-t border-slate-700 pt-8 flex flex-col sm:flex-row items-center justify-between">
                     <p className="text-sm text-center sm:text-left mb-4 sm:mb-0">
-                        © {new Date().getFullYear()} TulRex. All Rights Reserved.
+                        © {new Date().getUTCFullYear()} TulRex. All Rights Reserved.
                     </p>
                     <div className="flex items-center space-x-4">
                         <a
