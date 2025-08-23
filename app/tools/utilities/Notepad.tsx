@@ -50,14 +50,14 @@ export default function Notepad() {
                 onChange={(e) => setNote(e.target.value)}
                 placeholder="Start typing your notes here..."
                 rows={18}
-                className="font-mono text-sm"
+                className="bg-zinc-900 text-md"
             />
             {lastSaved && (
-                <p className="text-xs text-slate-500 text-right">
+                <p className="text-sm text-slate-300 text-right">
                     Last saved: {lastSaved.toLocaleTimeString()}
                 </p>
             )}
-            <p className="text-xs text-slate-500 text-right">Auto-saved locally</p>
+            <p className="text-sm text-slate-300 text-right">Auto-saved locally</p>
         </div>
     );
 }
