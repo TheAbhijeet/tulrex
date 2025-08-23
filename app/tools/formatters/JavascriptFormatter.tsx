@@ -9,6 +9,8 @@ import type { JSBeautifyOptions } from 'js-beautify';
 import Button from '@/components/ui/Button';
 import Select from '@/components/ui/Select';
 import Input from '@/components/ui/Input';
+import { FaCopy } from 'react-icons/fa';
+import { copyToClipboard } from '@/lib/utils';
 
 interface FormatterOptions extends Omit<JSBeautifyOptions, 'indent_char' | 'indent_with_tabs'> {
     indent_style: 'space' | 'tab';
@@ -44,7 +46,6 @@ export default function JavaScriptFormatter() {
     const [options, setOptions] = useState<FormatterOptions>(initialOptions);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
-    const [copied, setCopied] = useState(false);
 
     // Dynamic import for js-beautify
     const [beautify, setBeautify] = useState<
@@ -104,7 +105,6 @@ export default function JavaScriptFormatter() {
         setIsLoading(true);
         setError(null);
         setOutputJs('');
-        setCopied(false);
 
         // Convert FormatterOptions to JSBeautifyOptions
         const beautifyOpts: JSBeautifyOptions = {
@@ -133,19 +133,6 @@ export default function JavaScriptFormatter() {
         setInputJs('');
         setOutputJs('');
         setError(null);
-        setCopied(false);
-    };
-
-    const handleCopyToClipboard = async () => {
-        if (!outputJs) return;
-        try {
-            await navigator.clipboard.writeText(outputJs);
-            setCopied(true);
-            setTimeout(() => setCopied(false), 2000);
-        } catch (err) {
-            console.error('Failed to copy text: ', err);
-            alert('Failed to copy JavaScript. See console for details.');
-        }
     };
 
     const editorExtensions = [javascript({ jsx: true, typescript: true })];
@@ -486,11 +473,11 @@ export default function JavaScriptFormatter() {
                         </label>
                         {outputJs && !error && (
                             <Button
-                                onClick={handleCopyToClipboard}
+                                onClick={() => copyToClipboard(outputJs)}
                                 variant="secondary"
                                 className="px-2 py-1 text-xs"
                             >
-                                {copied ? 'Copied!' : 'Copy'}
+                                <FaCopy className="w-4 h-4" />{' '}
                             </Button>
                         )}
                     </div>

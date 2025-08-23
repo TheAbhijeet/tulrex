@@ -1,7 +1,7 @@
 import { test, expect, Page } from '@playwright/test';
 import toolsToTest from '../../tool-list.json';
 
-//  Helper function to check for console errors 
+//  Helper function to check for console errors
 async function checkConsoleErrors(page: Page): Promise<string[]> {
     const consoleErrors: string[] = [];
     page.on('console', (msg) => {

@@ -1,6 +1,5 @@
 @import 'tailwindcss';
 
-
 @plugin '@tailwindcss/typography';
 
 :root {
@@ -27,5 +26,3 @@ body {
     color: var(--foreground);
     font-family: Arial, Helvetica, sans-serif;
 }
-
-

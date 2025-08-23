@@ -50,6 +50,7 @@ import ImageBackgroundRemover from '@/tools/images/ImageBackgroundRemover';
 import UuidGenerator from '@/tools/generators/UuidGenerator';
 import ImageToPdfConverter from '@/tools/images/ImageToPdfConverter';
 import TextCaseConverter from '@/tools/texts/TextCaseConverter';
+import HtmlFormatter from '@/tools/formatters/HtmlFormatter';
 
 export interface Tool {
     slug: string;
@@ -85,7 +86,7 @@ const CATEGORIES = {
 export const tools: Tool[] = [
     {
         slug: 'json-formatter',
-        title: 'JSON Formatter & Validator Online',
+        title: 'JSON Formatter & Validator',
         description:
             'Free online JSON Formatter and Validator. Quickly format, beautify, validate, and check JSON data for errors in seconds.',
         icon: '🧩',
@@ -94,7 +95,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'base64-encode-decode',
-        title: 'Base64 Encode & Decode Online',
+        title: 'Base64 Encode & Decode',
         description:
             'Fast and free Base64 encoder and decoder. Convert text to Base64 or decode Base64 strings instantly with accuracy.',
 
@@ -103,17 +104,17 @@ export const tools: Tool[] = [
         category: CATEGORIES.ENCODE_DECODE,
     },
     {
-        slug: 'text-diff-viewer',
-        title: 'Text Diff Viewer Online',
+        slug: 'text-difference-viewer',
+        title: 'Text Difference Viewer',
         description:
-            'Free online Text Diff Viewer to compare two blocks of text. Instantly highlight differences, changes, and modifications.',
+            'Free online Text Difference Viewer to compare two blocks of text. Instantly highlight differences, changes, and modifications.',
         icon: '📝',
         component: TextDiffViewer,
         category: CATEGORIES.TEXT,
     },
     {
         slug: 'regex-tester',
-        title: 'Regex Tester Online',
+        title: 'Regex Tester',
         description:
             'Free online Regex Tester to test and validate regular expressions against sample text with instant results.',
 
@@ -123,7 +124,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'url-encoder-decoder',
-        title: 'URL Encoder Decoder Online',
+        title: 'URL Encoder Decoder',
         description:
             'Free online URL Encoder and Decoder tool to encode or decode URL components instantly and accurately.',
 
@@ -133,7 +134,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'password-generator',
-        title: 'Password Generator Online',
+        title: 'Password Generator',
         description:
             'Generate strong and secure random passwords instantly. Privacy-focused and fully local processing in your browser.',
 
@@ -143,7 +144,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'random-number-generator',
-        title: 'Random Number Generator Online',
+        title: 'Random Number Generator',
         description:
             'Generate random numbers instantly with full privacy. All processing happens locally in your browser.',
         icon: '🎲',
@@ -152,7 +153,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'age-calculator',
-        title: 'Age Calculator Online',
+        title: 'Age Calculator',
         description:
             'Calculate your exact age in years, months, and days instantly with this free online age calculator.',
         icon: '🎂',
@@ -161,7 +162,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'color-palette-generator',
-        title: 'Color Palette Generator Online',
+        title: 'Color Palette Generator',
         description:
             'Create beautiful color palettes instantly. Generate, customize, and explore color combinations directly in your browser.',
         icon: '🎨',
@@ -170,7 +171,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'text-counter',
-        title: 'Text Counter Online',
+        title: 'Text Counter',
         description:
             'Count characters, words, and lines in your text instantly. Simple, accurate, and private — all in your browser.',
         icon: '🔢',
@@ -179,7 +180,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'epoch-converter',
-        title: 'Epoch Converter Online',
+        title: 'Epoch Converter',
         description:
             'Convert epoch and Unix timestamps to human-readable dates and vice versa instantly in your browser.',
         icon: '⏱️',
@@ -188,7 +189,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'cron-parser',
-        title: 'Cron Parser Online',
+        title: 'Cron Parser',
         description:
             'Parse and understand cron expressions instantly. Quickly translate cron schedules into human-readable format.',
         icon: '📆',
@@ -197,7 +198,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'lorem-ipsum-generator',
-        title: 'Lorem Ipsum Generator Online',
+        title: 'Lorem Ipsum Generator',
         description:
             'Generate placeholder Lorem Ipsum text instantly for your designs, mockups, and projects.',
         icon: '✍️',
@@ -215,7 +216,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'qr-code-generator',
-        title: 'QR Code Generator Online',
+        title: 'QR Code Generator',
         description:
             'Create QR codes instantly for text, URLs, and more. All processing happens locally in your browser with full privacy.',
         icon: '🔲',
@@ -225,7 +226,7 @@ export const tools: Tool[] = [
 
     {
         slug: 'image-compressor',
-        title: 'Image Compressor Online',
+        title: 'Image Compressor',
         description:
             'Compress images instantly without quality loss. Fast, secure, and private — all processing happens in your browser.',
         icon: '🖼️',
@@ -234,7 +235,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'text-to-speech-converter',
-        title: 'Text to Speech Converter Online',
+        title: 'Text to Speech Converter',
         description:
             'Convert text to natural-sounding speech instantly. Fast, free, and private — works directly in your browser.',
         icon: '🗣️',
@@ -243,7 +244,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'unit-converter',
-        title: 'Unit Converter Online',
+        title: 'Unit Converter',
         description:
             'Convert between different units instantly. Fast, accurate, and easy-to-use unit converter in your browser.',
         icon: '📏',
@@ -252,7 +253,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'excel-to-json-converter',
-        title: 'Excel to JSON Converter Online',
+        title: 'Excel to JSON Converter',
         description:
             'Convert Excel files to JSON format instantly. Secure and private — all processing happens locally in your browser.',
         icon: '📊',
@@ -262,7 +263,7 @@ export const tools: Tool[] = [
 
     {
         slug: 'emoji-picker',
-        title: 'Emoji Picker Online',
+        title: 'Emoji Picker',
         description:
             'Browse and copy emojis instantly with this simple emoji picker. Fast, easy, and works fully in your browser.',
         icon: '😊',
@@ -271,7 +272,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'color-shade-generator',
-        title: 'Color Shade Generator Online',
+        title: 'Color Shade Generator',
         description:
             'Generate multiple shades of any color instantly. Simple, fast, and works entirely in your browser.',
         icon: '🌈',
@@ -280,7 +281,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'html-minifier',
-        title: 'HTML Minifier Online',
+        title: 'HTML Minifier',
         description:
             'Minify HTML code instantly to reduce file size and improve performance. All processing happens locally in your browser.',
         icon: '⚡',
@@ -289,7 +290,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'json-to-csv-converter',
-        title: 'JSON to CSV Converter Online',
+        title: 'JSON to CSV Converter',
         description:
             'Convert JSON data to CSV format instantly. Fast, secure, and private — all processing happens in your browser.',
         icon: '📄',
@@ -298,7 +299,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'image-format-converter',
-        title: 'Image Format Converter Online',
+        title: 'Image Format Converter',
         description:
             'Convert images between formats like JPG, PNG, and WebP instantly. Private and secure — all processing stays in your browser.',
         icon: '🖼️',
@@ -325,7 +326,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'javascript-minifier',
-        title: 'JavaScript Minifier Online',
+        title: 'JavaScript Minifier',
         description:
             'Minify JavaScript code instantly to reduce size and improve performance. All processing happens locally in your browser.',
         icon: '🛠️',
@@ -334,7 +335,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'css-minifier',
-        title: 'CSS Minifier Online',
+        title: 'CSS Minifier',
         description:
             'Minify CSS code instantly to reduce file size and boost performance. Processing is done locally in your browser.',
         icon: '🎨',
@@ -343,7 +344,7 @@ export const tools: Tool[] = [
     },
     {
         slug: 'pdf-page-deleter',
-        title: 'PDF Page Deleter Online',
+        title: 'PDF Page Deleter',
         description:
             'Delete specific pages from a PDF instantly. Secure and private — all processing happens locally in your browser.',
         icon: '🗑️',
@@ -353,7 +354,7 @@ export const tools: Tool[] = [
 
     {
         slug: 'pdf-anonymizer',
-        title: 'PDF Anonymizer Online',
+        title: 'PDF Anonymizer',
         description:
             'Remove metadata like Title, Author, and more from PDF files instantly. Private and secure — all processing happens in your browser.',
         icon: '🕵️',
@@ -426,7 +427,7 @@ export const tools: Tool[] = [
 
     {
         slug: 'mic-tester',
-        title: 'Microphone Tester Online',
+        title: 'Microphone Tester',
         description:
             'Test your microphone instantly by recording and playing back audio. Works directly in your browser with no uploads.',
         icon: '🎙️✔️',
@@ -567,6 +568,15 @@ export const tools: Tool[] = [
             'Convert text between uppercase, lowercase, title case, and more instantly. Fast and private — all processing happens in your browser.',
         icon: '🔤',
         component: TextCaseConverter,
+        category: CATEGORIES.CONVERTERS,
+    },
+    {
+        slug: 'html-formatter',
+        title: 'HTML Formatter Online',
+        description:
+            'Beautify and format HTML code instantly with customizable options. Fast, secure, and private — all processing happens in your browser.',
+        icon: '🎨',
+        component: HtmlFormatter,
         category: CATEGORIES.CONVERTERS,
     },
 ];

@@ -2,22 +2,33 @@
 import { useState, useCallback } from 'react';
 import TextareaInput from '@/components/ui/TextareaInput';
 import Button from '@/components/ui/Button';
-import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import { FaCopy } from 'react-icons/fa';
+import { copyToClipboard } from '@/lib/utils';
 
 const basicMinifyHtml = (html: string): string => {
-    return html
-        .replace(/<!--.*?-->/gs, '') // Remove comments
-        .replace(/\s+/g, ' ') // Collapse whitespace
-        .replace(/> </g, '><') // Remove space between tags
-        .trim();
+    return (
+        html
+            // remove HTML comments but keep IE conditional comments
+            .replace(/<!--(?!\[if|\<!\[endif)(.|\s)*?-->/g, '')
+            // collapse multiple spaces/tabs/newlines into one
+            .replace(/\s{2,}/g, ' ')
+            // remove spaces between tags
+            .replace(/>\s+</g, '><')
+            // trim leading/trailing whitespace
+            .trim()
+            // remove spaces around attribute equals
+            .replace(/\s*=\s*(['"]?)(.*?)\1/g, '="$2"')
+            // remove empty attributes (e.g. class="", id="")
+            .replace(/\s+\w+=""/g, '')
+            // remove optional closing tags (safe in HTML5)
+            .replace(/<\/(li|tr|th|td|p|option)>/gi, '')
+    );
 };
 
 export default function HtmlMinifier() {
     const [htmlInput, setHtmlInput] = useState('');
     const [minifiedOutput, setMinifiedOutput] = useState('');
     const [error, setError] = useState('');
-    const [copyStatus, copy] = useCopyToClipboard();
 
     const handleMinify = useCallback(() => {
         setError('');
@@ -53,7 +64,7 @@ export default function HtmlMinifier() {
                     onChange={(e) => setHtmlInput(e.target.value)}
                     placeholder="Paste HTML code here..."
                     rows={15}
-                    className="font-mono text-xs"
+                    className=" text-sm"
                 />
                 <Button onClick={handleMinify}>Minify HTML</Button>
                 {error && <p className="text-red-400 text-sm mt-2">{error}</p>}
@@ -67,7 +78,7 @@ export default function HtmlMinifier() {
                         Minified Output:
                     </label>
                     <button
-                        onClick={() => copy(minifiedOutput)}
+                        onClick={() => copyToClipboard(minifiedOutput)}
                         disabled={!minifiedOutput}
                         className="p-1.5 text-slate-400 hover:text-cyan-400 bg-slate-700 hover:bg-slate-600 rounded disabled:opacity-50 focus:outline-none focus:ring-1 focus:ring-cyan-500"
                         title="Copy Minified HTML"
@@ -82,11 +93,8 @@ export default function HtmlMinifier() {
                     readOnly
                     rows={15}
                     placeholder="Minified HTML will appear here..."
-                    className="font-mono text-xs bg-slate-900 border-slate-700"
+                    className=" text-sm bg-slate-800 border-slate-700"
                 />
-                {copyStatus === 'copied' && (
-                    <p className="text-xs text-green-400 mt-1 text-right">Copied!</p>
-                )}
             </div>
         </div>
     );
