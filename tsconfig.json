@@ -32,6 +32,6 @@
     //     "**/*.tsx",
     //     "scripts/extract-tools..mts"
     // ],
-    "exclude": ["node_modules", ".next", "dist", ".swc", "coverage", "e2e", "scripts"],
+    "exclude": ["node_modules", ".next", "dist", ".swc", "coverage", "e2e", "scripts", "out", "playwright-report", "public"],
     "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"]
 }
