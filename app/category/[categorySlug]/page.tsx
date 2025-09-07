@@ -49,7 +49,7 @@ export async function generateMetadata(
     }
 
     const title = `${categoryName} Tools | TulRex`;
-    const description = `Collection of ${categoryName.toLowerCase()} tools available on TulRex. Fast, free, client-side utilities.`;
+    const description = `Collection of ${categoryName.toLowerCase()} tools available on TulRex. Open Source, Fast, free, client-side online tools.`;
     const previousImages = (await parent).openGraph?.images || []; // Inherit OG image
 
     return {

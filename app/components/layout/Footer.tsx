@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { Heart, Bug, Lightbulb } from 'lucide-react';
 
-const REPO_URL = 'https://github.com/TheAbhijeet/tulrex';
+import { REPO_URL } from '@/lib/constants';
 
 const resourceLinks = [
     { href: '/about', label: 'About Us' },

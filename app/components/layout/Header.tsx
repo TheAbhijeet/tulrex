@@ -5,8 +5,7 @@ import { Menu, X } from 'lucide-react';
 import Logo from './Logo';
 import { Github } from 'lucide-react';
 import Search from './Search';
-
-const repoUrl = 'https://github.com/your-username/TulRex'; // <-- CHANGE THIS
+import { REPO_URL } from '@/lib/constants';
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,9 +26,9 @@ export default function Header() {
                 {/* Right Side: Links & Mobile Menu Toggle */}
                 <div className="flex items-center justify-end flex-shrink-0">
                     {/* Desktop Links */}
-                    <div className="hidden md:flex items-center gap-4">
+                    <div className="hidden md:flex items-center border border-gray-700 rounded-full gap-4">
                         <a
-                            href={repoUrl}
+                            href={REPO_URL}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="p-2 text-gray-400 hover:text-white hover:bg-gray-800 rounded-full transition-colors"
@@ -61,7 +60,7 @@ export default function Header() {
                         </div>
 
                         <a
-                            href={repoUrl}
+                            href={REPO_URL}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-3 px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md transition-colors"
