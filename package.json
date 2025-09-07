@@ -39,7 +39,7 @@
         "image-conversion": "^2.1.1",
         "js-beautify": "^1.15.4",
         "json-edit-react": "^1.28.2",
-        "jspdf": "^3.0.1",
+        "jspdf": "^3.0.2",
         "lucide-react": "^0.525.0",
         "music-metadata-browser": "^2.5.11",
         "next": "15.3.0",
