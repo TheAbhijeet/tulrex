@@ -1,12 +1,12 @@
 'use client';
 import { useState, useCallback } from 'react';
-import * as XLSX from 'xlsx';
 import Papa from 'papaparse';
 import Button from '@/components/ui/Button';
 import TextareaInput from '@/components/ui/TextareaInput';
 import { downloadFile } from '@/lib/audioUtils'; // Reusing utils
 import { JSONValue } from '@/types/common';
 import { isArrayOfObjects } from '@/lib/utils';
+import { utils, writeFile } from 'xlsx';
 
 export default function JsonToSpreadsheet() {
     const [jsonInput, setJsonInput] = useState('');
@@ -54,10 +54,10 @@ export default function JsonToSpreadsheet() {
                 }
 
                 if (format === 'xlsx') {
-                    const ws = XLSX.utils.json_to_sheet(jsonData);
-                    const wb = XLSX.utils.book_new();
-                    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-                    XLSX.writeFile(wb, 'data.xlsx');
+                    const ws = utils.json_to_sheet(jsonData);
+                    const wb = utils.book_new();
+                    utils.book_append_sheet(wb, ws, 'Sheet1');
+                    writeFile(wb, 'data.xlsx');
                 } else {
                     // csv
                     const csvString = Papa.unparse(jsonData);

@@ -1,9 +1,9 @@
 'use client';
 import { useState, useRef, useCallback } from 'react';
-import * as XLSX from 'xlsx';
 import Papa from 'papaparse';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
+import { utils, writeFile } from 'xlsx';
 
 export default function CsvToExcelConverter() {
     const [csvFile, setCsvFile] = useState<File | null>(null);
@@ -41,13 +41,13 @@ export default function CsvToExcelConverter() {
                     throw new Error(`CSV Parse Error: ${parseResult.errors[0].message}`);
                 }
 
-                const ws = XLSX.utils.aoa_to_sheet(parseResult.data);
-                const wb = XLSX.utils.book_new();
-                XLSX.utils.book_append_sheet(wb, ws, 'Sheet1'); // Add sheet
+                const ws = utils.aoa_to_sheet(parseResult.data);
+                const wb = utils.book_new();
+                utils.book_append_sheet(wb, ws, 'Sheet1'); // Add sheet
 
                 // Trigger download
                 const excelFileName = (csvFile.name.replace(/\.csv$/i, '') || 'data') + '.xlsx';
-                XLSX.writeFile(wb, excelFileName);
+                writeFile(wb, excelFileName);
 
                 // Reset after success
                 setCsvFile(null);

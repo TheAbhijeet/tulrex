@@ -1,10 +1,10 @@
 'use client';
 import { useState, useCallback, useEffect } from 'react';
-import * as XLSX from 'xlsx';
 import TextareaInput from '@/components/ui/TextareaInput';
 import Input from '@/components/ui/Input';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import { Copy as FaCopy, Download as FaDownload } from 'lucide-react';
+import { read, utils, WorkBook } from 'xlsx';
 
 type OutputFormat = 'array-of-objects' | 'array-of-arrays';
 
@@ -12,7 +12,7 @@ export default function ExcelToJsonConverter() {
     const [jsonData, setJsonData] = useState<string>('');
     const [sheetNames, setSheetNames] = useState<string[]>([]);
     const [selectedSheet, setSelectedSheet] = useState<string>('');
-    const [workbook, setWorkbook] = useState<XLSX.WorkBook | null>(null);
+    const [workbook, setWorkbook] = useState<WorkBook | null>(null);
     const [fileName, setFileName] = useState<string>('');
     const [outputFormat, setOutputFormat] = useState<OutputFormat>('array-of-objects');
     const [error, setError] = useState<string>('');
@@ -36,7 +36,7 @@ export default function ExcelToJsonConverter() {
             reader.onload = (e) => {
                 try {
                     const data = e.target?.result;
-                    const wb = XLSX.read(data, { type: 'binary' });
+                    const wb = read(data, { type: 'binary' });
                     setWorkbook(wb);
                     setSheetNames(wb.SheetNames);
                     if (wb.SheetNames.length > 0) {
@@ -61,17 +61,17 @@ export default function ExcelToJsonConverter() {
         [outputFormat]
     ); // Re-run if outputFormat changes? No, handled by selection change.
 
-    const convertSheetToJson = (wb: XLSX.WorkBook, sheetName: string, format: OutputFormat) => {
+    const convertSheetToJson = (wb: WorkBook, sheetName: string, format: OutputFormat) => {
         if (!wb || !sheetName) return;
         try {
             const worksheet = wb.Sheets[sheetName];
             let jsonResult: unknown;
             if (format === 'array-of-objects') {
-                jsonResult = XLSX.utils.sheet_to_json(worksheet, { header: 1 }); // Get header separately first
-                jsonResult = XLSX.utils.sheet_to_json(worksheet); // Then get objects
+                jsonResult = utils.sheet_to_json(worksheet, { header: 1 }); // Get header separately first
+                jsonResult = utils.sheet_to_json(worksheet); // Then get objects
             } else {
                 // array-of-arrays
-                jsonResult = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+                jsonResult = utils.sheet_to_json(worksheet, { header: 1 });
             }
 
             setJsonData(JSON.stringify(jsonResult, null, 2));

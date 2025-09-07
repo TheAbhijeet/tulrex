@@ -1,12 +1,12 @@
 'use client';
 import { useState, useRef, useCallback } from 'react';
-import * as XLSX from 'xlsx';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import { downloadFile, getFilenameWithNewExt } from '@/lib/audioUtils';
+import { read, utils, WorkBook, writeFile } from 'xlsx';
 
 export default function ExcelToCsvConverter() {
-    const [workbook, setWorkbook] = useState<XLSX.WorkBook | null>(null);
+    const [workbook, setWorkbook] = useState<WorkBook | null>(null);
     const [fileName, setFileName] = useState<string>('');
     const [sheetNames, setSheetNames] = useState<string[]>([]);
     const [selectedSheet, setSelectedSheet] = useState<string>('');
@@ -28,7 +28,7 @@ export default function ExcelToCsvConverter() {
             reader.onload = (e) => {
                 try {
                     const data = e.target?.result;
-                    const wb = XLSX.read(data, { type: 'array' });
+                    const wb = read(data, { type: 'array' });
                     setWorkbook(wb);
                     setSheetNames(wb.SheetNames);
                     if (wb.SheetNames.length > 0) setSelectedSheet(wb.SheetNames[0]);
@@ -62,7 +62,7 @@ export default function ExcelToCsvConverter() {
         }
         try {
             const worksheet = workbook.Sheets[selectedSheet];
-            const csvString = XLSX.utils.sheet_to_csv(worksheet);
+            const csvString = utils.sheet_to_csv(worksheet);
             const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
             const csvFileName = getFilenameWithNewExt(fileName, 'csv')
                 .replace('.xlsx', '')
@@ -81,11 +81,11 @@ export default function ExcelToCsvConverter() {
             return;
         }
         try {
-            const newWb = XLSX.utils.book_new();
+            const newWb = utils.book_new();
             // Clone the sheet to avoid modifying the original workbook state
             const worksheet = workbook.Sheets[selectedSheet];
             // Need a deep clone or re-parse if modifications happen, but just copying reference is ok for export
-            XLSX.utils.book_append_sheet(newWb, worksheet, selectedSheet); // Use original sheet name
+            utils.book_append_sheet(newWb, worksheet, selectedSheet); // Use original sheet name
 
             const excelFileName = getFilenameWithNewExt(fileName, 'xlsx')
                 .replace('.xlsx', '')
@@ -93,8 +93,8 @@ export default function ExcelToCsvConverter() {
             const outputFileName = `${selectedSheet}-${excelFileName}.xlsx`;
 
             // Generate XLSX blob and download
-            XLSX.writeFile(newWb, outputFileName, { bookType: 'xlsx', type: 'binary' });
-            // Note: XLSX.writeFile triggers download directly, no need for file-saver usually
+            writeFile(newWb, outputFileName, { bookType: 'xlsx', type: 'binary' });
+            // Note: writeFile triggers download directly, no need for file-saver usually
         } catch (err) {
             if (err instanceof Error) {
                 setError(`Failed to export sheet as XLSX: ${err.message}`);
