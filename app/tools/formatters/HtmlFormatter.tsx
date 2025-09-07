@@ -9,6 +9,7 @@ import Button from '@/components/ui/Button';
 import Select from '@/components/ui/Select';
 import { copyToClipboard } from '@/lib/utils';
 import { Copy as FaCopy } from 'lucide-react';
+import FullScreenWrapper from '@/components/ui/FullScreenWrapper';
 
 interface HtmlFormatOptions {
     tabWidth: number;
@@ -174,7 +175,7 @@ export default function HtmlFormatter() {
                             </Button>
                         )}
                     </div>
-                    <div className="h-72 md:h-96 min-h-[12rem] w-full bg-gray-800 rounded-md border border-gray-700 overflow-hidden">
+                    <FullScreenWrapper className="h-72 md:h-96 min-h-[12rem]">
                         {outputHtml && !error ? (
                             <SyntaxHighlighter
                                 language="html"
@@ -203,7 +204,7 @@ export default function HtmlFormatter() {
                                     : 'Formatted HTML will appear here.'}
                             </div>
                         )}
-                    </div>
+                    </FullScreenWrapper>
                 </div>
             </div>
 
