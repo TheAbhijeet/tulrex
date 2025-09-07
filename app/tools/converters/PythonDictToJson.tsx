@@ -4,7 +4,7 @@ import { useState } from 'react';
 import TextareaInput from '@/components/ui/TextareaInput';
 import Button from '@/components/ui/Button';
 import { copyToClipboard } from '@/lib/utils';
-import { FaCopy } from 'react-icons/fa';
+import { Copy as FaCopy } from 'lucide-react';
 
 /**
  * Attempts to convert a Python dictionary string into a valid JSON string.

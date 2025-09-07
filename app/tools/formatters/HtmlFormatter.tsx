@@ -8,7 +8,7 @@ import TextareaInput from '@/components/ui/TextareaInput';
 import Button from '@/components/ui/Button';
 import Select from '@/components/ui/Select';
 import { copyToClipboard } from '@/lib/utils';
-import { FaCopy } from 'react-icons/fa';
+import { Copy as FaCopy } from 'lucide-react';
 
 interface HtmlFormatOptions {
     tabWidth: number;

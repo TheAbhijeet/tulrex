@@ -3,7 +3,7 @@ import { useState, useCallback } from 'react';
 import * as csso from 'csso';
 import TextareaInput from '@/components/ui/TextareaInput';
 import Button from '@/components/ui/Button';
-import { FaCopy } from 'react-icons/fa';
+import { Copy as FaCopy } from 'lucide-react';
 import CodeMirror from '@uiw/react-codemirror';
 import { css } from '@codemirror/lang-css';
 import { tokyoNight } from '@uiw/codemirror-theme-tokyo-night';

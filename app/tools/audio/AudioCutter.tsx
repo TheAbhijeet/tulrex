@@ -10,7 +10,7 @@ import {
     downloadFile,
     getFilenameWithNewExt,
 } from '@/lib/audioUtils';
-import { FaCut, FaDownload } from 'react-icons/fa';
+import { Scissors, Download } from 'lucide-react';
 
 export default function AudioCutter() {
     const [inputFile, setInputFile] = useState<File | null>(null);
@@ -187,7 +187,7 @@ export default function AudioCutter() {
                         disabled={isProcessing}
                         className="w-full mt-3 flex items-center justify-center gap-2"
                     >
-                        <FaCut /> {isProcessing ? 'Cutting...' : 'Cut Audio Section'}
+                        <Scissors /> {isProcessing ? 'Cutting...' : 'Cut Audio Section'}
                     </Button>
 
                     {isProcessing && (
@@ -211,7 +211,7 @@ export default function AudioCutter() {
                                 variant="secondary"
                                 className="flex items-center justify-center gap-2 mx-auto"
                             >
-                                <FaDownload /> Download Trimmed WAV
+                                <Download /> Download Trimmed WAV
                             </Button>
                         </div>
                     )}

@@ -4,7 +4,7 @@ import Papa from 'papaparse';
 import TextareaInput from '@/components/ui/TextareaInput';
 import Button from '@/components/ui/Button';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
-import { FaCopy } from 'react-icons/fa';
+import { Copy as FaCopy } from 'lucide-react';
 import Input from '@/components/ui/Input';
 
 export default function CsvToJsonConverter() {

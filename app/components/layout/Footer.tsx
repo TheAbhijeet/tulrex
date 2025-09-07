@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { FaGithub, FaHeart } from 'react-icons/fa';
-import { GoBug, GoLightBulb } from 'react-icons/go';
+
+import { Github, Heart, Bug, Lightbulb } from 'lucide-react';
 
 const REPO_URL = 'https://github.com/TheAbhijeet/tulrex';
 
@@ -13,15 +13,15 @@ const resourceLinks = [
 const communityLinks = [
     {
         href: `${REPO_URL}/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=`,
-        icon: GoLightBulb,
+        icon: Lightbulb,
         label: 'Feature Request',
     },
     {
         href: `${REPO_URL}/issues/new?assignees=&labels=bug&template=bug_report.md&title=`,
-        icon: GoBug,
+        icon: Bug,
         label: 'Bug Report',
     },
-    { href: `${REPO_URL}/blob/main/CONTRIBUTING.md`, icon: FaGithub, label: 'Contribute' },
+    { href: `${REPO_URL}/blob/main/CONTRIBUTING.md`, icon: Github, label: 'Contribute' },
 ];
 
 export default function Footer() {
@@ -97,7 +97,7 @@ export default function Footer() {
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-pink-600 hover:bg-pink-700 transition-colors"
                             >
-                                <FaHeart className="w-4 h-4 mr-2" />
+                                <Heart className="w-4 h-4 mr-2 fill-white" />
                                 Star Project
                             </a>
                             <p className="text-xs mt-3">
@@ -121,7 +121,7 @@ export default function Footer() {
                             aria-label="TulRex GitHub Repository"
                             className="hover:text-white transition-colors"
                         >
-                            <FaGithub className="w-6 h-6" />
+                            <Github className="w-6 h-6" />
                         </a>
                     </div>
                 </div>

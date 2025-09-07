@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, Info } from 'lucide-react';
 import Logo from './Logo';
-import { FaGithub } from 'react-icons/fa';
+import { Github } from 'lucide-react';
 import Search from './Search';
 
 const repoUrl = 'https://github.com/your-username/TulRex'; // <-- CHANGE THIS
@@ -42,7 +42,7 @@ export default function Header() {
                             className="p-2 text-gray-400 hover:text-white hover:bg-gray-800 rounded-full transition-colors"
                             aria-label="GitHub Repository"
                         >
-                            <FaGithub size={20} />
+                            <Github size={20} />
                         </a>
                     </div>
 
@@ -80,7 +80,7 @@ export default function Header() {
                             rel="noopener noreferrer"
                             className="flex items-center gap-3 px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md transition-colors"
                         >
-                            <FaGithub size={20} />
+                            <Github size={20} />
                             View on GitHub
                         </a>
                     </div>

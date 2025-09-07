@@ -8,7 +8,13 @@ import {
     renderAudioBufferToBlob,
     downloadFile,
 } from '@/lib/audioUtils';
-import { FaPlus, FaDownload, FaTrash, FaArrowUp, FaArrowDown } from 'react-icons/fa';
+import {
+    Plus as FaPlus,
+    Download as FaDownload,
+    Trash2 as FaTrash,
+    ArrowUp as FaArrowUp,
+    ArrowDown as FaArrowDown,
+} from 'lucide-react';
 
 interface AudioFile {
     file: File;

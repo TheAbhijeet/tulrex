@@ -4,7 +4,7 @@ import { useState } from 'react';
 import TextareaInput from '@/components/ui/TextareaInput';
 import Button from '@/components/ui/Button';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
-import { FaCopy } from 'react-icons/fa';
+import { Copy as FaCopy } from 'lucide-react';
 
 type CaseType =
     | 'uppercase'

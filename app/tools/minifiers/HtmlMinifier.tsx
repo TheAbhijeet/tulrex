@@ -2,7 +2,7 @@
 import { useState, useCallback } from 'react';
 import TextareaInput from '@/components/ui/TextareaInput';
 import Button from '@/components/ui/Button';
-import { FaCopy } from 'react-icons/fa';
+import { Copy as FaCopy } from 'lucide-react';
 import { copyToClipboard } from '@/lib/utils';
 
 const basicMinifyHtml = (html: string): string => {

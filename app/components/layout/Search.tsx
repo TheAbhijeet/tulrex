@@ -92,7 +92,7 @@ export default function Search() {
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <DialogPanel className="w-full max-w-xl mx-auto rounded-xl bg-gray-800 border border-gray-700 shadow-2xl overflow-hidden">
+                            <DialogPanel className="w-full max-w-3xl mx-auto rounded-xl bg-gray-800 border border-gray-700 shadow-2xl overflow-hidden">
                                 <Combobox onChange={(slug: string) => onSelect(slug)}>
                                     <div className="flex items-center px-4 py-4 border-b border-gray-700">
                                         <ComboboxInput
@@ -107,7 +107,7 @@ export default function Search() {
                                     {filteredTools.length > 0 && (
                                         <ComboboxOptions
                                             static
-                                            className="max-h-72 overflow-y-auto"
+                                            className="max-h-90 overflow-y-auto"
                                         >
                                             {filteredTools.map((tool) => (
                                                 <ComboboxOption key={tool.slug} value={tool.slug}>

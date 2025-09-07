@@ -3,7 +3,7 @@ import { useState, useMemo } from 'react';
 import tinycolor from 'tinycolor2';
 import Input from '@/components/ui/Input';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
-import { FaCopy } from 'react-icons/fa';
+import { Copy as FaCopy } from 'lucide-react';
 
 const ColorSwatch = ({ color }: { color: string }) => {
     const [copyStatus, copy] = useCopyToClipboard();

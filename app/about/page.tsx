@@ -12,7 +12,7 @@ export default function AboutPage() {
 
     return (
         <div className="md:max-w-4xl mx-auto prose dark:prose-invert">
-            <h1 className="">About TulRex</h1>
+            <h1>About TulRex</h1>
             <p>
                 TulRex is a collection of simple, free, client-side web tools designed for
                 developers, content creators, and anyone who needs quick utilities without server
@@ -34,7 +34,7 @@ export default function AboutPage() {
                 We encourage contributions, bug reports, and suggestions! Check out the repository.
             </p>
 
-            <h2 className="text-2xl font-bold mb-4 text-gray-200">Key Principles:</h2>
+            <h2>Key Principles:</h2>
             <ul className="list-disc list-inside pl-4 space-y-1">
                 <li>
                     <strong className="text-cyan-400">Client-Side Only:</strong> All processing
@@ -72,7 +72,7 @@ export default function AboutPage() {
                 TypeScript, and Tailwind CSS, focusing on creating a performant static site.
             </p>
 
-            <h2 className="text-2xl font-bold mb-4 text-gray-200">How TulRex Stays Free?</h2>
+            <h2>How TulRex Stays Free?</h2>
 
             <p>
                 Now you may be wondering, how do I make money if everything is open-source? What's

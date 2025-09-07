@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FaCopy } from 'react-icons/fa';
+import { Copy as FaCopy } from 'lucide-react';
 import { useCopyToClipboard } from '../../hooks/useCopyToClipboard';
 import TextareaInput from '../../components/ui/TextareaInput';
 import Button from '../../components/ui/Button';

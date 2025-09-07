@@ -179,6 +179,8 @@ export default function TodoApp() {
                     <p>Add a task above to get started!</p>
                 </div>
             )}
+
+            <p className="text-sm text-gray-400 text-right">Auto-saved locally</p>
         </div>
     );
 }

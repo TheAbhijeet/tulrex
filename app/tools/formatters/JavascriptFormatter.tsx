@@ -9,7 +9,7 @@ import type { JSBeautifyOptions } from 'js-beautify';
 import Button from '@/components/ui/Button';
 import Select from '@/components/ui/Select';
 import Input from '@/components/ui/Input';
-import { FaCopy } from 'react-icons/fa';
+import { Copy as FaCopy } from 'lucide-react';
 import { copyToClipboard } from '@/lib/utils';
 
 interface FormatterOptions extends Omit<JSBeautifyOptions, 'indent_char' | 'indent_with_tabs'> {

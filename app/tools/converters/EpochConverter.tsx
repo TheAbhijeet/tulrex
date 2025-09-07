@@ -2,7 +2,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import { FaCopy } from 'react-icons/fa';
+import { Copy as FaCopy } from 'lucide-react';
 import { copyToClipboard } from '@/lib/utils';
 
 export default function EpochConverter() {
