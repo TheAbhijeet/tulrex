@@ -1,6 +1,6 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
-import * as musicMetadata from 'music-metadata-browser';
+import * as musicMetadata from 'music-metadata';
 import Input from '@/components/ui/Input';
 import { formatTime } from '@/lib/audioUtils';
 
@@ -24,7 +24,8 @@ export default function AudioMetadataViewer() {
                 // Extract and display cover art if available
                 if (parsedMetadata.common.picture && parsedMetadata.common.picture.length > 0) {
                     const picture = parsedMetadata.common.picture[0];
-                    const blob = new Blob([picture.data], { type: picture.format });
+                    const arrayBuffer = new Uint8Array(picture.data).buffer; // convert Buffer to ArrayBuffer
+                    const blob = new Blob([arrayBuffer], { type: picture.format });
                     const url = URL.createObjectURL(blob);
                     setImageUrl(url);
                 }

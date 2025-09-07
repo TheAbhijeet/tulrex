@@ -9,7 +9,7 @@ import Input from '@/components/ui/Input';
 import DraggablePage, { PageInfo } from '@/components/ui/DraggablePage';
 
 const downloadFile = (bytes: Uint8Array, fileName: string, mimeType: string): void => {
-    const blob = new Blob([bytes], { type: mimeType });
+    const blob = new Blob([new Uint8Array(bytes)], { type: mimeType });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
     link.download = fileName;

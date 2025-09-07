@@ -43,7 +43,7 @@ export default function PdfAnonymizer() {
             pdfDoc.setCreator('');
 
             const modifiedPdfBytes = await pdfDoc.save();
-            const blob = new Blob([modifiedPdfBytes], { type: 'application/pdf' });
+            const blob = new Blob([new Uint8Array(modifiedPdfBytes)], { type: 'application/pdf' });
             const url = URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;

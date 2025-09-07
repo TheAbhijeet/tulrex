@@ -184,7 +184,7 @@ export default function PdfPageDeleter() {
 
             const pdfBytes = await currentPdfDoc.save();
 
-            const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+            const blob = new Blob([new Uint8Array(pdfBytes)], { type: 'application/pdf' });
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blob);
             const originalName = pdfFile?.name.replace(/\.pdf$/i, '') || 'document';

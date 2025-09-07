@@ -1,11 +1,6 @@
 import { sortedTools as tools } from './lib/tools';
 import ToolCard from './components/ui/ToolCard';
 
-// Static Metadata for the Home page
-// export const metadata: Metadata = {
-//     title: 'TulRex - Simple Client-Side Developer Tools', // Overrides default title
-// };
-
 export default function HomePage() {
     return (
         <div>
