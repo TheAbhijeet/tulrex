@@ -1,6 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 
-import { Github, Heart, Bug, Lightbulb } from 'lucide-react';
+import { Heart, Bug, Lightbulb } from 'lucide-react';
 
 const REPO_URL = 'https://github.com/TheAbhijeet/tulrex';
 
@@ -21,7 +23,6 @@ const communityLinks = [
         icon: Bug,
         label: 'Bug Report',
     },
-    { href: `${REPO_URL}/blob/main/CONTRIBUTING.md`, icon: Github, label: 'Contribute' },
 ];
 
 export default function Footer() {
@@ -113,17 +114,6 @@ export default function Footer() {
                     <p className="text-sm text-center sm:text-left mb-4 sm:mb-0">
                         © {new Date().getUTCFullYear()} TulRex. All Rights Reserved.
                     </p>
-                    <div className="flex items-center space-x-4">
-                        <a
-                            href={REPO_URL}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="TulRex GitHub Repository"
-                            className="hover:text-white transition-colors"
-                        >
-                            <Github className="w-6 h-6" />
-                        </a>
-                    </div>
                 </div>
             </div>
         </footer>

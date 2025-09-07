@@ -1,8 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
-import { Menu, X, Info } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Logo from './Logo';
 import { Github } from 'lucide-react';
 import Search from './Search';
@@ -29,12 +28,6 @@ export default function Header() {
                 <div className="flex items-center justify-end flex-shrink-0">
                     {/* Desktop Links */}
                     <div className="hidden md:flex items-center gap-4">
-                        <Link
-                            href="/about"
-                            className="px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md transition-colors"
-                        >
-                            About
-                        </Link>
                         <a
                             href={repoUrl}
                             target="_blank"
@@ -66,14 +59,7 @@ export default function Header() {
                         <div className="px-2">
                             <Search />
                         </div>
-                        <Link
-                            href="/about"
-                            onClick={() => setIsMenuOpen(false)}
-                            className="flex items-center gap-3 px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md transition-colors"
-                        >
-                            <Info size={20} />
-                            About
-                        </Link>
+
                         <a
                             href={repoUrl}
                             target="_blank"

@@ -25,7 +25,7 @@ export default function ClientSideInfoBlock() {
                         Your files never leave your browser. All processing happens locally nothing
                         is uploaded or stored. We're fully open-source, ad-free, and privacy-focused
                         <Link
-                            href="/about#privacy"
+                            href="/about"
                             className="ml-1 text-green-400 hover:text-green-300 hover:underline whitespace-nowrap"
                         >
                             Read more →
