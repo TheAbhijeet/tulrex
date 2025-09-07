@@ -9,10 +9,10 @@ import ToolCard from './components/ui/ToolCard';
 export default function HomePage() {
     return (
         <div>
-            <h1 className="text-4xl font-bold mb-2 mt-8 text-center text-slate-100">
+            <h1 className="text-4xl font-bold mb-2 mt-8 text-center text-gray-100">
                 Welcome to TulRex
             </h1>
-            <p className="text-center text-slate-400 mb-8">
+            <p className="text-center text-gray-400 mb-8">
                 Simple, Fast, and Open-Source Tools in Your Browser
             </p>
 

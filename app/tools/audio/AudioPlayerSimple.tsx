@@ -114,8 +114,8 @@ export default function AudioPlayerSimple() {
         <div className="space-y-4 max-w-xl mx-auto">
             <Input type="file" accept="audio/*" onChange={handleFileChange} className="text-sm" />
             {audioSrc && (
-                <div className="p-4 bg-slate-800 rounded-md border border-slate-700 space-y-3">
-                    <p className="text-sm text-center text-slate-300 truncate" title={fileName}>
+                <div className="p-4 bg-gray-800 rounded-md border border-gray-700 space-y-3">
+                    <p className="text-sm text-center text-gray-300 truncate" title={fileName}>
                         {fileName}
                     </p>
                     <audio ref={audioRef} src={audioSrc} preload="metadata" />
@@ -131,7 +131,7 @@ export default function AudioPlayerSimple() {
                                 <FaPlay className="w-4 h-4" />
                             )}
                         </Button>
-                        <span className="text-xs font-mono text-slate-400">
+                        <span className="text-xs font-mono text-gray-400">
                             {formatTime(currentTime)}
                         </span>
                         <input
@@ -144,10 +144,10 @@ export default function AudioPlayerSimple() {
                             onMouseDown={() => (isDraggingProgress.current = true)}
                             onMouseUp={() => (isDraggingProgress.current = false)}
                             step="0.01"
-                            className="flex-grow h-1.5 bg-slate-600 rounded-lg appearance-none cursor-pointer accent-cyan-500"
+                            className="flex-grow h-1.5 bg-gray-600 rounded-lg appearance-none cursor-pointer accent-cyan-500"
                             aria-label="Seek progress"
                         />
-                        <span className="text-xs font-mono text-slate-400">
+                        <span className="text-xs font-mono text-gray-400">
                             {formatTime(duration)}
                         </span>
                     </div>
@@ -167,7 +167,7 @@ export default function AudioPlayerSimple() {
                             step="0.01"
                             value={isMuted ? 0 : volume}
                             onChange={handleVolumeChange}
-                            className="w-24 h-1.5 bg-slate-600 rounded-lg appearance-none cursor-pointer accent-cyan-500"
+                            className="w-24 h-1.5 bg-gray-600 rounded-lg appearance-none cursor-pointer accent-cyan-500"
                             aria-label="Volume"
                         />
                     </div>

@@ -66,7 +66,7 @@ export default function MicTester() {
 
     return (
         <div className="space-y-4 max-w-md mx-auto text-center">
-            <p className="text-sm text-slate-400">
+            <p className="text-sm text-gray-400">
                 Click "Start Test", speak for a few seconds, then click "Stop Test". Your recording
                 will play back automatically.
             </p>
@@ -88,8 +88,8 @@ export default function MicTester() {
             {error && <p className="text-red-400 text-sm">{error}</p>}
 
             {audioUrl && !isTesting && (
-                <div className="mt-4 p-3 bg-slate-800 rounded border border-slate-700 space-y-2">
-                    <h4 className="text-sm font-medium text-slate-300">Playback:</h4>
+                <div className="mt-4 p-3 bg-gray-800 rounded border border-gray-700 space-y-2">
+                    <h4 className="text-sm font-medium text-gray-300">Playback:</h4>
                     <audio ref={audioPlaybackRef} src={audioUrl} controls className="w-full" />
                 </div>
             )}

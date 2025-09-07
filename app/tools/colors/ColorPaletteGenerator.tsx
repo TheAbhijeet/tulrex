@@ -7,7 +7,7 @@ import { FaCopy } from 'react-icons/fa';
 
 const ColorSwatch = ({ color }: { color: string }) => {
     const [copyStatus, copy] = useCopyToClipboard();
-    const textColor = tinycolor(color).isLight() ? '#0f172a' : '#e2e8f0'; // slate-900 or slate-200
+    const textColor = tinycolor(color).isLight() ? '#0f172a' : '#e2e8f0'; // gray-900 or gray-200
 
     return (
         <div
@@ -68,7 +68,7 @@ export default function ColorPaletteGenerator() {
     return (
         <div className="space-y-5">
             <div className="flex flex-wrap items-center justify-center gap-4">
-                <label htmlFor="base-color" className="block text-sm font-medium text-slate-300">
+                <label htmlFor="base-color" className="block text-sm font-medium text-gray-300">
                     Base Color:
                 </label>
                 <input
@@ -76,7 +76,7 @@ export default function ColorPaletteGenerator() {
                     type="color"
                     value={baseColor}
                     onChange={handleColorChange}
-                    className="w-10 h-10 rounded border border-slate-600 cursor-pointer appearance-none bg-transparent"
+                    className="w-10 h-10 rounded border border-gray-600 cursor-pointer appearance-none bg-transparent"
                 />
                 <Input
                     type="text"
@@ -86,14 +86,14 @@ export default function ColorPaletteGenerator() {
                     maxLength={7}
                 />
 
-                <label htmlFor="palette-type" className="block text-sm font-medium text-slate-300">
+                <label htmlFor="palette-type" className="block text-sm font-medium text-gray-300">
                     Type:
                 </label>
                 <select
                     id="palette-type"
                     value={paletteType}
                     onChange={(e) => setPaletteType(e.target.value as PaletteType)}
-                    className="px-3 py-2 border border-slate-600 rounded-md bg-slate-700 text-slate-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none"
+                    className="px-3 py-2 border border-gray-600 rounded-md bg-gray-700 text-gray-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none"
                 >
                     {paletteTypes.map((pt) => (
                         <option key={pt.value} value={pt.value}>
@@ -102,7 +102,7 @@ export default function ColorPaletteGenerator() {
                     ))}
                 </select>
 
-                <label htmlFor="color-count" className="block text-sm font-medium text-slate-300">
+                <label htmlFor="color-count" className="block text-sm font-medium text-gray-300">
                     Count:
                 </label>
                 <Input
@@ -122,7 +122,7 @@ export default function ColorPaletteGenerator() {
                 ))}
             </div>
             {palette.length === 0 && (
-                <p className="text-center text-slate-400">Invalid base color.</p>
+                <p className="text-center text-gray-400">Invalid base color.</p>
             )}
         </div>
     );

@@ -140,15 +140,15 @@ export default function AudioCutter() {
             {error && <p className="text-center text-red-400">{error}</p>}
 
             {audioBuffer && !isLoading && (
-                <div className="p-4 bg-slate-800 rounded-md border border-slate-700 space-y-3">
-                    <p className="text-sm text-slate-300 text-center">
+                <div className="p-4 bg-gray-800 rounded-md border border-gray-700 space-y-3">
+                    <p className="text-sm text-gray-300 text-center">
                         Duration: {formatTime(duration)}
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
                             <label
                                 htmlFor="start-time"
-                                className="block text-xs font-medium text-slate-300 mb-1"
+                                className="block text-xs font-medium text-gray-300 mb-1"
                             >
                                 Start Time (s):
                             </label>
@@ -166,7 +166,7 @@ export default function AudioCutter() {
                         <div>
                             <label
                                 htmlFor="end-time"
-                                className="block text-xs font-medium text-slate-300 mb-1"
+                                className="block text-xs font-medium text-gray-300 mb-1"
                             >
                                 End Time (s):
                             </label>
@@ -195,8 +195,8 @@ export default function AudioCutter() {
                     )}
 
                     {trimmedAudioUrl && !isProcessing && (
-                        <div className="mt-4 pt-3 border-t border-slate-700 space-y-2">
-                            <h4 className="text-sm font-medium text-slate-300 text-center">
+                        <div className="mt-4 pt-3 border-t border-gray-700 space-y-2">
+                            <h4 className="text-sm font-medium text-gray-300 text-center">
                                 Trimmed Audio
                             </h4>
                             <audio

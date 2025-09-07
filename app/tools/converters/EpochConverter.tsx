@@ -98,14 +98,14 @@ export default function EpochConverter() {
 
     return (
         <div className="space-y-5">
-            <div className="text-center p-4 bg-slate-800 rounded border border-slate-700 relative">
-                <p className="text-sm text-slate-400">Current Epoch Timestamp</p>
+            <div className="text-center p-4 bg-gray-800 rounded border border-gray-700 relative">
+                <p className="text-sm text-gray-400">Current Epoch Timestamp</p>
                 <p className="text-3xl font-mono font-semibold text-cyan-400 break-all">
                     {timestamp}
                 </p>
                 <button
                     onClick={() => copyToClipboard(timestamp.toString())}
-                    className="absolute top-2 right-2 p-1.5 text-slate-400 hover:text-cyan-400 bg-slate-700 hover:bg-slate-600 rounded focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                    className="absolute top-2 right-2 p-1.5 text-gray-400 hover:text-cyan-400 bg-gray-700 hover:bg-gray-600 rounded focus:outline-none focus:ring-1 focus:ring-cyan-500"
                     title="Copy Timestamp"
                     aria-label="Copy timestamp"
                 >
@@ -117,7 +117,7 @@ export default function EpochConverter() {
                 <div className="space-y-2">
                     <label
                         htmlFor="timestamp-input"
-                        className="block text-sm font-medium text-slate-300"
+                        className="block text-sm font-medium text-gray-300"
                     >
                         Convert Timestamp:
                     </label>
@@ -132,7 +132,7 @@ export default function EpochConverter() {
                 <div className="space-y-2">
                     <label
                         htmlFor="human-date-input"
-                        className="block text-sm font-medium text-slate-300"
+                        className="block text-sm font-medium text-gray-300"
                     >
                         Convert Date/Time:
                     </label>
@@ -157,19 +157,19 @@ export default function EpochConverter() {
 
             {error && <p className="text-center text-red-400 text-sm">{error}</p>}
 
-            <div className="p-4 bg-slate-800 rounded border border-slate-700 space-y-2">
+            <div className="p-4 bg-gray-800 rounded border border-gray-700 space-y-2">
                 <h3 className="text-lg font-semibold text-cyan-400 mb-2 text-center">
                     Converted Time
                 </h3>
                 <p>
-                    <strong className="text-slate-300 w-24 inline-block">Relative:</strong>{' '}
+                    <strong className="text-gray-300 w-24 inline-block">Relative:</strong>{' '}
                     {relativeTime}
                 </p>
                 <p>
-                    <strong className="text-slate-300 w-24 inline-block">Local:</strong> {humanDate}
+                    <strong className="text-gray-300 w-24 inline-block">Local:</strong> {humanDate}
                 </p>
                 <p>
-                    <strong className="text-slate-300 w-24 inline-block">GMT:</strong> {gmtTime}
+                    <strong className="text-gray-300 w-24 inline-block">GMT:</strong> {gmtTime}
                 </p>
             </div>
 

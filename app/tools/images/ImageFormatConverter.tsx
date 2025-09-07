@@ -240,10 +240,10 @@ export default function ImageConverter() {
     return (
         <div className="space-y-6 p-4  mx-auto">
             {/* File Input Section */}
-            <div className="p-4 border border-dashed border-slate-600 rounded-md text-center bg-slate-800">
+            <div className="p-4 border border-dashed border-gray-600 rounded-md text-center bg-gray-800">
                 <label
                     htmlFor="image-conv-upload"
-                    className="block text-sm font-medium text-slate-300 mb-2"
+                    className="block text-sm font-medium text-gray-300 mb-2"
                 >
                     Select Image File:
                 </label>
@@ -266,14 +266,14 @@ export default function ImageConverter() {
             {originalImage && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
                     {/* Input Preview & Info */}
-                    <div className="text-center space-y-3 p-4 bg-slate-800 rounded-md">
-                        <h3 className="text-lg font-semibold text-slate-200">Input Preview</h3>
+                    <div className="text-center space-y-3 p-4 bg-gray-800 rounded-md">
+                        <h3 className="text-lg font-semibold text-gray-200">Input Preview</h3>
                         <img
                             src={originalImage.dataUrl}
                             alt="Input"
-                            className="max-w-full h-auto max-h-80 mx-auto rounded border border-slate-700 object-contain"
+                            className="max-w-full h-auto max-h-80 mx-auto rounded border border-gray-700 object-contain"
                         />
-                        <p className="text-xs text-slate-400">
+                        <p className="text-xs text-gray-400">
                             {originalImage.name} ({originalImage.width} x {originalImage.height} px)
                             <br />
                             {formatFileSize(originalImage.size)} - {originalImage.type}
@@ -289,20 +289,20 @@ export default function ImageConverter() {
                     </div>
 
                     {/* Conversion Controls Panel */}
-                    <div className="space-y-6 p-4 bg-slate-800 rounded-md">
-                        <h3 className="text-lg font-semibold text-slate-200 text-center">
+                    <div className="space-y-6 p-4 bg-gray-800 rounded-md">
+                        <h3 className="text-lg font-semibold text-gray-200 text-center">
                             Conversion Options
                         </h3>
 
-                        <fieldset className="border border-slate-700 p-3 rounded-md">
-                            <legend className="px-2 text-sm font-medium text-slate-400">
+                        <fieldset className="border border-gray-700 p-3 rounded-md">
+                            <legend className="px-2 text-sm font-medium text-gray-400">
                                 Output Format & Quality
                             </legend>
                             <div className="space-y-3">
                                 <div className={inputGridClass}>
                                     <label
                                         htmlFor="format-select"
-                                        className="text-sm font-medium text-slate-300"
+                                        className="text-sm font-medium text-gray-300"
                                     >
                                         Format:
                                     </label>
@@ -313,7 +313,7 @@ export default function ImageConverter() {
                                             setOutputFormat(e.target.value as OutputImageFormat)
                                         }
                                         disabled={isLoading}
-                                        className="w-full px-3 py-2 border border-slate-600 rounded-md bg-slate-700 text-slate-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none"
+                                        className="w-full px-3 py-2 border border-gray-600 rounded-md bg-gray-700 text-gray-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none"
                                     >
                                         <option value="PNG">PNG</option>
                                         <option value="JPEG">JPEG</option>
@@ -324,7 +324,7 @@ export default function ImageConverter() {
                                     <div className={inputGridClass}>
                                         <label
                                             htmlFor="quality-range"
-                                            className="text-sm font-medium text-slate-300"
+                                            className="text-sm font-medium text-gray-300"
                                         >
                                             Quality: {Math.round(quality * 100)}%
                                         </label>
@@ -337,22 +337,22 @@ export default function ImageConverter() {
                                             value={quality}
                                             onChange={(e) => setQuality(parseFloat(e.target.value))}
                                             disabled={isLoading}
-                                            className="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer accent-cyan-500"
+                                            className="w-full h-2 bg-gray-600 rounded-lg appearance-none cursor-pointer accent-cyan-500"
                                         />
                                     </div>
                                 )}
                             </div>
                         </fieldset>
 
-                        <fieldset className="border border-slate-700 p-3 rounded-md">
-                            <legend className="px-2 text-sm font-medium text-slate-400">
+                        <fieldset className="border border-gray-700 p-3 rounded-md">
+                            <legend className="px-2 text-sm font-medium text-gray-400">
                                 Resizing
                             </legend>
                             <div className="space-y-3">
                                 <div className={inputGridClass}>
                                     <label
                                         htmlFor="target-width"
-                                        className="text-sm font-medium text-slate-300"
+                                        className="text-sm font-medium text-gray-300"
                                     >
                                         Width (px):
                                     </label>
@@ -363,13 +363,13 @@ export default function ImageConverter() {
                                         onChange={(e) => handleTargetWidthChange(e.target.value)}
                                         placeholder={`${originalImage.width}`}
                                         disabled={isLoading}
-                                        className="bg-slate-700 border-slate-600"
+                                        className="bg-gray-700 border-gray-600"
                                     />
                                 </div>
                                 <div className={inputGridClass}>
                                     <label
                                         htmlFor="target-height"
-                                        className="text-sm font-medium text-slate-300"
+                                        className="text-sm font-medium text-gray-300"
                                     >
                                         Height (px):
                                     </label>
@@ -380,13 +380,13 @@ export default function ImageConverter() {
                                         onChange={(e) => handleTargetHeightChange(e.target.value)}
                                         placeholder={`${originalImage.height}`}
                                         disabled={isLoading}
-                                        className="bg-slate-700 border-slate-600"
+                                        className="bg-gray-700 border-gray-600"
                                     />
                                 </div>
                                 <div className={inputGridClass}>
                                     <label
                                         htmlFor="scale-percent"
-                                        className="text-sm font-medium text-slate-300"
+                                        className="text-sm font-medium text-gray-300"
                                     >
                                         Scale (%):
                                     </label>
@@ -399,10 +399,10 @@ export default function ImageConverter() {
                                         step="1"
                                         placeholder="100"
                                         disabled={isLoading}
-                                        className="bg-slate-700 border-slate-600"
+                                        className="bg-gray-700 border-gray-600"
                                     />
                                 </div>
-                                <p className="text-xs text-slate-500 text-right">
+                                <p className="text-xs text-gray-500 text-right">
                                     Changing one dimension or scale will update others to maintain
                                     aspect ratio. To set custom dimensions, enter both width and
                                     height.
@@ -419,17 +419,17 @@ export default function ImageConverter() {
                         </Button>
 
                         {outputUrl && (
-                            <div className="text-center space-y-3 pt-4 border-t border-slate-700">
-                                <h4 className="text-md font-semibold text-slate-200">
+                            <div className="text-center space-y-3 pt-4 border-t border-gray-700">
+                                <h4 className="text-md font-semibold text-gray-200">
                                     Output Preview
                                 </h4>
                                 <img
                                     src={outputUrl}
                                     alt="Output"
-                                    className="max-w-full h-auto max-h-64 mx-auto rounded border border-slate-700 object-contain"
+                                    className="max-w-full h-auto max-h-64 mx-auto rounded border border-gray-700 object-contain"
                                 />
                                 {outputSize != null && (
-                                    <p className="text-xs text-slate-400">
+                                    <p className="text-xs text-gray-400">
                                         {outputFileName} <br />
                                         {formatFileSize(outputSize)}
                                     </p>

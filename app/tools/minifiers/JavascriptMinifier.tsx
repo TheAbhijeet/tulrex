@@ -112,13 +112,13 @@ export default function JavascriptMinifierReactCM() {
     return (
         <div className="space-y-4 md:space-y-6">
             {/* Options */}
-            <div className="p-3 border border-slate-700 rounded-md bg-slate-800/50">
-                <label className="flex items-center space-x-2 text-sm text-slate-300 cursor-pointer">
+            <div className="p-3 border border-gray-700 rounded-md bg-gray-800/50">
+                <label className="flex items-center space-x-2 text-sm text-gray-300 cursor-pointer">
                     <input
                         type="checkbox"
                         checked={dropConsole}
                         onChange={(e) => setDropConsole(e.target.checked)}
-                        className="form-checkbox h-4 w-4 text-cyan-600 bg-slate-600 border-slate-500 rounded focus:ring-cyan-500"
+                        className="form-checkbox h-4 w-4 text-cyan-600 bg-gray-600 border-gray-500 rounded focus:ring-cyan-500"
                     />
                     <span>Remove `console.*` calls</span>
                 </label>
@@ -130,11 +130,11 @@ export default function JavascriptMinifierReactCM() {
                 <div className="flex-1 min-w-0 flex flex-col">
                     <label
                         htmlFor="js-input-cm"
-                        className="block text-sm font-medium text-slate-300 mb-1 select-none"
+                        className="block text-sm font-medium text-gray-300 mb-1 select-none"
                     >
                         Input JavaScript:
                     </label>
-                    <div className="flex-grow relative border border-slate-700 rounded-md overflow-hidden bg-[#282a36]">
+                    <div className="flex-grow relative border border-gray-700 rounded-md overflow-hidden bg-[#282a36]">
                         <CodeMirror
                             id="js-input-cm"
                             value={inputCode}
@@ -162,7 +162,7 @@ export default function JavascriptMinifierReactCM() {
                     <div className="flex justify-between items-center mb-1">
                         <label
                             htmlFor="js-output"
-                            className="block text-sm font-medium text-slate-300 select-none"
+                            className="block text-sm font-medium text-gray-300 select-none"
                         >
                             Minified JavaScript:
                         </label>
@@ -181,7 +181,7 @@ export default function JavascriptMinifierReactCM() {
                         value={outputCode}
                         readOnly
                         placeholder="Minified JavaScript will appear here..."
-                        className="w-full flex-grow p-2.5 border border-slate-600 rounded-md bg-slate-900 text-slate-200 placeholder-slate-500 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none resize-none font-mono text-xs leading-relaxed"
+                        className="w-full flex-grow p-2.5 border border-gray-600 rounded-md bg-gray-900 text-gray-200 placeholder-gray-500 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none resize-none font-mono text-xs leading-relaxed"
                         aria-label="Minified JavaScript Output"
                     />
                 </div>

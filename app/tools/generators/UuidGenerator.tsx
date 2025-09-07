@@ -42,7 +42,7 @@ export default function UuidGenerator() {
         <div className="space-y-4 max-w-xl mx-auto">
             <label
                 htmlFor="uuid-output"
-                className="block text-sm font-medium text-slate-300 mb-1 text-center"
+                className="block text-sm font-medium text-gray-300 mb-1 text-center"
             >
                 Generated UUID (v4):
             </label>
@@ -58,7 +58,7 @@ export default function UuidGenerator() {
                 <div className="absolute inset-y-0 right-0 flex items-center space-x-1 pr-2">
                     <button
                         onClick={generateUuid}
-                        className="p-1.5 text-slate-400 hover:text-cyan-400 bg-slate-700 hover:bg-slate-600 rounded focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-slate-800"
+                        className="p-1.5 text-gray-400 hover:text-cyan-400 bg-gray-700 hover:bg-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-800"
                         title="Generate New UUID"
                         aria-label="Generate new UUID"
                     >
@@ -67,7 +67,7 @@ export default function UuidGenerator() {
                     <button
                         onClick={() => copyToClipboard(uuid)}
                         disabled={!uuid}
-                        className="p-1.5 text-slate-400 hover:text-cyan-400 bg-slate-700 hover:bg-slate-600 rounded disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-slate-800"
+                        className="p-1.5 text-gray-400 hover:text-cyan-400 bg-gray-700 hover:bg-gray-600 rounded disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-800"
                         title="Copy to Clipboard"
                         aria-label="Copy UUID to clipboard"
                     >

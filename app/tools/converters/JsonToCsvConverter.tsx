@@ -64,10 +64,7 @@ export default function JsonToCsvConverter() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-3">
-                <label
-                    htmlFor="json-csv-input"
-                    className="block text-sm font-medium text-slate-300"
-                >
+                <label htmlFor="json-csv-input" className="block text-sm font-medium text-gray-300">
                     JSON Input (Array of Objects/Arrays):
                 </label>
                 <TextareaInput
@@ -83,17 +80,14 @@ export default function JsonToCsvConverter() {
             </div>
             <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                    <label
-                        htmlFor="csv-output"
-                        className="block text-sm font-medium text-slate-300"
-                    >
+                    <label htmlFor="csv-output" className="block text-sm font-medium text-gray-300">
                         CSV Output:
                     </label>
                     <div className="flex gap-2">
                         <button
                             onClick={() => copyToClipboard(csvOutput)}
                             disabled={!csvOutput}
-                            className="p-1.5 text-slate-400 hover:text-cyan-400 bg-slate-700 hover:bg-slate-600 rounded disabled:opacity-50 focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                            className="p-1.5 text-gray-400 hover:text-cyan-400 bg-gray-700 hover:bg-gray-600 rounded disabled:opacity-50 focus:outline-none focus:ring-1 focus:ring-cyan-500"
                             title="Copy CSV"
                             aria-label="Copy CSV output"
                         >
@@ -102,7 +96,7 @@ export default function JsonToCsvConverter() {
                         <button
                             onClick={downloadCsv}
                             disabled={!csvOutput}
-                            className="p-1.5 text-slate-400 hover:text-cyan-400 bg-slate-700 hover:bg-slate-600 rounded disabled:opacity-50 focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                            className="p-1.5 text-gray-400 hover:text-cyan-400 bg-gray-700 hover:bg-gray-600 rounded disabled:opacity-50 focus:outline-none focus:ring-1 focus:ring-cyan-500"
                             title="Download CSV"
                             aria-label="Download CSV file"
                         >
@@ -116,7 +110,7 @@ export default function JsonToCsvConverter() {
                     readOnly
                     rows={15}
                     placeholder="CSV result will appear here..."
-                    className="font-mono text-sm bg-slate-700 border-slate-700"
+                    className="font-mono text-sm bg-gray-700 border-gray-700"
                 />
 
                 <div className="flex justify-end">

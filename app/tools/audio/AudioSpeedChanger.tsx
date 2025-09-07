@@ -71,13 +71,13 @@ export default function AudioSpeedChanger() {
         <div className="space-y-4 max-w-xl mx-auto">
             <Input type="file" accept="audio/*" onChange={handleFileChange} className="text-sm" />
             {audioSrc && (
-                <div className="p-4 bg-slate-800 rounded-md border border-slate-700 space-y-3">
+                <div className="p-4 bg-gray-800 rounded-md border border-gray-700 space-y-3">
                     <audio ref={audioRef} src={audioSrc} preload="metadata" />
                     <div className="flex items-center gap-3">
                         <Button onClick={togglePlayPause} size="sm">
                             {isPlaying ? <FaPause /> : <FaPlay />}
                         </Button>
-                        <span className="text-xs font-mono text-slate-400">
+                        <span className="text-xs font-mono text-gray-400">
                             {formatTime(currentTime)}
                         </span>
                         <input
@@ -87,14 +87,14 @@ export default function AudioSpeedChanger() {
                             value={currentTime}
                             onChange={handleSeek}
                             step="0.01"
-                            className="flex-grow h-1.5 bg-slate-600 rounded-lg appearance-none cursor-pointer accent-cyan-500"
+                            className="flex-grow h-1.5 bg-gray-600 rounded-lg appearance-none cursor-pointer accent-cyan-500"
                         />
-                        <span className="text-xs font-mono text-slate-400">
+                        <span className="text-xs font-mono text-gray-400">
                             {formatTime(duration)}
                         </span>
                     </div>
                     <div className="flex items-center justify-center gap-2">
-                        <label htmlFor="speed-range" className="text-sm font-medium text-slate-300">
+                        <label htmlFor="speed-range" className="text-sm font-medium text-gray-300">
                             Speed:
                         </label>
                         <input
@@ -105,7 +105,7 @@ export default function AudioSpeedChanger() {
                             step="0.05"
                             value={playbackRate}
                             onChange={(e) => setPlaybackRate(parseFloat(e.target.value))}
-                            className="w-48 h-1.5 bg-slate-600 rounded-lg appearance-none cursor-pointer accent-cyan-500"
+                            className="w-48 h-1.5 bg-gray-600 rounded-lg appearance-none cursor-pointer accent-cyan-500"
                         />
                         <span className="text-sm font-mono w-12 text-right">
                             {playbackRate.toFixed(2)}x

@@ -8,7 +8,7 @@ import { FaCopy } from 'react-icons/fa';
 const ShadeSwatch = ({ colorHex }: { colorHex: string }) => {
     const [copyStatus, copy] = useCopyToClipboard(1000);
     const isLight = tinycolor(colorHex).isLight();
-    const textColor = isLight ? 'text-slate-900' : 'text-slate-200';
+    const textColor = isLight ? 'text-gray-900' : 'text-gray-200';
 
     return (
         <div className="relative group">
@@ -77,7 +77,7 @@ export default function ColorShadeGenerator() {
             <div className="flex flex-wrap items-center justify-center gap-4">
                 <label
                     htmlFor="shade-base-color"
-                    className="block text-sm font-medium text-slate-300"
+                    className="block text-sm font-medium text-gray-300"
                 >
                     Base Color:
                 </label>
@@ -86,7 +86,7 @@ export default function ColorShadeGenerator() {
                     type="color"
                     value={baseColor}
                     onChange={handleColorChange}
-                    className="w-10 h-10 rounded border border-slate-600 cursor-pointer appearance-none bg-transparent"
+                    className="w-10 h-10 rounded border border-gray-600 cursor-pointer appearance-none bg-transparent"
                 />
                 <Input
                     type="text"
@@ -95,7 +95,7 @@ export default function ColorShadeGenerator() {
                     className="font-mono w-28"
                     maxLength={7}
                 />
-                <label htmlFor="shade-step" className="block text-sm font-medium text-slate-300">
+                <label htmlFor="shade-step" className="block text-sm font-medium text-gray-300">
                     Step (%):
                 </label>
                 <Input

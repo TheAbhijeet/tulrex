@@ -89,7 +89,7 @@ export default function EmojiPicker() {
     }, []);
 
     if (isLoading) {
-        return <div className="text-center p-10 text-slate-400">Loading emojis...</div>;
+        return <div className="text-center p-10 text-gray-400">Loading emojis...</div>;
     }
 
     if (error) {
@@ -102,7 +102,7 @@ export default function EmojiPicker() {
 
     return (
         <div className="space-y-4">
-            <div className="sticky top-0 z-10 bg-slate-800 py-3">
+            <div className="sticky top-0 z-10 bg-gray-800 py-3">
                 {' '}
                 {/* Adjust parent bg if needed */}
                 <TextInput
@@ -121,7 +121,7 @@ export default function EmojiPicker() {
             </div>
 
             {filteredEmojis.length === 0 && searchTerm && (
-                <p className="text-slate-400 text-center">No emojis found for "{searchTerm}".</p>
+                <p className="text-gray-400 text-center">No emojis found for "{searchTerm}".</p>
             )}
 
             <div className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 xl:grid-cols-15 gap-1 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
@@ -130,7 +130,7 @@ export default function EmojiPicker() {
                         key={emoji.char + emoji.name} // Using char + name for better key uniqueness
                         onClick={() => handleEmojiClick(emoji)}
                         title={emoji.name}
-                        className="p-2 text-3xl rounded-md hover:bg-slate-700 focus:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-colors aspect-square flex items-center justify-center"
+                        className="p-2 text-3xl rounded-md hover:bg-gray-700 focus:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-colors aspect-square flex items-center justify-center"
                         aria-label={emoji.name}
                     >
                         {emoji.char}
@@ -138,7 +138,7 @@ export default function EmojiPicker() {
                 ))}
             </div>
             {filteredEmojis.length > 0 && (
-                <p className="text-xs text-slate-500 text-center pt-2">
+                <p className="text-xs text-gray-500 text-center pt-2">
                     Showing {filteredEmojis.length} of {allEmojis.length} emojis.
                 </p>
             )}

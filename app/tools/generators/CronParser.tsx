@@ -31,7 +31,7 @@ export default function CronParser() {
             <div>
                 <label
                     htmlFor="cron-input"
-                    className="block text-sm font-medium text-slate-300 mb-1"
+                    className="block text-sm font-medium text-gray-300 mb-1"
                 >
                     Cron Expression:
                 </label>
@@ -43,13 +43,13 @@ export default function CronParser() {
                     placeholder="e.g., 0 18 * * MON-FRI"
                     className="font-mono"
                 />
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-gray-400 mt-1">
                     Format: Minute Hour DayOfMonth Month DayOfWeek
                 </p>
             </div>
             {error && <p className="text-red-400 text-sm">{error}</p>}
             {description && !error && (
-                <div className="p-4 bg-slate-800 rounded border border-slate-700 text-center">
+                <div className="p-4 bg-gray-800 rounded border border-gray-700 text-center">
                     <p className="text-lg text-cyan-400">{description}</p>
                 </div>
             )}

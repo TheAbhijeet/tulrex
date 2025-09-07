@@ -8,12 +8,12 @@ export default function ClientSideInfoBlock() {
     if (!visible) return null;
 
     return (
-        <div className="mb-6 py-2 px-4 mt-0 relative  border border-slate-700 bg-slate-800/60 text-slate-200  ">
+        <div className="mb-6 py-2 px-4 mt-0 relative  border border-gray-700 bg-gray-800/60 text-gray-200  ">
             <div className="flex items-start gap-3">
                 <div>
                     <button
                         onClick={() => setVisible(false)}
-                        className="absolute top-1 right-2 text-slate-200 hover:text-slate-400"
+                        className="absolute top-1 right-2 text-gray-200 hover:text-gray-400"
                     >
                         ✕
                     </button>

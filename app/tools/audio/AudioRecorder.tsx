@@ -103,8 +103,8 @@ export default function AudioRecorder() {
             {error && <p className="text-red-400 text-sm">{error}</p>}
 
             {audioUrl && !isRecording && (
-                <div className="mt-4 p-3 bg-slate-800 rounded border border-slate-700 space-y-2">
-                    <h4 className="text-sm font-medium text-slate-300">Recording Complete</h4>
+                <div className="mt-4 p-3 bg-gray-800 rounded border border-gray-700 space-y-2">
+                    <h4 className="text-sm font-medium text-gray-300">Recording Complete</h4>
                     <audio ref={audioPlaybackRef} src={audioUrl} controls className="w-full" />
                     <Button
                         onClick={handleDownload}

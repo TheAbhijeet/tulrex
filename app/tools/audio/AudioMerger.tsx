@@ -159,10 +159,10 @@ export default function AudioMerger() {
 
     return (
         <div className="space-y-5">
-            <div className="p-4 border border-dashed border-slate-600 rounded-md text-center bg-slate-800">
+            <div className="p-4 border border-dashed border-gray-600 rounded-md text-center bg-gray-800">
                 <label
                     htmlFor="audio-merge-upload"
-                    className="block text-sm font-medium text-slate-300 mb-2"
+                    className="block text-sm font-medium text-gray-300 mb-2"
                 >
                     Add Audio Files to Merge (Order matters):
                 </label>
@@ -176,7 +176,7 @@ export default function AudioMerger() {
                     disabled={isLoading || isProcessing}
                     className="mx-auto block w-full max-w-sm text-sm file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-cyan-600 file:text-white hover:file:bg-cyan-700"
                 />
-                <p className="text-xs text-slate-500 mt-1">
+                <p className="text-xs text-gray-500 mt-1">
                     (Files must have same sample rate & channel count)
                 </p>
             </div>
@@ -187,14 +187,14 @@ export default function AudioMerger() {
 
             {audioFiles.length > 0 && (
                 <div className="space-y-3">
-                    <h4 className="text-sm font-medium text-slate-300">
+                    <h4 className="text-sm font-medium text-gray-300">
                         Files to Merge ({audioFiles.length}):
                     </h4>
-                    <ul className="border border-slate-700 rounded max-h-60 overflow-y-auto">
+                    <ul className="border border-gray-700 rounded max-h-60 overflow-y-auto">
                         {audioFiles.map((audio, index) => (
                             <li
                                 key={audio.id}
-                                className="flex items-center justify-between p-2 border-b border-slate-700 last:border-b-0 hover:bg-slate-800"
+                                className="flex items-center justify-between p-2 border-b border-gray-700 last:border-b-0 hover:bg-gray-800"
                             >
                                 <span className="text-sm truncate flex-grow mr-2">
                                     {index + 1}. {audio.file.name}
@@ -203,7 +203,7 @@ export default function AudioMerger() {
                                     <button
                                         onClick={() => moveFile(audio.id, 'up')}
                                         disabled={index === 0}
-                                        className="p-1 text-slate-400 hover:text-cyan-400 disabled:opacity-30"
+                                        className="p-1 text-gray-400 hover:text-cyan-400 disabled:opacity-30"
                                         title="Move Up"
                                     >
                                         <FaArrowUp className="w-3 h-3" />
@@ -211,7 +211,7 @@ export default function AudioMerger() {
                                     <button
                                         onClick={() => moveFile(audio.id, 'down')}
                                         disabled={index === audioFiles.length - 1}
-                                        className="p-1 text-slate-400 hover:text-cyan-400 disabled:opacity-30"
+                                        className="p-1 text-gray-400 hover:text-cyan-400 disabled:opacity-30"
                                         title="Move Down"
                                     >
                                         <FaArrowDown className="w-3 h-3" />
@@ -242,8 +242,8 @@ export default function AudioMerger() {
             )}
 
             {mergedAudioUrl && !isProcessing && (
-                <div className="mt-4 pt-3 border-t border-slate-700 space-y-2 text-center">
-                    <h4 className="text-sm font-medium text-slate-300">Merged Audio Output</h4>
+                <div className="mt-4 pt-3 border-t border-gray-700 space-y-2 text-center">
+                    <h4 className="text-sm font-medium text-gray-300">Merged Audio Output</h4>
                     <audio src={mergedAudioUrl} controls className="w-full max-w-md mx-auto" />
                     <Button
                         onClick={handleDownload}

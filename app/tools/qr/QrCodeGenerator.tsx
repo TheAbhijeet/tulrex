@@ -46,7 +46,7 @@ export default function QrCodeGenerator() {
                 <div>
                     <label
                         htmlFor="qr-text"
-                        className="block text-sm font-medium text-slate-300 mb-1"
+                        className="block text-sm font-medium text-gray-300 mb-1"
                     >
                         Text or URL:
                     </label>
@@ -62,7 +62,7 @@ export default function QrCodeGenerator() {
                     <div>
                         <label
                             htmlFor="qr-size"
-                            className="block text-sm font-medium text-slate-300 mb-1"
+                            className="block text-sm font-medium text-gray-300 mb-1"
                         >
                             Size (px):
                         </label>
@@ -79,7 +79,7 @@ export default function QrCodeGenerator() {
                     <div>
                         <label
                             htmlFor="qr-level"
-                            className="block text-sm font-medium text-slate-300 mb-1"
+                            className="block text-sm font-medium text-gray-300 mb-1"
                         >
                             Error Correction:
                         </label>
@@ -87,7 +87,7 @@ export default function QrCodeGenerator() {
                             id="qr-level"
                             value={level}
                             onChange={(e) => setLevel(e.target.value as 'L' | 'M' | 'Q' | 'H')}
-                            className="w-full px-3 py-2 border border-slate-600 rounded-md bg-slate-700 text-slate-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none"
+                            className="w-full px-3 py-2 border border-gray-600 rounded-md bg-gray-700 text-gray-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none"
                         >
                             <option value="L">Low (L)</option>
                             <option value="M">Medium (M)</option>
@@ -98,7 +98,7 @@ export default function QrCodeGenerator() {
                     <div>
                         <label
                             htmlFor="qr-fgcolor"
-                            className="block text-sm font-medium text-slate-300 mb-1"
+                            className="block text-sm font-medium text-gray-300 mb-1"
                         >
                             Foreground:
                         </label>
@@ -113,7 +113,7 @@ export default function QrCodeGenerator() {
                     <div>
                         <label
                             htmlFor="qr-bgcolor"
-                            className="block text-sm font-medium text-slate-300 mb-1"
+                            className="block text-sm font-medium text-gray-300 mb-1"
                         >
                             Background:
                         </label>
@@ -140,9 +140,9 @@ export default function QrCodeGenerator() {
                     ) : (
                         <div
                             style={{ width: size, height: size }}
-                            className="flex items-center justify-center bg-slate-200 rounded"
+                            className="flex items-center justify-center bg-gray-200 rounded"
                         >
-                            <span className="text-slate-500 text-sm text-center p-2">
+                            <span className="text-gray-500 text-sm text-center p-2">
                                 Enter text to generate QR Code
                             </span>
                         </div>

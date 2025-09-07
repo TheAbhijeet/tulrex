@@ -51,10 +51,7 @@ export default function UrlCoder() {
     return (
         <div className="space-y-4">
             <div>
-                <label
-                    htmlFor="url-input"
-                    className="block text-sm font-medium text-slate-300 mb-1"
-                >
+                <label htmlFor="url-input" className="block text-sm font-medium text-gray-300 mb-1">
                     Input Text / URL Component:
                 </label>
                 <TextareaInput
@@ -84,7 +81,7 @@ export default function UrlCoder() {
                 <div>
                     <label
                         htmlFor="url-output"
-                        className="block text-sm font-medium text-slate-300 mb-1"
+                        className="block text-sm font-medium text-gray-300 mb-1"
                     >
                         Output:
                     </label>
@@ -94,11 +91,11 @@ export default function UrlCoder() {
                             value={outputText}
                             readOnly
                             rows={6}
-                            className="bg-slate-900 border-slate-700 text-slate-200 pr-10" // Add padding for the button
+                            className="bg-gray-900 border-gray-700 text-gray-200 pr-10" // Add padding for the button
                         />
                         <button
                             onClick={() => copy(outputText)}
-                            className="absolute top-2 right-2 p-1.5 text-slate-400 hover:text-cyan-400 bg-slate-700 hover:bg-slate-600 rounded focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                            className="absolute top-2 right-2 p-1.5 text-gray-400 hover:text-cyan-400 bg-gray-700 hover:bg-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-900"
                             title="Copy to Clipboard"
                             aria-label="Copy output to clipboard"
                         >

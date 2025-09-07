@@ -51,6 +51,9 @@ import UuidGenerator from '@/tools/generators/UuidGenerator';
 import ImageToPdfConverter from '@/tools/images/ImageToPdfConverter';
 import TextCaseConverter from '@/tools/texts/TextCaseConverter';
 import HtmlFormatter from '@/tools/formatters/HtmlFormatter';
+import JsonToPythonDict from '@/tools/converters/JsonToPythonDict';
+import PythonDictToJson from '@/tools/converters/PythonDictToJson';
+import TodoApp from '@/tools/utilities/TodoApp';
 
 export interface Tool {
     slug: string;
@@ -173,7 +176,7 @@ export const tools: Tool[] = [
         slug: 'text-counter',
         title: 'Text Counter',
         description:
-            'Count characters, words, and lines in your text instantly. Simple, accurate, and private — all in your browser.',
+            'Count characters, words, and lines in your text instantly. Simple, accurate, and private - all in your browser.',
         icon: '🔢',
         component: TextCounter,
         category: CATEGORIES.TEXT,
@@ -228,7 +231,7 @@ export const tools: Tool[] = [
         slug: 'image-compressor',
         title: 'Image Compressor',
         description:
-            'Compress images instantly without quality loss. Fast, secure, and private — all processing happens in your browser.',
+            'Compress images instantly without quality loss. Fast, secure, and private - all processing happens in your browser.',
         icon: '🖼️',
         component: ImageCompressor,
         category: CATEGORIES.COMPRESSORS,
@@ -237,7 +240,7 @@ export const tools: Tool[] = [
         slug: 'text-to-speech-converter',
         title: 'Text to Speech Converter',
         description:
-            'Convert text to natural-sounding speech instantly. Fast, free, and private — works directly in your browser.',
+            'Convert text to natural-sounding speech instantly. Fast, free, and private : works directly in your browser.',
         icon: '🗣️',
         component: TextToSpeechConverter,
         category: CATEGORIES.CONVERTERS,
@@ -255,7 +258,7 @@ export const tools: Tool[] = [
         slug: 'excel-to-json-converter',
         title: 'Excel to JSON Converter',
         description:
-            'Convert Excel files to JSON format instantly. Secure and private — all processing happens locally in your browser.',
+            'Convert Excel files to JSON format instantly. Secure and private - all processing happens locally in your browser.',
         icon: '📊',
         component: ExcelToJsonConverter,
         category: CATEGORIES.CONVERTERS,
@@ -292,7 +295,7 @@ export const tools: Tool[] = [
         slug: 'json-to-csv-converter',
         title: 'JSON to CSV Converter',
         description:
-            'Convert JSON data to CSV format instantly. Fast, secure, and private — all processing happens in your browser.',
+            'Convert JSON data to CSV format instantly. Fast, secure, and private - all processing happens in your browser.',
         icon: '📄',
         component: JsonToCsvConverter,
         category: CATEGORIES.CONVERTERS,
@@ -301,7 +304,7 @@ export const tools: Tool[] = [
         slug: 'image-format-converter',
         title: 'Image Format Converter',
         description:
-            'Convert images between formats like JPG, PNG, and WebP instantly. Private and secure — all processing stays in your browser.',
+            'Convert images between formats like JPG, PNG, and WebP instantly. Private and secure - all processing stays in your browser.',
         icon: '🖼️',
         component: ImageFormatConverter,
         category: CATEGORIES.CONVERTERS,
@@ -310,7 +313,7 @@ export const tools: Tool[] = [
         slug: 'merge-pdfs',
         title: 'Merge PDFs Online',
         description:
-            'Combine multiple PDF files into one instantly. Secure and private — all processing happens locally in your browser.',
+            'Combine multiple PDF files into one instantly. Secure and private - all processing happens locally in your browser.',
         icon: '📚',
         component: MergePdfs,
         category: CATEGORIES.PDF,
@@ -319,7 +322,7 @@ export const tools: Tool[] = [
         slug: 'reorder-pdf-pages',
         title: 'Reorder PDF Pages Online',
         description:
-            'Rearrange and reorder pages in your PDF instantly. Secure and private — all processing happens in your browser.',
+            'Rearrange and reorder pages in your PDF instantly. Secure and private - all processing happens in your browser.',
         icon: '📑',
         component: ReorderPdfPages,
         category: CATEGORIES.PDF,
@@ -346,7 +349,7 @@ export const tools: Tool[] = [
         slug: 'pdf-page-deleter',
         title: 'PDF Page Deleter',
         description:
-            'Delete specific pages from a PDF instantly. Secure and private — all processing happens locally in your browser.',
+            'Delete specific pages from a PDF instantly. Secure and private - all processing happens locally in your browser.',
         icon: '🗑️',
         category: CATEGORIES.PDF,
         component: PdfPageDeleter,
@@ -356,7 +359,7 @@ export const tools: Tool[] = [
         slug: 'pdf-anonymizer',
         title: 'PDF Anonymizer',
         description:
-            'Remove metadata like Title, Author, and more from PDF files instantly. Private and secure — all processing happens in your browser.',
+            'Remove metadata like Title, Author, and more from PDF files instantly. Private and secure - all processing happens in your browser.',
         icon: '🕵️',
         category: CATEGORIES.PDF,
         component: PdfAnonymizer,
@@ -365,7 +368,7 @@ export const tools: Tool[] = [
         slug: 'pdf-editor-basic',
         title: 'PDF Editor Online',
         description:
-            'Add text or images to PDF pages instantly at chosen positions. Secure and private — all editing happens in your browser.',
+            'Add text or images to PDF pages instantly at chosen positions. Secure and private - all editing happens in your browser.',
         icon: '✏️',
         category: CATEGORIES.PDF,
         component: PdfEditorBasic,
@@ -392,7 +395,7 @@ export const tools: Tool[] = [
         slug: 'audio-cutter',
         title: 'Audio Cutter Online',
         description:
-            'Trim the start or end of audio files and export to WAV. Works fully in your browser—no uploads.',
+            'Trim the start or end of audio files and export to WAV. Works fully in your browser:no uploads.',
         icon: '✂️🎵',
         category: CATEGORIES.AUDIO,
         component: AudioCutter,
@@ -401,7 +404,7 @@ export const tools: Tool[] = [
         slug: 'audio-merger',
         title: 'Audio Merger Online',
         description:
-            'Merge multiple audio files sequentially and export as WAV. Fully in-browser—no uploads.',
+            'Merge multiple audio files sequentially and export as WAV. Fully in-browser:no uploads.',
         icon: '➕🎵',
         category: CATEGORIES.AUDIO,
         component: AudioMerger,
@@ -448,7 +451,7 @@ export const tools: Tool[] = [
         slug: 'spreadsheet-viewer',
         title: 'Excel & CSV Viewer Online',
         description:
-            'View .xlsx, .xls, or .csv file contents instantly in a table. Fast and private — works fully in your browser.',
+            'View .xlsx, .xls, or .csv file contents instantly in a table. Fast and private : works fully in your browser.',
         icon: '📊👁️',
         category: CATEGORIES.SPREADSHEET,
         component: SpreadsheetViewer,
@@ -457,7 +460,7 @@ export const tools: Tool[] = [
         slug: 'excel-to-csv',
         title: 'Excel to CSV Extractor Online',
         description:
-            'Convert Excel files to CSV or extract individual sheets instantly. Secure and private — all processing stays in your browser.',
+            'Convert Excel files to CSV or extract individual sheets instantly. Secure and private - all processing stays in your browser.',
         icon: '📊➡️📄',
         category: CATEGORIES.CONVERTERS,
         component: ExcelToCsvConverter,
@@ -466,7 +469,7 @@ export const tools: Tool[] = [
         slug: 'csv-to-excel',
         title: 'CSV to Excel Converter Online',
         description:
-            'Convert CSV data into Excel (.xlsx) files instantly. Fast, secure, and private — all processing happens in your browser.',
+            'Convert CSV data into Excel (.xlsx) files instantly. Fast, secure, and private - all processing happens in your browser.',
         icon: '📄➡️📊',
         category: CATEGORIES.CONVERTERS,
         component: CsvToExcelConverter,
@@ -475,7 +478,7 @@ export const tools: Tool[] = [
         slug: 'csv-to-json',
         title: 'CSV to JSON Converter Online',
         description:
-            'Convert CSV data into JSON format instantly. Secure and private — all processing happens locally in your browser.',
+            'Convert CSV data into JSON format instantly. Secure and private - all processing happens locally in your browser.',
         icon: '📊➡️📝',
         category: CATEGORIES.CONVERTERS,
         component: CsvToJsonConverter,
@@ -484,7 +487,7 @@ export const tools: Tool[] = [
         slug: 'excel-to-json',
         title: 'Excel to JSON Converter Online',
         description:
-            'Convert Excel sheets (.xlsx, .xls) to JSON data instantly. Private and secure — all processing happens in your browser.',
+            'Convert Excel sheets (.xlsx, .xls) to JSON data instantly. Private and secure - all processing happens in your browser.',
         icon: '📈➡️📝',
         category: CATEGORIES.CONVERTERS,
         component: ExcelToJsonConverter,
@@ -493,7 +496,7 @@ export const tools: Tool[] = [
         slug: 'json-to-spreadsheet',
         title: 'JSON to Excel CSV Converter',
         description:
-            'Convert JSON arrays or objects into Excel or CSV files instantly. Fast and private — works fully in your browser.',
+            'Convert JSON arrays or objects into Excel or CSV files instantly. Fast and private : works fully in your browser.',
         icon: '{}➡️📊',
         category: CATEGORIES.CONVERTERS,
         component: JsonToSpreadsheet,
@@ -511,7 +514,7 @@ export const tools: Tool[] = [
         slug: 'json-editor',
         title: 'Interactive JSON Editor Online',
         description:
-            'View, edit, format, and validate JSON data interactively. Secure and private — all processing happens locally in your browser.',
+            'View, edit, format, and validate JSON data interactively. Secure and private - all processing happens locally in your browser.',
         icon: '🌳',
         component: JsonEditorTool,
         category: CATEGORIES.EDITOR,
@@ -520,7 +523,7 @@ export const tools: Tool[] = [
         slug: 'css-formatter',
         title: 'CSS Formatter Online',
         description:
-            'Beautify and format CSS code instantly with customizable options. Fast and private — all processing happens in your browser.',
+            'Beautify and format CSS code instantly with customizable options. Fast and private - all processing happens in your browser.',
         icon: '🎨',
         component: CssFormatter,
         category: CATEGORIES.FORMATTERS,
@@ -529,7 +532,7 @@ export const tools: Tool[] = [
         slug: 'javascript-formatter',
         title: 'JavaScript Formatter Online',
         description:
-            'Beautify and format JavaScript code instantly with customizable options. Secure and private — all processing happens in your browser.',
+            'Beautify and format JavaScript code instantly with customizable options. Secure and private - all processing happens in your browser.',
         icon: '🖌️',
         component: JavascriptFormatter,
         category: CATEGORIES.FORMATTERS,
@@ -538,7 +541,7 @@ export const tools: Tool[] = [
         slug: 'image-background-remover',
         title: 'Image Background Remover Online',
         description:
-            'Remove backgrounds from images instantly. Fast, secure, and private — all processing happens locally in your browser.',
+            'Remove backgrounds from images instantly. Fast, secure, and private - all processing happens locally in your browser.',
         icon: '🖼️✂️',
         component: ImageBackgroundRemover,
         category: CATEGORIES.IMAGE,
@@ -547,7 +550,7 @@ export const tools: Tool[] = [
         slug: 'uuid-generator',
         title: 'UUID Generator Online',
         description:
-            'Generate unique UUIDs instantly. Fast, secure, and fully local — all processing happens in your browser.',
+            'Generate unique UUIDs instantly. Fast, secure, and fully local - all processing happens in your browser.',
         icon: '🔑',
         component: UuidGenerator,
         category: CATEGORIES.GENERATORS,
@@ -556,7 +559,7 @@ export const tools: Tool[] = [
         slug: 'image-to-pdf',
         title: 'Image to PDF Converter Online',
         description:
-            'Convert images to PDF files instantly. Secure and private — all processing happens locally in your browser.',
+            'Convert images to PDF files instantly. Secure and private - all processing happens locally in your browser.',
         icon: '🖼️➡️📄',
         component: ImageToPdfConverter,
         category: CATEGORIES.CONVERTERS,
@@ -565,7 +568,7 @@ export const tools: Tool[] = [
         slug: 'text-case-converter',
         title: 'Text Case Converter Online',
         description:
-            'Convert text between uppercase, lowercase, title case, and more instantly. Fast and private — all processing happens in your browser.',
+            'Convert text between uppercase, lowercase, title case, and more instantly. Fast and private - all processing happens in your browser.',
         icon: '🔤',
         component: TextCaseConverter,
         category: CATEGORIES.CONVERTERS,
@@ -574,10 +577,37 @@ export const tools: Tool[] = [
         slug: 'html-formatter',
         title: 'HTML Formatter Online',
         description:
-            'Beautify and format HTML code instantly with customizable options. Fast, secure, and private — all processing happens in your browser.',
+            'Beautify and format HTML code instantly with customizable options. Fast, secure, and private - all processing happens in your browser.',
         icon: '🎨',
         component: HtmlFormatter,
         category: CATEGORIES.CONVERTERS,
+    },
+    {
+        slug: 'json-to-python-dict',
+        title: 'JSON to Python Dict Converter',
+        description:
+            'Convert valid JSON data into a Python dictionary format (dict) instantly, Fast, secure, and private - all processing happens in your browser.',
+        icon: '🐍',
+        category: CATEGORIES.CONVERTERS,
+        component: JsonToPythonDict,
+    },
+    {
+        slug: 'python-dict-to-json',
+        title: 'Python Dict to JSON Converter',
+        description:
+            'Convert valid Python dictionaries (dict) into JSON data instantly. Fast, secure, and private - all processing happens in your browser.',
+        icon: '↔️',
+        category: CATEGORIES.CONVERTERS,
+        component: PythonDictToJson,
+    },
+    {
+        slug: 'todo-app',
+        title: 'Todo List',
+        description:
+            'Create and manage your tasks easily. Fast, secure, and private - Everything stays in your browser.',
+        icon: '✅',
+        category: CATEGORIES.UTILITY,
+        component: TodoApp,
     },
 ];
 

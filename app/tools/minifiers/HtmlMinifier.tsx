@@ -54,7 +54,7 @@ export default function HtmlMinifier() {
             <div className="space-y-3">
                 <label
                     htmlFor="html-minify-input"
-                    className="block text-sm font-medium text-slate-300"
+                    className="block text-sm font-medium text-gray-300"
                 >
                     HTML Input:
                 </label>
@@ -73,14 +73,14 @@ export default function HtmlMinifier() {
                 <div className="flex justify-between items-center">
                     <label
                         htmlFor="html-minify-output"
-                        className="block text-sm font-medium text-slate-300"
+                        className="block text-sm font-medium text-gray-300"
                     >
                         Minified Output:
                     </label>
                     <button
                         onClick={() => copyToClipboard(minifiedOutput)}
                         disabled={!minifiedOutput}
-                        className="p-1.5 text-slate-400 hover:text-cyan-400 bg-slate-700 hover:bg-slate-600 rounded disabled:opacity-50 focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                        className="p-1.5 text-gray-400 hover:text-cyan-400 bg-gray-700 hover:bg-gray-600 rounded disabled:opacity-50 focus:outline-none focus:ring-1 focus:ring-cyan-500"
                         title="Copy Minified HTML"
                         aria-label="Copy Minified HTML"
                     >
@@ -93,7 +93,7 @@ export default function HtmlMinifier() {
                     readOnly
                     rows={15}
                     placeholder="Minified HTML will appear here..."
-                    className=" text-sm bg-slate-800 border-slate-700"
+                    className=" text-sm bg-gray-800 border-gray-700"
                 />
             </div>
         </div>

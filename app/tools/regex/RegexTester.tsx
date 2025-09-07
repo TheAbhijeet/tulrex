@@ -102,7 +102,7 @@ export default function RegexTester() {
             (Array.isArray(matchResult.highlighted) && matchResult.highlighted.length === 0)
         ) {
             return (
-                <span className="text-slate-400 italic">No matches found or no text provided.</span>
+                <span className="text-gray-400 italic">No matches found or no text provided.</span>
             );
         }
         return <>{matchResult.highlighted}</>;
@@ -113,12 +113,12 @@ export default function RegexTester() {
             <div>
                 <label
                     htmlFor="regex-input"
-                    className="block text-sm font-medium text-slate-300 mb-1"
+                    className="block text-sm font-medium text-gray-300 mb-1"
                 >
                     Regular Expression:
                 </label>
                 <div className="flex items-center space-x-2">
-                    <span className="text-slate-400">/</span>
+                    <span className="text-gray-400">/</span>
                     <Input
                         id="regex-input"
                         type="text"
@@ -127,7 +127,7 @@ export default function RegexTester() {
                         placeholder="your-pattern"
                         className="flex-grow font-mono"
                     />
-                    <span className="text-slate-400">/</span>
+                    <span className="text-gray-400">/</span>
                     <Input
                         id="regex-flags"
                         type="text"
@@ -143,7 +143,7 @@ export default function RegexTester() {
             <div>
                 <label
                     htmlFor="test-string"
-                    className="block text-sm font-medium text-slate-300 mb-1"
+                    className="block text-sm font-medium text-gray-300 mb-1"
                 >
                     Test String:
                 </label>
@@ -173,26 +173,26 @@ export default function RegexTester() {
             {matchResult && !error && (
                 <div className="space-y-3">
                     <div>
-                        <p className="text-sm font-medium text-slate-300 mb-1">
+                        <p className="text-sm font-medium text-gray-300 mb-1">
                             Highlighted Matches:
                         </p>
-                        <div className="p-3 bg-slate-900 border border-slate-700 rounded-md text-sm whitespace-pre-wrap break-words font-mono">
+                        <div className="p-3 bg-gray-900 border border-gray-700 rounded-md text-sm whitespace-pre-wrap break-words font-mono">
                             {highlightedText}
                         </div>
                     </div>
                     <div>
-                        <p className="text-sm font-medium text-slate-300 mb-1">
+                        <p className="text-sm font-medium text-gray-300 mb-1">
                             Found {matchResult.matches.length} Match
                             {matchResult.matches.length !== 1 ? 'es' : ''}:
                         </p>
                         {matchResult.matches.length > 0 ? (
-                            <pre className="p-3 bg-slate-900 border border-slate-700 rounded-md overflow-x-auto text-sm">
+                            <pre className="p-3 bg-gray-900 border border-gray-700 rounded-md overflow-x-auto text-sm">
                                 {matchResult.matches.map((m, i) => (
                                     <div key={i}>{m}</div>
                                 ))}
                             </pre>
                         ) : (
-                            <p className="text-sm text-slate-400 italic">No matches found.</p>
+                            <p className="text-sm text-gray-400 italic">No matches found.</p>
                         )}
                     </div>
                 </div>

@@ -26,3 +26,19 @@ body {
     color: var(--foreground);
     font-family: Arial, Helvetica, sans-serif;
 }
+
+@theme {
+  --color-background: 15 15 15;       /* zinc-950 */
+  --color-foreground: 244 244 245;    /* zinc-100 */
+
+  --color-card: 24 24 27;             /* zinc-900 */
+  --color-card-foreground: 244 244 245;
+
+  --color-muted: 161 161 170;         /* zinc-400 */
+  --color-muted-foreground: 113 113 122;
+
+  --color-border: 39 39 42;           /* zinc-800 */
+
+  --color-primary: 139 92 246;        /* violet-500 */
+  --color-primary-foreground: 255 255 255;
+}

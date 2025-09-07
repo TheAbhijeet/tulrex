@@ -66,7 +66,7 @@ export default function AudioMetadataViewer() {
             {error && <p className="text-center text-red-400">{error}</p>}
 
             {metadata && !isLoading && (
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 bg-slate-800 rounded-md border border-slate-700">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 bg-gray-800 rounded-md border border-gray-700">
                     {imageUrl && (
                         <div className="md:col-span-1 flex justify-center items-start">
                             <img
@@ -95,20 +95,20 @@ export default function AudioMetadataViewer() {
                             return (
                                 <div
                                     key={key}
-                                    className="text-sm border-b border-slate-700 pb-1 mb-1 last:border-b-0"
+                                    className="text-sm border-b border-gray-700 pb-1 mb-1 last:border-b-0"
                                 >
-                                    <strong className="capitalize text-slate-300 mr-2">
+                                    <strong className="capitalize text-gray-300 mr-2">
                                         {key}:
                                     </strong>
-                                    <span className="text-slate-100 break-words">
+                                    <span className="text-gray-100 break-words">
                                         {displayValue}
                                     </span>
                                 </div>
                             );
                         })}
                         <div className="text-sm pt-2">
-                            <strong className="text-slate-300 mr-2">Format:</strong>
-                            <span className="text-slate-100">
+                            <strong className="text-gray-300 mr-2">Format:</strong>
+                            <span className="text-gray-100">
                                 {metadata.format.codec} | {metadata.format.sampleRate} Hz |{' '}
                                 {metadata.format.numberOfChannels}ch | ~
                                 {((metadata.format.bitrate || 0) / 1000).toFixed(0)} kbps |{' '}

@@ -91,8 +91,8 @@ export default function CssFormatter() {
     return (
         <div className="space-y-6">
             {/* Options Section */}
-            <details className="p-4 border border-slate-700 rounded-md bg-slate-800/50 group">
-                <summary className="text-sm font-medium text-slate-300 cursor-pointer list-none flex justify-between items-center">
+            <details className="p-4 border border-gray-700 rounded-md bg-gray-800/50 group">
+                <summary className="text-sm font-medium text-gray-300 cursor-pointer list-none flex justify-between items-center">
                     Formatting Options
                     <span className="text-cyan-400 group-open:rotate-180 transition-transform duration-200">
                         ▼
@@ -102,7 +102,7 @@ export default function CssFormatter() {
                     <div>
                         <label
                             htmlFor="tabWidth"
-                            className="block text-xs font-medium text-slate-400 mb-1"
+                            className="block text-xs font-medium text-gray-400 mb-1"
                         >
                             Tab Width:
                         </label>
@@ -118,13 +118,13 @@ export default function CssFormatter() {
                         </Select>
                     </div>
                     <div className="flex items-end pb-1">
-                        <label className="flex items-center space-x-2 text-sm text-slate-300 cursor-pointer">
+                        <label className="flex items-center space-x-2 text-sm text-gray-300 cursor-pointer">
                             <input
                                 type="checkbox"
                                 name="useTabs"
                                 checked={formatOptions.useTabs}
                                 onChange={handleOptionChange}
-                                className="form-checkbox h-4 w-4 text-cyan-600 bg-slate-600 border-slate-500 rounded focus:ring-cyan-500"
+                                className="form-checkbox h-4 w-4 text-cyan-600 bg-gray-600 border-gray-500 rounded focus:ring-cyan-500"
                             />
                             <span>Use Tabs</span>
                         </label>
@@ -140,7 +140,7 @@ export default function CssFormatter() {
                     {/* min-w-0 helps flexbox correctly size children */}
                     <label
                         htmlFor="css-input"
-                        className="block text-sm font-medium text-slate-300 mb-1"
+                        className="block text-sm font-medium text-gray-300 mb-1"
                     >
                         Input CSS:
                     </label>
@@ -160,7 +160,7 @@ export default function CssFormatter() {
                     <div className="flex justify-between items-center mb-1">
                         <label
                             htmlFor="css-output"
-                            className="block text-sm font-medium text-slate-300"
+                            className="block text-sm font-medium text-gray-300"
                         >
                             Formatted CSS:
                         </label>
@@ -180,7 +180,7 @@ export default function CssFormatter() {
                         readOnly
                         placeholder="Formatted CSS will appear here..."
                         rows={15}
-                        className={`h-64 md:h-96 min-h-[10rem] bg-slate-900 border-slate-700 focus:ring-cyan-500 focus:border-cyan-500 ${outputCss && !error ? 'text-green-300' : 'text-slate-400'}`}
+                        className={`h-64 md:h-96 min-h-[10rem] bg-gray-900 border-gray-700 focus:ring-cyan-500 focus:border-cyan-500 ${outputCss && !error ? 'text-green-300' : 'text-gray-400'}`}
                         aria-label="Formatted CSS Output"
                     />
                 </div>

@@ -77,7 +77,7 @@ export default function JsonEditorTool() {
             <div>
                 <label
                     htmlFor="json-input-raw"
-                    className="block text-sm font-medium text-slate-300 mb-1"
+                    className="block text-sm font-medium text-gray-300 mb-1"
                 >
                     Paste JSON String Here:
                 </label>
@@ -112,10 +112,10 @@ export default function JsonEditorTool() {
             {/* JSON Editor */}
             {jsonData !== null && (
                 <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-1">
+                    <label className="block text-sm font-medium text-gray-300 mb-1">
                         Interactive Editor:
                     </label>
-                    <div className="p-1 border border-slate-600 rounded-md bg-slate-800">
+                    <div className="p-1 border border-gray-600 rounded-md bg-gray-800">
                         <JsonEditor
                             data={jsonData}
                             key={editorKey}
@@ -126,7 +126,7 @@ export default function JsonEditorTool() {
                 </div>
             )}
             {jsonData === null && !error && (
-                <div className="p-3 bg-slate-700 border border-slate-600 text-slate-400 rounded-md text-sm text-center">
+                <div className="p-3 bg-gray-700 border border-gray-600 text-gray-400 rounded-md text-sm text-center">
                     Paste JSON above and click "Load into Editor" to begin.
                 </div>
             )}

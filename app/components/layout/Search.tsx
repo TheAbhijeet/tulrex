@@ -12,7 +12,7 @@ import {
     DialogPanel,
     TransitionChild,
 } from '@headlessui/react';
-import { Search as SearchIcon, FileText } from 'lucide-react';
+import { Search as SearchIcon } from 'lucide-react';
 import { tools } from '@/lib/tools';
 
 export default function Search() {
@@ -56,13 +56,13 @@ export default function Search() {
         <>
             <button
                 onClick={() => setIsOpen(true)}
-                className="w-full max-w-sm h-10 px-4 flex items-center justify-between text-sm text-slate-400 bg-slate-800 border border-slate-700 rounded-lg hover:bg-slate-700 hover:border-slate-600 transition-colors"
+                className="w-full max-w-sm h-10 px-4 flex items-center justify-between text-sm text-gray-400 bg-gray-800 border border-gray-700 rounded-lg hover:bg-gray-700 hover:border-gray-600 transition-colors"
             >
                 <div className="flex items-center gap-2">
                     <SearchIcon size={16} />
                     <span>Search tools...</span>
                 </div>
-                <kbd className="hidden sm:inline-block px-2 py-1 text-xs font-sans border border-slate-600 bg-slate-800 rounded">
+                <kbd className="hidden sm:inline-block px-2 py-1 text-xs font-sans border border-gray-600 bg-gray-800 rounded">
                     Ctrl K
                 </kbd>
             </button>
@@ -79,7 +79,7 @@ export default function Search() {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                        <div className="fixed inset-0 bg-slate-900/80 backdrop-blur-sm transition-opacity" />
+                        <div className="fixed inset-0 bg-gray-900/80 backdrop-blur-sm transition-opacity" />
                     </TransitionChild>
 
                     <div className="fixed inset-0 p-4 pt-[25vh] overflow-y-auto">
@@ -92,14 +92,14 @@ export default function Search() {
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <DialogPanel className="w-full max-w-xl mx-auto rounded-xl bg-slate-800 border border-slate-700 shadow-2xl overflow-hidden">
+                            <DialogPanel className="w-full max-w-xl mx-auto rounded-xl bg-gray-800 border border-gray-700 shadow-2xl overflow-hidden">
                                 <Combobox onChange={(slug: string) => onSelect(slug)}>
-                                    <div className="flex items-center px-4 py-4 border-b border-slate-700">
+                                    <div className="flex items-center px-4 py-4 border-b border-gray-700">
                                         <ComboboxInput
                                             // 4. Attach the ref to the actual input element
                                             ref={inputRef}
                                             onChange={(event) => setQuery(event.target.value)}
-                                            className="w-full bg-transparent p-4 border-0 text-slate-200 placeholder-slate-500 focus:ring-0"
+                                            className="w-full bg-transparent p-4 border-0 text-gray-200 placeholder-gray-500 focus:ring-0"
                                             placeholder="Search for a tool..."
                                         />
                                     </div>
@@ -113,16 +113,16 @@ export default function Search() {
                                                 <ComboboxOption key={tool.slug} value={tool.slug}>
                                                     {({ focus }) => (
                                                         <div
-                                                            className={`px-4 py-3 flex items-center gap-3 cursor-pointer ${focus ? 'bg-cyan-600' : 'bg-slate-800'}`}
+                                                            className={`px-4 py-3 flex items-center gap-3 cursor-pointer ${focus ? 'bg-cyan-600' : 'bg-gray-800'}`}
                                                         >
                                                             <div>
                                                                 <p
-                                                                    className={`font-medium ${focus ? 'text-white' : 'text-slate-200'}`}
+                                                                    className={`font-medium ${focus ? 'text-white' : 'text-gray-200'}`}
                                                                 >
                                                                     {tool.title}
                                                                 </p>
                                                                 <p
-                                                                    className={`text-sm ${focus ? 'text-cyan-100' : 'text-slate-400'}`}
+                                                                    className={`text-sm ${focus ? 'text-cyan-100' : 'text-gray-400'}`}
                                                                 >
                                                                     {tool.description}
                                                                 </p>
@@ -135,7 +135,7 @@ export default function Search() {
                                     )}
 
                                     {query && filteredTools.length === 0 && (
-                                        <p className="p-6 text-center text-slate-400">
+                                        <p className="p-6 text-center text-gray-400">
                                             No results found.
                                         </p>
                                     )}

@@ -70,10 +70,10 @@ export default function PdfAnonymizer() {
 
     return (
         <div className="space-y-5 max-w-lg mx-auto">
-            <div className="p-4 border border-dashed border-slate-600 rounded-md text-center bg-slate-800">
+            <div className="p-4 border border-dashed border-gray-600 rounded-md text-center bg-gray-800">
                 <label
                     htmlFor="pdf-anon-upload"
-                    className="block text-sm font-medium text-slate-300 mb-2"
+                    className="block text-sm font-medium text-gray-300 mb-2"
                 >
                     Select PDF File:
                 </label>
@@ -91,10 +91,10 @@ export default function PdfAnonymizer() {
 
             {pdfFile && (
                 <div className="space-y-3 text-center">
-                    <p className="text-sm text-slate-400">
+                    <p className="text-sm text-gray-400">
                         Ready to remove standard metadata (Title, Author, Subject, Keywords,
                         Producer, Creator) from{' '}
-                        <strong className="text-slate-200">{pdfFile.name}</strong>.
+                        <strong className="text-gray-200">{pdfFile.name}</strong>.
                     </p>
                     <Button
                         onClick={anonymizeAndSave}
@@ -104,7 +104,7 @@ export default function PdfAnonymizer() {
                         <FaUserSecret />{' '}
                         {isLoading ? 'Processing...' : 'Remove Metadata & Save PDF'}
                     </Button>
-                    <p className="text-xs text-slate-500">
+                    <p className="text-xs text-gray-500">
                         Note: This is basic metadata removal and does not redact page content.
                     </p>
                 </div>

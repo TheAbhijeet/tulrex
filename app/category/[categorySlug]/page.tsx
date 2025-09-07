@@ -8,20 +8,20 @@ function ToolCard({ tool, showCategoryLink = true }: { tool: Tool; showCategoryL
     return (
         <Link
             href={`/tools/${tool.slug}`}
-            className="block p-6 bg-slate-800 rounded-lg shadow hover:bg-slate-700 transition-colors h-full border border-slate-700 hover:border-cyan-600 group relative"
+            className="block p-6 bg-gray-800 rounded-lg shadow hover:bg-gray-700 transition-colors h-full border border-gray-700 hover:border-cyan-600 group relative"
         >
             {showCategoryLink && (
-                <span className="absolute top-2 right-2 text-xs bg-slate-600 text-cyan-300 px-1.5 py-0.5 rounded">
+                <span className="absolute top-2 right-2 text-xs bg-gray-600 text-cyan-300 px-1.5 py-0.5 rounded">
                     {tool.category}
                 </span>
             )}
             <div className="flex items-center mb-2">
                 {tool.icon && <span className="text-2xl mr-3">{tool.icon}</span>}
-                <h2 className="text-lg font-semibold text-slate-100 group-hover:text-cyan-300 transition-colors">
+                <h2 className="text-lg font-semibold text-gray-100 group-hover:text-cyan-300 transition-colors">
                     {tool.title}
                 </h2>
             </div>
-            <p className="text-sm text-slate-400">{tool.description}</p>
+            <p className="text-sm text-gray-400">{tool.description}</p>
         </Link>
     );
 }
@@ -80,7 +80,7 @@ export default async function CategoryPage({ params }: PromiseProps) {
 
     return (
         <div>
-            <nav aria-label="breadcrumb" className="mb-6 text-sm text-slate-400">
+            <nav aria-label="breadcrumb" className="mb-6 text-sm text-gray-400">
                 <Link href="/" className="hover:text-cyan-400 hover:underline">
                     All Tools
                 </Link>
@@ -88,7 +88,7 @@ export default async function CategoryPage({ params }: PromiseProps) {
                 <span>{categoryName}</span>
             </nav>
 
-            <h1 className="text-3xl font-bold mb-6 text-slate-100">{categoryName} Tools</h1>
+            <h1 className="text-3xl font-bold mb-6 text-gray-100">{categoryName} Tools</h1>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {tools.map((tool) => (

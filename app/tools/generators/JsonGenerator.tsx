@@ -182,11 +182,11 @@ export default function JsonGenerator() {
     return (
         <div className="space-y-6">
             {/*  Configuration Section  */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end p-4 border border-slate-700 rounded-lg bg-slate-800/50">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end p-4 border border-gray-700 rounded-lg bg-gray-800/50">
                 <div>
                     <label
                         htmlFor="num-records"
-                        className="block text-sm font-medium text-slate-300 mb-1"
+                        className="block text-sm font-medium text-gray-300 mb-1"
                     >
                         Number of Records
                     </label>
@@ -215,11 +215,11 @@ export default function JsonGenerator() {
 
             {/*  Field Definitions Section  */}
             <div className="space-y-3">
-                <h3 className="text-lg font-medium text-slate-200 mb-2">Field Definitions</h3>
+                <h3 className="text-lg font-medium text-gray-200 mb-2">Field Definitions</h3>
                 {fields.map((field) => (
                     <div
                         key={field.id}
-                        className="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center p-3 bg-slate-800 rounded border border-slate-700"
+                        className="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center p-3 bg-gray-800 rounded border border-gray-700"
                     >
                         {/* Field Name */}
                         <div className="sm:col-span-3">
@@ -363,7 +363,7 @@ export default function JsonGenerator() {
                     </div>
                 ))}
                 {fields.length === 0 && (
-                    <p className="text-center text-slate-500 italic">
+                    <p className="text-center text-gray-500 italic">
                         No fields defined. Click "+ Add Field" to start.
                     </p>
                 )}
@@ -380,9 +380,7 @@ export default function JsonGenerator() {
             {outputJson && (
                 <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                        <h3 className="text-lg font-medium text-slate-200">
-                            Generated JSON Output
-                        </h3>
+                        <h3 className="text-lg font-medium text-gray-200">Generated JSON Output</h3>
                         <Button
                             onClick={() => copyToClipboard(outputJson)}
                             variant="secondary"

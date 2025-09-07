@@ -68,7 +68,7 @@ export default function RootLayout({
     return (
         <html lang="en" className="dark">
             <body
-                className={`${inter.className}  bg-slate-900 text-slate-200 min-h-screen flex flex-col`}
+                className={`${inter.className}  bg-gray-900 text-gray-200 min-h-screen flex flex-col`}
             >
                 <Header />
                 {/* Main content area */}

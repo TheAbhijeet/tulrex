@@ -83,7 +83,7 @@ export default function CsvToExcelConverter() {
             {error && <p className="text-center text-red-400">{error}</p>}
             {csvFile && (
                 <div className="text-center space-y-2">
-                    <p className="text-sm text-slate-400">Selected: {csvFile.name}</p>
+                    <p className="text-sm text-gray-400">Selected: {csvFile.name}</p>
                     <Button
                         onClick={handleConvert}
                         disabled={isLoading}

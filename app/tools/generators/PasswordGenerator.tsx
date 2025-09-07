@@ -23,9 +23,9 @@ const Checkbox = ({
             type="checkbox"
             checked={checked}
             onChange={onChange}
-            className="h-4 w-4 rounded border-slate-500 bg-slate-700 text-cyan-600 focus:ring-cyan-500 focus:ring-offset-slate-800"
+            className="h-4 w-4 rounded border-gray-500 bg-gray-700 text-cyan-600 focus:ring-cyan-500 focus:ring-offset-gray-800"
         />
-        <label htmlFor={id} className="ml-2 block text-sm text-slate-300">
+        <label htmlFor={id} className="ml-2 block text-sm text-gray-300">
             {label}
         </label>
     </div>
@@ -83,7 +83,7 @@ export default function PasswordGenerator() {
             <div>
                 <label
                     htmlFor="password-output"
-                    className="block text-sm font-medium text-slate-300 mb-1"
+                    className="block text-sm font-medium text-gray-300 mb-1"
                 >
                     Generated Password:
                 </label>
@@ -99,7 +99,7 @@ export default function PasswordGenerator() {
                     <div className="absolute inset-y-0 right-0 flex items-center space-x-1 pr-2">
                         <button
                             onClick={generatePassword}
-                            className="p-1.5 text-slate-400 hover:text-cyan-400 bg-slate-700 hover:bg-slate-600 rounded focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-slate-800"
+                            className="p-1.5 text-gray-400 hover:text-cyan-400 bg-gray-700 hover:bg-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-800"
                             title="Generate New Password"
                             aria-label="Generate new password"
                         >
@@ -108,7 +108,7 @@ export default function PasswordGenerator() {
                         <button
                             onClick={() => copyToClipboard(password)}
                             disabled={!password}
-                            className="p-1.5 text-slate-400 hover:text-cyan-400 bg-slate-700 hover:bg-slate-600 rounded disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-slate-800"
+                            className="p-1.5 text-gray-400 hover:text-cyan-400 bg-gray-700 hover:bg-gray-600 rounded disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-800"
                             title="Copy to Clipboard"
                             aria-label="Copy password to clipboard"
                         >
@@ -118,12 +118,12 @@ export default function PasswordGenerator() {
                 </div>
             </div>
 
-            <div className="space-y-3 border border-slate-700 p-4 rounded-md">
-                <h3 className="text-base font-medium text-slate-200 mb-3">Options:</h3>
+            <div className="space-y-3 border border-gray-700 p-4 rounded-md">
+                <h3 className="text-base font-medium text-gray-200 mb-3">Options:</h3>
                 <div className="flex items-center space-x-4">
                     <label
                         htmlFor="length"
-                        className="text-sm font-medium text-slate-300 whitespace-nowrap"
+                        className="text-sm font-medium text-gray-300 whitespace-nowrap"
                     >
                         Length: {length}
                     </label>
@@ -134,7 +134,7 @@ export default function PasswordGenerator() {
                         max="64"
                         value={length}
                         onChange={(e) => setLength(parseInt(e.target.value, 10))}
-                        className="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer accent-cyan-500"
+                        className="w-full h-2 bg-gray-600 rounded-lg appearance-none cursor-pointer accent-cyan-500"
                     />
                 </div>
 

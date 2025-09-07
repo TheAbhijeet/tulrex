@@ -34,7 +34,7 @@ export default function RandomNumberGenerator() {
                 <div className="flex-1">
                     <label
                         htmlFor="min-num"
-                        className="block text-sm font-medium text-slate-300 mb-1"
+                        className="block text-sm font-medium text-gray-300 mb-1"
                     >
                         Min:
                     </label>
@@ -48,7 +48,7 @@ export default function RandomNumberGenerator() {
                 <div className="flex-1">
                     <label
                         htmlFor="max-num"
-                        className="block text-sm font-medium text-slate-300 mb-1"
+                        className="block text-sm font-medium text-gray-300 mb-1"
                     >
                         Max:
                     </label>
@@ -66,7 +66,7 @@ export default function RandomNumberGenerator() {
             </Button>
             {result !== '' && (
                 <div className="mt-4 text-center">
-                    <p className="text-slate-300">Result:</p>
+                    <p className="text-gray-300">Result:</p>
                     <p className="text-4xl font-bold text-cyan-400 py-2">{result}</p>
                 </div>
             )}

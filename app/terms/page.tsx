@@ -10,7 +10,7 @@ export default function TermsPage() {
         <div className=" md:max-w-4xl mx-auto prose dark:prose-invert">
             <h1>Terms &amp; Conditions</h1>
             <p>
-                <strong>Effective date:</strong> 23 August 2025
+                <strong>Effective date:</strong> 1st January 2025
             </p>
             <p>
                 Welcome to <strong>TulRex</strong> ("we", "us", "our"). These Terms &amp; Conditions

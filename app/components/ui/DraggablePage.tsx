@@ -82,11 +82,11 @@ const DraggablePage: React.FC<DraggablePageProps> = ({ pageInfo, index, movePage
         <div
             ref={ref}
             style={{ opacity }}
-            className="p-3 mb-2 border border-slate-600 bg-slate-700 rounded-md cursor-move select-none flex justify-between items-center"
+            className="p-3 mb-2 border border-gray-600 bg-gray-700 rounded-md cursor-move select-none flex justify-between items-center"
             data-testid={`page-${pageInfo.id}`}
         >
-            <span className="text-slate-200">{pageInfo.text}</span>
-            <span className="text-slate-400 text-xs">Original Page {pageInfo.pageNumber}</span>
+            <span className="text-gray-200">{pageInfo.text}</span>
+            <span className="text-gray-400 text-xs">Original Page {pageInfo.pageNumber}</span>
         </div>
     );
 };

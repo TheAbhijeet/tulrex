@@ -33,7 +33,7 @@ const ProcessingOverlay = ({ isLoading }: { isLoading: boolean }) => (
     <div
         className={
             isLoading
-                ? 'absolute inset-0 flex flex-col items-center justify-center bg-slate-800/80 rounded-md z-10'
+                ? 'absolute inset-0 flex flex-col items-center justify-center bg-gray-800/80 rounded-md z-10'
                 : 'hidden'
         }
     >
@@ -42,7 +42,7 @@ const ProcessingOverlay = ({ isLoading }: { isLoading: boolean }) => (
             role="status"
             aria-label="loading"
         ></div>
-        <p className="mt-4 text-slate-300 font-medium">Processing on your device...</p>
+        <p className="mt-4 text-gray-300 font-medium">Processing on your device...</p>
     </div>
 );
 
@@ -158,11 +158,11 @@ export default function ImageBackgroundRemover() {
 
     return (
         <div className="space-y-6">
-            <div className="p-4 border border-slate-700 rounded-md bg-slate-800/50 space-y-4">
+            <div className="p-4 border border-gray-700 rounded-md bg-gray-800/50 space-y-4">
                 <div>
                     <label
                         htmlFor="image-input"
-                        className="block text-sm font-medium text-slate-300 mb-1"
+                        className="block text-sm font-medium text-gray-300 mb-1"
                     >
                         Select Image:
                     </label>
@@ -176,7 +176,7 @@ export default function ImageBackgroundRemover() {
                     />
                 </div>
                 <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
                         Background Options:
                     </label>
                     <div className="flex flex-wrap items-center gap-4">
@@ -198,7 +198,7 @@ export default function ImageBackgroundRemover() {
                         </div>
                         {outputMode === 'color' && (
                             <div className="flex items-center gap-2">
-                                <label htmlFor="bg-color-picker" className="text-sm text-slate-400">
+                                <label htmlFor="bg-color-picker" className="text-sm text-gray-400">
                                     Color:
                                 </label>
                                 <div className="relative">
@@ -211,7 +211,7 @@ export default function ImageBackgroundRemover() {
                                         type="color"
                                         value={backgroundColor}
                                         onChange={(e) => setBackgroundColor(e.target.value)}
-                                        className="relative p-0 h-8 w-14 border-2 border-slate-500 rounded-md cursor-pointer opacity-0"
+                                        className="relative p-0 h-8 w-14 border-2 border-gray-500 rounded-md cursor-pointer opacity-0"
                                     />
                                 </div>
                             </div>
@@ -247,23 +247,23 @@ export default function ImageBackgroundRemover() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
                 {originalImage && (
-                    <div className="p-4 border border-slate-700 rounded-md bg-slate-800/50">
-                        <h3 className="text-lg font-semibold text-slate-200 mb-2">Original</h3>
+                    <div className="p-4 border border-gray-700 rounded-md bg-gray-800/50">
+                        <h3 className="text-lg font-semibold text-gray-200 mb-2">Original</h3>
                         <div className="relative p-2 rounded-md" style={checkeredBgStyle}>
                             <img
                                 src={originalImage.dataUrl}
                                 alt="Original"
-                                className="relative max-w-full h-auto rounded-sm border border-slate-600/50 max-h-96 object-contain mx-auto"
+                                className="relative max-w-full h-auto rounded-sm border border-gray-600/50 max-h-96 object-contain mx-auto"
                             />
                         </div>
                     </div>
                 )}
 
-                <div className="relative p-4 border border-slate-700 rounded-md bg-slate-800/50 min-h-[200px]">
+                <div className="relative p-4 border border-gray-700 rounded-md bg-gray-800/50 min-h-[200px]">
                     <ProcessingOverlay isLoading={isLoading} />
                     {processedImage && (
                         <>
-                            <h3 className="text-lg font-semibold text-slate-200 mb-2">Result</h3>
+                            <h3 className="text-lg font-semibold text-gray-200 mb-2">Result</h3>
                             <div
                                 className="relative p-2 rounded-md"
                                 style={
@@ -275,13 +275,13 @@ export default function ImageBackgroundRemover() {
                                 <img
                                     src={processedImage.dataUrl}
                                     alt="Processed"
-                                    className="relative max-w-full h-auto rounded-sm border border-slate-600/50 max-h-96 object-contain mx-auto"
+                                    className="relative max-w-full h-auto rounded-sm border border-gray-600/50 max-h-96 object-contain mx-auto"
                                 />
                             </div>
                             <a
                                 href={processedImage.dataUrl}
                                 download={processedImage.name}
-                                className="mt-4 inline-block w-full text-center px-4 py-2 rounded-md font-medium bg-cyan-600 text-white hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-cyan-500 transition-colors duration-150"
+                                className="mt-4 inline-block w-full text-center px-4 py-2 rounded-md font-medium bg-cyan-600 text-white hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-cyan-500 transition-colors duration-150"
                             >
                                 Download Result
                             </a>
@@ -289,13 +289,13 @@ export default function ImageBackgroundRemover() {
                     )}
                     {!processedImage && originalImage && !isLoading && (
                         <div className="flex items-center justify-center h-full">
-                            <p className="text-slate-500">Result will appear here.</p>
+                            <p className="text-gray-500">Result will appear here.</p>
                         </div>
                     )}
                 </div>
             </div>
             {!originalImage && !isLoading && (
-                <p className="text-center text-slate-500 py-8">
+                <p className="text-center text-gray-500 py-8">
                     Select an image to remove its background.
                 </p>
             )}

@@ -27,7 +27,7 @@ export default function TextDiffViewer() {
                 <div>
                     <label
                         htmlFor="text-a"
-                        className="block text-sm font-medium text-slate-300 mb-1"
+                        className="block text-sm font-medium text-gray-300 mb-1"
                     >
                         Original Text:
                     </label>
@@ -42,7 +42,7 @@ export default function TextDiffViewer() {
                 <div>
                     <label
                         htmlFor="text-b"
-                        className="block text-sm font-medium text-slate-300 mb-1"
+                        className="block text-sm font-medium text-gray-300 mb-1"
                     >
                         Modified Text:
                     </label>
@@ -67,14 +67,14 @@ export default function TextDiffViewer() {
 
             {diffResult && (
                 <div id="output">
-                    <p className="text-sm font-medium text-slate-300 mb-1">Differences:</p>
-                    <pre className="p-3 bg-slate-900 border border-slate-700 rounded-md overflow-x-auto text-sm whitespace-pre-wrap break-words">
+                    <p className="text-sm font-medium text-gray-300 mb-1">Differences:</p>
+                    <pre className="p-3 bg-gray-900 border border-gray-700 rounded-md overflow-x-auto text-sm whitespace-pre-wrap break-words">
                         {diffResult.map((part, index) => {
                             const colorClass = part.added
                                 ? 'bg-green-900 text-green-300'
                                 : part.removed
                                   ? 'bg-red-900 text-red-300 line-through'
-                                  : 'text-slate-300'; // No background for unchanged parts
+                                  : 'text-gray-300'; // No background for unchanged parts
                             return (
                                 <span key={index} className={colorClass}>
                                     {part.value}
@@ -82,7 +82,7 @@ export default function TextDiffViewer() {
                             );
                         })}
                     </pre>
-                    <p className="mt-2 text-xs text-slate-400">
+                    <p className="mt-2 text-xs text-gray-400">
                         <span className="inline-block w-3 h-3 bg-green-900 mr-1"></span> Added
                         <span className="inline-block w-3 h-3 bg-red-900 ml-3 mr-1"></span> Removed
                         (with strikethrough)

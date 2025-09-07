@@ -119,12 +119,12 @@ export default function ExcelToCsvConverter() {
             )}
             {error && <p className="text-center text-red-400">{error}</p>}
             {workbook && sheetNames.length > 0 && !isLoading && (
-                <div className="space-y-3 p-4 bg-slate-800 rounded-md border border-slate-700">
-                    <p className="text-xs text-slate-400 truncate">File: {fileName}</p>
+                <div className="space-y-3 p-4 bg-gray-800 rounded-md border border-gray-700">
+                    <p className="text-xs text-gray-400 truncate">File: {fileName}</p>
                     <div className="flex flex-wrap items-center gap-2">
                         <label
                             htmlFor="sheet-select-ex"
-                            className="text-sm font-medium text-slate-300"
+                            className="text-sm font-medium text-gray-300"
                         >
                             Select Sheet:
                         </label>
@@ -132,7 +132,7 @@ export default function ExcelToCsvConverter() {
                             id="sheet-select-ex"
                             value={selectedSheet}
                             onChange={(e) => setSelectedSheet(e.target.value)}
-                            className="px-3 py-1 border border-slate-600 rounded-md bg-slate-700 text-slate-100 focus:ring-cyan-500 outline-none text-sm"
+                            className="px-3 py-1 border border-gray-600 rounded-md bg-gray-700 text-gray-100 focus:ring-cyan-500 outline-none text-sm"
                         >
                             {sheetNames.map((name) => (
                                 <option key={name} value={name}>

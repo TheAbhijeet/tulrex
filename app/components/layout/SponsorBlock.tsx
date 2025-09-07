@@ -10,8 +10,8 @@ export default function SponsorBlock() {
     const hasSponsor = !!sponsorName && !!sponsorUrl;
 
     return (
-        <div className="mt-12 mb-6 text-center text-sm text-slate-400 px-4">
-            <div className="max-w-2xl mx-auto p-4 border border-slate-700 bg-slate-800/50 rounded-lg">
+        <div className="mt-12 mb-6 text-center text-sm text-gray-400 px-4">
+            <div className="max-w-2xl mx-auto p-4 border border-gray-700 bg-gray-800/50 rounded-lg">
                 {hasSponsor ? (
                     <div>
                         <span className="text-base mr-2" aria-hidden="true">
@@ -35,7 +35,7 @@ export default function SponsorBlock() {
                             )}
                             {sponsorName}
                         </a>
-                        <p className="text-xs text-slate-500 mt-1.5">
+                        <p className="text-xs text-gray-500 mt-1.5">
                             Thanks to our sponsors, this site remains free, private, and ad-free for
                             everyone.
                         </p>
@@ -45,8 +45,8 @@ export default function SponsorBlock() {
                         <span className="text-base mr-2" aria-hidden="true">
                             🚫
                         </span>
-                        <strong className="text-slate-300">No Sponsors Found</strong>
-                        <p className="text-xs text-slate-500 mt-1.5">
+                        <strong className="text-gray-300">No Sponsors Found</strong>
+                        <p className="text-xs text-gray-500 mt-1.5">
                             Want to support a privacy-first, open-source tool?
                             <Link
                                 href={sponsorshipUrl}

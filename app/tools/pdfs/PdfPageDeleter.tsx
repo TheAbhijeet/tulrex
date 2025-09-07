@@ -212,7 +212,7 @@ export default function PdfPageDeleter() {
             <div>
                 <label
                     htmlFor="pdf-file-input"
-                    className="block text-sm font-medium text-slate-300 mb-1"
+                    className="block text-sm font-medium text-gray-300 mb-1"
                 >
                     Select PDF File:
                 </label>
@@ -226,7 +226,7 @@ export default function PdfPageDeleter() {
                     disabled={isLoading}
                 />
                 {pdfFile && !isLoading && (
-                    <p className="text-xs text-slate-400 mt-1">
+                    <p className="text-xs text-gray-400 mt-1">
                         Loaded: {pdfFile.name} ({formatBytes(pdfFile.size)}) -{' '}
                         {pdfDocProxy?.doc.getPageCount()} pages
                     </p>
@@ -247,8 +247,8 @@ export default function PdfPageDeleter() {
 
             {pdfDocProxy && pagePreviews.length > 0 && !isLoading && (
                 <>
-                    <div className="flex flex-wrap gap-2 items-center border-b border-slate-700 pb-4 mb-4">
-                        <h3 className="text-md font-semibold text-slate-200 mr-auto">
+                    <div className="flex flex-wrap gap-2 items-center border-b border-gray-700 pb-4 mb-4">
+                        <h3 className="text-md font-semibold text-gray-200 mr-auto">
                             Select pages to delete ({selectedPages.size} selected):
                         </h3>
                         {/* Assuming Button component supports size prop or adjust styling */}
@@ -278,13 +278,13 @@ export default function PdfPageDeleter() {
                         </Button>
                     </div>
 
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 max-h-[60vh] overflow-y-auto p-1 bg-slate-800/30 rounded-md">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 max-h-[60vh] overflow-y-auto p-1 bg-gray-800/30 rounded-md">
                         {pagePreviews.map((preview) => (
                             <div
                                 key={preview.index}
                                 onClick={() => togglePageSelection(preview.index)}
                                 className={`p-1.5 border-2 rounded-md cursor-pointer transition-all duration-150 relative group
-                            ${selectedPages.has(preview.index) ? 'border-red-500 bg-red-900/30 ring-2 ring-red-500/70' : 'border-slate-700 hover:border-cyan-500 bg-slate-800'}`}
+                            ${selectedPages.has(preview.index) ? 'border-red-500 bg-red-900/30 ring-2 ring-red-500/70' : 'border-gray-700 hover:border-cyan-500 bg-gray-800'}`}
                                 role="checkbox"
                                 aria-checked={selectedPages.has(preview.index)}
                                 tabIndex={0}
@@ -347,7 +347,7 @@ export default function PdfPageDeleter() {
                 </>
             )}
             {!pdfFile && !isLoading && !error && (
-                <p className="text-center text-slate-500 py-8">
+                <p className="text-center text-gray-500 py-8">
                     Upload a PDF file to select pages for deletion.
                 </p>
             )}

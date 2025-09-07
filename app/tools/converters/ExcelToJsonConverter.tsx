@@ -109,7 +109,7 @@ export default function ExcelToJsonConverter() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-3">
-                <label htmlFor="excel-upload" className="block text-sm font-medium text-slate-300">
+                <label htmlFor="excel-upload" className="block text-sm font-medium text-gray-300">
                     Upload Excel File (.xlsx, .xls, .csv):
                 </label>
                 <Input
@@ -119,21 +119,18 @@ export default function ExcelToJsonConverter() {
                     onChange={handleFileChange}
                     className="text-sm"
                 />
-                {fileName && <p className="text-xs text-slate-400">Loaded: {fileName}</p>}
+                {fileName && <p className="text-xs text-gray-400">Loaded: {fileName}</p>}
 
                 {sheetNames.length > 0 && (
                     <div className="flex flex-wrap gap-2 items-center">
-                        <label
-                            htmlFor="sheet-select"
-                            className="text-sm font-medium text-slate-300"
-                        >
+                        <label htmlFor="sheet-select" className="text-sm font-medium text-gray-300">
                             Select Sheet:
                         </label>
                         <select
                             id="sheet-select"
                             value={selectedSheet}
                             onChange={(e) => setSelectedSheet(e.target.value)}
-                            className="px-3 py-1 border border-slate-600 rounded-md bg-slate-700 text-slate-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none text-sm"
+                            className="px-3 py-1 border border-gray-600 rounded-md bg-gray-700 text-gray-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none text-sm"
                         >
                             {sheetNames.map((name) => (
                                 <option key={name} value={name}>
@@ -143,7 +140,7 @@ export default function ExcelToJsonConverter() {
                         </select>
                         <label
                             htmlFor="format-select"
-                            className="text-sm font-medium text-slate-300 ml-2"
+                            className="text-sm font-medium text-gray-300 ml-2"
                         >
                             Format:
                         </label>
@@ -151,7 +148,7 @@ export default function ExcelToJsonConverter() {
                             id="format-select"
                             value={outputFormat}
                             onChange={(e) => setOutputFormat(e.target.value as OutputFormat)}
-                            className="px-3 py-1 border border-slate-600 rounded-md bg-slate-700 text-slate-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none text-sm"
+                            className="px-3 py-1 border border-gray-600 rounded-md bg-gray-700 text-gray-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none text-sm"
                         >
                             <option value="array-of-objects">Array of Objects</option>
                             <option value="array-of-arrays">Array of Arrays</option>
@@ -165,7 +162,7 @@ export default function ExcelToJsonConverter() {
                 <div className="flex justify-between items-center">
                     <label
                         htmlFor="json-output-excel"
-                        className="block text-sm font-medium text-slate-300"
+                        className="block text-sm font-medium text-gray-300"
                     >
                         JSON Output:
                     </label>
@@ -173,7 +170,7 @@ export default function ExcelToJsonConverter() {
                         <button
                             onClick={() => copy(jsonData)}
                             disabled={!jsonData}
-                            className="p-1.5 text-slate-400 hover:text-cyan-400 bg-slate-700 hover:bg-slate-600 rounded disabled:opacity-50 focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                            className="p-1.5 text-gray-400 hover:text-cyan-400 bg-gray-700 hover:bg-gray-600 rounded disabled:opacity-50 focus:outline-none focus:ring-1 focus:ring-cyan-500"
                             title="Copy JSON"
                             aria-label="Copy JSON output"
                         >
@@ -182,7 +179,7 @@ export default function ExcelToJsonConverter() {
                         <button
                             onClick={downloadJson}
                             disabled={!jsonData}
-                            className="p-1.5 text-slate-400 hover:text-cyan-400 bg-slate-700 hover:bg-slate-600 rounded disabled:opacity-50 focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                            className="p-1.5 text-gray-400 hover:text-cyan-400 bg-gray-700 hover:bg-gray-600 rounded disabled:opacity-50 focus:outline-none focus:ring-1 focus:ring-cyan-500"
                             title="Download JSON"
                             aria-label="Download JSON file"
                         >
@@ -196,7 +193,7 @@ export default function ExcelToJsonConverter() {
                     readOnly
                     rows={15}
                     placeholder="JSON result will appear here after uploading a file..."
-                    className="font-mono text-xs bg-slate-900 border-slate-700"
+                    className="font-mono text-xs bg-gray-900 border-gray-700"
                 />
                 {copyStatus === 'copied' && (
                     <p className="text-xs text-green-400 mt-1 text-right">Copied!</p>

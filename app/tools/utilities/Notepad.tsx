@@ -38,7 +38,7 @@ export default function Notepad() {
     return (
         <div className="space-y-3">
             <div className="flex justify-between items-center">
-                <p className="text-sm text-slate-400">
+                <p className="text-sm text-gray-400">
                     Your notes are automatically saved in your browser's local storage.
                 </p>
                 <Button onClick={handleClear} variant="primary" className="text-xs">
@@ -50,14 +50,14 @@ export default function Notepad() {
                 onChange={(e) => setNote(e.target.value)}
                 placeholder="Start typing your notes here..."
                 rows={18}
-                className="bg-zinc-900 text-md"
+                className="bg-gray-900 text-md"
             />
             {lastSaved && (
-                <p className="text-sm text-slate-300 text-right">
+                <p className="text-sm text-gray-300 text-right">
                     Last saved: {lastSaved.toLocaleTimeString()}
                 </p>
             )}
-            <p className="text-sm text-slate-300 text-right">Auto-saved locally</p>
+            <p className="text-sm text-gray-300 text-right">Auto-saved locally</p>
         </div>
     );
 }

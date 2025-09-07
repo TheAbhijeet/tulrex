@@ -70,7 +70,7 @@ export default function AgeCalculator() {
                 <div>
                     <label
                         htmlFor="birth-date"
-                        className="block text-sm font-medium text-slate-300 mb-1"
+                        className="block text-sm font-medium text-gray-300 mb-1"
                     >
                         Birth Date:
                     </label>
@@ -85,7 +85,7 @@ export default function AgeCalculator() {
                 <div>
                     <label
                         htmlFor="target-date"
-                        className="block text-sm font-medium text-slate-300 mb-1"
+                        className="block text-sm font-medium text-gray-300 mb-1"
                     >
                         Calculate Age As Of:
                     </label>
@@ -102,14 +102,14 @@ export default function AgeCalculator() {
                 Calculate Age
             </Button>
             {result && (
-                <div className="mt-4 p-4 bg-slate-800 border border-slate-700 rounded-md text-center">
+                <div className="mt-4 p-4 bg-gray-800 border border-gray-700 rounded-md text-center">
                     <h3 className="text-lg font-semibold text-cyan-400 mb-2">Age Result</h3>
-                    <p className="text-2xl text-slate-100">
-                        {result.years} <span className="text-base text-slate-400">years</span>,{' '}
-                        {result.months} <span className="text-base text-slate-400">months</span>,{' '}
-                        {result.days} <span className="text-base text-slate-400">days</span>
+                    <p className="text-2xl text-gray-100">
+                        {result.years} <span className="text-base text-gray-400">years</span>,{' '}
+                        {result.months} <span className="text-base text-gray-400">months</span>,{' '}
+                        {result.days} <span className="text-base text-gray-400">days</span>
                     </p>
-                    <p className="text-sm text-slate-400 mt-2">
+                    <p className="text-sm text-gray-400 mt-2">
                         Total Days: {result.totalDays.toLocaleString()}
                     </p>
                 </div>

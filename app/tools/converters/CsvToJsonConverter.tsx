@@ -71,7 +71,7 @@ export default function CsvToJsonConverter() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-3">
-                <label htmlFor="csv-input" className="block text-sm font-medium text-slate-300">
+                <label htmlFor="csv-input" className="block text-sm font-medium text-gray-300">
                     CSV Input:
                 </label>
                 <Input
@@ -95,9 +95,9 @@ export default function CsvToJsonConverter() {
                             type="checkbox"
                             checked={useHeader}
                             onChange={(e) => setUseHeader(e.target.checked)}
-                            className="h-4 w-4 rounded border-slate-500 bg-slate-700 text-cyan-600 focus:ring-cyan-500 focus:ring-offset-slate-800"
+                            className="h-4 w-4 rounded border-gray-500 bg-gray-700 text-cyan-600 focus:ring-cyan-500 focus:ring-offset-gray-800"
                         />
-                        <label htmlFor="use-header" className="ml-2 block text-sm text-slate-300">
+                        <label htmlFor="use-header" className="ml-2 block text-sm text-gray-300">
                             Use first row as header
                         </label>
                     </div>
@@ -106,7 +106,7 @@ export default function CsvToJsonConverter() {
                 {error && <p className="text-red-400 text-sm mt-2">{error}</p>}
             </div>
             <div className="space-y-3">
-                <label htmlFor="json-output" className="block text-sm font-medium text-slate-300">
+                <label htmlFor="json-output" className="block text-sm font-medium text-gray-300">
                     JSON Output:
                 </label>
                 <div className="relative">
@@ -116,12 +116,12 @@ export default function CsvToJsonConverter() {
                         readOnly
                         rows={15}
                         placeholder="JSON result will appear here..."
-                        className="font-mono text-xs bg-slate-900 border-slate-700 pr-10"
+                        className="font-mono text-xs bg-gray-900 border-gray-700 pr-10"
                     />
                     <button
                         onClick={() => copy(jsonOutput)}
                         disabled={!jsonOutput}
-                        className="absolute top-2 right-2 p-1.5 text-slate-400 hover:text-cyan-400 bg-slate-700 hover:bg-slate-600 rounded disabled:opacity-50 focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                        className="absolute top-2 right-2 p-1.5 text-gray-400 hover:text-cyan-400 bg-gray-700 hover:bg-gray-600 rounded disabled:opacity-50 focus:outline-none focus:ring-1 focus:ring-cyan-500"
                         title="Copy JSON"
                         aria-label="Copy JSON output"
                     >

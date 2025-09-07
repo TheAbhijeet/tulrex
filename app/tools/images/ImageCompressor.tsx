@@ -193,7 +193,7 @@ export default function ImageCompressor() {
             <div>
                 <label
                     htmlFor="image-input"
-                    className="block text-sm font-medium text-slate-300 mb-1"
+                    className="block text-sm font-medium text-gray-300 mb-1"
                 >
                     Select Image:
                 </label>
@@ -208,8 +208,8 @@ export default function ImageCompressor() {
             </div>
 
             {/* Options Section */}
-            <details className="p-4 border border-slate-700 rounded-md bg-slate-800/50 group" open>
-                <summary className="text-sm font-medium text-slate-300 cursor-pointer list-none flex justify-between items-center">
+            <details className="p-4 border border-gray-700 rounded-md bg-gray-800/50 group" open>
+                <summary className="text-sm font-medium text-gray-300 cursor-pointer list-none flex justify-between items-center">
                     Compression Options
                     <span className="text-cyan-400 group-open:rotate-180 transition-transform duration-200">
                         ▼
@@ -219,7 +219,7 @@ export default function ImageCompressor() {
                     <div>
                         <label
                             htmlFor="outputFormat"
-                            className="block text-xs font-medium text-slate-400 mb-1"
+                            className="block text-xs font-medium text-gray-400 mb-1"
                         >
                             Output Format:
                         </label>
@@ -239,7 +239,7 @@ export default function ImageCompressor() {
                     <div>
                         <label
                             htmlFor="quality"
-                            className={`block text-xs font-medium mb-1 ${qualityEnabled ? 'text-slate-400' : 'text-slate-500'}`}
+                            className={`block text-xs font-medium mb-1 ${qualityEnabled ? 'text-gray-400' : 'text-gray-500'}`}
                         >
                             Quality ({options.quality.toFixed(2)}):
                         </label>
@@ -253,11 +253,11 @@ export default function ImageCompressor() {
                             value={options.quality}
                             onChange={handleOptionChange}
                             disabled={!qualityEnabled}
-                            className={`w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer accent-cyan-500 ${!qualityEnabled ? 'opacity-50' : ''}`}
+                            className={`w-full h-2 bg-gray-600 rounded-lg appearance-none cursor-pointer accent-cyan-500 ${!qualityEnabled ? 'opacity-50' : ''}`}
                             aria-label="Compression quality"
                         />
                         {!qualityEnabled && (
-                            <p className="text-xs text-slate-500 mt-1">
+                            <p className="text-xs text-gray-500 mt-1">
                                 Quality setting mainly affects JPEG/WEBP.
                             </p>
                         )}
@@ -265,7 +265,7 @@ export default function ImageCompressor() {
                     <div>
                         <label
                             htmlFor="maxSizeMB"
-                            className="block text-xs font-medium text-slate-400 mb-1"
+                            className="block text-xs font-medium text-gray-400 mb-1"
                         >
                             Max Size (MB):
                         </label>
@@ -283,7 +283,7 @@ export default function ImageCompressor() {
                     <div>
                         <label
                             htmlFor="maxWidthOrHeight"
-                            className="block text-xs font-medium text-slate-400 mb-1"
+                            className="block text-xs font-medium text-gray-400 mb-1"
                         >
                             Max Width/Height (px):
                         </label>
@@ -324,76 +324,72 @@ export default function ImageCompressor() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                 {/* Original Image */}
                 {originalImage && (
-                    <div className="p-4 border border-slate-700 rounded-md bg-slate-800/50">
-                        <h3 className="text-lg font-semibold text-slate-200 mb-2">
-                            Original Image
-                        </h3>
+                    <div className="p-4 border border-gray-700 rounded-md bg-gray-800/50">
+                        <h3 className="text-lg font-semibold text-gray-200 mb-2">Original Image</h3>
                         <img
                             src={originalImage.dataUrl}
                             alt="Original"
-                            className="max-w-full h-auto rounded-md border border-slate-600 mb-2 max-h-96 object-contain"
+                            className="max-w-full h-auto rounded-md border border-gray-600 mb-2 max-h-96 object-contain"
                         />
-                        <p className="text-sm text-slate-400">
+                        <p className="text-sm text-gray-400">
                             Name:{' '}
                             <span
-                                className="text-slate-300 truncate inline-block max-w-[200px] align-bottom"
+                                className="text-gray-300 truncate inline-block max-w-[200px] align-bottom"
                                 title={originalImage.name}
                             >
                                 {originalImage.name}
                             </span>
                         </p>
-                        <p className="text-sm text-slate-400">
+                        <p className="text-sm text-gray-400">
                             Size:{' '}
-                            <span className="text-slate-300">
-                                {formatBytes(originalImage.size)}
-                            </span>
+                            <span className="text-gray-300">{formatBytes(originalImage.size)}</span>
                         </p>
-                        <p className="text-sm text-slate-400">
+                        <p className="text-sm text-gray-400">
                             Dimensions:{' '}
-                            <span className="text-slate-300">
+                            <span className="text-gray-300">
                                 {originalImage.width} x {originalImage.height}
                             </span>
                         </p>
-                        <p className="text-sm text-slate-400">
-                            Type: <span className="text-slate-300">{originalImage.type}</span>
+                        <p className="text-sm text-gray-400">
+                            Type: <span className="text-gray-300">{originalImage.type}</span>
                         </p>
                     </div>
                 )}
 
                 {/* Compressed Image */}
                 {compressedImage && (
-                    <div className="p-4 border border-slate-700 rounded-md bg-slate-800/50">
-                        <h3 className="text-lg font-semibold text-slate-200 mb-2">
+                    <div className="p-4 border border-gray-700 rounded-md bg-gray-800/50">
+                        <h3 className="text-lg font-semibold text-gray-200 mb-2">
                             Compressed Image
                         </h3>
                         <img
                             src={compressedImage.dataUrl}
                             alt="Compressed"
-                            className="max-w-full h-auto rounded-md border border-slate-600 mb-2 max-h-96 object-contain"
+                            className="max-w-full h-auto rounded-md border border-gray-600 mb-2 max-h-96 object-contain"
                         />
-                        <p className="text-sm text-slate-400">
+                        <p className="text-sm text-gray-400">
                             Name:{' '}
                             <span
-                                className="text-slate-300 truncate inline-block max-w-[200px] align-bottom"
+                                className="text-gray-300 truncate inline-block max-w-[200px] align-bottom"
                                 title={compressedImage.name}
                             >
                                 {compressedImage.name}
                             </span>
                         </p>
-                        <p className="text-sm text-slate-400">
+                        <p className="text-sm text-gray-400">
                             Size:{' '}
-                            <span className="text-slate-300">
+                            <span className="text-gray-300">
                                 {formatBytes(compressedImage.size)}
                             </span>
                         </p>
-                        <p className="text-sm text-slate-400">
+                        <p className="text-sm text-gray-400">
                             Dimensions:{' '}
-                            <span className="text-slate-300">
+                            <span className="text-gray-300">
                                 {compressedImage.width} x {compressedImage.height}
                             </span>
                         </p>
-                        <p className="text-sm text-slate-400">
-                            Type: <span className="text-slate-300">{compressedImage.type}</span>
+                        <p className="text-sm text-gray-400">
+                            Type: <span className="text-gray-300">{compressedImage.type}</span>
                         </p>
                         {originalImage && (
                             <p className="text-sm text-green-400">
@@ -420,7 +416,7 @@ export default function ImageCompressor() {
                 )}
             </div>
             {!originalImage && !isLoading && (
-                <p className="text-center text-slate-500 py-8">
+                <p className="text-center text-gray-500 py-8">
                     Select an image to begin compression.
                 </p>
             )}

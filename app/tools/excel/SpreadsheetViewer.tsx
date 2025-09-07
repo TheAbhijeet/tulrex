@@ -42,7 +42,7 @@ export default function SpreadsheetViewer() {
                         value={selectedSheet}
                         onChange={(e) => selectSheet(e.target.value)}
                         disabled={isLoading}
-                        className="px-3 py-1.5 border border-slate-600 rounded-md bg-slate-700 text-slate-100 focus:ring-2 focus:ring-cyan-500 outline-none text-sm"
+                        className="px-3 py-1.5 border border-gray-600 rounded-md bg-gray-700 text-gray-100 focus:ring-2 focus:ring-cyan-500 outline-none text-sm"
                     >
                         {sheetNames.map((name) => (
                             <option key={name} value={name}>
@@ -58,7 +58,7 @@ export default function SpreadsheetViewer() {
             {error && <p className="text-center text-red-400">{error}</p>}
             {headers.length > 0 && !isLoading && !error && (
                 <>
-                    <p className="text-xs text-slate-400">
+                    <p className="text-xs text-gray-400">
                         Displaying: {fileName}
                         {selectedSheet ? ` / Sheet: ${selectedSheet}` : ''}
                     </p>

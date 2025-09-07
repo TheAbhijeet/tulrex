@@ -63,7 +63,7 @@ export default function LoremIpsumGenerator() {
     return (
         <div className="space-y-4">
             <div className="flex flex-wrap items-center justify-center gap-4">
-                <label htmlFor="lorem-count" className="text-sm font-medium text-slate-300">
+                <label htmlFor="lorem-count" className="text-sm font-medium text-gray-300">
                     Generate:
                 </label>
                 <Input
@@ -79,7 +79,7 @@ export default function LoremIpsumGenerator() {
                     onChange={(e) =>
                         setType(e.target.value as 'words' | 'sentences' | 'paragraphs')
                     }
-                    className="px-3 py-2 border border-slate-600 rounded-md bg-slate-700 text-slate-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none"
+                    className="px-3 py-2 border border-gray-600 rounded-md bg-gray-700 text-gray-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none"
                 >
                     <option value="paragraphs">Paragraphs</option>
                     <option value="sentences">Sentences</option>
@@ -95,12 +95,12 @@ export default function LoremIpsumGenerator() {
                     value={generatedText}
                     readOnly
                     rows={12}
-                    className="bg-slate-900 border-slate-700 pr-10"
+                    className="bg-gray-900 border-gray-700 pr-10"
                 />
                 <button
                     onClick={() => copy(generatedText)}
                     disabled={!generatedText}
-                    className="absolute top-2 right-2 p-1.5 text-slate-400 hover:text-cyan-400 bg-slate-700 hover:bg-slate-600 rounded disabled:opacity-50 focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                    className="absolute top-2 right-2 p-1.5 text-gray-400 hover:text-cyan-400 bg-gray-700 hover:bg-gray-600 rounded disabled:opacity-50 focus:outline-none focus:ring-1 focus:ring-cyan-500"
                     title="Copy to Clipboard"
                     aria-label="Copy generated text"
                 >

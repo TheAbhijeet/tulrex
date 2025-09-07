@@ -14,6 +14,48 @@ export default function AboutPage() {
         <div className="md:max-w-4xl mx-auto prose dark:prose-invert">
             <h1 className="">About TulRex</h1>
             <p>
+                TulRex is a collection of simple, free, client-side web tools designed for
+                developers, content creators, and anyone who needs quick utilities without server
+                interaction, ads or tracking.
+            </p>
+            <p>
+                In fact, There’s no database behind this app, everything you see is pre-built and
+                served as static content.
+            </p>
+
+            <p>
+                TulRex is completely open source. You’re welcome to use the existing tools,
+                contribute improvements, or even add entirely new ones. My hope is that together we
+                can grow Tulrex into a reliable, extensible platform that provides a wide range of
+                everyday utilities without compromising user privacy.
+            </p>
+
+            <p>
+                We encourage contributions, bug reports, and suggestions! Check out the repository.
+            </p>
+
+            <h2 className="text-2xl font-bold mb-4 text-gray-200">Key Principles:</h2>
+            <ul className="list-disc list-inside pl-4 space-y-1">
+                <li>
+                    <strong className="text-cyan-400">Client-Side Only:</strong> All processing
+                    happens directly in your browser. No data is sent to any server.
+                </li>
+                <li>
+                    <strong className="text-cyan-400">Fast & Minimalist:</strong> Designed for quick
+                    loading and ease of use with a clean interface.
+                </li>
+                <li>
+                    <strong className="text-cyan-400">Privacy Focused:</strong> No tracking, no ads.
+                </li>
+                <li>
+                    <strong className="text-cyan-400">Open Source:</strong> The entire codebase is
+                    available on GitHub for transparency and community contribution.
+                </li>
+            </ul>
+
+            <h2>Why?</h2>
+
+            <p>
                 I made TulRex because I use a lot of these tools every day, and I was always a bit
                 hesitant to upload my documents or photos online since I wasn’t sure how they might
                 be used. So I figured why not build my own instead.
@@ -25,46 +67,12 @@ export default function AboutPage() {
                 it would be a good place to start a project. That’s how <strong>Tulrex</strong> came
                 to life.
             </p>
-
-            <p>
-                This project is completely open source. You’re welcome to use the existing tools,
-                contribute improvements, or even add entirely new ones. My hope is that together we
-                can grow Tulrex into a reliable, extensible platform that provides a wide range of
-                everyday utilities without compromising user privacy.
-            </p>
-
-            <p>
-                TulRex is a collection of simple, free, client-side web tools designed for
-                developers, content creators, and anyone who needs quick utilities without server
-                interaction or tracking.
-            </p>
-            <h2 className="text-2xl font-bold mb-4 text-slate-200">Key Principles:</h2>
-            <ul className="list-disc list-inside pl-4 space-y-1">
-                <li>
-                    <strong className="text-cyan-400">Client-Side Only:</strong> All processing
-                    happens directly in your browser. No data is sent to any server.
-                </li>
-                <li>
-                    <strong className="text-cyan-400">Fast & Minimalist:</strong> Designed for quick
-                    loading and ease of use with a clean interface.
-                </li>
-                <li>
-                    <strong className="text-cyan-400">Privacy Focused:</strong> No tracking, no
-                    analytics (unless strictly privacy-safe and local/opt-in).
-                </li>
-                <li>
-                    <strong className="text-cyan-400">Open Source:</strong> The entire codebase is
-                    available on GitHub for transparency and community contribution.
-                </li>
-            </ul>
             <p>
                 This project was built using modern web technologies like Next.js (App Router),
                 TypeScript, and Tailwind CSS, focusing on creating a performant static site.
             </p>
-            <p>
-                We encourage contributions, bug reports, and suggestions! Check out the repository:
-            </p>
-            <h2 className="text-2xl font-bold mb-4 text-slate-200">How TulRex Stays Free</h2>
+
+            <h2 className="text-2xl font-bold mb-4 text-gray-200">How TulRex Stays Free?</h2>
 
             <p>
                 Now you may be wondering, how do I make money if everything is open-source? What's

@@ -78,7 +78,7 @@ export default function JsonToSpreadsheet() {
 
     return (
         <div className="space-y-4">
-            <label htmlFor="json-ss-input" className="block text-sm font-medium text-slate-300">
+            <label htmlFor="json-ss-input" className="block text-sm font-medium text-gray-300">
                 JSON Input (Array of Objects/Arrays):
             </label>
             <TextareaInput

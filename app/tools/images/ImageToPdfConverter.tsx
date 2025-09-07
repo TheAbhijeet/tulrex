@@ -115,10 +115,10 @@ export default function ImageToPdfConverter() {
 
     return (
         <div className="space-y-5">
-            <div className="p-4 border border-dashed border-slate-600 rounded-md text-center bg-slate-800">
+            <div className="p-4 border border-dashed border-gray-600 rounded-md text-center bg-gray-800">
                 <label
                     htmlFor="image-pdf-upload"
-                    className="block text-sm font-medium text-slate-300 mb-2"
+                    className="block text-sm font-medium text-gray-300 mb-2"
                 >
                     Add Images (JPG, PNG, WEBP, etc.):
                 </label>
@@ -135,10 +135,10 @@ export default function ImageToPdfConverter() {
 
             {imageFiles.length > 0 && (
                 <div className="space-y-2">
-                    <h4 className="text-sm font-medium text-slate-300">
+                    <h4 className="text-sm font-medium text-gray-300">
                         Selected Images ({imageFiles.length}):
                     </h4>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 max-h-60 overflow-y-auto p-2 border border-slate-700 rounded">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 max-h-60 overflow-y-auto p-2 border border-gray-700 rounded">
                         {imageFiles.map((imgFile, index) => (
                             <div key={index} className="relative group aspect-square">
                                 <img

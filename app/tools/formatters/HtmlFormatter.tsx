@@ -79,8 +79,8 @@ export default function HtmlFormatter() {
     return (
         <div className="space-y-6">
             {/* Options */}
-            <details className="p-4 border border-slate-700 rounded-md bg-slate-800/50 group">
-                <summary className="text-sm font-medium text-slate-300 cursor-pointer list-none flex justify-between items-center">
+            <details className="p-4 border border-gray-700 rounded-md bg-gray-800/50 group">
+                <summary className="text-sm font-medium text-gray-300 cursor-pointer list-none flex justify-between items-center">
                     Formatting Options
                     <span className="text-cyan-400 group-open:rotate-180 transition-transform duration-200">
                         ▼
@@ -90,7 +90,7 @@ export default function HtmlFormatter() {
                     <div>
                         <label
                             htmlFor="tabWidth"
-                            className="block text-xs font-medium text-slate-400 mb-1"
+                            className="block text-xs font-medium text-gray-400 mb-1"
                         >
                             Tab Width
                         </label>
@@ -107,7 +107,7 @@ export default function HtmlFormatter() {
                     <div>
                         <label
                             htmlFor="printWidth"
-                            className="block text-xs font-medium text-slate-400 mb-1"
+                            className="block text-xs font-medium text-gray-400 mb-1"
                         >
                             Print Width
                         </label>
@@ -123,13 +123,13 @@ export default function HtmlFormatter() {
                         </Select>
                     </div>
                     <div className="flex items-end pb-1">
-                        <label className="flex items-center space-x-2 text-sm text-slate-300 cursor-pointer">
+                        <label className="flex items-center space-x-2 text-sm text-gray-300 cursor-pointer">
                             <input
                                 type="checkbox"
                                 name="singleQuote"
                                 checked={formatOptions.singleQuote}
                                 onChange={handleOptionChange}
-                                className="form-checkbox h-4 w-4 text-cyan-600 bg-slate-600 border-slate-500 rounded focus:ring-cyan-500"
+                                className="form-checkbox h-4 w-4 text-cyan-600 bg-gray-600 border-gray-500 rounded focus:ring-cyan-500"
                             />
                             <span>Use Single Quotes</span>
                         </label>
@@ -142,7 +142,7 @@ export default function HtmlFormatter() {
                 <div className="flex-1 min-w-0">
                     <label
                         htmlFor="html-input"
-                        className="block text-sm font-medium text-slate-300 mb-1"
+                        className="block text-sm font-medium text-gray-300 mb-1"
                     >
                         Input HTML
                     </label>
@@ -160,7 +160,7 @@ export default function HtmlFormatter() {
                     <div className="flex justify-between items-center mb-1">
                         <label
                             htmlFor="html-output"
-                            className="block text-sm font-medium text-slate-300"
+                            className="block text-sm font-medium text-gray-300"
                         >
                             Formatted HTML
                         </label>
@@ -174,7 +174,7 @@ export default function HtmlFormatter() {
                             </Button>
                         )}
                     </div>
-                    <div className="h-72 md:h-96 min-h-[12rem] w-full bg-slate-800 rounded-md border border-slate-700 overflow-hidden">
+                    <div className="h-72 md:h-96 min-h-[12rem] w-full bg-gray-800 rounded-md border border-gray-700 overflow-hidden">
                         {outputHtml && !error ? (
                             <SyntaxHighlighter
                                 language="html"
@@ -184,7 +184,7 @@ export default function HtmlFormatter() {
                                     padding: '1rem',
                                     height: '100%',
                                     fontSize: '0.875rem',
-                                    backgroundColor: '#1e293b', // Tailwind slate-800
+                                    backgroundColor: '#1e293b', // Tailwind gray-800
                                 }}
                                 codeTagProps={{
                                     style: {
@@ -197,7 +197,7 @@ export default function HtmlFormatter() {
                                 {outputHtml}
                             </SyntaxHighlighter>
                         ) : (
-                            <div className="p-4 text-slate-400 text-sm">
+                            <div className="p-4 text-gray-400 text-sm">
                                 {error
                                     ? 'Could not format HTML.'
                                     : 'Formatted HTML will appear here.'}

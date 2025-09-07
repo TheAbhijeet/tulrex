@@ -143,7 +143,7 @@ export default function ReorderPdfPages() {
                 <div>
                     <label
                         htmlFor="pdf-file-input-reorder"
-                        className="block text-sm font-medium text-slate-300 mb-1"
+                        className="block text-sm font-medium text-gray-300 mb-1"
                     >
                         Select PDF File:
                     </label>
@@ -170,8 +170,8 @@ export default function ReorderPdfPages() {
 
                 {pagesInfo.length > 0 && !isProcessing && (
                     <>
-                        <p className="text-slate-300 text-sm">Drag and drop pages to reorder:</p>
-                        <div className="p-2 border border-slate-700 rounded-md bg-slate-800/50 max-h-[60vh] overflow-y-auto">
+                        <p className="text-gray-300 text-sm">Drag and drop pages to reorder:</p>
+                        <div className="p-2 border border-gray-700 rounded-md bg-gray-800/50 max-h-[60vh] overflow-y-auto">
                             {pagesInfo.map((p, i) => renderPage(p, i))}
                         </div>
                     </>
@@ -188,7 +188,7 @@ export default function ReorderPdfPages() {
                     </div>
                 )}
                 {!pdfFile && !isProcessing && !error && (
-                    <p className="text-center text-slate-500 py-8">
+                    <p className="text-center text-gray-500 py-8">
                         Select a PDF file to reorder its pages.
                     </p>
                 )}

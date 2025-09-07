@@ -141,8 +141,8 @@ export default function JavaScriptFormatter() {
 
     return (
         <div className="space-y-6">
-            <details className="p-4 border border-slate-700 rounded-md bg-slate-800/50 group">
-                <summary className="text-sm font-medium text-slate-300 cursor-pointer list-none flex justify-between items-center">
+            <details className="p-4 border border-gray-700 rounded-md bg-gray-800/50 group">
+                <summary className="text-sm font-medium text-gray-300 cursor-pointer list-none flex justify-between items-center">
                     Formatting Options
                     <span className="text-cyan-400 group-open:rotate-180 transition-transform duration-200">
                         ▼
@@ -153,7 +153,7 @@ export default function JavaScriptFormatter() {
                     <div>
                         <label
                             htmlFor="indent_style"
-                            className="block text-xs font-medium text-slate-400 mb-1"
+                            className="block text-xs font-medium text-gray-400 mb-1"
                         >
                             Indent Style:
                         </label>
@@ -170,7 +170,7 @@ export default function JavaScriptFormatter() {
                     <div>
                         <label
                             htmlFor="indent_size"
-                            className="block text-xs font-medium text-slate-400 mb-1"
+                            className="block text-xs font-medium text-gray-400 mb-1"
                         >
                             Indent Size:
                         </label>
@@ -186,7 +186,7 @@ export default function JavaScriptFormatter() {
                     <div>
                         <label
                             htmlFor="eol"
-                            className="block text-xs font-medium text-slate-400 mb-1"
+                            className="block text-xs font-medium text-gray-400 mb-1"
                         >
                             EOL:
                         </label>
@@ -209,9 +209,9 @@ export default function JavaScriptFormatter() {
                             name="end_with_newline"
                             checked={options.end_with_newline}
                             onChange={handleOptionChange}
-                            className="h-4 w-4 text-cyan-600 bg-slate-600 border-slate-500 rounded focus:ring-cyan-500 mr-2"
+                            className="h-4 w-4 text-cyan-600 bg-gray-600 border-gray-500 rounded focus:ring-cyan-500 mr-2"
                         />
-                        <label htmlFor="end_with_newline" className="text-sm text-slate-300">
+                        <label htmlFor="end_with_newline" className="text-sm text-gray-300">
                             End with Newline
                         </label>
                     </div>
@@ -222,16 +222,16 @@ export default function JavaScriptFormatter() {
                             name="preserve_newlines"
                             checked={options.preserve_newlines}
                             onChange={handleOptionChange}
-                            className="h-4 w-4 text-cyan-600 bg-slate-600 border-slate-500 rounded focus:ring-cyan-500 mr-2"
+                            className="h-4 w-4 text-cyan-600 bg-gray-600 border-gray-500 rounded focus:ring-cyan-500 mr-2"
                         />
-                        <label htmlFor="preserve_newlines" className="text-sm text-slate-300">
+                        <label htmlFor="preserve_newlines" className="text-sm text-gray-300">
                             Preserve Newlines
                         </label>
                     </div>
                     <div>
                         <label
                             htmlFor="max_preserve_newlines"
-                            className={`block text-xs font-medium text-slate-400 mb-1 ${!options.preserve_newlines ? 'opacity-50' : ''}`}
+                            className={`block text-xs font-medium text-gray-400 mb-1 ${!options.preserve_newlines ? 'opacity-50' : ''}`}
                         >
                             Max Preserve Newlines:
                         </label>
@@ -255,9 +255,9 @@ export default function JavaScriptFormatter() {
                             name="space_in_paren"
                             checked={options.space_in_paren}
                             onChange={handleOptionChange}
-                            className="h-4 w-4 text-cyan-600 bg-slate-600 border-slate-500 rounded focus:ring-cyan-500 mr-2"
+                            className="h-4 w-4 text-cyan-600 bg-gray-600 border-gray-500 rounded focus:ring-cyan-500 mr-2"
                         />
-                        <label htmlFor="space_in_paren" className="text-sm text-slate-300">
+                        <label htmlFor="space_in_paren" className="text-sm text-gray-300">
                             Space in Parens
                         </label>
                     </div>
@@ -268,9 +268,9 @@ export default function JavaScriptFormatter() {
                             name="space_in_empty_paren"
                             checked={options.space_in_empty_paren}
                             onChange={handleOptionChange}
-                            className="h-4 w-4 text-cyan-600 bg-slate-600 border-slate-500 rounded focus:ring-cyan-500 mr-2"
+                            className="h-4 w-4 text-cyan-600 bg-gray-600 border-gray-500 rounded focus:ring-cyan-500 mr-2"
                         />
-                        <label htmlFor="space_in_empty_paren" className="text-sm text-slate-300">
+                        <label htmlFor="space_in_empty_paren" className="text-sm text-gray-300">
                             Space in Empty Parens
                         </label>
                     </div>
@@ -281,11 +281,11 @@ export default function JavaScriptFormatter() {
                             name="space_after_anon_function"
                             checked={!!options.space_after_anon_function}
                             onChange={handleOptionChange}
-                            className="h-4 w-4 text-cyan-600 bg-slate-600 border-slate-500 rounded focus:ring-cyan-500 mr-2"
+                            className="h-4 w-4 text-cyan-600 bg-gray-600 border-gray-500 rounded focus:ring-cyan-500 mr-2"
                         />
                         <label
                             htmlFor="space_after_anon_function"
-                            className="text-sm text-slate-300"
+                            className="text-sm text-gray-300"
                         >
                             Space After Anon Func
                         </label>
@@ -295,7 +295,7 @@ export default function JavaScriptFormatter() {
                     <div>
                         <label
                             htmlFor="brace_style"
-                            className="block text-xs font-medium text-slate-400 mb-1"
+                            className="block text-xs font-medium text-gray-400 mb-1"
                         >
                             Brace Style:
                         </label>
@@ -323,9 +323,9 @@ export default function JavaScriptFormatter() {
                             name="break_chained_methods"
                             checked={!!options.break_chained_methods}
                             onChange={handleOptionChange}
-                            className="h-4 w-4 text-cyan-600 bg-slate-600 border-slate-500 rounded focus:ring-cyan-500 mr-2"
+                            className="h-4 w-4 text-cyan-600 bg-gray-600 border-gray-500 rounded focus:ring-cyan-500 mr-2"
                         />
-                        <label htmlFor="break_chained_methods" className="text-sm text-slate-300">
+                        <label htmlFor="break_chained_methods" className="text-sm text-gray-300">
                             Break Chained Methods
                         </label>
                     </div>
@@ -336,9 +336,9 @@ export default function JavaScriptFormatter() {
                             name="keep_array_indentation"
                             checked={options.keep_array_indentation}
                             onChange={handleOptionChange}
-                            className="h-4 w-4 text-cyan-600 bg-slate-600 border-slate-500 rounded focus:ring-cyan-500 mr-2"
+                            className="h-4 w-4 text-cyan-600 bg-gray-600 border-gray-500 rounded focus:ring-cyan-500 mr-2"
                         />
-                        <label htmlFor="keep_array_indentation" className="text-sm text-slate-300">
+                        <label htmlFor="keep_array_indentation" className="text-sm text-gray-300">
                             Keep Array Indentation
                         </label>
                     </div>
@@ -351,16 +351,16 @@ export default function JavaScriptFormatter() {
                             name="unescape_strings"
                             checked={options.unescape_strings}
                             onChange={handleOptionChange}
-                            className="h-4 w-4 text-cyan-600 bg-slate-600 border-slate-500 rounded focus:ring-cyan-500 mr-2"
+                            className="h-4 w-4 text-cyan-600 bg-gray-600 border-gray-500 rounded focus:ring-cyan-500 mr-2"
                         />
-                        <label htmlFor="unescape_strings" className="text-sm text-slate-300">
+                        <label htmlFor="unescape_strings" className="text-sm text-gray-300">
                             Unescape Strings
                         </label>
                     </div>
                     <div>
                         <label
                             htmlFor="wrap_line_length"
-                            className="block text-xs font-medium text-slate-400 mb-1"
+                            className="block text-xs font-medium text-gray-400 mb-1"
                         >
                             Wrap Line Length (0 for none):
                         </label>
@@ -380,16 +380,16 @@ export default function JavaScriptFormatter() {
                             name="comma_first"
                             checked={!!options.comma_first}
                             onChange={handleOptionChange}
-                            className="h-4 w-4 text-cyan-600 bg-slate-600 border-slate-500 rounded focus:ring-cyan-500 mr-2"
+                            className="h-4 w-4 text-cyan-600 bg-gray-600 border-gray-500 rounded focus:ring-cyan-500 mr-2"
                         />
-                        <label htmlFor="comma_first" className="text-sm text-slate-300">
+                        <label htmlFor="comma_first" className="text-sm text-gray-300">
                             Comma First
                         </label>
                     </div>
                     <div>
                         <label
                             htmlFor="operator_position"
-                            className="block text-xs font-medium text-slate-400 mb-1"
+                            className="block text-xs font-medium text-gray-400 mb-1"
                         >
                             Operator Position:
                         </label>
@@ -411,9 +411,9 @@ export default function JavaScriptFormatter() {
                             name="indent_empty_lines"
                             checked={!!options.indent_empty_lines}
                             onChange={handleOptionChange}
-                            className="h-4 w-4 text-cyan-600 bg-slate-600 border-slate-500 rounded focus:ring-cyan-500 mr-2"
+                            className="h-4 w-4 text-cyan-600 bg-gray-600 border-gray-500 rounded focus:ring-cyan-500 mr-2"
                         />
-                        <label htmlFor="indent_empty_lines" className="text-sm text-slate-300">
+                        <label htmlFor="indent_empty_lines" className="text-sm text-gray-300">
                             Indent Empty Lines
                         </label>
                     </div>
@@ -424,9 +424,9 @@ export default function JavaScriptFormatter() {
                             name="jslint_happy"
                             checked={options.jslint_happy}
                             onChange={handleOptionChange}
-                            className="h-4 w-4 text-cyan-600 bg-slate-600 border-slate-500 rounded focus:ring-cyan-500 mr-2"
+                            className="h-4 w-4 text-cyan-600 bg-gray-600 border-gray-500 rounded focus:ring-cyan-500 mr-2"
                         />
-                        <label htmlFor="jslint_happy" className="text-sm text-slate-300">
+                        <label htmlFor="jslint_happy" className="text-sm text-gray-300">
                             JSLint Happy
                         </label>
                     </div>
@@ -437,11 +437,11 @@ export default function JavaScriptFormatter() {
                 <div className="flex-1 min-w-0">
                     <label
                         htmlFor="js-input-editor"
-                        className="block text-sm font-medium text-slate-300 mb-1"
+                        className="block text-sm font-medium text-gray-300 mb-1"
                     >
                         Input JavaScript:
                     </label>
-                    <div className="border border-slate-700 rounded-md overflow-hidden">
+                    <div className="border border-gray-700 rounded-md overflow-hidden">
                         <CodeMirror
                             id="js-input-editor"
                             value={inputJs}
@@ -467,7 +467,7 @@ export default function JavaScriptFormatter() {
                     <div className="flex justify-between items-center mb-1">
                         <label
                             htmlFor="js-output-editor"
-                            className="block text-sm font-medium text-slate-300"
+                            className="block text-sm font-medium text-gray-300"
                         >
                             Formatted JavaScript:
                         </label>
@@ -481,7 +481,7 @@ export default function JavaScriptFormatter() {
                             </Button>
                         )}
                     </div>
-                    <div className="border border-slate-700 rounded-md overflow-hidden">
+                    <div className="border border-gray-700 rounded-md overflow-hidden">
                         <CodeMirror
                             id="js-output-editor"
                             value={outputJs}

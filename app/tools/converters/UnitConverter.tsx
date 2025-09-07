@@ -82,7 +82,7 @@ export default function UnitConverter() {
             <div>
                 <label
                     htmlFor="measure-select"
-                    className="block text-sm font-medium text-slate-300 mb-1"
+                    className="block text-sm font-medium text-gray-300 mb-1"
                 >
                     Category:
                 </label>
@@ -90,7 +90,7 @@ export default function UnitConverter() {
                     id="measure-select"
                     value={measure}
                     onChange={handleMeasureChange}
-                    className="w-full px-3 py-2 border border-slate-600 rounded-md bg-slate-700 text-slate-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none capitalize"
+                    className="w-full px-3 py-2 border border-gray-600 rounded-md bg-gray-700 text-gray-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none capitalize"
                 >
                     {measures.map((m) => (
                         <option key={m} value={m} className="capitalize">
@@ -104,7 +104,7 @@ export default function UnitConverter() {
                 <div className="sm:col-span-1">
                     <label
                         htmlFor="input-value"
-                        className="block text-sm font-medium text-slate-300 mb-1"
+                        className="block text-sm font-medium text-gray-300 mb-1"
                     >
                         Value:
                     </label>
@@ -119,7 +119,7 @@ export default function UnitConverter() {
                 <div className="sm:col-span-1">
                     <label
                         htmlFor="from-unit"
-                        className="block text-sm font-medium text-slate-300 mb-1"
+                        className="block text-sm font-medium text-gray-300 mb-1"
                     >
                         From:
                     </label>
@@ -127,7 +127,7 @@ export default function UnitConverter() {
                         id="from-unit"
                         value={fromUnit}
                         onChange={(e) => setFromUnit(e.target.value as Unit)}
-                        className="w-full px-3 py-2 border border-slate-600 rounded-md bg-slate-700 text-slate-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none"
+                        className="w-full px-3 py-2 border border-gray-600 rounded-md bg-gray-700 text-gray-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none"
                     >
                         {possibleUnits.map((u) => (
                             <option key={u.abbr} value={u.abbr}>
@@ -136,13 +136,13 @@ export default function UnitConverter() {
                         ))}
                     </select>
                 </div>
-                <div className="hidden sm:flex items-center justify-center pb-2 text-slate-400 text-xl">
+                <div className="hidden sm:flex items-center justify-center pb-2 text-gray-400 text-xl">
                     =
                 </div>
                 <div className="sm:col-span-1">
                     <label
                         htmlFor="to-unit"
-                        className="block text-sm font-medium text-slate-300 mb-1"
+                        className="block text-sm font-medium text-gray-300 mb-1"
                     >
                         To:
                     </label>
@@ -150,7 +150,7 @@ export default function UnitConverter() {
                         id="to-unit"
                         value={toUnit}
                         onChange={(e) => setToUnit(e.target.value as Unit)}
-                        className="w-full px-3 py-2 border border-slate-600 rounded-md bg-slate-700 text-slate-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none"
+                        className="w-full px-3 py-2 border border-gray-600 rounded-md bg-gray-700 text-gray-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none"
                     >
                         {possibleUnits.map((u) => (
                             <option key={u.abbr} value={u.abbr}>
@@ -164,11 +164,11 @@ export default function UnitConverter() {
             {error && <p className="text-red-400 text-sm">{error}</p>}
 
             <div className="mt-4 text-center">
-                <p className="text-slate-300 text-lg">Result:</p>
+                <p className="text-gray-300 text-lg">Result:</p>
                 <p className="text-3xl font-bold text-cyan-400 py-2 break-all">
                     {outputValue || '...'}
                 </p>
-                <p className="text-sm text-slate-400">
+                <p className="text-sm text-gray-400">
                     {possibleUnits.find((u) => u.abbr === toUnit)?.plural}
                 </p>
             </div>

@@ -30,29 +30,29 @@ export default function TextCounter() {
                 className="font-mono"
             />
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
-                <div className="p-3 bg-slate-800 rounded border border-slate-700">
+                <div className="p-3 bg-gray-800 rounded border border-gray-700">
                     <div className="text-2xl font-semibold text-cyan-400">
                         {stats.characters.toLocaleString()}
                     </div>
-                    <div className="text-sm text-slate-400">Characters</div>
+                    <div className="text-sm text-gray-400">Characters</div>
                 </div>
-                <div className="p-3 bg-slate-800 rounded border border-slate-700">
+                <div className="p-3 bg-gray-800 rounded border border-gray-700">
                     <div className="text-2xl font-semibold text-cyan-400">
                         {stats.words.toLocaleString()}
                     </div>
-                    <div className="text-sm text-slate-400">Words</div>
+                    <div className="text-sm text-gray-400">Words</div>
                 </div>
-                <div className="p-3 bg-slate-800 rounded border border-slate-700">
+                <div className="p-3 bg-gray-800 rounded border border-gray-700">
                     <div className="text-2xl font-semibold text-cyan-400">
                         {stats.lines.toLocaleString()}
                     </div>
-                    <div className="text-sm text-slate-400">Lines</div>
+                    <div className="text-sm text-gray-400">Lines</div>
                 </div>
-                <div className="p-3 bg-slate-800 rounded border border-slate-700">
+                <div className="p-3 bg-gray-800 rounded border border-gray-700">
                     <div className="text-2xl font-semibold text-cyan-400">
                         {stats.bytes.toLocaleString()}
                     </div>
-                    <div className="text-sm text-slate-400">Bytes (UTF-8)</div>
+                    <div className="text-sm text-gray-400">Bytes (UTF-8)</div>
                 </div>
             </div>
         </div>

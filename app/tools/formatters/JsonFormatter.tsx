@@ -48,7 +48,7 @@ export default function JsonFormatter() {
             <div>
                 <label
                     htmlFor="json-input"
-                    className="block text-sm font-medium text-slate-300 mb-1"
+                    className="block text-sm font-medium text-gray-300 mb-1"
                 >
                     Input JSON:
                 </label>
@@ -81,7 +81,7 @@ export default function JsonFormatter() {
             {outputJson && (
                 <div>
                     <div className="my-5 flex justify-between items-center">
-                        <h2 className="text-lg font-bold text-slate-300 mb-1">Formatted JSON:</h2>
+                        <h2 className="text-lg font-bold text-gray-300 mb-1">Formatted JSON:</h2>
                         <CopyButton text={outputJson} />
                     </div>
                     <SyntaxHighlighter id="output" language="json" style={dracula}>

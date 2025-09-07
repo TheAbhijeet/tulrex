@@ -50,7 +50,7 @@ export default function CssMinifier() {
             <div className="space-y-3">
                 <label
                     htmlFor="css-minify-input"
-                    className="block text-sm font-medium text-slate-300"
+                    className="block text-sm font-medium text-gray-300"
                 >
                     CSS Input:
                 </label>
@@ -78,14 +78,14 @@ export default function CssMinifier() {
                 <div className="flex justify-between items-center">
                     <label
                         htmlFor="css-minify-output"
-                        className="block text-sm font-medium text-slate-300"
+                        className="block text-sm font-medium text-gray-300"
                     >
                         Minified Output:
                     </label>
                     <button
                         onClick={() => copyToClipboard(minifiedOutput)}
                         disabled={!minifiedOutput}
-                        className="p-1.5 text-slate-400 hover:text-cyan-400 bg-slate-700 hover:bg-slate-600 rounded disabled:opacity-50 focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                        className="p-1.5 text-gray-400 hover:text-cyan-400 bg-gray-700 hover:bg-gray-600 rounded disabled:opacity-50 focus:outline-none focus:ring-1 focus:ring-cyan-500"
                         title="Copy Minified CSS"
                         aria-label="Copy Minified CSS"
                     >
@@ -98,7 +98,7 @@ export default function CssMinifier() {
                     readOnly
                     rows={15}
                     placeholder="Minified CSS will appear here..."
-                    className="font-mono text-sm bg-slate-900 border-slate-700 text-md"
+                    className="font-mono text-sm bg-gray-900 border-gray-700 text-md"
                 />
             </div>
         </div>

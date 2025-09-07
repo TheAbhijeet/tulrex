@@ -193,10 +193,10 @@ export default function PdfEditorBasic() {
     return (
         <div className="space-y-5">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="p-4 border border-dashed border-slate-600 rounded-md text-center bg-slate-800">
+                <div className="p-4 border border-dashed border-gray-600 rounded-md text-center bg-gray-800">
                     <label
                         htmlFor="pdf-edit-upload"
-                        className="block text-sm font-medium text-slate-300 mb-2"
+                        className="block text-sm font-medium text-gray-300 mb-2"
                     >
                         1. Select PDF File:
                     </label>
@@ -210,13 +210,13 @@ export default function PdfEditorBasic() {
                         className="mx-auto block w-full max-w-sm text-sm file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-cyan-600 file:text-white hover:file:bg-cyan-700"
                     />
                     {pdfFile && totalPages > 0 && (
-                        <p className="text-xs text-slate-400 mt-2">
+                        <p className="text-xs text-gray-400 mt-2">
                             {pdfFile.name} ({totalPages} pages)
                         </p>
                     )}
                 </div>
-                <div className="p-4 border rounded-md border-slate-700 bg-slate-800 space-y-3">
-                    <h4 className="text-sm font-medium text-slate-300 text-center">
+                <div className="p-4 border rounded-md border-gray-700 bg-gray-800 space-y-3">
+                    <h4 className="text-sm font-medium text-gray-300 text-center">
                         2. Choose Item to Add
                     </h4>
                     <div className="flex justify-center gap-3">
@@ -239,7 +239,7 @@ export default function PdfEditorBasic() {
                         <div>
                             <label
                                 htmlFor="pdf-edit-img-upload"
-                                className="block text-xs font-medium text-slate-300 mb-1"
+                                className="block text-xs font-medium text-gray-300 mb-1"
                             >
                                 Select Image:
                             </label>
@@ -256,7 +256,7 @@ export default function PdfEditorBasic() {
                                 <img
                                     src={imageUrl}
                                     alt="Preview"
-                                    className="max-w-[100px] max-h-[50px] h-auto mt-1 mx-auto border border-slate-600 rounded"
+                                    className="max-w-[100px] max-h-[50px] h-auto mt-1 mx-auto border border-gray-600 rounded"
                                 />
                             )}
                         </div>
@@ -265,15 +265,15 @@ export default function PdfEditorBasic() {
             </div>
 
             {pdfDoc && (
-                <div className="p-4 border rounded-md border-slate-700 bg-slate-800 space-y-3">
-                    <h4 className="text-sm font-medium text-slate-300 text-center">
+                <div className="p-4 border rounded-md border-gray-700 bg-gray-800 space-y-3">
+                    <h4 className="text-sm font-medium text-gray-300 text-center">
                         3. Configure & Add
                     </h4>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                         <div>
                             <label
                                 htmlFor="page-num"
-                                className="block text-xs font-medium text-slate-300 mb-1"
+                                className="block text-xs font-medium text-gray-300 mb-1"
                             >
                                 Page Number:
                             </label>
@@ -290,7 +290,7 @@ export default function PdfEditorBasic() {
                         <div>
                             <label
                                 htmlFor="x-coord"
-                                className="block text-xs font-medium text-slate-300 mb-1"
+                                className="block text-xs font-medium text-gray-300 mb-1"
                             >
                                 X Position:
                             </label>
@@ -306,7 +306,7 @@ export default function PdfEditorBasic() {
                         <div>
                             <label
                                 htmlFor="y-coord"
-                                className="block text-xs font-medium text-slate-300 mb-1"
+                                className="block text-xs font-medium text-gray-300 mb-1"
                             >
                                 Y Position:
                             </label>
@@ -318,13 +318,13 @@ export default function PdfEditorBasic() {
                                 placeholder="e.g., 750"
                                 className="text-sm"
                             />
-                            <p className="text-[10px] text-slate-500">(From bottom-left)</p>
+                            <p className="text-[10px] text-gray-500">(From bottom-left)</p>
                         </div>
                         {insertType === 'text' && (
                             <div>
                                 <label
                                     htmlFor="font-size"
-                                    className="block text-xs font-medium text-slate-300 mb-1"
+                                    className="block text-xs font-medium text-gray-300 mb-1"
                                 >
                                     Font Size:
                                 </label>
@@ -343,7 +343,7 @@ export default function PdfEditorBasic() {
                                 <div>
                                     <label
                                         htmlFor="img-width"
-                                        className="block text-xs font-medium text-slate-300 mb-1"
+                                        className="block text-xs font-medium text-gray-300 mb-1"
                                     >
                                         Image Width:
                                     </label>
@@ -359,7 +359,7 @@ export default function PdfEditorBasic() {
                                 <div>
                                     <label
                                         htmlFor="img-height"
-                                        className="block text-xs font-medium text-slate-300 mb-1"
+                                        className="block text-xs font-medium text-gray-300 mb-1"
                                     >
                                         Height (optional):
                                     </label>
@@ -380,7 +380,7 @@ export default function PdfEditorBasic() {
                         <div>
                             <label
                                 htmlFor="text-insert"
-                                className="block text-xs font-medium text-slate-300 mb-1"
+                                className="block text-xs font-medium text-gray-300 mb-1"
                             >
                                 Text to Insert:
                             </label>
@@ -411,7 +411,7 @@ export default function PdfEditorBasic() {
                 </div>
             )}
             {error && <p className="text-center text-red-400">{error}</p>}
-            <p className="text-xs text-slate-500 text-center">
+            <p className="text-xs text-gray-500 text-center">
                 Note: This is a basic editor. Adding items requires manual coordinate input. Editing
                 existing content is not supported.
             </p>

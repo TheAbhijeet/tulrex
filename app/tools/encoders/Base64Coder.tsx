@@ -60,7 +60,7 @@ export default function Base64Coder() {
             <div>
                 <label
                     htmlFor="base64-input"
-                    className="block text-sm font-medium text-slate-300 mb-1"
+                    className="block text-sm font-medium text-gray-300 mb-1"
                 >
                     Input Text / Base64:
                 </label>
@@ -93,7 +93,7 @@ export default function Base64Coder() {
                 <div>
                     <label
                         htmlFor="base64-output"
-                        className="block text-sm font-medium text-slate-300 mb-1"
+                        className="block text-sm font-medium text-gray-300 mb-1"
                     >
                         Output:
                     </label>
@@ -102,7 +102,7 @@ export default function Base64Coder() {
                         value={outputText}
                         readOnly
                         rows={8}
-                        className="bg-slate-900 border-slate-700 text-slate-200 focus:ring-cyan-500 focus:border-cyan-500" // Slightly different style for readonly output
+                        className="bg-gray-900 border-gray-700 text-gray-200 focus:ring-cyan-500 focus:border-cyan-500" // Slightly different style for readonly output
                     />
                 </div>
             )}
