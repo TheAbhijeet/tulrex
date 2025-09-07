@@ -43,7 +43,7 @@
         "lucide-react": "^0.525.0",
         "music-metadata": "^11.8.3",
         "music-metadata-browser": "^2.5.11",
-        "next": "15.3.0",
+        "next": "15.4.7",
         "onnxruntime-web": "1.21.0-dev.20250206-d981b153d3",
         "papaparse": "^5.5.3",
         "pdf-lib": "^1.17.1",
