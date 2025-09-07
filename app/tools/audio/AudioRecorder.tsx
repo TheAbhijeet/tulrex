@@ -1,7 +1,7 @@
 'use client';
 import { useState, useRef, useCallback, useEffect } from 'react';
 import Button from '@/components/ui/Button';
-import { FaMicrophone, FaStop, FaDownload } from 'react-icons/fa';
+import { Mic as FaMicrophone, Square as FaStop, Download as FaDownload } from 'lucide-react';
 import { downloadFile } from '@/lib/audioUtils';
 
 export default function AudioRecorder() {

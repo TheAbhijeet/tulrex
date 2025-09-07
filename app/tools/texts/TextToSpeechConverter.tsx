@@ -2,7 +2,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import TextareaInput from '@/components/ui/TextareaInput';
 import Button from '@/components/ui/Button';
-import { FaPlay, FaPause, FaStop } from 'react-icons/fa';
+import { Play as FaPlay, Pause as FaPause, Square as FaStop } from 'lucide-react';
 
 // Check for API availability early
 const isSpeechSynthesisSupported = typeof window !== 'undefined' && 'speechSynthesis' in window;

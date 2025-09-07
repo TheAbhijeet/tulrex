@@ -3,7 +3,7 @@
 import { useState, useCallback, useEffect } from 'react';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import { FaCopy, FaSync } from 'react-icons/fa';
+import { Copy as FaCopy, RefreshCw as FaSync } from 'lucide-react';
 import { copyToClipboard } from '@/lib/utils';
 
 export default function UuidGenerator() {

@@ -3,7 +3,7 @@ import { useState, useCallback, useRef, useEffect } from 'react';
 import * as imageConversion from 'image-conversion';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import { FaDownload, FaSyncAlt } from 'react-icons/fa';
+import { Download as FaDownload, RefreshCw as FaSyncAlt } from 'lucide-react';
 
 type OutputImageFormat = 'PNG' | 'JPEG' | 'WEBP';
 

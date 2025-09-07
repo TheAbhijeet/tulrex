@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import { FaPlay, FaPause } from 'react-icons/fa';
+import { Play as FaPlay, Pause as FaPause } from 'lucide-react';
 import { formatTime } from '@/lib/audioUtils';
 
 export default function AudioSpeedChanger() {

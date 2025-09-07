@@ -2,7 +2,12 @@
 import { useState, useRef, useEffect } from 'react';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import { FaPlay, FaPause, FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
+import {
+    Play as FaPlay,
+    Pause as FaPause,
+    Volume2 as FaVolumeUp,
+    VolumeX as FaVolumeMute,
+} from 'lucide-react';
 import { formatTime } from '@/lib/audioUtils';
 
 export default function AudioPlayerSimple() {

@@ -1,7 +1,7 @@
 'use client';
 import { useState, useRef, useCallback, useEffect } from 'react';
 import Button from '@/components/ui/Button';
-import { FaMicrophone, FaStop } from 'react-icons/fa';
+import { Mic as FaMicrophone, Square as FaStop } from 'lucide-react';
 
 export default function MicTester() {
     const [isTesting, setIsTesting] = useState(false); // Is currently recording

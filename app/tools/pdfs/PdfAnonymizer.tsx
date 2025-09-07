@@ -3,7 +3,7 @@ import { useState, useCallback, useRef } from 'react';
 import { PDFDocument } from 'pdf-lib';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import { FaUserSecret } from 'react-icons/fa';
+import { User } from 'lucide-react';
 
 export default function PdfAnonymizer() {
     const [pdfFile, setPdfFile] = useState<File | null>(null);
@@ -101,8 +101,7 @@ export default function PdfAnonymizer() {
                         disabled={isLoading}
                         className="w-full sm:w-auto mt-3 flex items-center justify-center gap-2 mx-auto"
                     >
-                        <FaUserSecret />{' '}
-                        {isLoading ? 'Processing...' : 'Remove Metadata & Save PDF'}
+                        <User /> {isLoading ? 'Processing...' : 'Remove Metadata & Save PDF'}
                     </Button>
                     <p className="text-xs text-gray-500">
                         Note: This is basic metadata removal and does not redact page content.

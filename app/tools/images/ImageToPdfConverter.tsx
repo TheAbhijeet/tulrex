@@ -3,7 +3,7 @@ import { useState, useCallback, useRef, useEffect } from 'react';
 import { jsPDF } from 'jspdf';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import { FaFilePdf, FaTrash } from 'react-icons/fa';
+import { FileText as FaFilePdf, Trash2 as FaTrash } from 'lucide-react';
 
 interface ImageFile {
     file: File;

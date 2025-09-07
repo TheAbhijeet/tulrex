@@ -3,7 +3,12 @@ import { useState, useCallback, useRef } from 'react';
 import { PDFDocument } from 'pdf-lib';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import { FaFilePdf, FaTrash, FaArrowUp, FaArrowDown } from 'react-icons/fa';
+import {
+    FileText as FaFilePdf,
+    Trash2 as FaTrash,
+    ArrowUp as FaArrowUp,
+    ArrowDown as FaArrowDown,
+} from 'lucide-react';
 
 interface PdfFile {
     file: File;

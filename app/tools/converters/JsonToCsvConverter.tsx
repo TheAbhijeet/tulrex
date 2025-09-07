@@ -3,7 +3,7 @@ import { useState, useCallback } from 'react';
 import Papa from 'papaparse';
 import TextareaInput from '@/components/ui/TextareaInput';
 import Button from '@/components/ui/Button';
-import { FaCopy, FaDownload } from 'react-icons/fa';
+import { Copy as FaCopy, Download as FaDownload } from 'lucide-react';
 import Input from '@/components/ui/Input';
 import { copyToClipboard } from '@/lib/utils';
 

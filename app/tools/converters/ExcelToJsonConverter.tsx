@@ -4,7 +4,7 @@ import * as XLSX from 'xlsx';
 import TextareaInput from '@/components/ui/TextareaInput';
 import Input from '@/components/ui/Input';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
-import { FaCopy, FaDownload } from 'react-icons/fa';
+import { Copy as FaCopy, Download as FaDownload } from 'lucide-react';
 
 type OutputFormat = 'array-of-objects' | 'array-of-arrays';
 

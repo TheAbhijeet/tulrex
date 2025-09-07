@@ -4,7 +4,7 @@ import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import TextareaInput from '@/components/ui/TextareaInput';
-import { FaPlus } from 'react-icons/fa';
+import { Plus } from 'lucide-react';
 
 type InsertType = 'text' | 'image';
 
@@ -403,7 +403,7 @@ export default function PdfEditorBasic() {
                         }
                         className="w-full mt-3 flex items-center justify-center gap-2"
                     >
-                        <FaPlus />{' '}
+                        <Plus />{' '}
                         {isProcessing
                             ? 'Processing...'
                             : `Add ${insertType === 'text' ? 'Text' : 'Image'} & Save PDF`}
