@@ -395,7 +395,7 @@ export const tools: Tool[] = [
         slug: 'audio-cutter',
         title: 'Audio Cutter Online',
         description:
-            'Trim the start or end of audio files and export to WAV. Works fully in your browser:no uploads.',
+            'Trim the start or end of audio files and export to WAV. Works fully in your browser - No Server Uploads.',
         icon: '✂️🎵',
         category: CATEGORIES.AUDIO,
         component: AudioCutter,
@@ -404,7 +404,7 @@ export const tools: Tool[] = [
         slug: 'audio-merger',
         title: 'Audio Merger Online',
         description:
-            'Merge multiple audio files sequentially and export as WAV. Fully in-browser:no uploads.',
+            'Merge multiple audio files sequentially and export as WAV. Fully in-browser - No server uploads.',
         icon: '➕🎵',
         category: CATEGORIES.AUDIO,
         component: AudioMerger,

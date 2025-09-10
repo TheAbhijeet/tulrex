@@ -26,3 +26,6 @@ Dockerfile*
 .dockerignore
 
 tests/
+test-results/
+coverage
+playwright-report

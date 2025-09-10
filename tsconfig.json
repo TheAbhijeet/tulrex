@@ -33,6 +33,7 @@
         ".swc",
         "coverage",
         "tests",
+        "test-results",
         "scripts",
         "out",
         "playwright-report",

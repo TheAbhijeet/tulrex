@@ -10,7 +10,7 @@ export default function ToolCard({ tool }: { tool: (typeof tools)[0] }) {
             {/* Ensure card takes full height */}
             <Link
                 href={`/tools/${tool.slug}`}
-                className="flex-grow block p-6 bg-gray-800/60 rounded-t-lg shadow hover:bg-gray-800 transition-colors border border-b-0 border-gray-700 hover:border-cyan-600 group"
+                className="flex-grow block p-6 bg-gray-800/60 rounded-t-lg shadow hover:bg-gray-800 transition-colors border border-b-0 border-gray-700  group"
                 aria-label={`Go to ${tool.title} tool`}
             >
                 <div className="flex items-center mb-2">

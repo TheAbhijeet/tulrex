@@ -93,7 +93,7 @@ export default function Footer() {
                         </h3>
                         <div className="mt-4">
                             <a
-                                href={`${REPO_URL}/sponsors`}
+                                href={`${REPO_URL}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-pink-600 hover:bg-pink-700 transition-colors"

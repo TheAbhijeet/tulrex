@@ -5,6 +5,10 @@ FROM node:22-alpine AS builder
 # Set the working directory
 WORKDIR /app
 
+# Install pnpm
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
+
 # Copy package files and install dependencies
 # This layer is cached by Docker unless package.json or pnpm-lock.yaml changes
 COPY package.json pnpm-lock.yaml ./
