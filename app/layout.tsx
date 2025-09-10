@@ -22,13 +22,7 @@ export const metadata: Metadata = {
             'Fast, free, client-side developer tools. JSON Formatter, Base64, Regex Tester, and more.',
         url: 'https://tulrex.com',
         siteName: 'TulRex',
-        // images: [ // Add an OG image later
-        //   {
-        //     url: '/og-image.png', // Place in /public
-        //     width: 1200,
-        //     height: 630,
-        //   },
-        // ],
+
         locale: 'en_US',
         type: 'website',
     },
@@ -37,9 +31,6 @@ export const metadata: Metadata = {
         title: 'TulRex - Simple Client-Side Developer Tools',
         description:
             'Fast, free, client-side developer tools. JSON Formatter, Base64, Regex Tester, and more.',
-        // images: ['/og-image.png'], // Add the same image
-        // site: '@yourtwitterhandle', // Optional
-        // creator: '@yourtwitterhandle', // Optional
     },
     robots: {
         // Good for SEO
@@ -53,11 +44,6 @@ export const metadata: Metadata = {
             'max-snippet': -1,
         },
     },
-    // Add other meta tags as needed: icons, manifest (for PWA)
-    // icons: {
-    //     icon: '/favicon.svg',
-    // },
-    // manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({
@@ -68,7 +54,7 @@ export default function RootLayout({
     return (
         <html lang="en" className="dark">
             <body
-                className={`${inter.className}  bg-gray-900 text-gray-200 min-h-screen flex flex-col`}
+                className={`${inter.className}  bg-gray-950 text-gray-200 min-h-screen flex flex-col`}
             >
                 <Header />
                 {/* Main content area */}

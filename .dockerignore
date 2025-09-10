@@ -1,0 +1,28 @@
+
+# dependencies
+node_modules
+npm-debug.log
+pnpm-debug.log*
+
+# build outputs
+.next
+out
+dist
+
+# local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# misc
+.DS_Store
+*.swp
+*.swo
+.swc/
+# docker itself
+Dockerfile*
+.dockerignore
+
+tests/

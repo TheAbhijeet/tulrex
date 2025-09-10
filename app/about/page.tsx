@@ -68,8 +68,8 @@ export default function AboutPage() {
                 to life.
             </p>
             <p>
-                This project was built using modern web technologies like Next.js (App Router),
-                TypeScript, and Tailwind CSS, focusing on creating a performant static site.
+                This project was built using Next.js, TypeScript, and Tailwind CSS, focusing on
+                creating a performant static site.
             </p>
 
             <h2>How TulRex Stays Free?</h2>
