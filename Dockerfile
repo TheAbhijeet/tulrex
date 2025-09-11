@@ -22,7 +22,7 @@ RUN pnpm build
 
 #  Stage 2: Create the Production Nginx Server 
 # Use the official, lightweight Nginx image for the production environment
-FROM nginx:alpine
+FROM nginx:alpine-slim
 
 # Remove the default Nginx welcome page
 RUN rm /etc/nginx/conf.d/default.conf

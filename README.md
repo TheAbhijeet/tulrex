@@ -12,13 +12,13 @@ I use many such tools everyday but I didn’t want to upload documents or images
 
 ---
 
-
 ## Tech stack
-* React Js
-* Next Js 
-* TypeScript
-* Tailwind CSS
-* pnpm (package manager)
+
+- React Js
+- Next Js
+- TypeScript
+- Tailwind CSS
+- pnpm (package manager)
 
 ---
 
@@ -55,5 +55,4 @@ If you want to add a new tool follow existing patterns (TypeScript + client-only
 
 ## License
 
-TulRex is released under the **MIT License**. 
-
+TulRex is released under the **MIT License**.
