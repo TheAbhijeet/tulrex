@@ -1,6 +1,6 @@
 # TulRex
 
-A collection of fast, client-side web tools I built for developers and creators who want quick utilities without servers, ads, or tracking.
+A collection of fast, client-side web tools for those who want quick utilities without servers, ads, or tracking.
 
 Everything in TulRex is pre-built and served as static content. There’s **no database** and no server-side processing. Your data stays in your browser.
 

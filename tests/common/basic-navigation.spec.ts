@@ -52,7 +52,9 @@ test.describe('Tool Page Loading and Console Errors', () => {
         const response = await page.goto('/');
         expect(response?.ok()).toBe(true);
         await expect(page).toHaveURL('/');
-        await expect(page).toHaveTitle(/TulRex - Simple Client-Side Developer Tools/i);
+        await expect(page).toHaveTitle(
+            /TulRex - Simple, Fast, and Open-Source Tools in Your Browser/i
+        );
         await expect(page.getByRole('heading', { name: /Welcome to TulRex/i })).toBeVisible();
         expect(consoleErrors).toEqual([]);
     });

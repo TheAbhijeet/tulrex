@@ -17,9 +17,9 @@ export const metadata: Metadata = {
         'A collection of fast, free, Open-Source and client-side only tools for developers and content creators. No tracking, minimalist design.',
     metadataBase: new URL('https://tulrex.com'),
     openGraph: {
-        title: 'TulRex - Simple Client-Side Developer Tools',
+        title: 'TulRex - Simple, Fast, and Open-Source Tools in Your Browser',
         description:
-            'Fast, free, client-side developer tools. JSON Formatter, Base64, Regex Tester, and more.',
+            'Simple, fast, and open-source web tools that run entirely in your browser — no servers, no ads, no tracking.',
         url: 'https://tulrex.com',
         siteName: 'TulRex',
 
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'TulRex - Simple Client-Side Developer Tools',
+        title: 'TulRex - Simple, Fast, and Open-Source Tools in Your Browser',
         description:
             'Fast, free, client-side developer tools. JSON Formatter, Base64, Regex Tester, and more.',
     },
