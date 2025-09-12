@@ -19,7 +19,7 @@ export default function Header() {
                 </div>
 
                 {/* Center: Search (Desktop) */}
-                <div className="flex flex-1 justify-center px-8">
+                <div className="flex flex-1 justify-center px-2">
                     <Search />
                 </div>
 
