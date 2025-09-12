@@ -19,7 +19,7 @@ export default function Header() {
                 </div>
 
                 {/* Center: Search (Desktop) */}
-                <div className="hidden md:flex flex-1 justify-center px-8">
+                <div className="flex flex-1 justify-center px-8">
                     <Search />
                 </div>
 
@@ -55,10 +55,6 @@ export default function Header() {
             {isMenuOpen && (
                 <div className="md:hidden absolute top-16 left-0 w-full bg-gray-900 border-b border-gray-800 shadow-lg">
                     <div className="container mx-auto px-4 py-4 space-y-4">
-                        <div className="px-2">
-                            <Search />
-                        </div>
-
                         <a
                             href={REPO_URL}
                             target="_blank"
