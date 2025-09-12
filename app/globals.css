@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 
 @plugin '@tailwindcss/typography';
+@import "tailwindcss/preflight.css" layer(base);
 
 :root {
     --background: #ffffff;
