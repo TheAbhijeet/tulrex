@@ -35,8 +35,6 @@ pnpm dev
 # build for production
 pnpm build
 
-# run production server (or use your preferred static host)
-pnpm start
 ```
 
 ---
