@@ -58,7 +58,7 @@ export default function RootLayout({
             >
                 <Header />
                 {/* Main content area */}
-                <main className="flex-grow container mx-auto px-4  py-8">
+                <main className="flex-grow  mx-auto px-5 md:px-10 py-8">
                     {/* Place ClientSideInfoBlock just inside main, before page content */}
                     <ClientSideInfoBlock />
 

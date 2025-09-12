@@ -12,7 +12,7 @@ export default function Header() {
 
     return (
         <header className="sticky  top-0 z-40 w-full bg-gray-900/70 backdrop-blur-sm border-b border-gray-800">
-            <div className="container mx-auto px-4 h-16 flex items-center justify-between gap-4">
+            <div className=" mx-auto px-5 md:px-10 h-16 flex items-center justify-between gap-4">
                 {/* Left Side: Logo */}
                 <div className="flex-shrink-0">
                     <Logo />
