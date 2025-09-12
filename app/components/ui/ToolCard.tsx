@@ -14,7 +14,7 @@ export default function ToolCard({ tool }: { tool: (typeof tools)[0] }) {
                 aria-label={`Go to ${tool.title} tool`}
             >
                 <div className="flex items-center mb-2">
-                    {tool.icon && <span className="text-2xl mr-3">{tool.icon}</span>}
+                    {tool.icon && <span className="text-xl mr-3">{tool.icon}</span>}
                     <h2 className="text-lg font-semibold text-gray-100 group-hover:text-cyan-300 transition-colors">
                         {tool.title}
                     </h2>

@@ -26,7 +26,7 @@ export default function ClientSideInfoBlock() {
                         is uploaded or stored. We're fully open-source, ad-free, and privacy-focused
                         <Link
                             href="/about"
-                            className="ml-1 text-green-400 hover:text-green-300 hover:underline whitespace-nowrap"
+                            className="ml-1 text-cyan-400 hover:text-cyan-300 hover:underline whitespace-nowrap"
                         >
                             Read more →
                         </Link>

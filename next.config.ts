@@ -3,6 +3,10 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
     /* config options here */
     output: 'export',
+    experimental: { esmExternals: true },
+    compiler: { styledComponents: true },
+    swcMinify: true,
+    productionBrowserSourceMaps: true,
 
     eslint: {
         // Warning: This allows production builds to successfully complete even if
