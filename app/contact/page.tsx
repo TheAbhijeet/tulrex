@@ -11,8 +11,7 @@ export default function ContactPage() {
             <h1 className="">Contact TulRex</h1>
             <p>Got some feedback or a new idea? Want to know more about us?</p>
             <h2>How to Reach Us</h2>
-            <p>Email: contact@tulrex.com</p>
-            <p>Twitter: @TulRex</p>
+            <p>Email: admin@tulrex.com</p>
             <p>GitHub: Open an issue on our repository with details.</p>
 
             <h2>What to Include</h2>

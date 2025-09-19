@@ -1,7 +1,12 @@
 'use client';
 import { useState, useRef, useCallback, useEffect } from 'react';
 import Button from '@/components/ui/Button';
-import { Mic as FaMicrophone, Square as FaStop, Download as FaDownload } from 'lucide-react';
+import {
+    Mic as FaMicrophone,
+    Square as FaStop,
+    Download as FaDownload,
+    RotateCcwSquare,
+} from 'lucide-react';
 import { downloadFile } from '@/lib/audioUtils';
 
 export default function AudioRecorder() {
@@ -104,16 +109,33 @@ export default function AudioRecorder() {
 
             {audioUrl && !isRecording && (
                 <div className="mt-4 p-3 bg-gray-800 rounded border border-gray-700 space-y-2">
-                    <h4 className="text-sm font-medium text-gray-300">Recording Complete</h4>
-                    <audio ref={audioPlaybackRef} src={audioUrl} controls className="w-full" />
-                    <Button
-                        onClick={handleDownload}
-                        size="sm"
-                        variant="secondary"
-                        className="flex items-center justify-center gap-2 mx-auto"
-                    >
-                        <FaDownload /> Download Recording
-                    </Button>
+                    <h4 className="text-sm font-medium text-gray-300 text-center">
+                        Recording Complete
+                    </h4>
+                    <audio
+                        ref={audioPlaybackRef}
+                        src={audioUrl}
+                        controls
+                        className="w-full rounded"
+                    />
+                    <div className="flex flex-col sm:flex-row gap-2 mt-3">
+                        <Button
+                            onClick={handleDownload}
+                            size="sm"
+                            variant="secondary"
+                            className="flex-1 flex items-center justify-center gap-2"
+                        >
+                            <FaDownload /> Download
+                        </Button>
+                        <Button
+                            onClick={isRecording ? stopRecording : startRecording}
+                            size="sm"
+                            variant="secondary"
+                            className="flex-1 flex items-center justify-center gap-2"
+                        >
+                            <RotateCcwSquare /> Retry
+                        </Button>
+                    </div>
                 </div>
             )}
         </div>
