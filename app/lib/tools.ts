@@ -54,6 +54,8 @@ import HtmlFormatter from '@/tools/formatters/HtmlFormatter';
 import JsonToPythonDict from '@/tools/converters/JsonToPythonDict';
 import PythonDictToJson from '@/tools/converters/PythonDictToJson';
 import TodoApp from '@/tools/utilities/TodoApp';
+import PitchMonitor from '@/tools/music/PitchMonitor';
+import GuitarTuner from '@/tools/music/GuitarTuner';
 
 export interface Tool {
     slug: string;
@@ -84,6 +86,7 @@ const CATEGORIES = {
     SPREADSHEET: 'Spreadsheet Tools',
     EDITOR: 'Editor Tools',
     FORMATTERS: 'Formatters',
+    MUSIC: 'Music Tools',
 };
 
 export const tools: Tool[] = [
@@ -608,6 +611,23 @@ export const tools: Tool[] = [
         icon: '✅',
         category: CATEGORIES.UTILITY,
         component: TodoApp,
+    },
+    {
+        slug: 'pitch-monitor',
+        title: 'Pitch Monitor Online',
+        description:
+            'Visualize your voice or instrument pitch in real-time using your microphone. Fast, secure, and private - Everything stays in your browser.',
+        icon: '🎶',
+        component: PitchMonitor,
+        category: CATEGORIES.MUSIC,
+    },
+    {
+        slug: 'guitar-tuner',
+        title: 'Chromatic Guitar Tuner',
+        description: 'Tune your guitar in real-time using your microphone. Just play a string!',
+        icon: '🎸',
+        component: GuitarTuner,
+        category: CATEGORIES.MUSIC,
     },
 ];
 

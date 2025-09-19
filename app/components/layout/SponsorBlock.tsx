@@ -35,7 +35,7 @@ export default function SponsorBlock() {
                             )}
                             {sponsorName}
                         </a>
-                        <p className="text-xs text-gray-500 mt-1.5">
+                        <p className="text-sm text-gray-500 mt-1.5">
                             Thanks to our sponsors, this site remains free, private, and ad-free for
                             everyone.
                         </p>
@@ -46,7 +46,7 @@ export default function SponsorBlock() {
                             🚫
                         </span>
                         <strong className="text-gray-300">No Sponsors Found</strong>
-                        <p className="text-xs text-gray-500 mt-1.5">
+                        <p className="text-sm text-gray-500 mt-1.5">
                             Want to support a privacy-first, open-source tool?
                             <Link
                                 href={sponsorshipUrl}

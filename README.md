@@ -35,6 +35,8 @@ pnpm dev
 # build for production
 pnpm build
 
+# Run build locally
+npx serve@latest out
 ```
 
 ---
