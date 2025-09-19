@@ -50,9 +50,3 @@ Contributions are welcome. Preferred workflow:
 3. Submit a clean PR with a short description and tests (if applicable).
 
 If you want to add a new tool follow existing patterns (TypeScript + client-only code).
-
----
-
-## License
-
-TulRex is released under the **MIT License**.
