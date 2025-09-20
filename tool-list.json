@@ -1,238 +1,238 @@
 [
-  {
-    "slug": "json-formatter",
-    "title": "JSON Formatter & Validator"
-  },
-  {
-    "slug": "base64-encode-decode",
-    "title": "Base64 Encode & Decode"
-  },
-  {
-    "slug": "text-difference-viewer",
-    "title": "Text Difference Viewer"
-  },
-  {
-    "slug": "regex-tester",
-    "title": "Regex Tester"
-  },
-  {
-    "slug": "url-encoder-decoder",
-    "title": "URL Encoder Decoder"
-  },
-  {
-    "slug": "password-generator",
-    "title": "Password Generator"
-  },
-  {
-    "slug": "random-number-generator",
-    "title": "Random Number Generator"
-  },
-  {
-    "slug": "age-calculator",
-    "title": "Age Calculator"
-  },
-  {
-    "slug": "color-palette-generator",
-    "title": "Color Palette Generator"
-  },
-  {
-    "slug": "text-counter",
-    "title": "Text Counter"
-  },
-  {
-    "slug": "epoch-converter",
-    "title": "Epoch Converter"
-  },
-  {
-    "slug": "cron-parser",
-    "title": "Cron Parser"
-  },
-  {
-    "slug": "lorem-ipsum-generator",
-    "title": "Lorem Ipsum Generator"
-  },
-  {
-    "slug": "notepad",
-    "title": "Online Notepad"
-  },
-  {
-    "slug": "qr-code-generator",
-    "title": "QR Code Generator"
-  },
-  {
-    "slug": "image-compressor",
-    "title": "Image Compressor"
-  },
-  {
-    "slug": "text-to-speech-converter",
-    "title": "Text to Speech Converter"
-  },
-  {
-    "slug": "unit-converter",
-    "title": "Unit Converter"
-  },
-  {
-    "slug": "excel-to-json-converter",
-    "title": "Excel to JSON Converter"
-  },
-  {
-    "slug": "emoji-picker",
-    "title": "Emoji Picker"
-  },
-  {
-    "slug": "color-shade-generator",
-    "title": "Color Shade Generator"
-  },
-  {
-    "slug": "html-minifier",
-    "title": "HTML Minifier"
-  },
-  {
-    "slug": "json-to-csv-converter",
-    "title": "JSON to CSV Converter"
-  },
-  {
-    "slug": "image-format-converter",
-    "title": "Image Format Converter"
-  },
-  {
-    "slug": "merge-pdfs",
-    "title": "Merge PDFs Online"
-  },
-  {
-    "slug": "reorder-pdf-pages",
-    "title": "Reorder PDF Pages Online"
-  },
-  {
-    "slug": "javascript-minifier",
-    "title": "JavaScript Minifier"
-  },
-  {
-    "slug": "css-minifier",
-    "title": "CSS Minifier"
-  },
-  {
-    "slug": "pdf-page-deleter",
-    "title": "PDF Page Deleter"
-  },
-  {
-    "slug": "pdf-anonymizer",
-    "title": "PDF Anonymizer"
-  },
-  {
-    "slug": "pdf-editor-basic",
-    "title": "PDF Editor Online"
-  },
-  {
-    "slug": "audio-player",
-    "title": "Audio Player Online"
-  },
-  {
-    "slug": "audio-recorder",
-    "title": "Audio Recorder Online"
-  },
-  {
-    "slug": "audio-cutter",
-    "title": "Audio Cutter Online"
-  },
-  {
-    "slug": "audio-merger",
-    "title": "Audio Merger Online"
-  },
-  {
-    "slug": "audio-speed-changer",
-    "title": "Audio Speed Changer Online"
-  },
-  {
-    "slug": "audio-metadata-viewer",
-    "title": "Audio Metadata Viewer Online"
-  },
-  {
-    "slug": "mic-tester",
-    "title": "Microphone Tester"
-  },
-  {
-    "slug": "text-to-speech",
-    "title": "Text to Speech Online"
-  },
-  {
-    "slug": "spreadsheet-viewer",
-    "title": "Excel & CSV Viewer Online"
-  },
-  {
-    "slug": "excel-to-csv",
-    "title": "Excel to CSV Extractor Online"
-  },
-  {
-    "slug": "csv-to-excel",
-    "title": "CSV to Excel Converter Online"
-  },
-  {
-    "slug": "csv-to-json",
-    "title": "CSV to JSON Converter Online"
-  },
-  {
-    "slug": "excel-to-json",
-    "title": "Excel to JSON Converter Online"
-  },
-  {
-    "slug": "json-to-spreadsheet",
-    "title": "JSON to Excel CSV Converter"
-  },
-  {
-    "slug": "json-generator",
-    "title": "Dummy JSON Generator Online"
-  },
-  {
-    "slug": "json-editor",
-    "title": "Interactive JSON Editor Online"
-  },
-  {
-    "slug": "css-formatter",
-    "title": "CSS Formatter Online"
-  },
-  {
-    "slug": "javascript-formatter",
-    "title": "JavaScript Formatter Online"
-  },
-  {
-    "slug": "image-background-remover",
-    "title": "Image Background Remover Online"
-  },
-  {
-    "slug": "uuid-generator",
-    "title": "UUID Generator Online"
-  },
-  {
-    "slug": "image-to-pdf",
-    "title": "Image to PDF Converter Online"
-  },
-  {
-    "slug": "text-case-converter",
-    "title": "Text Case Converter Online"
-  },
-  {
-    "slug": "html-formatter",
-    "title": "HTML Formatter Online"
-  },
-  {
-    "slug": "json-to-python-dict",
-    "title": "JSON to Python Dict Converter"
-  },
-  {
-    "slug": "python-dict-to-json",
-    "title": "Python Dict to JSON Converter"
-  },
-  {
-    "slug": "todo-app",
-    "title": "Todo List"
-  },
-  {
-    "slug": "pitch-monitor",
-    "title": "Pitch Monitor Online"
-  },
-  {
-    "slug": "guitar-tuner",
-    "title": "Chromatic Guitar Tuner"
-  }
+    {
+        "slug": "json-formatter",
+        "title": "JSON Formatter & Validator"
+    },
+    {
+        "slug": "base64-encode-decode",
+        "title": "Base64 Encode & Decode"
+    },
+    {
+        "slug": "text-difference-viewer",
+        "title": "Text Difference Viewer"
+    },
+    {
+        "slug": "regex-tester",
+        "title": "Regex Tester"
+    },
+    {
+        "slug": "url-encoder-decoder",
+        "title": "URL Encoder Decoder"
+    },
+    {
+        "slug": "password-generator",
+        "title": "Password Generator"
+    },
+    {
+        "slug": "random-number-generator",
+        "title": "Random Number Generator"
+    },
+    {
+        "slug": "age-calculator",
+        "title": "Age Calculator"
+    },
+    {
+        "slug": "color-palette-generator",
+        "title": "Color Palette Generator"
+    },
+    {
+        "slug": "text-counter",
+        "title": "Text Counter"
+    },
+    {
+        "slug": "epoch-converter",
+        "title": "Epoch Converter"
+    },
+    {
+        "slug": "cron-parser",
+        "title": "Cron Parser"
+    },
+    {
+        "slug": "lorem-ipsum-generator",
+        "title": "Lorem Ipsum Generator"
+    },
+    {
+        "slug": "notepad",
+        "title": "Online Notepad"
+    },
+    {
+        "slug": "qr-code-generator",
+        "title": "QR Code Generator"
+    },
+    {
+        "slug": "image-compressor",
+        "title": "Image Compressor"
+    },
+    {
+        "slug": "text-to-speech-converter",
+        "title": "Text to Speech Converter"
+    },
+    {
+        "slug": "unit-converter",
+        "title": "Unit Converter"
+    },
+    {
+        "slug": "excel-to-json-converter",
+        "title": "Excel to JSON Converter"
+    },
+    {
+        "slug": "emoji-picker",
+        "title": "Emoji Picker"
+    },
+    {
+        "slug": "color-shade-generator",
+        "title": "Color Shade Generator"
+    },
+    {
+        "slug": "html-minifier",
+        "title": "HTML Minifier"
+    },
+    {
+        "slug": "json-to-csv-converter",
+        "title": "JSON to CSV Converter"
+    },
+    {
+        "slug": "image-format-converter",
+        "title": "Image Format Converter"
+    },
+    {
+        "slug": "merge-pdfs",
+        "title": "Merge PDFs Online"
+    },
+    {
+        "slug": "reorder-pdf-pages",
+        "title": "Reorder PDF Pages Online"
+    },
+    {
+        "slug": "javascript-minifier",
+        "title": "JavaScript Minifier"
+    },
+    {
+        "slug": "css-minifier",
+        "title": "CSS Minifier"
+    },
+    {
+        "slug": "pdf-page-deleter",
+        "title": "PDF Page Deleter"
+    },
+    {
+        "slug": "pdf-anonymizer",
+        "title": "PDF Anonymizer"
+    },
+    {
+        "slug": "pdf-editor-basic",
+        "title": "PDF Editor Online"
+    },
+    {
+        "slug": "audio-player",
+        "title": "Audio Player Online"
+    },
+    {
+        "slug": "audio-recorder",
+        "title": "Audio Recorder Online"
+    },
+    {
+        "slug": "audio-cutter",
+        "title": "Audio Cutter Online"
+    },
+    {
+        "slug": "audio-merger",
+        "title": "Audio Merger Online"
+    },
+    {
+        "slug": "audio-speed-changer",
+        "title": "Audio Speed Changer Online"
+    },
+    {
+        "slug": "audio-metadata-viewer",
+        "title": "Audio Metadata Viewer Online"
+    },
+    {
+        "slug": "mic-tester",
+        "title": "Microphone Tester"
+    },
+    {
+        "slug": "text-to-speech",
+        "title": "Text to Speech Online"
+    },
+    {
+        "slug": "spreadsheet-viewer",
+        "title": "Excel & CSV Viewer Online"
+    },
+    {
+        "slug": "excel-to-csv",
+        "title": "Excel to CSV Extractor Online"
+    },
+    {
+        "slug": "csv-to-excel",
+        "title": "CSV to Excel Converter Online"
+    },
+    {
+        "slug": "csv-to-json",
+        "title": "CSV to JSON Converter Online"
+    },
+    {
+        "slug": "excel-to-json",
+        "title": "Excel to JSON Converter Online"
+    },
+    {
+        "slug": "json-to-spreadsheet",
+        "title": "JSON to Excel CSV Converter"
+    },
+    {
+        "slug": "json-generator",
+        "title": "Dummy JSON Generator Online"
+    },
+    {
+        "slug": "json-editor",
+        "title": "Interactive JSON Editor Online"
+    },
+    {
+        "slug": "css-formatter",
+        "title": "CSS Formatter Online"
+    },
+    {
+        "slug": "javascript-formatter",
+        "title": "JavaScript Formatter Online"
+    },
+    {
+        "slug": "image-background-remover",
+        "title": "Image Background Remover Online"
+    },
+    {
+        "slug": "uuid-generator",
+        "title": "UUID Generator Online"
+    },
+    {
+        "slug": "image-to-pdf",
+        "title": "Image to PDF Converter Online"
+    },
+    {
+        "slug": "text-case-converter",
+        "title": "Text Case Converter Online"
+    },
+    {
+        "slug": "html-formatter",
+        "title": "HTML Formatter Online"
+    },
+    {
+        "slug": "json-to-python-dict",
+        "title": "JSON to Python Dict Converter"
+    },
+    {
+        "slug": "python-dict-to-json",
+        "title": "Python Dict to JSON Converter"
+    },
+    {
+        "slug": "todo-app",
+        "title": "Todo List"
+    },
+    {
+        "slug": "pitch-monitor",
+        "title": "Pitch Monitor Online"
+    },
+    {
+        "slug": "guitar-tuner",
+        "title": "Chromatic Guitar Tuner"
+    }
 ]
