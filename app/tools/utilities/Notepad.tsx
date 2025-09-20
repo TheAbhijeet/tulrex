@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import TextareaInput from '@/components/ui/TextareaInput';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import Button from '@/components/ui/Button';
+import FullScreenWrapper from '@/components/ui/FullScreenWrapper';
 
 export default function Notepad() {
     const [note, setNote] = useLocalStorage<string>('TulRex-notepad', '');
@@ -45,13 +46,16 @@ export default function Notepad() {
                     Clear Notepad
                 </Button>
             </div>
-            <TextareaInput
-                value={note}
-                onChange={(e) => setNote(e.target.value)}
-                placeholder="Start typing your notes here..."
-                rows={18}
-                className="bg-gray-900 text-md"
-            />
+            <FullScreenWrapper className="h-72 md:h-96 min-h-[12rem]">
+                <TextareaInput
+                    value={note}
+                    onChange={(e) => setNote(e.target.value)}
+                    placeholder="Start typing your notes here..."
+                    rows={38}
+                    className="bg-gray-900 text-md"
+                />
+            </FullScreenWrapper>
+
             {lastSaved && (
                 <p className="text-sm text-gray-300 text-right">
                     Last saved: {lastSaved.toLocaleTimeString()}

@@ -6,6 +6,7 @@ import Footer from './components/layout/Footer';
 import ClientSideInfoBlock from './components/layout/ClientSideInfoBlock';
 import { Toaster } from 'sonner';
 import SponsorBlock from './components/layout/SponsorBlock';
+import ProgressBarProvider from './components/layout/ProgressBarProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -57,21 +58,23 @@ export default function RootLayout({
             <body
                 className={`${inter.className}  bg-gray-950 text-gray-200 min-h-screen flex flex-col`}
             >
-                <Header />
-                {/* Main content area */}
-                <main className="flex-grow   px-5 md:px-10 py-8">
-                    {/* Place ClientSideInfoBlock just inside main, before page content */}
-                    <ClientSideInfoBlock />
+                <ProgressBarProvider>
+                    <Header />
+                    {/* Main content area */}
+                    <main className="flex-grow   px-5 md:px-10 py-8">
+                        {/* Place ClientSideInfoBlock just inside main, before page content */}
+                        <ClientSideInfoBlock />
 
-                    {/* Page specific content */}
-                    {children}
-                </main>
+                        {/* Page specific content */}
+                        {children}
+                    </main>
 
-                {/* Place SponsorBlock between main content and footer */}
-                <SponsorBlock />
-                <Toaster theme="light" position="top-center" />
+                    {/* Place SponsorBlock between main content and footer */}
+                    <SponsorBlock />
+                    <Toaster theme="light" position="top-center" />
 
-                <Footer />
+                    <Footer />
+                </ProgressBarProvider>
             </body>
         </html>
     );

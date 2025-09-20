@@ -389,7 +389,7 @@ export const tools: Tool[] = [
         slug: 'audio-recorder',
         title: 'Audio Recorder Online',
         description:
-            'Record audio from your microphone and save it instantly. Works directly in your browser with full privacy.',
+            'Record audio/voice from your microphone and save it instantly. Works directly in your browser with full privacy.',
         icon: '🎤',
         category: CATEGORIES.AUDIO,
         component: AudioRecorder,
