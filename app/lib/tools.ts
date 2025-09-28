@@ -56,6 +56,7 @@ import PythonDictToJson from '@/tools/converters/PythonDictToJson';
 import TodoApp from '@/tools/utilities/TodoApp';
 import PitchMonitor from '@/tools/music/PitchMonitor';
 import GuitarTuner from '@/tools/music/GuitarTuner';
+import SecretGenerator from '@/tools/generators/SecretGenerator';
 
 export interface Tool {
     slug: string;
@@ -628,6 +629,15 @@ export const tools: Tool[] = [
         icon: '🎸',
         component: GuitarTuner,
         category: CATEGORIES.MUSIC,
+    },
+    {
+        slug: 'secret-generator',
+        title: 'Secure Secret Key Generator',
+        description:
+            'Create strong, secure passwords and secret keys, everything happens locally in your browser.',
+        icon: '🔑',
+        component: SecretGenerator,
+        category: CATEGORIES.GENERATORS,
     },
 ];
 
