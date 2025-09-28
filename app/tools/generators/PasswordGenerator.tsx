@@ -3,7 +3,7 @@
 import { useState, useCallback } from 'react';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import { Copy as FaCopy, RefreshCw as FaSync } from 'lucide-react';
+import { Copy, RefreshCw } from 'lucide-react';
 import { copyToClipboard } from '@/lib/utils';
 
 const Checkbox = ({
@@ -103,7 +103,7 @@ export default function PasswordGenerator() {
                             title="Generate New Password"
                             aria-label="Generate new password"
                         >
-                            <FaSync className="w-4 h-4" />
+                            <RefreshCw className="w-4 h-4" />
                         </button>
                         <button
                             onClick={() => copyToClipboard(password)}
@@ -112,7 +112,7 @@ export default function PasswordGenerator() {
                             title="Copy to Clipboard"
                             aria-label="Copy password to clipboard"
                         >
-                            <FaCopy className="w-4 h-4" />
+                            <Copy className="w-4 h-4" />
                         </button>
                     </div>
                 </div>

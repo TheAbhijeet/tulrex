@@ -2,6 +2,8 @@
 
 import { useState, useCallback, useEffect } from 'react';
 import Button from '@/components/ui/Button';
+import { Copy } from 'lucide-react';
+import { copyToClipboard } from '@/lib/utils';
 
 const CHARSETS = {
     uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
@@ -91,21 +93,22 @@ export default function SecretGenerator() {
                     Generated Secret
                 </label>
                 <div className="relative flex items-center">
-                    <div className="flex-grow p-3 bg-slate-900 border border-slate-700 rounded-md font-mono text-slate-200 text-sm break-all">
+                    <div className="flex-grow flex items-center justify-between p-3 bg-slate-900 border border-slate-700 rounded-md font-mono text-slate-200 text-sm break-all">
                         {secret || (
                             <span className="text-slate-500">
                                 Click "Generate" to create a secret
                             </span>
                         )}
+                        <button
+                            onClick={() => copyToClipboard(secret)}
+                            disabled={!secret}
+                            className="p-1.5 text-gray-400 hover:text-cyan-400 bg-gray-700 hover:bg-gray-600 rounded disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+                            title="Copy to Clipboard"
+                            aria-label="Copy password to clipboard"
+                        >
+                            <Copy className="w-4 h-4" />
+                        </button>
                     </div>
-                    <Button
-                        onClick={handleCopyToClipboard}
-                        variant="secondary"
-                        className="absolute right-2 px-2 py-1 text-xs"
-                        disabled={!secret}
-                    >
-                        {copied ? 'Copied!' : 'Copy'}
-                    </Button>
                 </div>
             </div>
 
