@@ -24,7 +24,6 @@ export default function SecretGenerator() {
         symbols: true,
     });
     const [error, setError] = useState<string | null>(null);
-    const [copied, setCopied] = useState<boolean>(false);
 
     const handleOptionChange = (option: CharsetKeys) => {
         setOptions((prev) => ({ ...prev, [option]: !prev[option] }));
@@ -32,7 +31,6 @@ export default function SecretGenerator() {
 
     const generateSecret = useCallback(() => {
         setError(null);
-        setCopied(false);
 
         let charset = '';
         if (options.uppercase) charset += CHARSETS.uppercase;
@@ -72,18 +70,6 @@ export default function SecretGenerator() {
     useEffect(() => {
         generateSecret();
     }, [generateSecret]);
-
-    const handleCopyToClipboard = async () => {
-        if (!secret) return;
-        try {
-            await navigator.clipboard.writeText(secret);
-            setCopied(true);
-            setTimeout(() => setCopied(false), 2000); // Reset after 2 seconds
-        } catch (err) {
-            console.error('Failed to copy text: ', err);
-            setError('Failed to copy to clipboard.');
-        }
-    };
 
     return (
         <div className="space-y-6">

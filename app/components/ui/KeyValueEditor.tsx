@@ -26,7 +26,7 @@ export const KeyValueEditor: React.FC<KeyValueEditorProps> = ({
 }) => {
     return (
         <div className="space-y-2">
-            {items.map((item, index) => (
+            {items.map((item) => (
                 <div key={item.id} className="flex items-center gap-2">
                     <input
                         type="checkbox"
