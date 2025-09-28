@@ -57,6 +57,7 @@ import TodoApp from '@/tools/utilities/TodoApp';
 import PitchMonitor from '@/tools/music/PitchMonitor';
 import GuitarTuner from '@/tools/music/GuitarTuner';
 import SecretGenerator from '@/tools/generators/SecretGenerator';
+import ApiRequester from '@/tools/utilities/ApiRequester';
 
 export interface Tool {
     slug: string;
@@ -638,6 +639,15 @@ export const tools: Tool[] = [
         icon: '🔑',
         component: SecretGenerator,
         category: CATEGORIES.GENERATORS,
+    },
+    {
+        slug: 'api-requester',
+        title: 'API Testing/Request Tool',
+        description:
+            'A browser-based API client for testing and fetching API data, with full privacy. Everything stays in your browser.',
+        icon: '🚀',
+        component: ApiRequester,
+        category: CATEGORIES.UTILITY,
     },
 ];
 
