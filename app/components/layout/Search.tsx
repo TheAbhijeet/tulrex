@@ -93,7 +93,11 @@ export default function Search() {
                             leaveTo="opacity-0 scale-95"
                         >
                             <DialogPanel className="w-full max-w-3xl mx-auto rounded-xl bg-gray-800 border border-gray-700 shadow-2xl overflow-hidden">
-                                <Combobox onChange={(slug: string) => onSelect(slug)}>
+                                <Combobox
+                                    onChange={(slug: string | null) => {
+                                        if (slug !== null) onSelect(slug);
+                                    }}
+                                >
                                     <div className="flex items-center px-4 py-4 border-b border-gray-700">
                                         <ComboboxInput
                                             // 4. Attach the ref to the actual input element
