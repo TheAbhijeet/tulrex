@@ -246,5 +246,9 @@
   {
     "slug": "drawing-board",
     "title": "Drawing Board"
+  },
+  {
+    "slug": "camera-mic-tester",
+    "title": "Camera & Mic Tester"
   }
 ]

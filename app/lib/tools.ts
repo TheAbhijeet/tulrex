@@ -59,6 +59,7 @@ import GuitarTuner from '@/tools/music/GuitarTuner';
 import SecretGenerator from '@/tools/generators/SecretGenerator';
 import ApiRequester from '@/tools/utilities/ApiRequester';
 import DrawingTool from '@/tools/utilities/DrawingTool';
+import CameraMicTester from '@/tools/utilities/CameraMicTester';
 
 export interface Tool {
     slug: string;
@@ -657,6 +658,15 @@ export const tools: Tool[] = [
             'A simple canvas for brainstorming, sketching ideas, and doodling in your browser. Fast, secure, and private - Everything stays in your browser.',
         icon: '✏️',
         component: DrawingTool,
+        category: CATEGORIES.UTILITY,
+    },
+    {
+        slug: 'camera-mic-tester',
+        title: 'Camera & Mic Tester',
+        description:
+            'Check your camera and microphone before a meeting. Select devices and see real-time feedback. Fast, secure, and private - Everything stays in your browser.',
+        icon: '📹',
+        component: CameraMicTester,
         category: CATEGORIES.UTILITY,
     },
 ];
