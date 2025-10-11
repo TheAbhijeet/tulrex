@@ -6,6 +6,7 @@ import Logo from './Logo';
 import { Github } from 'lucide-react';
 import Search from './Search';
 import { REPO_URL } from '@/lib/constants';
+import RandomToolButton from './RandomToolButton';
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,6 +27,10 @@ export default function Header() {
                 {/* Right Side: Links & Mobile Menu Toggle */}
                 <div className="flex items-center justify-end flex-shrink-0">
                     {/* Desktop Links */}
+                    <div className="hidden md:flex">
+                        <RandomToolButton />
+                    </div>
+
                     <div className="hidden md:flex items-center border border-gray-700 rounded-full gap-4">
                         <a
                             href={REPO_URL}
@@ -55,6 +60,8 @@ export default function Header() {
             {isMenuOpen && (
                 <div className="md:hidden absolute top-16 left-0 w-full bg-gray-900 border-b border-gray-800 shadow-lg">
                     <div className="container mx-auto px-4 py-4 space-y-4">
+                        <RandomToolButton />
+
                         <a
                             href={REPO_URL}
                             target="_blank"
