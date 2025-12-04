@@ -60,6 +60,8 @@ import SecretGenerator from '@/tools/generators/SecretGenerator';
 import ApiRequester from '@/tools/utilities/ApiRequester';
 import DrawingTool from '@/tools/utilities/DrawingTool';
 import CameraMicTester from '@/tools/utilities/CameraMicTester';
+import YamlEditor from '@/tools/editor/YamlEditor';
+import MarkdownPreviewer from '@/tools/editor/MarkdownPreviewer';
 
 export interface Tool {
     slug: string;
@@ -91,6 +93,7 @@ const CATEGORIES = {
     EDITOR: 'Editor Tools',
     FORMATTERS: 'Formatters',
     MUSIC: 'Music Tools',
+    MARKDOWN: 'Markdown Tools',
 };
 
 export const tools: Tool[] = [
@@ -668,6 +671,25 @@ export const tools: Tool[] = [
         icon: '📹',
         component: CameraMicTester,
         category: CATEGORIES.UTILITY,
+    },
+
+    {
+        slug: 'yaml-editor',
+        title: 'YAML Editor & Formatter',
+        description:
+            'Format, Convert to JSON, beautify, and edit your YAML data with a clean side-by-side interface.',
+        icon: '📝',
+        component: YamlEditor,
+        category: CATEGORIES.JSON_YAML,
+    },
+    {
+        slug: 'markdown-previewer',
+        title: 'Markdown Previewer',
+        description:
+            'Write Markdown and see a live, rendered HTML preview in real-time. Safe and fast.',
+        icon: '📄',
+        component: MarkdownPreviewer,
+        category: CATEGORIES.MARKDOWN,
     },
 ];
 

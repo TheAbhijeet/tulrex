@@ -58,7 +58,7 @@ export default function FullScreenWrapper({
         >
             <div
                 className={`
-          w-full overflow-hidden rounded-md border
+          w-full overflow-y-auto rounded-md border
           ${
               isFullScreen
                   ? 'border-gray-600 flex-grow' // Fullscreen inner container
