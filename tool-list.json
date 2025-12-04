@@ -250,5 +250,13 @@
   {
     "slug": "camera-mic-tester",
     "title": "Camera & Mic Tester"
+  },
+  {
+    "slug": "yaml-editor",
+    "title": "YAML Editor & Formatter"
+  },
+  {
+    "slug": "markdown-previewer",
+    "title": "Markdown Previewer"
   }
 ]
