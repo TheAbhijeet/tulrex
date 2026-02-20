@@ -39,7 +39,7 @@
         "js-beautify": "^1.15.4",
         "js-yaml": "^4.1.1",
         "json-edit-react": "^1.29.0",
-        "jspdf": "^3.0.4",
+        "jspdf": "^4.2.0",
         "konva": "^10.0.12",
         "lucide-react": "^0.525.0",
         "music-metadata": "^11.10.3",
