@@ -62,6 +62,7 @@ import DrawingTool from '@/tools/utilities/DrawingTool';
 import CameraMicTester from '@/tools/utilities/CameraMicTester';
 import YamlEditor from '@/tools/editor/YamlEditor';
 import MarkdownPreviewer from '@/tools/editor/MarkdownPreviewer';
+import Json5Validator from '@/tools/converters/Json5Validator';
 
 export interface Tool {
     slug: string;
@@ -691,6 +692,14 @@ export const tools: Tool[] = [
         component: MarkdownPreviewer,
         category: CATEGORIES.MARKDOWN,
     },
+    {
+    slug: 'json5-to-json',
+    title: 'JSON5 to JSON Converter',
+    description: 'Convert JSON5 (with comments and loose syntax) to standard strict JSON.',
+    icon: '🔧', // or any icon you prefer
+    component: Json5Validator,
+    category: CATEGORIES.CONVERTERS, // or JSON_YAML
+  },
 ];
 
 export const getToolBySlug = (slug: string): Tool | undefined => {
