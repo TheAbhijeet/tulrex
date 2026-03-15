@@ -16,8 +16,6 @@ const standardTuning: GuitarString[] = [
 
 export const TUNINGS = {
     standard: standardTuning,
-    // You could add other tunings here
-    // dropD: [ ... ],
 };
 
 /**

@@ -54,7 +54,7 @@ export default function GuitarTuner() {
             const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
             mediaStreamRef.current = stream;
 
-            // FIX: Corrected typo from Audio-Context to AudioContext
+            // Corrected typo from Audio-Context to AudioContext
             const context = new AudioContext();
             audioContextRef.current = context;
 
@@ -76,7 +76,7 @@ export default function GuitarTuner() {
         }
     };
 
-    // FIX: This useEffect now correctly handles the animation loop
+    //  This useEffect now correctly handles the animation loop
     useEffect(() => {
         if (!isListening || !analyserNodeRef.current || !audioContextRef.current) {
             return;

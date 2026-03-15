@@ -696,9 +696,9 @@ export const tools: Tool[] = [
     slug: 'json5-to-json',
     title: 'JSON5 to JSON Converter',
     description: 'Convert JSON5 (with comments and loose syntax) to standard strict JSON.',
-    icon: '🔧', // or any icon you prefer
+    icon: '🔧', 
     component: Json5Validator,
-    category: CATEGORIES.CONVERTERS, // or JSON_YAML
+    category: CATEGORIES.CONVERTERS,
   },
 ];
 

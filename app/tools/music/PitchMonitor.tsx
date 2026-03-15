@@ -86,7 +86,7 @@ export default function PitchMonitor() {
             const source = context.createMediaStreamSource(stream);
             source.connect(analyser);
 
-            // FIX: Set monitoring to true. The useEffect will now handle starting the loop.
+            //  Set monitoring to true. The useEffect will now handle starting the loop.
             setIsMonitoring(true);
         } catch (err) {
             console.error('Error accessing microphone:', err);
@@ -174,7 +174,7 @@ export default function PitchMonitor() {
         ctx.stroke();
     }, []);
 
-    // FIX: This useEffect now correctly controls the animation loop lifecycle.
+    // This useEffect now correctly controls the animation loop lifecycle.
     useEffect(() => {
         let animationFrameId: number;
 
