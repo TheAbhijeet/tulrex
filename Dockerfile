@@ -13,9 +13,11 @@ COPY package.json pnpm-lock.yaml ./
 RUN printf 'onlyBuiltDependencies:\n  - "@codemirror/lang-javascript"\n' > pnpm-workspace.yaml
 
 # Memory-safe environment variables
-ENV NODE_OPTIONS="--max-old-space-size=512"
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
+
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_OPTIONS="--max-old-space-size=384"
 
 # Install dependencies - simple, no cache mounts (avoids BuildKit dependency)
 RUN pnpm install --frozen-lockfile --network-concurrency 1 --child-concurrency 1

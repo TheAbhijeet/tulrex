@@ -1,11 +1,12 @@
 import subprocess
 
 # Configuration
-REPO_DIR = "."      
+REPO_DIR = "."
 IMAGE_NAME = "tulrex"
 CONTAINER_NAME = "tulrex"
-HOST_PORT = "8080"                      # host port to map
-CONTAINER_PORT = "80"                   # container port
+HOST_PORT = "8080"  # host port to map
+CONTAINER_PORT = "80"  # container port
+
 
 def run(cmd):
     print(f"Running: {cmd}")
@@ -15,7 +16,7 @@ def run(cmd):
 
 
 # Step 2: Build Docker image
-run(f"docker build -t {IMAGE_NAME} {REPO_DIR}")
+run(f"docker build --memory=500m --cpus=0.8 -t {IMAGE_NAME} {REPO_DIR}")
 
 # Step 3: Stop old container (if exists)
 # Here we ignore the fails
@@ -23,6 +24,8 @@ subprocess.run(f"docker stop {CONTAINER_NAME}", shell=True)
 subprocess.run(f"docker rm {CONTAINER_NAME}", shell=True)
 
 # Step 4: Run new container
-run(f"docker run -d --name {CONTAINER_NAME} -p {HOST_PORT}:{CONTAINER_PORT} {IMAGE_NAME}")
+run(
+    f"docker run -d --name {CONTAINER_NAME} -p {HOST_PORT}:{CONTAINER_PORT} {IMAGE_NAME}"
+)
 
 print("Update complete!")
