@@ -16,7 +16,7 @@ def run(cmd):
 
 
 # Step 2: Build Docker image
-run(f"docker build --memory=500m --cpus=0.8 -t {IMAGE_NAME} {REPO_DIR}")
+run(f"docker  build --memory=500m -t {IMAGE_NAME} {REPO_DIR}")
 
 # Step 3: Stop old container (if exists)
 # Here we ignore the fails
