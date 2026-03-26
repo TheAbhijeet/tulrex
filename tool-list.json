@@ -258,5 +258,9 @@
   {
     "slug": "markdown-previewer",
     "title": "Markdown Previewer"
+  },
+  {
+    "slug": "json5-to-json",
+    "title": "JSON5 to JSON Converter"
   }
 ]
