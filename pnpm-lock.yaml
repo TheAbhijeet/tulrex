@@ -13,7 +13,7 @@ importers:
         version: 6.3.1
       '@codemirror/lang-javascript':
         specifier: github:codemirror/lang-javascript
-        version: https://codeload.github.com/codemirror/lang-javascript/tar.gz/a202a000e8d3d107d1c340db933d9f09a828308a
+        version: https://codeload.github.com/codemirror/lang-javascript/tar.gz/d9cd92f2c7834ed1d7bd0c4d2a167d87250545ba
       '@headlessui/react':
         specifier: ^2.2.9
         version: 2.2.9(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -48,8 +48,8 @@ importers:
         specifier: ^4.25.8
         version: 4.25.8(@babel/runtime@7.28.6)(@codemirror/autocomplete@6.20.1)(@codemirror/language@6.12.2)(@codemirror/lint@6.9.5)(@codemirror/search@6.5.11)(@codemirror/state@6.6.0)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.40.0)(codemirror@6.0.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       axios:
-        specifier: ^1.13.6
-        version: 1.13.6
+        specifier: ^1.15.0
+        version: 1.15.0
       browser-image-compression:
         specifier: ^2.0.2
         version: 2.0.2
@@ -259,8 +259,8 @@ packages:
   '@codemirror/lang-css@6.3.1':
     resolution: {integrity: sha512-kr5fwBGiGtmz6l0LSJIbno9QrifNMUusivHbnA1H6Dmqy4HZFte3UAICix1VuKo0lMPKQr2rqB+0BkKi/S3Ejg==}
 
-  '@codemirror/lang-javascript@https://codeload.github.com/codemirror/lang-javascript/tar.gz/a202a000e8d3d107d1c340db933d9f09a828308a':
-    resolution: {tarball: https://codeload.github.com/codemirror/lang-javascript/tar.gz/a202a000e8d3d107d1c340db933d9f09a828308a}
+  '@codemirror/lang-javascript@https://codeload.github.com/codemirror/lang-javascript/tar.gz/d9cd92f2c7834ed1d7bd0c4d2a167d87250545ba':
+    resolution: {tarball: https://codeload.github.com/codemirror/lang-javascript/tar.gz/d9cd92f2c7834ed1d7bd0c4d2a167d87250545ba}
     version: 6.2.5
 
   '@codemirror/language@6.12.2':
@@ -1378,8 +1378,8 @@ packages:
     resolution: {integrity: sha512-BASOg+YwO2C+346x3LZOeoovTIoTrRqEsqMa6fmfAV0P+U9mFr9NsyOEpiYvFjbc64NMrSswhV50WdXzdb/Z5A==}
     engines: {node: '>=4'}
 
-  axios@1.13.6:
-    resolution: {integrity: sha512-ChTCHMouEe2kn713WHbQGcuYrr6fXTBiu460OTwWrWob16g1bXn4vtz07Ope7ewMozJAnEquLk5lWQWtBig9DQ==}
+  axios@1.15.0:
+    resolution: {integrity: sha512-wWyJDlAatxk30ZJer+GeCWS209sA42X+N5jU2jy6oHTp7ufw8uzUTVFBX9+wTfAlhiJXGS0Bq7X6efruWjuK9Q==}
 
   axobject-query@4.1.0:
     resolution: {integrity: sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ==}
@@ -2954,6 +2954,10 @@ packages:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
 
+  picomatch@2.3.2:
+    resolution: {integrity: sha512-V7+vQEJ06Z+c5tSye8S+nHUfI51xoXIXjHQ99cQtKUkQqqO1kO/KCJUfZXuB47h/YBlDhah2H3hdUGXn8ie0oA==}
+    engines: {node: '>=8.6'}
+
   picomatch@4.0.3:
     resolution: {integrity: sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==}
     engines: {node: '>=12'}
@@ -3035,8 +3039,9 @@ packages:
     resolution: {integrity: sha512-CvexbZtbov6jW2eXAvLukXjXUW1TzFaivC46BpWc/3BpcCysb5Vffu+B3XHMm8lVEuy2Mm4XGex8hBSg1yapPg==}
     engines: {node: '>=12.0.0'}
 
-  proxy-from-env@1.1.0:
-    resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
+  proxy-from-env@2.1.0:
+    resolution: {integrity: sha512-cJ+oHTW1VAEa8cJslgmUZrc+sjRKgAKl3Zyse6+PV38hZe/V6Z14TbCuXcan9F9ghlz4QrFr2c92TNF82UkYHA==}
+    engines: {node: '>=10'}
 
   punycode@2.3.1:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
@@ -3679,7 +3684,7 @@ snapshots:
       '@lezer/common': 1.5.1
       '@lezer/css': 1.3.1
 
-  '@codemirror/lang-javascript@https://codeload.github.com/codemirror/lang-javascript/tar.gz/a202a000e8d3d107d1c340db933d9f09a828308a':
+  '@codemirror/lang-javascript@https://codeload.github.com/codemirror/lang-javascript/tar.gz/d9cd92f2c7834ed1d7bd0c4d2a167d87250545ba':
     dependencies:
       '@codemirror/autocomplete': 6.20.1
       '@codemirror/language': 6.12.2
@@ -4687,7 +4692,7 @@ snapshots:
   anymatch@3.1.3:
     dependencies:
       normalize-path: 3.0.0
-      picomatch: 2.3.1
+      picomatch: 2.3.2
     optional: true
 
   argparse@2.0.1: {}
@@ -4773,11 +4778,11 @@ snapshots:
 
   axe-core@4.11.1: {}
 
-  axios@1.13.6:
+  axios@1.15.0:
     dependencies:
       follow-redirects: 1.15.11
       form-data: 4.0.5
-      proxy-from-env: 1.1.0
+      proxy-from-env: 2.1.0
     transitivePeerDependencies:
       - debug
 
@@ -6805,6 +6810,9 @@ snapshots:
 
   picomatch@2.3.1: {}
 
+  picomatch@2.3.2:
+    optional: true
+
   picomatch@4.0.3: {}
 
   pitchy@4.1.0:
@@ -6889,7 +6897,7 @@ snapshots:
       '@types/node': 20.19.37
       long: 5.3.2
 
-  proxy-from-env@1.1.0: {}
+  proxy-from-env@2.1.0: {}
 
   punycode@2.3.1: {}
 
@@ -6993,7 +7001,7 @@ snapshots:
 
   readdirp@3.6.0:
     dependencies:
-      picomatch: 2.3.1
+      picomatch: 2.3.2
     optional: true
 
   redux@4.2.1:
