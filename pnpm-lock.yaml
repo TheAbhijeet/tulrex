@@ -13,7 +13,7 @@ importers:
         version: 6.3.1
       '@codemirror/lang-javascript':
         specifier: github:codemirror/lang-javascript
-        version: https://codeload.github.com/codemirror/lang-javascript/tar.gz/a202a000e8d3d107d1c340db933d9f09a828308a
+        version: https://codeload.github.com/codemirror/lang-javascript/tar.gz/aac430a8d38669711cc2a4727fd6418b9634807d
       '@headlessui/react':
         specifier: ^2.2.9
         version: 2.2.9(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -259,8 +259,8 @@ packages:
   '@codemirror/lang-css@6.3.1':
     resolution: {integrity: sha512-kr5fwBGiGtmz6l0LSJIbno9QrifNMUusivHbnA1H6Dmqy4HZFte3UAICix1VuKo0lMPKQr2rqB+0BkKi/S3Ejg==}
 
-  '@codemirror/lang-javascript@https://codeload.github.com/codemirror/lang-javascript/tar.gz/a202a000e8d3d107d1c340db933d9f09a828308a':
-    resolution: {tarball: https://codeload.github.com/codemirror/lang-javascript/tar.gz/a202a000e8d3d107d1c340db933d9f09a828308a}
+  '@codemirror/lang-javascript@https://codeload.github.com/codemirror/lang-javascript/tar.gz/aac430a8d38669711cc2a4727fd6418b9634807d':
+    resolution: {tarball: https://codeload.github.com/codemirror/lang-javascript/tar.gz/aac430a8d38669711cc2a4727fd6418b9634807d}
     version: 6.2.5
 
   '@codemirror/language@6.12.2':
@@ -2954,6 +2954,10 @@ packages:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
 
+  picomatch@2.3.2:
+    resolution: {integrity: sha512-V7+vQEJ06Z+c5tSye8S+nHUfI51xoXIXjHQ99cQtKUkQqqO1kO/KCJUfZXuB47h/YBlDhah2H3hdUGXn8ie0oA==}
+    engines: {node: '>=8.6'}
+
   picomatch@4.0.3:
     resolution: {integrity: sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==}
     engines: {node: '>=12'}
@@ -3679,7 +3683,7 @@ snapshots:
       '@lezer/common': 1.5.1
       '@lezer/css': 1.3.1
 
-  '@codemirror/lang-javascript@https://codeload.github.com/codemirror/lang-javascript/tar.gz/a202a000e8d3d107d1c340db933d9f09a828308a':
+  '@codemirror/lang-javascript@https://codeload.github.com/codemirror/lang-javascript/tar.gz/aac430a8d38669711cc2a4727fd6418b9634807d':
     dependencies:
       '@codemirror/autocomplete': 6.20.1
       '@codemirror/language': 6.12.2
@@ -4687,7 +4691,7 @@ snapshots:
   anymatch@3.1.3:
     dependencies:
       normalize-path: 3.0.0
-      picomatch: 2.3.1
+      picomatch: 2.3.2
     optional: true
 
   argparse@2.0.1: {}
@@ -6805,6 +6809,9 @@ snapshots:
 
   picomatch@2.3.1: {}
 
+  picomatch@2.3.2:
+    optional: true
+
   picomatch@4.0.3: {}
 
   pitchy@4.1.0:
@@ -6993,7 +7000,7 @@ snapshots:
 
   readdirp@3.6.0:
     dependencies:
-      picomatch: 2.3.1
+      picomatch: 2.3.2
     optional: true
 
   redux@4.2.1:
